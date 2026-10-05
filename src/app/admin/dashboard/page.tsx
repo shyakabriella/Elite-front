@@ -210,7 +210,7 @@ async function apiRequest(
 
 /**
  * Supports the two pagination response shapes already
- * used by the RushPi backend.
+ * used by the EliteMart backend.
  *
  * Shape A:
  * {
@@ -362,7 +362,7 @@ function productStatusClassName(
       return "bg-red-100 text-red-700";
 
     default:
-      return "bg-amber-100 text-amber-700";
+      return "bg-brand-mist text-brand-orange";
   }
 }
 
@@ -371,7 +371,7 @@ function sellerStatusClassName(
 ): string {
   switch (status) {
     case "under_review":
-      return "bg-blue-100 text-blue-700";
+      return "bg-brand-mist text-brand-ink";
 
     case "approved":
       return "bg-emerald-100 text-emerald-700";
@@ -380,7 +380,7 @@ function sellerStatusClassName(
       return "bg-red-100 text-red-700";
 
     default:
-      return "bg-amber-100 text-amber-700";
+      return "bg-brand-mist text-brand-orange";
   }
 }
 
@@ -399,15 +399,15 @@ function StatCard({
         <Icon className="size-6" />
       </span>
 
-      <p className="mt-5 text-sm font-semibold text-slate-500">
+      <p className="mt-5 text-sm font-semibold text-brand-ink/70">
         {title}
       </p>
 
-      <p className="mt-1 text-2xl font-black tracking-tight text-slate-950 sm:text-3xl">
+      <p className="mt-1 text-2xl font-black tracking-tight text-brand-ink sm:text-3xl">
         {formatCount(value)}
       </p>
 
-      <p className="mt-2 text-xs leading-5 text-slate-400">
+      <p className="mt-2 text-xs leading-5 text-brand-steel">
         {description}
       </p>
     </article>
@@ -426,7 +426,7 @@ function QuickAction({
   return (
     <Link
       href={href}
-      className="group rounded-2xl border border-slate-200 bg-slate-50/70 p-5 transition hover:-translate-y-0.5 hover:border-blue-200 hover:bg-blue-50/60 hover:shadow-md"
+      className="group rounded-2xl border border-brand-steel bg-brand-mist/70 p-5 transition hover:-translate-y-0.5 hover:border-brand-steel hover:bg-brand-mist/60 hover:shadow-md"
     >
       <div className="flex items-start justify-between gap-3">
         <span
@@ -435,7 +435,7 @@ function QuickAction({
           <Icon className="size-5" />
         </span>
 
-        <span className="rounded-full bg-white px-3 py-1 text-sm font-black text-slate-800 shadow-sm">
+        <span className="rounded-full bg-white px-3 py-1 text-sm font-black text-brand-ink shadow-sm">
           {valueLabel ??
             formatCount(
               value ?? null,
@@ -443,11 +443,11 @@ function QuickAction({
         </span>
       </div>
 
-      <h3 className="mt-4 text-base font-black text-slate-950">
+      <h3 className="mt-4 text-base font-black text-brand-ink">
         {title}
       </h3>
 
-      <p className="mt-1.5 text-sm leading-6 text-slate-500">
+      <p className="mt-1.5 text-sm leading-6 text-brand-ink/70">
         {description}
       </p>
     </Link>
@@ -888,10 +888,10 @@ export default function AdminDashboardPage() {
     return (
       <div className="grid min-h-[520px] place-items-center">
         <div className="text-center">
-          <Loader2 className="mx-auto size-9 animate-spin text-blue-700" />
+          <Loader2 className="mx-auto size-9 animate-spin text-brand-ink" />
 
-          <p className="mt-3 text-sm font-bold text-slate-600">
-            Loading live RushPi data...
+          <p className="mt-3 text-sm font-bold text-brand-ink/70">
+            Loading live EliteMart data...
           </p>
         </div>
       </div>
@@ -902,22 +902,20 @@ export default function AdminDashboardPage() {
     <div>
       <section className="mb-7 flex flex-col justify-between gap-5 md:flex-row md:items-center">
         <div>
-          <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-600">
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-brand-ink">
             Administration
           </p>
 
-          <h1 className="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
-            RushPi Admin Dashboard 👋
+          <h1 className="mt-2 text-3xl font-black tracking-tight text-brand-ink sm:text-4xl">
+            EliteMart Admin Dashboard 👋
           </h1>
 
-          <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-500 sm:text-base">
-            Live data from the existing
-            RushPi Admin APIs. No separate
-            dashboard controller is required.
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-brand-ink/70 sm:text-base">
+            Live overview of sellers, products, reviews and commissions across EliteMart Mall.
           </p>
 
           {lastUpdated ? (
-            <p className="mt-2 text-xs font-semibold text-slate-400">
+            <p className="mt-2 text-xs font-semibold text-brand-ink/60">
               Last refreshed:{" "}
               {formatDateTime(
                 lastUpdated.toISOString(),
@@ -935,7 +933,7 @@ export default function AdminDashboardPage() {
               );
             }}
             disabled={refreshing}
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-black text-slate-800 shadow-sm transition hover:border-blue-500 hover:text-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-steel bg-white px-5 py-3 text-sm font-black text-brand-ink shadow-sm transition hover:border-brand-orange hover:text-brand-ink disabled:cursor-not-allowed disabled:opacity-60"
           >
             <RefreshCw
               className={`size-4 ${
@@ -950,14 +948,14 @@ export default function AdminDashboardPage() {
 
           <Link
             href="/admin/sellers"
-            className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-black text-slate-800 shadow-sm transition hover:border-blue-500 hover:text-blue-700"
+            className="inline-flex items-center justify-center rounded-full border border-brand-steel bg-white px-5 py-3 text-sm font-black text-brand-ink shadow-sm transition hover:border-brand-orange hover:text-brand-ink"
           >
             Review sellers
           </Link>
 
           <Link
             href="/admin/products"
-            className="inline-flex items-center justify-center rounded-full bg-blue-700 px-5 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:-translate-y-0.5 hover:bg-blue-800"
+            className="inline-flex items-center justify-center rounded-full bg-brand-ink px-5 py-3 text-sm font-black text-white shadow-lg shadow-brand-ink/20 transition hover:-translate-y-0.5 hover:bg-brand-ink"
           >
             Moderate products
           </Link>
@@ -965,17 +963,17 @@ export default function AdminDashboardPage() {
       </section>
 
       {errors.length > 0 ? (
-        <section className="mb-5 rounded-2xl border border-amber-200 bg-amber-50 p-4">
+        <section className="mb-5 rounded-2xl border border-brand-orange bg-brand-mist p-4">
           <div className="flex items-start gap-3">
-            <TriangleAlert className="mt-0.5 size-5 shrink-0 text-amber-700" />
+            <TriangleAlert className="mt-0.5 size-5 shrink-0 text-brand-orange" />
 
             <div>
-              <p className="text-sm font-black text-amber-900">
+              <p className="text-sm font-black text-brand-orange">
                 Some dashboard requests
                 could not be loaded.
               </p>
 
-              <p className="mt-1 text-xs leading-5 text-amber-700">
+              <p className="mt-1 text-xs leading-5 text-brand-orange">
                 Failed values are shown as
                 “—” instead of pretending
                 they are zero.
@@ -1000,7 +998,7 @@ export default function AdminDashboardPage() {
               : "Total verification applications"
           }
           icon={Store}
-          iconClassName="bg-blue-100 text-blue-700"
+          iconClassName="bg-brand-mist text-brand-ink"
         />
 
         <StatCard
@@ -1015,7 +1013,7 @@ export default function AdminDashboardPage() {
               : "All seller products"
           }
           icon={ShoppingBag}
-          iconClassName="bg-violet-100 text-violet-700"
+          iconClassName="bg-brand-mist text-brand-ink"
         />
 
         <StatCard
@@ -1025,7 +1023,7 @@ export default function AdminDashboardPage() {
           }
           description="Products with pending_review status"
           icon={ClipboardCheck}
-          iconClassName="bg-amber-100 text-amber-700"
+          iconClassName="bg-brand-mist text-brand-orange"
         />
 
         <StatCard
@@ -1049,11 +1047,11 @@ export default function AdminDashboardPage() {
       <section className="mt-5">
         <article className="dashboard-card rounded-3xl border border-white bg-white p-5 shadow-[0_14px_35px_rgba(15,23,42,0.06)] sm:p-6">
           <div>
-            <h2 className="text-xl font-black text-slate-950">
+            <h2 className="text-xl font-black text-brand-ink">
               Marketplace management
             </h2>
 
-            <p className="mt-1 text-sm leading-6 text-slate-500">
+            <p className="mt-1 text-sm leading-6 text-brand-ink/70">
               Counts below are read from the
               existing Admin controllers.
             </p>
@@ -1066,7 +1064,7 @@ export default function AdminDashboardPage() {
               href="/admin/departments"
               value={counts.departments}
               icon={Boxes}
-              iconClassName="bg-blue-100 text-blue-700"
+              iconClassName="bg-brand-mist text-brand-ink"
             />
 
             <QuickAction
@@ -1075,7 +1073,7 @@ export default function AdminDashboardPage() {
               href="/admin/categories"
               value={counts.categories}
               icon={FolderTree}
-              iconClassName="bg-violet-100 text-violet-700"
+              iconClassName="bg-brand-mist text-brand-ink"
             />
 
             <QuickAction
@@ -1095,7 +1093,7 @@ export default function AdminDashboardPage() {
                 counts.specifications
               }
               icon={Settings2}
-              iconClassName="bg-cyan-100 text-cyan-700"
+              iconClassName="bg-brand-mist text-brand-ink"
             />
 
             <QuickAction
@@ -1104,7 +1102,7 @@ export default function AdminDashboardPage() {
               href="/admin/category-specifications"
               valueLabel="Open"
               icon={PackageCheck}
-              iconClassName="bg-indigo-100 text-indigo-700"
+              iconClassName="bg-brand-mist text-brand-ink"
             />
 
             <QuickAction
@@ -1122,7 +1120,7 @@ export default function AdminDashboardPage() {
                 counts.commissionRules
               }
               icon={Percent}
-              iconClassName="bg-amber-100 text-amber-700"
+              iconClassName="bg-brand-mist text-brand-orange"
             />
 
             <QuickAction
@@ -1152,21 +1150,21 @@ export default function AdminDashboardPage() {
 
       <section className="mt-5 grid gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
         <article className="dashboard-card rounded-3xl border border-white bg-white p-5 shadow-[0_14px_35px_rgba(15,23,42,0.06)] sm:p-6">
-          <h2 className="text-xl font-black text-slate-950">
+          <h2 className="text-xl font-black text-brand-ink">
             Product moderation status
           </h2>
 
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-brand-ink/70">
             Calculated from the existing product moderation endpoint.
           </p>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl bg-slate-50 p-4">
-              <p className="text-xs font-bold uppercase tracking-wide text-slate-400">
+            <div className="rounded-2xl bg-brand-mist p-4">
+              <p className="text-xs font-bold uppercase tracking-wide text-brand-steel">
                 All products
               </p>
 
-              <p className="mt-2 text-2xl font-black text-slate-950">
+              <p className="mt-2 text-2xl font-black text-brand-ink">
                 {formatCount(
                   counts.products,
                 )}
@@ -1185,12 +1183,12 @@ export default function AdminDashboardPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl bg-amber-50 p-4">
-              <p className="text-xs font-bold uppercase tracking-wide text-amber-700">
+            <div className="rounded-2xl bg-brand-mist p-4">
+              <p className="text-xs font-bold uppercase tracking-wide text-brand-orange">
                 Pending
               </p>
 
-              <p className="mt-2 text-2xl font-black text-amber-900">
+              <p className="mt-2 text-2xl font-black text-brand-orange">
                 {formatCount(
                   counts.pendingProducts,
                 )}
@@ -1198,13 +1196,13 @@ export default function AdminDashboardPage() {
             </div>
           </div>
 
-          <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <div className="mt-5 rounded-2xl border border-brand-steel bg-brand-mist p-4">
             <div className="flex items-center justify-between gap-4">
-              <span className="text-sm font-bold text-slate-700">
+              <span className="text-sm font-bold text-brand-ink">
                 Approval rate
               </span>
 
-              <span className="text-lg font-black text-slate-950">
+              <span className="text-lg font-black text-brand-ink">
                 {productApprovalRate ===
                 null
                   ? "—"
@@ -1215,21 +1213,21 @@ export default function AdminDashboardPage() {
         </article>
 
         <article className="dashboard-card rounded-3xl border border-white bg-white p-5 shadow-[0_14px_35px_rgba(15,23,42,0.06)] sm:p-6">
-          <h2 className="text-xl font-black text-slate-950">
+          <h2 className="text-xl font-black text-brand-ink">
             Seller verification status
           </h2>
 
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-brand-ink/70">
             Calculated from the existing seller application endpoint.
           </p>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl bg-slate-50 p-4">
-              <p className="text-xs font-bold uppercase tracking-wide text-slate-400">
+            <div className="rounded-2xl bg-brand-mist p-4">
+              <p className="text-xs font-bold uppercase tracking-wide text-brand-steel">
                 Applications
               </p>
 
-              <p className="mt-2 text-2xl font-black text-slate-950">
+              <p className="mt-2 text-2xl font-black text-brand-ink">
                 {formatCount(
                   counts.sellerApplications,
                 )}
@@ -1248,12 +1246,12 @@ export default function AdminDashboardPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl bg-amber-50 p-4">
-              <p className="text-xs font-bold uppercase tracking-wide text-amber-700">
+            <div className="rounded-2xl bg-brand-mist p-4">
+              <p className="text-xs font-bold uppercase tracking-wide text-brand-orange">
                 Needs review
               </p>
 
-              <p className="mt-2 text-2xl font-black text-amber-900">
+              <p className="mt-2 text-2xl font-black text-brand-orange">
                 {formatCount(
                   counts.pendingSellerReviews,
                 )}
@@ -1261,13 +1259,13 @@ export default function AdminDashboardPage() {
             </div>
           </div>
 
-          <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <div className="mt-5 rounded-2xl border border-brand-steel bg-brand-mist p-4">
             <div className="flex items-center justify-between gap-4">
-              <span className="text-sm font-bold text-slate-700">
+              <span className="text-sm font-bold text-brand-ink">
                 Application approval rate
               </span>
 
-              <span className="text-lg font-black text-slate-950">
+              <span className="text-lg font-black text-brand-ink">
                 {applicationApprovalRate ===
                 null
                   ? "—"
@@ -1280,20 +1278,20 @@ export default function AdminDashboardPage() {
 
       <section className="mt-5 grid gap-5 xl:grid-cols-[minmax(0,1.45fr)_minmax(320px,0.75fr)]">
         <article className="dashboard-card overflow-hidden rounded-3xl border border-white bg-white shadow-[0_14px_35px_rgba(15,23,42,0.06)]">
-          <div className="flex items-center justify-between gap-4 border-b border-slate-100 px-5 py-5 sm:px-6">
+          <div className="flex items-center justify-between gap-4 border-b border-brand-mist px-5 py-5 sm:px-6">
             <div>
-              <h2 className="text-xl font-black text-slate-950">
+              <h2 className="text-xl font-black text-brand-ink">
                 Product moderation queue
               </h2>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-brand-ink/70">
                 Real products with pending_review status
               </p>
             </div>
 
             <Link
               href="/admin/products"
-              className="text-sm font-black text-blue-700 hover:underline"
+              className="text-sm font-black text-brand-ink hover:underline"
             >
               View all
             </Link>
@@ -1303,11 +1301,11 @@ export default function AdminDashboardPage() {
             <div className="p-8 text-center">
               <BadgeCheck className="mx-auto size-10 text-emerald-600" />
 
-              <p className="mt-3 font-black text-slate-900">
+              <p className="mt-3 font-black text-brand-ink">
                 Moderation queue is clear
               </p>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-brand-ink/70">
                 No pending products were returned by the API.
               </p>
             </div>
@@ -1315,7 +1313,7 @@ export default function AdminDashboardPage() {
             <div className="overflow-x-auto">
               <table className="min-w-[820px] w-full">
                 <thead>
-                  <tr className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
+                  <tr className="bg-brand-mist text-left text-xs uppercase tracking-wider text-brand-ink/70">
                     <th className="px-6 py-4 font-black">
                       Product
                     </th>
@@ -1338,25 +1336,25 @@ export default function AdminDashboardPage() {
                   </tr>
                 </thead>
 
-                <tbody className="divide-y divide-slate-100">
+                <tbody className="divide-y divide-brand-mist">
                   {products.map(
                     (product) => (
                       <tr
                         key={
                           product.public_id
                         }
-                        className="transition hover:bg-blue-50/50"
+                        className="transition hover:bg-brand-mist/50"
                       >
                         <td className="px-6 py-4">
                           <Link
                             href={`/admin/products/${product.public_id}`}
-                            className="text-sm font-black text-blue-700 hover:underline"
+                            className="text-sm font-black text-brand-ink hover:underline"
                           >
                             {product.name ??
                               "Unnamed product"}
                           </Link>
 
-                          <p className="mt-1 text-xs text-slate-400">
+                          <p className="mt-1 text-xs text-brand-steel">
                             {formatDateTime(
                               product.submitted_at ??
                                 product.updated_at,
@@ -1364,7 +1362,7 @@ export default function AdminDashboardPage() {
                           </p>
                         </td>
 
-                        <td className="px-6 py-4 text-sm font-semibold text-slate-800">
+                        <td className="px-6 py-4 text-sm font-semibold text-brand-ink">
                           {product.seller
                             ?.trading_name ??
                             product.seller
@@ -1372,13 +1370,13 @@ export default function AdminDashboardPage() {
                             "—"}
                         </td>
 
-                        <td className="px-6 py-4 text-sm text-slate-600">
+                        <td className="px-6 py-4 text-sm text-brand-ink/70">
                           {product.category
                             ?.name ??
                             "—"}
                         </td>
 
-                        <td className="px-6 py-4 text-sm text-slate-600">
+                        <td className="px-6 py-4 text-sm text-brand-ink/70">
                           {product.brand
                             ?.name ??
                             "—"}
@@ -1407,18 +1405,18 @@ export default function AdminDashboardPage() {
         <article className="dashboard-card rounded-3xl border border-white bg-white p-5 shadow-[0_14px_35px_rgba(15,23,42,0.06)] sm:p-6">
           <div className="flex items-center justify-between gap-3">
             <div>
-              <h2 className="text-xl font-black text-slate-950">
+              <h2 className="text-xl font-black text-brand-ink">
                 Seller review queue
               </h2>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-brand-ink/70">
                 Submitted and under-review applications
               </p>
             </div>
 
             <Link
               href="/admin/sellers"
-              className="text-sm font-black text-blue-700 hover:underline"
+              className="text-sm font-black text-brand-ink hover:underline"
             >
               View all
             </Link>
@@ -1447,17 +1445,17 @@ export default function AdminDashboardPage() {
                         application.public_id
                       }
                       href={`/admin/sellers/${application.public_id}`}
-                      className="block rounded-2xl border border-slate-200 bg-slate-50 p-4 transition hover:border-blue-200 hover:bg-blue-50/50"
+                      className="block rounded-2xl border border-brand-steel bg-brand-mist p-4 transition hover:border-brand-steel hover:bg-brand-mist/50"
                     >
                       <div className="flex items-start justify-between gap-3">
                         <div className="min-w-0">
-                          <p className="truncate text-sm font-black text-slate-900">
+                          <p className="truncate text-sm font-black text-brand-ink">
                             {sellerDisplayName(
                               seller,
                             )}
                           </p>
 
-                          <p className="mt-1 text-xs text-slate-500">
+                          <p className="mt-1 text-xs text-brand-ink/70">
                             Application{" "}
                             {application.version
                               ? `v${application.version}`
@@ -1476,7 +1474,7 @@ export default function AdminDashboardPage() {
                         </span>
                       </div>
 
-                      <p className="mt-3 text-xs font-semibold text-slate-400">
+                      <p className="mt-3 text-xs font-semibold text-brand-steel">
                         {formatDateTime(
                           application.submitted_at ??
                             application.review_started_at ??
@@ -1493,11 +1491,11 @@ export default function AdminDashboardPage() {
       </section>
 
       <section className="mt-5">
-        <div className="rounded-2xl border border-slate-200 bg-white p-4">
+        <div className="rounded-2xl border border-brand-steel bg-white p-4">
           <div className="flex items-start gap-3">
-            <CircleDollarSign className="mt-0.5 size-5 shrink-0 text-slate-500" />
+            <CircleDollarSign className="mt-0.5 size-5 shrink-0 text-brand-ink/70" />
 
-            <p className="text-xs leading-5 text-slate-500">
+            <p className="text-xs leading-5 text-brand-ink/70">
               Marketplace revenue is not shown here because none of the
               existing Admin endpoints currently exposes a reliable revenue
               total. The dashboard should not invent one.

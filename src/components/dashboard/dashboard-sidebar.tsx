@@ -47,7 +47,7 @@ export default function DashboardSidebar({
         <button
           type="button"
           onClick={onClose}
-          className="fixed inset-0 z-40 bg-slate-950/50 backdrop-blur-sm lg:hidden"
+          className="fixed inset-0 z-40 bg-brand-ink/50 backdrop-blur-sm lg:hidden"
           aria-label="Close dashboard navigation"
         />
       )}
@@ -55,7 +55,7 @@ export default function DashboardSidebar({
       <aside
         className={[
           "fixed inset-y-0 left-0 z-50 flex w-[270px] flex-col",
-          "bg-gradient-to-b from-[#0754d8] to-[#113bad]",
+          "bg-gradient-to-b from-[#263540] to-[#1c2832]",
           "text-white shadow-[20px_0_45px_rgba(15,23,42,0.14)]",
           "transition-transform duration-300 lg:translate-x-0",
           open
@@ -72,8 +72,8 @@ export default function DashboardSidebar({
             <span className="flex h-[62px] w-[180px] items-center overflow-hidden transition duration-300 group-hover:scale-[1.03]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/rushpii-03.png"
-                alt="RushPi"
+                src="/elitemart-logo.svg"
+                alt="EliteMart"
                 className="h-full w-full object-contain object-left"
               />
             </span>
@@ -95,7 +95,7 @@ export default function DashboardSidebar({
               key={group.title}
               className="mb-2 last:mb-0"
             >
-              <p className="mb-1 px-3 text-[10px] font-black uppercase tracking-[0.18em] text-blue-200">
+              <p className="mb-1 px-3 text-[10px] font-black uppercase tracking-[0.18em] text-brand-steel">
                 {group.title}
               </p>
 
@@ -114,16 +114,16 @@ export default function DashboardSidebar({
                         "group flex items-center gap-2.5 rounded-xl px-3 py-1.5",
                         "text-sm font-bold transition duration-200",
                         active
-                          ? "bg-white text-blue-700 shadow-lg"
-                          : "text-blue-50 hover:bg-white/10 hover:text-white",
+                          ? "bg-white text-brand-ink shadow-lg"
+                          : "text-brand-mist hover:bg-white/10 hover:text-white",
                       ].join(" ")}
                     >
                       <span
                         className={[
                           "grid size-8 shrink-0 place-items-center rounded-lg",
                           active
-                            ? "bg-blue-50 text-blue-700"
-                            : "bg-white/10 text-blue-100 group-hover:bg-white/15",
+                            ? "bg-brand-mist text-brand-ink"
+                            : "bg-white/10 text-brand-mist group-hover:bg-white/15",
                         ].join(" ")}
                       >
                         <Icon className="size-[17px]" />
@@ -134,7 +134,7 @@ export default function DashboardSidebar({
                       </span>
 
                       {active && (
-                        <span className="size-2 shrink-0 rounded-full bg-blue-600" />
+                        <span className="size-2 shrink-0 rounded-full bg-brand-ink" />
                       )}
                     </Link>
                   );
@@ -146,7 +146,7 @@ export default function DashboardSidebar({
           <Link
             href="/help"
             onClick={onClose}
-            className="flex items-center gap-2.5 rounded-xl px-3 py-1.5 text-sm font-bold text-blue-50 transition hover:bg-white/10"
+            className="flex items-center gap-2.5 rounded-xl px-3 py-1.5 text-sm font-bold text-brand-mist transition hover:bg-white/10"
           >
             <span className="grid size-8 place-items-center rounded-lg bg-white/10">
               <HelpCircle className="size-5" />
@@ -168,7 +168,7 @@ export default function DashboardSidebar({
                   {roleInformation.accountName}
                 </p>
 
-                <p className="truncate text-xs text-blue-200">
+                <p className="truncate text-xs text-brand-steel">
                   {roleInformation.description}
                 </p>
               </div>
@@ -182,7 +182,7 @@ export default function DashboardSidebar({
 
           <Link
             href="/login"
-            className="flex items-center gap-2.5 rounded-xl px-3 py-1.5 text-sm font-bold text-blue-100 transition hover:bg-red-500/20 hover:text-white"
+            className="flex items-center gap-2.5 rounded-xl px-3 py-1.5 text-sm font-bold text-brand-mist transition hover:bg-red-500/20 hover:text-white"
           >
             <LogOut className="size-5" />
             Sign out

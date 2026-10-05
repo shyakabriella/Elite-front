@@ -78,17 +78,17 @@ export function CampaignProductSettings({
   }
 
   return (
-    <div className="space-y-4 rounded-2xl border border-blue-100 bg-blue-50/40 p-4">
+    <div className="space-y-4 rounded-2xl border border-brand-mist bg-brand-mist/40 p-4">
       <div>
-        <p className="text-sm font-black text-slate-900">Campaign layout</p>
+        <p className="text-sm font-black text-brand-ink">Campaign layout</p>
 
-        <p className="mt-1 text-xs leading-5 text-slate-500">
+        <p className="mt-1 text-xs leading-5 text-brand-ink/70">
           Choose how this campaign will appear on the homepage.
         </p>
       </div>
 
       <label className="block">
-        <span className="mb-1.5 block text-sm font-bold text-slate-700">
+        <span className="mb-1.5 block text-sm font-bold text-brand-ink">
           Layout style
         </span>
 
@@ -97,7 +97,7 @@ export function CampaignProductSettings({
           onChange={(event) =>
             changeLayout(event.target.value as CampaignLayoutType)
           }
-          className="h-12 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm font-bold text-slate-800 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+          className="h-12 w-full rounded-xl border border-brand-steel bg-white px-3 text-sm font-bold text-brand-ink outline-none transition focus:border-brand-orange focus:ring-4 focus:ring-brand-mist"
         >
           {campaignLayoutGroups.map((group) => (
             <optgroup key={group} label={group}>
@@ -113,21 +113,21 @@ export function CampaignProductSettings({
         </select>
       </label>
 
-      <div className="flex items-start gap-3 rounded-xl border border-blue-200 bg-white p-4 shadow-sm">
-        <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-blue-600 text-white">
+      <div className="flex items-start gap-3 rounded-xl border border-brand-steel bg-white p-4 shadow-sm">
+        <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-brand-ink text-white">
           <SelectedIcon className="size-5" />
         </span>
 
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
-            <p className="font-black text-slate-900">{selectedLayout.label}</p>
+            <p className="font-black text-brand-ink">{selectedLayout.label}</p>
 
-            <span className="rounded-full bg-blue-50 px-2 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-blue-700">
+            <span className="rounded-full bg-brand-mist px-2 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-brand-ink">
               {selectedLayout.group}
             </span>
           </div>
 
-          <p className="mt-1 text-xs leading-5 text-slate-500">
+          <p className="mt-1 text-xs leading-5 text-brand-ink/70">
             {selectedLayout.description}
           </p>
         </div>
@@ -135,13 +135,13 @@ export function CampaignProductSettings({
 
       {layout !== "full_banner" ? (
         <>
-          <label className="flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4">
+          <label className="flex items-center justify-between gap-4 rounded-xl border border-brand-steel bg-white p-4">
             <span>
-              <span className="block text-sm font-black text-slate-800">
+              <span className="block text-sm font-black text-brand-ink">
                 Show seller products
               </span>
 
-              <span className="mt-1 block text-xs leading-5 text-slate-500">
+              <span className="mt-1 block text-xs leading-5 text-brand-ink/70">
                 Load approved and available seller products automatically.
               </span>
             </span>
@@ -152,14 +152,14 @@ export function CampaignProductSettings({
               onChange={(event) =>
                 updateField("show_products", event.target.checked)
               }
-              className="size-5 accent-blue-600"
+              className="size-5 accent-brand-ink"
             />
           </label>
 
           {showProducts ? (
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="block">
-                <span className="mb-1.5 block text-sm font-bold text-slate-700">
+                <span className="mb-1.5 block text-sm font-bold text-brand-ink">
                   Product source
                 </span>
 
@@ -171,7 +171,7 @@ export function CampaignProductSettings({
                       event.target.value as CampaignProductSource,
                     )
                   }
-                  className="h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-blue-500"
+                  className="h-11 w-full rounded-xl border border-brand-steel bg-white px-3 text-sm outline-none focus:border-brand-orange"
                 >
                   {productSources.map((item) => (
                     <option key={item.value} value={item.value}>
@@ -182,7 +182,7 @@ export function CampaignProductSettings({
               </label>
 
               <label className="block">
-                <span className="mb-1.5 block text-sm font-bold text-slate-700">
+                <span className="mb-1.5 block text-sm font-bold text-brand-ink">
                   Number of products
                 </span>
 
@@ -194,7 +194,7 @@ export function CampaignProductSettings({
                   onChange={(event) =>
                     updateField("product_limit", event.target.value)
                   }
-                  className="h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-blue-500"
+                  className="h-11 w-full rounded-xl border border-brand-steel bg-white px-3 text-sm outline-none focus:border-brand-orange"
                 />
               </label>
             </div>
@@ -229,7 +229,7 @@ export function CampaignProductSettings({
 
           {showProducts && source === "manual" ? (
             <label className="block">
-              <span className="mb-1.5 block text-sm font-bold text-slate-700">
+              <span className="mb-1.5 block text-sm font-bold text-brand-ink">
                 Product public IDs
               </span>
 
@@ -246,13 +246,13 @@ export function CampaignProductSettings({
                   )
                 }
                 rows={4}
-                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm outline-none focus:border-blue-500"
+                className="w-full rounded-xl border border-brand-steel bg-white px-3 py-3 text-sm outline-none focus:border-brand-orange"
               />
             </label>
           ) : null}
         </>
       ) : (
-        <p className="rounded-xl border border-slate-200 bg-white p-3 text-xs leading-5 text-slate-500">
+        <p className="rounded-xl border border-brand-steel bg-white p-3 text-xs leading-5 text-brand-ink/70">
           This layout displays only one large product-led campaign.
         </p>
       )}
@@ -273,7 +273,7 @@ function IdentifierInput({
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-sm font-bold text-slate-700">
+      <span className="mb-1.5 block text-sm font-bold text-brand-ink">
         {label}
       </span>
 
@@ -281,7 +281,7 @@ function IdentifierInput({
         value={value}
         placeholder={placeholder}
         onChange={(event) => onChange(event.target.value)}
-        className="h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-blue-500"
+        className="h-11 w-full rounded-xl border border-brand-steel bg-white px-3 text-sm outline-none focus:border-brand-orange"
       />
     </label>
   );

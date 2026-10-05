@@ -450,13 +450,13 @@ function statusClasses(
     case "pending_verification":
     case "pending_scan":
     case "quarantined":
-      return "border-blue-200 bg-blue-50 text-blue-700";
+      return "border-brand-steel bg-brand-mist text-brand-ink";
 
     case "more_information_required":
-      return "border-amber-200 bg-amber-50 text-amber-800";
+      return "border-brand-orange bg-brand-mist text-brand-orange";
 
     default:
-      return "border-slate-200 bg-slate-50 text-slate-600";
+      return "border-brand-steel bg-brand-mist text-brand-ink/70";
   }
 }
 
@@ -1310,11 +1310,11 @@ export default function AdminSellerReviewPage() {
     return (
       <div className="flex min-h-[520px] items-center justify-center">
         <div className="flex flex-col items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <Loader2 className="h-5 w-5 animate-spin text-slate-700" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-brand-steel bg-white shadow-sm">
+            <Loader2 className="h-5 w-5 animate-spin text-brand-ink" />
           </div>
 
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-brand-ink/70">
             Loading seller review...
           </p>
         </div>
@@ -1330,7 +1330,7 @@ export default function AdminSellerReviewPage() {
       <div className="space-y-5 pb-10">
         <Link
           href="/admin/sellers"
-          className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-950"
+          className="inline-flex items-center gap-2 text-sm font-medium text-brand-ink/70 hover:text-brand-ink"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to sellers
@@ -1362,19 +1362,19 @@ export default function AdminSellerReviewPage() {
   return (
     <>
       <div className="space-y-5 pb-10">
-        <div className="flex flex-col gap-4 border-b border-slate-200 pb-5 lg:flex-row lg:items-end lg:justify-between">
+        <div className="flex flex-col gap-4 border-b border-brand-steel pb-5 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <Link
               href="/admin/sellers"
-              className="mb-3 inline-flex items-center gap-2 text-xs font-semibold text-slate-500 transition hover:text-slate-950"
+              className="mb-3 inline-flex items-center gap-2 text-xs font-semibold text-brand-ink/70 transition hover:text-brand-ink"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               Back to seller applications
             </Link>
 
             <div className="flex flex-wrap items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-sm">
-                <ShieldCheck className="h-5 w-5 text-slate-800" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-brand-steel bg-white shadow-sm">
+                <ShieldCheck className="h-5 w-5 text-brand-ink" />
               </div>
 
               <StatusBadge
@@ -1384,11 +1384,11 @@ export default function AdminSellerReviewPage() {
               />
             </div>
 
-            <h1 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950">
+            <h1 className="mt-3 text-2xl font-semibold tracking-tight text-brand-ink">
               Review seller application
             </h1>
 
-            <p className="mt-1 text-sm leading-6 text-slate-500">
+            <p className="mt-1 text-sm leading-6 text-brand-ink/70">
               {sellerName(seller)}
               {" · "}
               Application v
@@ -1403,7 +1403,7 @@ export default function AdminSellerReviewPage() {
                 void loadApplication(true)
               }
               disabled={refreshing}
-              className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 disabled:opacity-50"
+              className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink shadow-sm transition hover:bg-brand-mist disabled:opacity-50"
             >
               <RefreshCw
                 className={[
@@ -1425,7 +1425,7 @@ export default function AdminSellerReviewPage() {
                 disabled={
                   busyAction !== null
                 }
-                className="inline-flex h-9 items-center justify-center gap-2 rounded-lg bg-blue-600 px-3 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-50"
+                className="inline-flex h-9 items-center justify-center gap-2 rounded-lg bg-brand-ink px-3 text-sm font-semibold text-white transition hover:bg-brand-ink disabled:opacity-50"
               >
                 {busyAction ===
                 "start-review" ? (
@@ -1458,16 +1458,16 @@ export default function AdminSellerReviewPage() {
         ) : null}
 
         {application.information_request ? (
-          <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4">
+          <div className="rounded-2xl border border-brand-orange bg-brand-mist p-4">
             <div className="flex items-start gap-3">
-              <Send className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" />
+              <Send className="mt-0.5 h-5 w-5 shrink-0 text-brand-orange" />
 
               <div>
                 <h3 className="text-sm font-semibold text-amber-950">
                   Information requested from seller
                 </h3>
 
-                <p className="mt-1 text-sm leading-6 text-amber-800">
+                <p className="mt-1 text-sm leading-6 text-brand-orange">
                   {
                     application.information_request
                   }
@@ -1499,21 +1499,21 @@ export default function AdminSellerReviewPage() {
 
         <div className="grid items-start gap-5 xl:grid-cols-[minmax(0,1.35fr)_360px]">
           <div className="space-y-5">
-            <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <div className="border-b border-slate-100 px-5 py-4">
+            <section className="overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-sm">
+              <div className="border-b border-brand-mist px-5 py-4">
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
-                    <h2 className="text-sm font-semibold text-slate-950">
+                    <h2 className="text-sm font-semibold text-brand-ink">
                       Verification documents
                     </h2>
 
-                    <p className="mt-0.5 text-xs text-slate-500">
+                    <p className="mt-0.5 text-xs text-brand-ink/70">
                       Inspect, download and decide each submitted seller document.
                     </p>
                   </div>
 
                   <div className="flex flex-wrap gap-2 text-[11px] font-semibold">
-                    <span className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-slate-600">
+                    <span className="rounded-full border border-brand-steel bg-brand-mist px-2.5 py-1 text-brand-ink/70">
                       {documents.length} total
                     </span>
 
@@ -1524,7 +1524,7 @@ export default function AdminSellerReviewPage() {
                       ready
                     </span>
 
-                    <span className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-blue-700">
+                    <span className="rounded-full border border-brand-steel bg-brand-mist px-2.5 py-1 text-brand-ink">
                       {
                         documentCounts.pending
                       }{" "}
@@ -1543,14 +1543,14 @@ export default function AdminSellerReviewPage() {
 
               {documents.length === 0 ? (
                 <div className="px-5 py-12 text-center">
-                  <FileText className="mx-auto h-8 w-8 text-slate-300" />
+                  <FileText className="mx-auto h-8 w-8 text-brand-steel" />
 
-                  <p className="mt-3 text-sm font-medium text-slate-700">
+                  <p className="mt-3 text-sm font-medium text-brand-ink">
                     No documents found
                   </p>
                 </div>
               ) : (
-                <div className="divide-y divide-slate-100">
+                <div className="divide-y divide-brand-mist">
                   {documents.map(
                     (document) => {
                       const status =
@@ -1595,9 +1595,9 @@ export default function AdminSellerReviewPage() {
                           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                             <div className="min-w-0">
                               <div className="flex flex-wrap items-center gap-2">
-                                <FileText className="h-4 w-4 shrink-0 text-slate-400" />
+                                <FileText className="h-4 w-4 shrink-0 text-brand-steel" />
 
-                                <p className="truncate text-sm font-semibold text-slate-900">
+                                <p className="truncate text-sm font-semibold text-brand-ink">
                                   {
                                     document.original_name
                                   }
@@ -1610,7 +1610,7 @@ export default function AdminSellerReviewPage() {
                                 />
                               </div>
 
-                              <p className="mt-1 text-xs text-slate-500">
+                              <p className="mt-1 text-xs text-brand-ink/70">
                                 {documentTypeLabel(
                                   document.document_type,
                                 )}
@@ -1625,7 +1625,7 @@ export default function AdminSellerReviewPage() {
                                 )}
                               </p>
 
-                              <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-slate-400">
+                              <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-brand-steel">
                                 <span>
                                   Issued:{" "}
                                   {formatDate(
@@ -1649,7 +1649,7 @@ export default function AdminSellerReviewPage() {
                               </div>
 
                               {document.scan_result ? (
-                                <p className="mt-2 rounded-lg border border-slate-100 bg-slate-50 px-3 py-2 text-xs leading-5 text-slate-600">
+                                <p className="mt-2 rounded-lg border border-brand-mist bg-brand-mist px-3 py-2 text-xs leading-5 text-brand-ink/70">
                                   Scan result:{" "}
                                   {
                                     document.scan_result
@@ -1680,7 +1680,7 @@ export default function AdminSellerReviewPage() {
                                   previewDocument?.public_id ===
                                     document.public_id
                                 }
-                                className="inline-flex h-9 items-center justify-center gap-1.5 rounded-lg border border-blue-200 bg-blue-50 px-3 text-xs font-semibold text-blue-700 transition hover:bg-blue-100 disabled:opacity-50"
+                                className="inline-flex h-9 items-center justify-center gap-1.5 rounded-lg border border-brand-steel bg-brand-mist px-3 text-xs font-semibold text-brand-ink transition hover:bg-brand-mist disabled:opacity-50"
                               >
                                 {previewLoading &&
                                 previewDocument?.public_id ===
@@ -1703,7 +1703,7 @@ export default function AdminSellerReviewPage() {
                                   downloadingId ===
                                   document.public_id
                                 }
-                                className="inline-flex h-9 items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 disabled:opacity-50"
+                                className="inline-flex h-9 items-center justify-center gap-1.5 rounded-lg border border-brand-steel bg-white px-3 text-xs font-semibold text-brand-ink transition hover:bg-brand-mist disabled:opacity-50"
                               >
                                 {downloadingId ===
                                 document.public_id ? (
@@ -1768,7 +1768,7 @@ export default function AdminSellerReviewPage() {
                                   disabled={
                                     busyAction !== null
                                   }
-                                  className="inline-flex h-9 items-center justify-center gap-1.5 rounded-lg border border-violet-200 bg-violet-50 px-3 text-xs font-semibold text-violet-700 transition hover:bg-violet-100 disabled:opacity-50"
+                                  className="inline-flex h-9 items-center justify-center gap-1.5 rounded-lg border border-brand-steel bg-brand-mist px-3 text-xs font-semibold text-brand-ink transition hover:bg-brand-mist disabled:opacity-50"
                                 >
                                   {busyAction ===
                                   `scan-document-${document.public_id}` ? (
@@ -1782,7 +1782,7 @@ export default function AdminSellerReviewPage() {
 
                               {status ===
                               "pending_scan" ? (
-                                <span className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-blue-200 bg-blue-50 px-3 text-xs font-medium text-blue-700">
+                                <span className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-brand-steel bg-brand-mist px-3 text-xs font-medium text-brand-ink">
                                   <Loader2 className="h-3.5 w-3.5 animate-spin" />
                                   Scanning...
                                 </span>
@@ -1797,23 +1797,23 @@ export default function AdminSellerReviewPage() {
               )}
             </section>
 
-            <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <div className="border-b border-slate-100 px-5 py-4">
-                <h2 className="text-sm font-semibold text-slate-950">
+            <section className="overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-sm">
+              <div className="border-b border-brand-mist px-5 py-4">
+                <h2 className="text-sm font-semibold text-brand-ink">
                   Administration activity
                 </h2>
 
-                <p className="mt-0.5 text-xs text-slate-500">
+                <p className="mt-0.5 text-xs text-brand-ink/70">
                   Review actions and seller-facing decisions for this application.
                 </p>
               </div>
 
               {reviews.length === 0 ? (
-                <div className="px-5 py-8 text-sm text-slate-500">
+                <div className="px-5 py-8 text-sm text-brand-ink/70">
                   No review activity has been recorded yet.
                 </div>
               ) : (
-                <div className="divide-y divide-slate-100">
+                <div className="divide-y divide-brand-mist">
                   {reviews.map(
                     (review, index) => (
                       <div
@@ -1824,17 +1824,17 @@ export default function AdminSellerReviewPage() {
                         className="px-5 py-4"
                       >
                         <div className="flex items-start gap-3">
-                          <div className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-slate-800" />
+                          <div className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-brand-ink" />
 
                           <div className="min-w-0 flex-1">
                             <div className="flex flex-wrap items-center justify-between gap-2">
-                              <p className="text-sm font-semibold text-slate-900">
+                              <p className="text-sm font-semibold text-brand-ink">
                                 {formatLabel(
                                   review.action,
                                 )}
                               </p>
 
-                              <span className="text-[11px] text-slate-400">
+                              <span className="text-[11px] text-brand-steel">
                                 {formatDateTime(
                                   review.created_at,
                                 )}
@@ -1842,13 +1842,13 @@ export default function AdminSellerReviewPage() {
                             </div>
 
                             {review.notes ? (
-                              <p className="mt-1 text-sm leading-6 text-slate-600">
+                              <p className="mt-1 text-sm leading-6 text-brand-ink/70">
                                 {review.notes}
                               </p>
                             ) : null}
 
                             {review.reviewed_by?.name ? (
-                              <p className="mt-1 text-xs text-slate-400">
+                              <p className="mt-1 text-xs text-brand-steel">
                                 By{" "}
                                 {
                                   review.reviewed_by
@@ -1867,8 +1867,8 @@ export default function AdminSellerReviewPage() {
           </div>
 
           <aside className="space-y-5 xl:sticky xl:top-5">
-            <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <div className="bg-slate-950 px-5 py-5 text-white">
+            <section className="overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-sm">
+              <div className="bg-brand-ink px-5 py-5 text-white">
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10">
                     <Store className="h-5 w-5" />
@@ -1883,7 +1883,7 @@ export default function AdminSellerReviewPage() {
                   ) : null}
                 </div>
 
-                <p className="mt-4 text-xs font-medium uppercase tracking-[0.16em] text-slate-400">
+                <p className="mt-4 text-xs font-medium uppercase tracking-[0.16em] text-brand-steel">
                   Seller profile
                 </p>
 
@@ -1894,7 +1894,7 @@ export default function AdminSellerReviewPage() {
                 {seller?.legal_business_name &&
                 seller.legal_business_name !==
                   seller.trading_name ? (
-                  <p className="mt-1 text-xs text-slate-400">
+                  <p className="mt-1 text-xs text-brand-steel">
                     {
                       seller.legal_business_name
                     }
@@ -1905,14 +1905,14 @@ export default function AdminSellerReviewPage() {
               <div className="space-y-4 p-5">
                 <div className="space-y-3">
                   <div className="flex items-start gap-2">
-                    <UserRound className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />
+                    <UserRound className="mt-0.5 h-4 w-4 shrink-0 text-brand-steel" />
 
                     <div>
-                      <p className="text-[11px] uppercase tracking-wide text-slate-400">
+                      <p className="text-[11px] uppercase tracking-wide text-brand-steel">
                         Owner
                       </p>
 
-                      <p className="text-sm font-medium text-slate-700">
+                      <p className="text-sm font-medium text-brand-ink">
                         {owner?.name ??
                           "Not available"}
                       </p>
@@ -1920,14 +1920,14 @@ export default function AdminSellerReviewPage() {
                   </div>
 
                   <div className="flex items-start gap-2">
-                    <Mail className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />
+                    <Mail className="mt-0.5 h-4 w-4 shrink-0 text-brand-steel" />
 
                     <div className="min-w-0">
-                      <p className="text-[11px] uppercase tracking-wide text-slate-400">
+                      <p className="text-[11px] uppercase tracking-wide text-brand-steel">
                         Email
                       </p>
 
-                      <p className="break-all text-sm text-slate-700">
+                      <p className="break-all text-sm text-brand-ink">
                         {seller?.business_email ??
                           owner?.email ??
                           "Not available"}
@@ -1936,14 +1936,14 @@ export default function AdminSellerReviewPage() {
                   </div>
 
                   <div className="flex items-start gap-2">
-                    <Phone className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />
+                    <Phone className="mt-0.5 h-4 w-4 shrink-0 text-brand-steel" />
 
                     <div>
-                      <p className="text-[11px] uppercase tracking-wide text-slate-400">
+                      <p className="text-[11px] uppercase tracking-wide text-brand-steel">
                         Phone
                       </p>
 
-                      <p className="text-sm text-slate-700">
+                      <p className="text-sm text-brand-ink">
                         {seller?.business_phone ??
                           owner?.phone ??
                           "Not available"}
@@ -1952,20 +1952,20 @@ export default function AdminSellerReviewPage() {
                   </div>
 
                   <div className="flex items-start gap-2">
-                    <Building2 className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />
+                    <Building2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-steel" />
 
                     <div>
-                      <p className="text-[11px] uppercase tracking-wide text-slate-400">
+                      <p className="text-[11px] uppercase tracking-wide text-brand-steel">
                         Registration
                       </p>
 
-                      <p className="text-sm text-slate-700">
+                      <p className="text-sm text-brand-ink">
                         {seller?.registration_number ??
                           "Not available"}
                       </p>
 
                       {seller?.tax_identification_number ? (
-                        <p className="mt-0.5 text-xs text-slate-400">
+                        <p className="mt-0.5 text-xs text-brand-steel">
                           TIN{" "}
                           {
                             seller.tax_identification_number
@@ -1976,14 +1976,14 @@ export default function AdminSellerReviewPage() {
                   </div>
                 </div>
 
-                <div className="border-t border-slate-100 pt-4">
-                  <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                <div className="border-t border-brand-mist pt-4">
+                  <p className="text-[11px] font-semibold uppercase tracking-wide text-brand-steel">
                     Application
                   </p>
 
                   <div className="mt-2 space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs text-slate-500">
+                      <span className="text-xs text-brand-ink/70">
                         Status
                       </span>
 
@@ -1995,11 +1995,11 @@ export default function AdminSellerReviewPage() {
                     </div>
 
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-slate-500">
+                      <span className="text-brand-ink/70">
                         Submitted
                       </span>
 
-                      <span className="font-medium text-slate-700">
+                      <span className="font-medium text-brand-ink">
                         {formatDate(
                           application.submitted_at,
                         )}
@@ -2007,11 +2007,11 @@ export default function AdminSellerReviewPage() {
                     </div>
 
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-slate-500">
+                      <span className="text-brand-ink/70">
                         Review started
                       </span>
 
-                      <span className="font-medium text-slate-700">
+                      <span className="font-medium text-brand-ink">
                         {formatDate(
                           application.review_started_at,
                         )}
@@ -2021,8 +2021,8 @@ export default function AdminSellerReviewPage() {
                 </div>
 
                 {canMakeDecision ? (
-                  <div className="space-y-2 border-t border-slate-100 pt-4">
-                    <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                  <div className="space-y-2 border-t border-brand-mist pt-4">
+                    <p className="text-[11px] font-semibold uppercase tracking-wide text-brand-steel">
                       Review actions
                     </p>
 
@@ -2036,7 +2036,7 @@ export default function AdminSellerReviewPage() {
                       disabled={
                         busyAction !== null
                       }
-                      className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-xl border border-amber-200 bg-amber-50 px-4 text-sm font-semibold text-amber-800 transition hover:bg-amber-100 disabled:opacity-50"
+                      className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-xl border border-brand-orange bg-brand-mist px-4 text-sm font-semibold text-brand-orange transition hover:bg-brand-mist disabled:opacity-50"
                     >
                       <Send className="h-4 w-4" />
                       Request information
@@ -2081,7 +2081,7 @@ export default function AdminSellerReviewPage() {
 
                 {sellerStatus ===
                 "approved" ? (
-                  <div className="border-t border-slate-100 pt-4">
+                  <div className="border-t border-brand-mist pt-4">
                     <button
                       type="button"
                       onClick={() =>
@@ -2106,28 +2106,28 @@ export default function AdminSellerReviewPage() {
       </div>
 
       {confirmAction ? (
-        <div className="fixed inset-0 z-[110] flex items-center justify-center bg-slate-950/50 p-4 backdrop-blur-[2px]">
-          <div className="w-full max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl">
-            <div className="border-b border-slate-100 px-5 py-4">
+        <div className="fixed inset-0 z-[110] flex items-center justify-center bg-brand-ink/50 p-4 backdrop-blur-[2px]">
+          <div className="w-full max-w-md overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-2xl">
+            <div className="border-b border-brand-mist px-5 py-4">
               <div className="flex items-start gap-3">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50">
                   {confirmAction.kind ===
                   "start-review" ? (
-                    <FileCheck2 className="h-5 w-5 text-blue-600" />
+                    <FileCheck2 className="h-5 w-5 text-brand-ink" />
                   ) : confirmAction.kind ===
                     "scan-document" ? (
-                    <ShieldCheck className="h-5 w-5 text-violet-600" />
+                    <ShieldCheck className="h-5 w-5 text-brand-ink" />
                   ) : (
                     <BadgeCheck className="h-5 w-5 text-emerald-600" />
                   )}
                 </div>
 
                 <div>
-                  <h3 className="text-base font-semibold text-slate-950">
+                  <h3 className="text-base font-semibold text-brand-ink">
                     {confirmAction.title}
                   </h3>
 
-                  <p className="mt-1 text-sm leading-6 text-slate-500">
+                  <p className="mt-1 text-sm leading-6 text-brand-ink/70">
                     {confirmAction.description}
                   </p>
                 </div>
@@ -2143,7 +2143,7 @@ export default function AdminSellerReviewPage() {
                 disabled={
                   busyAction !== null
                 }
-                className="inline-flex h-9 items-center justify-center rounded-lg border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 transition hover:bg-slate-50 disabled:opacity-50"
+                className="inline-flex h-9 items-center justify-center rounded-lg border border-brand-steel bg-white px-4 text-sm font-medium text-brand-ink transition hover:bg-brand-mist disabled:opacity-50"
               >
                 Cancel
               </button>
@@ -2160,10 +2160,10 @@ export default function AdminSellerReviewPage() {
                   "inline-flex h-9 items-center justify-center gap-2 rounded-lg px-4 text-sm font-semibold text-white transition disabled:opacity-50",
                   confirmAction.kind ===
                   "start-review"
-                    ? "bg-blue-600 hover:bg-blue-700"
+                    ? "bg-brand-ink hover:bg-brand-ink"
                     : confirmAction.kind ===
                         "scan-document"
-                      ? "bg-violet-600 hover:bg-violet-700"
+                      ? "bg-brand-ink hover:bg-brand-ink"
                       : "bg-emerald-600 hover:bg-emerald-700",
                 ].join(" ")}
               >
@@ -2187,19 +2187,19 @@ export default function AdminSellerReviewPage() {
       ) : null}
 
       {previewDocument ? (
-        <div className="fixed inset-0 z-[120] flex items-center justify-center bg-slate-950/70 p-4 backdrop-blur-sm">
-          <div className="flex h-[90vh] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-slate-700 bg-white shadow-2xl">
-            <div className="flex items-center justify-between gap-4 border-b border-slate-200 px-5 py-3">
+        <div className="fixed inset-0 z-[120] flex items-center justify-center bg-brand-ink/70 p-4 backdrop-blur-sm">
+          <div className="flex h-[90vh] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-brand-ink bg-white shadow-2xl">
+            <div className="flex items-center justify-between gap-4 border-b border-brand-steel px-5 py-3">
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
-                  <Eye className="h-4 w-4 shrink-0 text-blue-600" />
+                  <Eye className="h-4 w-4 shrink-0 text-brand-ink" />
 
-                  <h3 className="truncate text-sm font-semibold text-slate-950">
+                  <h3 className="truncate text-sm font-semibold text-brand-ink">
                     {previewDocument.original_name}
                   </h3>
                 </div>
 
-                <p className="mt-0.5 text-xs text-slate-500">
+                <p className="mt-0.5 text-xs text-brand-ink/70">
                   {documentTypeLabel(
                     previewDocument.document_type,
                   )}
@@ -2222,7 +2222,7 @@ export default function AdminSellerReviewPage() {
                     downloadingId ===
                     previewDocument.public_id
                   }
-                  className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 disabled:opacity-50"
+                  className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-brand-steel bg-white px-3 text-xs font-semibold text-brand-ink transition hover:bg-brand-mist disabled:opacity-50"
                 >
                   <Download className="h-3.5 w-3.5" />
                   Download
@@ -2231,7 +2231,7 @@ export default function AdminSellerReviewPage() {
                 <button
                   type="button"
                   onClick={closePreview}
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition hover:bg-slate-50"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-brand-steel bg-white text-brand-ink/70 transition hover:bg-brand-mist"
                   aria-label="Close preview"
                 >
                   <XCircle className="h-4 w-4" />
@@ -2239,12 +2239,12 @@ export default function AdminSellerReviewPage() {
               </div>
             </div>
 
-            <div className="min-h-0 flex-1 bg-slate-100 p-3">
+            <div className="min-h-0 flex-1 bg-brand-mist p-3">
               {previewLoading ? (
                 <div className="flex h-full items-center justify-center">
                   <div className="flex flex-col items-center gap-3">
-                    <Loader2 className="h-6 w-6 animate-spin text-slate-600" />
-                    <p className="text-sm text-slate-500">
+                    <Loader2 className="h-6 w-6 animate-spin text-brand-ink/70" />
+                    <p className="text-sm text-brand-ink/70">
                       Loading document preview...
                     </p>
                   </div>
@@ -2253,7 +2253,7 @@ export default function AdminSellerReviewPage() {
                 previewMimeType.startsWith(
                   "image/",
                 ) ? (
-                <div className="flex h-full items-center justify-center overflow-auto rounded-xl bg-slate-900/5 p-3">
+                <div className="flex h-full items-center justify-center overflow-auto rounded-xl bg-brand-ink/5 p-3">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={previewUrl}
@@ -2274,18 +2274,18 @@ export default function AdminSellerReviewPage() {
                   title={
                     previewDocument.original_name
                   }
-                  className="h-full w-full rounded-xl border border-slate-200 bg-white"
+                  className="h-full w-full rounded-xl border border-brand-steel bg-white"
                 />
               ) : (
                 <div className="flex h-full items-center justify-center">
-                  <div className="max-w-md rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
-                    <FileText className="mx-auto h-9 w-9 text-slate-400" />
+                  <div className="max-w-md rounded-2xl border border-brand-steel bg-white p-6 text-center shadow-sm">
+                    <FileText className="mx-auto h-9 w-9 text-brand-steel" />
 
-                    <p className="mt-3 text-sm font-semibold text-slate-800">
+                    <p className="mt-3 text-sm font-semibold text-brand-ink">
                       Preview is not available for this file type.
                     </p>
 
-                    <p className="mt-1 text-xs leading-5 text-slate-500">
+                    <p className="mt-1 text-xs leading-5 text-brand-ink/70">
                       You can still download the original document securely.
                     </p>
                   </div>
@@ -2297,21 +2297,21 @@ export default function AdminSellerReviewPage() {
       ) : null}
 
       {actionKind ? (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/45 p-4 backdrop-blur-[2px]">
-          <div className="w-full max-w-lg rounded-2xl border border-slate-200 bg-white shadow-2xl">
-            <div className="border-b border-slate-100 px-5 py-4">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-brand-ink/45 p-4 backdrop-blur-[2px]">
+          <div className="w-full max-w-lg rounded-2xl border border-brand-steel bg-white shadow-2xl">
+            <div className="border-b border-brand-mist px-5 py-4">
               <div className="flex items-start gap-3">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-slate-100">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-mist">
                   {actionKind ===
                   "request-information" ? (
-                    <Send className="h-4 w-4 text-amber-700" />
+                    <Send className="h-4 w-4 text-brand-orange" />
                   ) : (
                     <ShieldAlert className="h-4 w-4 text-red-600" />
                   )}
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-semibold text-slate-950">
+                  <h3 className="text-sm font-semibold text-brand-ink">
                     {actionKind ===
                     "request-information"
                       ? "Request additional information"
@@ -2327,7 +2327,7 @@ export default function AdminSellerReviewPage() {
                           : "Reject seller application"}
                   </h3>
 
-                  <p className="mt-1 text-xs leading-5 text-slate-500">
+                  <p className="mt-1 text-xs leading-5 text-brand-ink/70">
                     {actionKind ===
                     "request-information"
                       ? "Explain what information or documents the seller must provide."
@@ -2339,7 +2339,7 @@ export default function AdminSellerReviewPage() {
 
             <div className="p-5">
               <label className="space-y-1.5">
-                <span className="text-xs font-semibold text-slate-600">
+                <span className="text-xs font-semibold text-brand-ink/70">
                   {actionKind ===
                   "request-information"
                     ? "Information request"
@@ -2361,7 +2361,7 @@ export default function AdminSellerReviewPage() {
                       ? "Example: Please upload a clearer copy of your business registration certificate."
                       : "Enter the reason..."
                   }
-                  className="w-full resize-none rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm leading-6 text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-slate-400"
+                  className="w-full resize-none rounded-xl border border-brand-steel bg-white px-3 py-2.5 text-sm leading-6 text-brand-ink outline-none transition placeholder:text-brand-steel focus:border-brand-steel"
                 />
               </label>
 
@@ -2374,7 +2374,7 @@ export default function AdminSellerReviewPage() {
                   disabled={
                     busyAction !== null
                   }
-                  className="inline-flex h-9 items-center justify-center rounded-lg border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+                  className="inline-flex h-9 items-center justify-center rounded-lg border border-brand-steel bg-white px-4 text-sm font-medium text-brand-ink hover:bg-brand-mist disabled:opacity-50"
                 >
                   Cancel
                 </button>
@@ -2392,7 +2392,7 @@ export default function AdminSellerReviewPage() {
                     "inline-flex h-9 items-center justify-center gap-2 rounded-lg px-4 text-sm font-semibold text-white disabled:opacity-50",
                     actionKind ===
                     "request-information"
-                      ? "bg-amber-600 hover:bg-amber-700"
+                      ? "bg-brand-orange hover:bg-brand-orange"
                       : "bg-red-600 hover:bg-red-700",
                   ].join(" ")}
                 >

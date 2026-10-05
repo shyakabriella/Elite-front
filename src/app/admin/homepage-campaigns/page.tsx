@@ -104,11 +104,11 @@ function statusClasses(status: CampaignStatus): string {
     case "active":
       return "bg-emerald-50 text-emerald-700";
     case "scheduled":
-      return "bg-blue-50 text-blue-700";
+      return "bg-brand-mist text-brand-ink";
     case "expired":
-      return "bg-amber-50 text-amber-700";
+      return "bg-brand-mist text-brand-orange";
     default:
-      return "bg-slate-100 text-slate-600";
+      return "bg-brand-mist text-brand-ink/70";
   }
 }
 
@@ -261,19 +261,19 @@ export default function HomepageCampaignsPage() {
   }
 
   return (
-    <div className="min-h-full bg-slate-50 p-4 sm:p-6 lg:p-8">
+    <div className="min-h-full bg-brand-mist p-4 sm:p-6 lg:p-8">
       <div className="mx-auto max-w-[1500px]">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.16em] text-blue-600">
+            <p className="text-sm font-black uppercase tracking-[0.16em] text-brand-ink">
               Homepage management
             </p>
 
-            <h1 className="mt-2 text-3xl font-black tracking-[-0.04em] text-slate-950">
+            <h1 className="mt-2 text-3xl font-black tracking-[-0.04em] text-brand-ink">
               Homepage campaigns
             </h1>
 
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-brand-ink/70">
               Create scheduled promotional cards that automatically appear on
               the public homepage.
             </p>
@@ -283,7 +283,7 @@ export default function HomepageCampaignsPage() {
             <button
               type="button"
               onClick={() => void loadCampaigns()}
-              className="grid size-11 place-items-center rounded-xl border border-slate-200 bg-white text-slate-600 transition hover:border-blue-300 hover:text-blue-700"
+              className="grid size-11 place-items-center rounded-xl border border-brand-steel bg-white text-brand-ink/70 transition hover:border-brand-orange hover:text-brand-ink"
               aria-label="Refresh campaigns"
             >
               <RefreshCw
@@ -294,7 +294,7 @@ export default function HomepageCampaignsPage() {
             <button
               type="button"
               onClick={openCreateModal}
-              className="inline-flex h-11 items-center gap-2 rounded-xl bg-blue-600 px-5 text-sm font-black text-white transition hover:bg-blue-700"
+              className="inline-flex h-11 items-center gap-2 rounded-xl bg-brand-ink px-5 text-sm font-black text-white transition hover:bg-brand-ink"
             >
               <Plus className="size-4" />
               New campaign
@@ -324,15 +324,15 @@ export default function HomepageCampaignsPage() {
 
         {loading ? (
           <div className="mt-10 flex min-h-72 items-center justify-center">
-            <Loader2 className="size-8 animate-spin text-blue-600" />
+            <Loader2 className="size-8 animate-spin text-brand-ink" />
           </div>
         ) : campaigns.length === 0 ? (
-          <div className="mt-8 rounded-3xl border border-dashed border-slate-300 bg-white px-6 py-16 text-center">
-            <LayoutPanelTop className="mx-auto size-12 text-slate-300" />
-            <h2 className="mt-4 text-lg font-black text-slate-900">
+          <div className="mt-8 rounded-3xl border border-dashed border-brand-steel bg-white px-6 py-16 text-center">
+            <LayoutPanelTop className="mx-auto size-12 text-brand-steel" />
+            <h2 className="mt-4 text-lg font-black text-brand-ink">
               No homepage campaigns yet
             </h2>
-            <p className="mt-2 text-sm text-slate-500">
+            <p className="mt-2 text-sm text-brand-ink/70">
               Create your first promotional homepage card.
             </p>
           </div>
@@ -341,9 +341,9 @@ export default function HomepageCampaignsPage() {
             {campaigns.map((campaign) => (
               <article
                 key={campaign.public_id}
-                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+                className="overflow-hidden rounded-3xl border border-brand-steel bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
               >
-                <div className="relative aspect-[16/9] overflow-hidden bg-slate-100">
+                <div className="relative aspect-[16/9] overflow-hidden bg-brand-mist">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={
@@ -363,7 +363,7 @@ export default function HomepageCampaignsPage() {
                     {campaign.status}
                   </span>
 
-                  <span className="absolute right-3 top-3 rounded-full bg-slate-950/75 px-3 py-1 text-xs font-bold capitalize text-white">
+                  <span className="absolute right-3 top-3 rounded-full bg-brand-ink/75 px-3 py-1 text-xs font-bold capitalize text-white">
                     {campaign.card_size}
                   </span>
                 </div>
@@ -371,21 +371,21 @@ export default function HomepageCampaignsPage() {
                 <div className="p-5">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h2 className="font-black text-slate-950">
+                      <h2 className="font-black text-brand-ink">
                         {campaign.title}
                       </h2>
 
-                      <p className="mt-1 line-clamp-2 text-sm leading-6 text-slate-500">
+                      <p className="mt-1 line-clamp-2 text-sm leading-6 text-brand-ink/70">
                         {campaign.subtitle || "No campaign subtitle"}
                       </p>
                     </div>
 
-                    <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-black text-slate-600">
+                    <span className="rounded-lg bg-brand-mist px-2.5 py-1 text-xs font-black text-brand-ink/70">
                       #{campaign.position}
                     </span>
                   </div>
 
-                  <div className="mt-4 flex items-center gap-2 text-xs text-slate-500">
+                  <div className="mt-4 flex items-center gap-2 text-xs text-brand-ink/70">
                     <CalendarClock className="size-4" />
                     {campaign.starts_at
                       ? new Date(campaign.starts_at).toLocaleDateString()
@@ -400,7 +400,7 @@ export default function HomepageCampaignsPage() {
                     <button
                       type="button"
                       onClick={() => openEditModal(campaign)}
-                      className="flex h-10 flex-1 items-center justify-center gap-2 rounded-xl border border-slate-200 text-sm font-bold text-slate-700 transition hover:border-blue-300 hover:text-blue-700"
+                      className="flex h-10 flex-1 items-center justify-center gap-2 rounded-xl border border-brand-steel text-sm font-bold text-brand-ink transition hover:border-brand-orange hover:text-brand-ink"
                     >
                       <Edit3 className="size-4" />
                       Edit
@@ -428,18 +428,18 @@ export default function HomepageCampaignsPage() {
       </div>
 
       {modalOpen ? (
-        <div className="fixed inset-0 z-[100] overflow-y-auto bg-slate-950/65 p-4 backdrop-blur-sm">
+        <div className="fixed inset-0 z-[100] overflow-y-auto bg-brand-ink/65 p-4 backdrop-blur-sm">
           <div className="flex min-h-full items-center justify-center">
             <form
               onSubmit={submitForm}
               className="my-6 w-full max-w-4xl overflow-hidden rounded-3xl bg-white shadow-2xl"
             >
-              <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4 sm:px-7">
+              <div className="flex items-center justify-between border-b border-brand-steel px-5 py-4 sm:px-7">
                 <div>
-                  <h2 className="text-xl font-black text-slate-950">
+                  <h2 className="text-xl font-black text-brand-ink">
                     {editing ? "Edit campaign" : "Create campaign"}
                   </h2>
-                  <p className="mt-1 text-sm text-slate-500">
+                  <p className="mt-1 text-sm text-brand-ink/70">
                     Choose a layout and automatically display approved seller
                     products.
                   </p>
@@ -448,7 +448,7 @@ export default function HomepageCampaignsPage() {
                 <button
                   type="button"
                   onClick={closeModal}
-                  className="grid size-10 place-items-center rounded-xl bg-slate-100 text-slate-600"
+                  className="grid size-10 place-items-center rounded-xl bg-brand-mist text-brand-ink/70"
                 >
                   <X className="size-5" />
                 </button>
@@ -562,7 +562,7 @@ export default function HomepageCampaignsPage() {
                       onChange={(value) => updateField("text_color", value)}
                     />
                   </div>
-                  <label className="flex items-center gap-3 rounded-xl border border-slate-200 p-4">
+                  <label className="flex items-center gap-3 rounded-xl border border-brand-steel p-4">
                     <input
                       type="checkbox"
                       checked={form.is_active}
@@ -571,7 +571,7 @@ export default function HomepageCampaignsPage() {
                       }
                       className="size-4"
                     />
-                    <span className="text-sm font-bold text-slate-700">
+                    <span className="text-sm font-bold text-brand-ink">
                       Campaign is active
                     </span>
                   </label>
@@ -592,7 +592,7 @@ export default function HomepageCampaignsPage() {
                   />
 
                   {editing && editing.mobile_image_url ? (
-                    <label className="flex items-center gap-3 rounded-xl border border-slate-200 p-4">
+                    <label className="flex items-center gap-3 rounded-xl border border-brand-steel p-4">
                       <input
                         type="checkbox"
                         checked={form.remove_mobile_image}
@@ -610,7 +610,7 @@ export default function HomepageCampaignsPage() {
                         }}
                         className="size-4"
                       />
-                      <span className="text-sm font-bold text-slate-700">
+                      <span className="text-sm font-bold text-brand-ink">
                         Remove current mobile image
                       </span>
                     </label>
@@ -621,7 +621,7 @@ export default function HomepageCampaignsPage() {
                       backgroundColor: form.background_color,
                       color: form.text_color,
                     }}
-                    className="rounded-2xl border border-slate-200 p-5"
+                    className="rounded-2xl border border-brand-steel p-5"
                   >
                     <p className="text-xs font-black uppercase tracking-[0.14em] opacity-60">
                       Card preview
@@ -632,18 +632,18 @@ export default function HomepageCampaignsPage() {
                     <p className="mt-2 text-sm opacity-75">
                       {form.subtitle || "Campaign description"}
                     </p>
-                    <span className="mt-5 inline-flex rounded-full bg-white px-4 py-2 text-sm font-black text-slate-950">
+                    <span className="mt-5 inline-flex rounded-full bg-white px-4 py-2 text-sm font-black text-brand-ink">
                       {form.button_text || "Shop now"}
                     </span>
                   </div>
                 </div>
               </div>
 
-              <div className="flex justify-end gap-3 border-t border-slate-200 px-5 py-4 sm:px-7">
+              <div className="flex justify-end gap-3 border-t border-brand-steel px-5 py-4 sm:px-7">
                 <button
                   type="button"
                   onClick={closeModal}
-                  className="h-11 rounded-xl border border-slate-300 px-5 text-sm font-bold text-slate-700"
+                  className="h-11 rounded-xl border border-brand-steel px-5 text-sm font-bold text-brand-ink"
                 >
                   Cancel
                 </button>
@@ -651,7 +651,7 @@ export default function HomepageCampaignsPage() {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="inline-flex h-11 items-center gap-2 rounded-xl bg-blue-600 px-6 text-sm font-black text-white disabled:opacity-60"
+                  className="inline-flex h-11 items-center gap-2 rounded-xl bg-brand-ink px-6 text-sm font-black text-white disabled:opacity-60"
                 >
                   {saving ? <Loader2 className="size-4 animate-spin" /> : null}
                   {editing ? "Save changes" : "Create campaign"}
@@ -667,9 +667,9 @@ export default function HomepageCampaignsPage() {
 
 function StatCard({ label, value }: { label: string; value: number }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5">
-      <p className="text-sm font-semibold text-slate-500">{label}</p>
-      <p className="mt-2 text-3xl font-black text-slate-950">{value}</p>
+    <div className="rounded-2xl border border-brand-steel bg-white p-5">
+      <p className="text-sm font-semibold text-brand-ink/70">{label}</p>
+      <p className="mt-2 text-3xl font-black text-brand-ink">{value}</p>
     </div>
   );
 }
@@ -691,7 +691,7 @@ function Input({
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-sm font-bold text-slate-700">
+      <span className="mb-1.5 block text-sm font-bold text-brand-ink">
         {label}
       </span>
       <input
@@ -700,7 +700,7 @@ function Input({
         value={value}
         placeholder={placeholder}
         onChange={(event) => onChange(event.target.value)}
-        className="h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+        className="h-11 w-full rounded-xl border border-brand-steel bg-white px-3 text-sm outline-none transition focus:border-brand-orange focus:ring-4 focus:ring-brand-mist"
       />
     </label>
   );
@@ -719,13 +719,13 @@ function Select({
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-sm font-bold text-slate-700">
+      <span className="mb-1.5 block text-sm font-bold text-brand-ink">
         {label}
       </span>
       <select
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="h-11 w-full rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-blue-500"
+        className="h-11 w-full rounded-xl border border-brand-steel bg-white px-3 text-sm outline-none focus:border-brand-orange"
       >
         {options.map(([optionValue, label]) => (
           <option key={optionValue} value={optionValue}>
@@ -748,17 +748,17 @@ function ColorInput({
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-sm font-bold text-slate-700">
+      <span className="mb-1.5 block text-sm font-bold text-brand-ink">
         {label}
       </span>
-      <div className="flex h-11 items-center gap-2 rounded-xl border border-slate-300 px-2">
+      <div className="flex h-11 items-center gap-2 rounded-xl border border-brand-steel px-2">
         <input
           type="color"
           value={value}
           onChange={(event) => onChange(event.target.value)}
           className="size-7 cursor-pointer border-0 bg-transparent"
         />
-        <span className="text-xs font-bold text-slate-500">{value}</span>
+        <span className="text-xs font-bold text-brand-ink/70">{value}</span>
       </div>
     </label>
   );
@@ -777,11 +777,11 @@ function ImagePicker({
 }) {
   return (
     <label className="hidden">
-      <span className="mb-1.5 block text-sm font-bold text-slate-700">
+      <span className="mb-1.5 block text-sm font-bold text-brand-ink">
         {label}
       </span>
 
-      <div className="overflow-hidden rounded-2xl border-2 border-dashed border-slate-300 bg-slate-50 transition hover:border-blue-400">
+      <div className="overflow-hidden rounded-2xl border-2 border-dashed border-brand-steel bg-brand-mist transition hover:border-brand-orange">
         {preview ? (
           <div className="aspect-[16/9]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -789,11 +789,11 @@ function ImagePicker({
           </div>
         ) : (
           <div className="flex aspect-[16/9] flex-col items-center justify-center">
-            <ImageIcon className="size-9 text-slate-300" />
-            <span className="mt-2 text-sm font-bold text-slate-500">
+            <ImageIcon className="size-9 text-brand-steel" />
+            <span className="mt-2 text-sm font-bold text-brand-ink/70">
               Choose image
             </span>
-            <span className="mt-1 text-xs text-slate-400">
+            <span className="mt-1 text-xs text-brand-steel">
               JPG, PNG or WebP
             </span>
           </div>

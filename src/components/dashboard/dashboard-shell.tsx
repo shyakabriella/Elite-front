@@ -20,7 +20,7 @@ export default function DashboardShell({
     useState(false);
 
   return (
-    <div className="min-h-screen bg-[#f4f7ff] text-slate-950">
+    <div className="min-h-screen bg-[#e8eeee] text-brand-ink">
       <DashboardSidebar
         role={role}
         open={sidebarOpen}

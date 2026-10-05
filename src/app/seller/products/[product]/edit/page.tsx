@@ -6,7 +6,7 @@ export default function TemporaryRoutePage() {
       </h1>
 
       <p className="mt-3">
-        This RushPi page is being prepared.
+        This EliteMart page is being prepared.
       </p>
     </main>
   );

@@ -3,9 +3,9 @@ import SellerVerificationWorkspace from "@/components/seller/seller-verification
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Seller Verification | RushPi",
+  title: "Seller Verification | EliteMart",
   description:
-    "Manage seller verification documents and review RushPi administration decisions.",
+    "Manage seller verification documents and review EliteMart administration decisions.",
 };
 
 export default function SellerVerificationPage() {

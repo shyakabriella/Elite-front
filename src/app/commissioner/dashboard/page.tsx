@@ -24,7 +24,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Commissioner Dashboard",
   description:
-    "Manage RushPi applications, approvals, assignments and commissions.",
+    "Manage EliteMart applications, approvals, assignments and commissions.",
 };
 
 type StatCardProps = {
@@ -132,7 +132,7 @@ const activities = [
     time: "31 minutes ago",
     icon: Building2,
     iconClassName:
-      "bg-blue-100 text-blue-700",
+      "bg-brand-mist text-brand-ink",
   },
   {
     title: "Commission credited",
@@ -141,7 +141,7 @@ const activities = [
     time: "1 hour ago",
     icon: CircleDollarSign,
     iconClassName:
-      "bg-violet-100 text-violet-700",
+      "bg-brand-mist text-brand-ink",
   },
   {
     title: "Document requires attention",
@@ -150,7 +150,7 @@ const activities = [
     time: "2 hours ago",
     icon: TriangleAlert,
     iconClassName:
-      "bg-amber-100 text-amber-700",
+      "bg-brand-mist text-brand-orange",
   },
 ];
 
@@ -194,11 +194,11 @@ function StatCard({
         </span>
       </div>
 
-      <p className="mt-5 text-sm font-semibold text-slate-500">
+      <p className="mt-5 text-sm font-semibold text-brand-ink/70">
         {title}
       </p>
 
-      <p className="mt-1 text-2xl font-black tracking-tight text-slate-950 sm:text-3xl">
+      <p className="mt-1 text-2xl font-black tracking-tight text-brand-ink sm:text-3xl">
         {value}
       </p>
     </article>
@@ -213,14 +213,14 @@ function applicationStatusClassName(
   }
 
   if (status === "Under review") {
-    return "bg-blue-100 text-blue-700";
+    return "bg-brand-mist text-brand-ink";
   }
 
   if (status === "Rejected") {
     return "bg-red-100 text-red-700";
   }
 
-  return "bg-amber-100 text-amber-700";
+  return "bg-brand-mist text-brand-orange";
 }
 
 function assignmentStatusClassName(
@@ -231,10 +231,10 @@ function assignmentStatusClassName(
   }
 
   if (status === "New") {
-    return "bg-violet-100 text-violet-700";
+    return "bg-brand-mist text-brand-ink";
   }
 
-  return "bg-blue-100 text-blue-700";
+  return "bg-brand-mist text-brand-ink";
 }
 
 export default function CommissionerDashboardPage() {
@@ -243,24 +243,24 @@ export default function CommissionerDashboardPage() {
       {/* Page heading */}
       <section className="mb-7 flex flex-col justify-between gap-5 md:flex-row md:items-center">
         <div>
-          <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-600">
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-brand-ink">
             Commissioner overview
           </p>
 
-          <h1 className="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
+          <h1 className="mt-2 text-3xl font-black tracking-tight text-brand-ink sm:text-4xl">
             Welcome back, Commissioner 👋
           </h1>
 
-          <p className="mt-2 text-sm leading-6 text-slate-500 sm:text-base">
+          <p className="mt-2 text-sm leading-6 text-brand-ink/70 sm:text-base">
             Review applications, manage assignments and track
-            commissions across RushPi.
+            commissions across EliteMart.
           </p>
         </div>
 
         <div className="flex flex-wrap gap-3">
           <Link
             href="/commissioner/assignments"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-black text-slate-800 shadow-sm transition hover:border-blue-500 hover:text-blue-700"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-steel bg-white px-5 py-3 text-sm font-black text-brand-ink shadow-sm transition hover:border-brand-orange hover:text-brand-ink"
           >
             <Handshake className="size-4" />
             View assignments
@@ -268,7 +268,7 @@ export default function CommissionerDashboardPage() {
 
           <Link
             href="/commissioner/applications"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-700 px-5 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:-translate-y-0.5 hover:bg-blue-800"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-ink px-5 py-3 text-sm font-black text-white shadow-lg shadow-brand-ink/20 transition hover:-translate-y-0.5 hover:bg-brand-ink"
           >
             <FileCheck2 className="size-4" />
             Review applications
@@ -283,7 +283,7 @@ export default function CommissionerDashboardPage() {
           value="18"
           change="+4 today"
           icon={FileText}
-          iconClassName="bg-amber-100 text-amber-700"
+          iconClassName="bg-brand-mist text-brand-orange"
         />
 
         <StatCard
@@ -299,7 +299,7 @@ export default function CommissionerDashboardPage() {
           value="27"
           change="+6.4%"
           icon={Handshake}
-          iconClassName="bg-blue-100 text-blue-700"
+          iconClassName="bg-brand-mist text-brand-ink"
         />
 
         <StatCard
@@ -307,7 +307,7 @@ export default function CommissionerDashboardPage() {
           value="RWF 3.84M"
           change="+12.3%"
           icon={CircleDollarSign}
-          iconClassName="bg-violet-100 text-violet-700"
+          iconClassName="bg-brand-mist text-brand-ink"
         />
       </section>
 
@@ -316,18 +316,18 @@ export default function CommissionerDashboardPage() {
         <article className="dashboard-card rounded-3xl border border-white bg-white p-5 shadow-[0_14px_35px_rgba(15,23,42,0.06)] sm:p-6">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
-              <h2 className="text-xl font-black text-slate-950">
+              <h2 className="text-xl font-black text-brand-ink">
                 Application performance
               </h2>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-brand-ink/70">
                 Submitted and approved applications over seven months
               </p>
             </div>
 
             <select
               defaultValue="7-months"
-              className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-bold text-slate-700 outline-none focus:border-blue-500"
+              className="rounded-xl border border-brand-steel bg-brand-mist px-3 py-2 text-sm font-bold text-brand-ink outline-none focus:border-brand-orange"
             >
               <option value="7-months">
                 Last 7 months
@@ -429,7 +429,7 @@ export default function CommissionerDashboardPage() {
               />
             </svg>
 
-            <div className="grid grid-cols-7 text-center text-xs font-semibold text-slate-400">
+            <div className="grid grid-cols-7 text-center text-xs font-semibold text-brand-steel">
               <span>Feb</span>
               <span>Mar</span>
               <span>Apr</span>
@@ -439,9 +439,9 @@ export default function CommissionerDashboardPage() {
               <span>Aug</span>
             </div>
 
-            <div className="mt-5 flex flex-wrap justify-center gap-5 text-xs font-bold text-slate-600">
+            <div className="mt-5 flex flex-wrap justify-center gap-5 text-xs font-bold text-brand-ink/70">
               <span className="inline-flex items-center gap-2">
-                <span className="size-3 rounded-full bg-blue-600" />
+                <span className="size-3 rounded-full bg-brand-ink" />
                 Submitted
               </span>
 
@@ -455,23 +455,23 @@ export default function CommissionerDashboardPage() {
 
         <article className="dashboard-card rounded-3xl border border-white bg-white p-6 shadow-[0_14px_35px_rgba(15,23,42,0.06)]">
           <div className="flex items-center gap-3">
-            <span className="grid size-11 place-items-center rounded-2xl bg-violet-100 text-violet-700">
+            <span className="grid size-11 place-items-center rounded-2xl bg-brand-mist text-brand-ink">
               <Banknote className="size-5" />
             </span>
 
             <div>
-              <h2 className="text-xl font-black text-slate-950">
+              <h2 className="text-xl font-black text-brand-ink">
                 Commission summary
               </h2>
 
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-brand-ink/70">
                 Current earning period
               </p>
             </div>
           </div>
 
-          <div className="mt-7 rounded-3xl bg-gradient-to-br from-blue-700 to-indigo-700 p-5 text-white">
-            <p className="text-sm font-semibold text-blue-100">
+          <div className="mt-7 rounded-3xl bg-gradient-to-br from-brand-ink to-brand-ink p-5 text-white">
+            <p className="text-sm font-semibold text-brand-mist">
               Available balance
             </p>
 
@@ -479,13 +479,13 @@ export default function CommissionerDashboardPage() {
               RWF 984,500
             </p>
 
-            <p className="mt-3 text-xs leading-5 text-blue-100">
+            <p className="mt-3 text-xs leading-5 text-brand-mist">
               This amount is available for your next payout request.
             </p>
 
             <Link
               href="/commissioner/payouts"
-              className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-black text-blue-700 transition hover:bg-blue-50"
+              className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-black text-brand-ink transition hover:bg-brand-mist"
             >
               Request payout
             </Link>
@@ -502,12 +502,12 @@ export default function CommissionerDashboardPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl bg-amber-50 p-4">
-              <p className="text-xs font-bold text-amber-700">
+            <div className="rounded-2xl bg-brand-mist p-4">
+              <p className="text-xs font-bold text-brand-orange">
                 Pending
               </p>
 
-              <p className="mt-2 text-lg font-black text-amber-900">
+              <p className="mt-2 text-lg font-black text-brand-orange">
                 RWF 328K
               </p>
             </div>
@@ -517,18 +517,18 @@ export default function CommissionerDashboardPage() {
             {performanceItems.map((item) => (
               <div key={item.label}>
                 <div className="flex items-center justify-between gap-4 text-sm">
-                  <span className="font-bold text-slate-600">
+                  <span className="font-bold text-brand-ink/70">
                     {item.label}
                   </span>
 
-                  <span className="font-black text-slate-900">
+                  <span className="font-black text-brand-ink">
                     {item.value}
                   </span>
                 </div>
 
-                <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-100">
+                <div className="mt-2 h-2 overflow-hidden rounded-full bg-brand-mist">
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-blue-600 to-indigo-600"
+                    className="h-full rounded-full bg-gradient-to-r from-brand-ink to-brand-ink"
                     style={{
                       width: `${item.progress}%`,
                     }}
@@ -543,20 +543,20 @@ export default function CommissionerDashboardPage() {
       {/* Application queue */}
       <section className="mt-5 grid gap-5 xl:grid-cols-[minmax(0,1.5fr)_minmax(320px,0.7fr)]">
         <article className="dashboard-card overflow-hidden rounded-3xl border border-white bg-white shadow-[0_14px_35px_rgba(15,23,42,0.06)]">
-          <div className="flex items-center justify-between gap-4 border-b border-slate-100 px-5 py-5 sm:px-6">
+          <div className="flex items-center justify-between gap-4 border-b border-brand-mist px-5 py-5 sm:px-6">
             <div>
-              <h2 className="text-xl font-black text-slate-950">
+              <h2 className="text-xl font-black text-brand-ink">
                 Application queue
               </h2>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-brand-ink/70">
                 Recent seller and dealer applications
               </p>
             </div>
 
             <Link
               href="/commissioner/applications"
-              className="text-sm font-black text-blue-700 hover:underline"
+              className="text-sm font-black text-brand-ink hover:underline"
             >
               View all
             </Link>
@@ -565,7 +565,7 @@ export default function CommissionerDashboardPage() {
           <div className="overflow-x-auto">
             <table className="w-full min-w-[900px]">
               <thead>
-                <tr className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
+                <tr className="bg-brand-mist text-left text-xs uppercase tracking-wider text-brand-ink/70">
                   <th className="px-6 py-4 font-black">
                     Application
                   </th>
@@ -592,31 +592,31 @@ export default function CommissionerDashboardPage() {
                 </tr>
               </thead>
 
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-brand-mist">
                 {applications.map((application) => (
                   <tr
                     key={application.id}
-                    className="transition hover:bg-blue-50/50"
+                    className="transition hover:bg-brand-mist/50"
                   >
-                    <td className="px-6 py-4 text-sm font-black text-blue-700">
+                    <td className="px-6 py-4 text-sm font-black text-brand-ink">
                       {application.id}
                     </td>
 
-                    <td className="px-6 py-4 text-sm font-semibold text-slate-800">
+                    <td className="px-6 py-4 text-sm font-semibold text-brand-ink">
                       {application.applicant}
                     </td>
 
                     <td className="px-6 py-4">
-                      <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-slate-700">
+                      <span className="inline-flex rounded-full bg-brand-mist px-3 py-1 text-xs font-black text-brand-ink">
                         {application.type}
                       </span>
                     </td>
 
-                    <td className="px-6 py-4 text-sm text-slate-600">
+                    <td className="px-6 py-4 text-sm text-brand-ink/70">
                       {application.submitted}
                     </td>
 
-                    <td className="px-6 py-4 text-sm font-bold text-slate-700">
+                    <td className="px-6 py-4 text-sm font-bold text-brand-ink">
                       {application.documents}
                     </td>
 
@@ -636,16 +636,16 @@ export default function CommissionerDashboardPage() {
 
         <article className="dashboard-card rounded-3xl border border-white bg-white p-5 shadow-[0_14px_35px_rgba(15,23,42,0.06)] sm:p-6">
           <div className="flex items-center gap-3">
-            <span className="grid size-11 place-items-center rounded-2xl bg-blue-100 text-blue-700">
+            <span className="grid size-11 place-items-center rounded-2xl bg-brand-mist text-brand-ink">
               <Clock3 className="size-5" />
             </span>
 
             <div>
-              <h2 className="text-xl font-black text-slate-950">
+              <h2 className="text-xl font-black text-brand-ink">
                 Recent activity
               </h2>
 
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-brand-ink/70">
                 Commissioner account updates
               </p>
             </div>
@@ -667,15 +667,15 @@ export default function CommissionerDashboardPage() {
                   </span>
 
                   <div className="min-w-0">
-                    <p className="text-sm font-black text-slate-900">
+                    <p className="text-sm font-black text-brand-ink">
                       {activity.title}
                     </p>
 
-                    <p className="mt-1 text-xs leading-5 text-slate-500">
+                    <p className="mt-1 text-xs leading-5 text-brand-ink/70">
                       {activity.description}
                     </p>
 
-                    <p className="mt-1.5 text-[11px] font-semibold text-slate-400">
+                    <p className="mt-1.5 text-[11px] font-semibold text-brand-steel">
                       {activity.time}
                     </p>
                   </div>
@@ -691,31 +691,31 @@ export default function CommissionerDashboardPage() {
         <article className="dashboard-card rounded-3xl border border-white bg-white p-5 shadow-[0_14px_35px_rgba(15,23,42,0.06)] sm:p-6">
           <div className="flex items-center justify-between gap-4">
             <div>
-              <h2 className="text-xl font-black text-slate-950">
+              <h2 className="text-xl font-black text-brand-ink">
                 Current assignments
               </h2>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-brand-ink/70">
                 Verification and compliance work
               </p>
             </div>
 
-            <Handshake className="size-6 text-blue-700" />
+            <Handshake className="size-6 text-brand-ink" />
           </div>
 
           <div className="mt-6 space-y-5">
             {assignments.map((assignment) => (
               <div
                 key={`${assignment.name}-${assignment.organization}`}
-                className="rounded-2xl border border-slate-100 p-4 transition hover:border-blue-200 hover:bg-blue-50/40"
+                className="rounded-2xl border border-brand-mist p-4 transition hover:border-brand-steel hover:bg-brand-mist/40"
               >
                 <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
                   <div>
-                    <p className="text-sm font-black text-slate-900">
+                    <p className="text-sm font-black text-brand-ink">
                       {assignment.name}
                     </p>
 
-                    <p className="mt-1 text-xs text-slate-500">
+                    <p className="mt-1 text-xs text-brand-ink/70">
                       {assignment.organization}
                     </p>
                   </div>
@@ -727,7 +727,7 @@ export default function CommissionerDashboardPage() {
                       {assignment.status}
                     </span>
 
-                    <span className="text-xs font-bold text-slate-500">
+                    <span className="text-xs font-bold text-brand-ink/70">
                       {assignment.dueDate}
                     </span>
                   </div>
@@ -735,18 +735,18 @@ export default function CommissionerDashboardPage() {
 
                 <div className="mt-4">
                   <div className="mb-2 flex items-center justify-between text-xs">
-                    <span className="font-bold text-slate-500">
+                    <span className="font-bold text-brand-ink/70">
                       Progress
                     </span>
 
-                    <span className="font-black text-slate-800">
+                    <span className="font-black text-brand-ink">
                       {assignment.progress}%
                     </span>
                   </div>
 
-                  <div className="h-2 overflow-hidden rounded-full bg-slate-100">
+                  <div className="h-2 overflow-hidden rounded-full bg-brand-mist">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-blue-600 to-indigo-600"
+                      className="h-full rounded-full bg-gradient-to-r from-brand-ink to-brand-ink"
                       style={{
                         width: `${assignment.progress}%`,
                       }}
@@ -765,11 +765,11 @@ export default function CommissionerDashboardPage() {
             </span>
 
             <div>
-              <h2 className="text-xl font-black text-slate-950">
+              <h2 className="text-xl font-black text-brand-ink">
                 Quick actions
               </h2>
 
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-brand-ink/70">
                 Common commissioner tasks
               </p>
             </div>
@@ -778,7 +778,7 @@ export default function CommissionerDashboardPage() {
           <div className="mt-6 grid gap-3">
             <Link
               href="/commissioner/applications"
-              className="flex items-center justify-between rounded-2xl bg-blue-50 px-4 py-4 text-sm font-black text-blue-800 transition hover:-translate-y-0.5 hover:bg-blue-100"
+              className="flex items-center justify-between rounded-2xl bg-brand-mist px-4 py-4 text-sm font-black text-brand-ink transition hover:-translate-y-0.5 hover:bg-brand-mist"
             >
               Review applications
               <ArrowUpRight className="size-5" />
@@ -794,7 +794,7 @@ export default function CommissionerDashboardPage() {
 
             <Link
               href="/commissioner/assignments"
-              className="flex items-center justify-between rounded-2xl bg-violet-50 px-4 py-4 text-sm font-black text-violet-800 transition hover:-translate-y-0.5 hover:bg-violet-100"
+              className="flex items-center justify-between rounded-2xl bg-brand-mist px-4 py-4 text-sm font-black text-brand-ink transition hover:-translate-y-0.5 hover:bg-brand-mist"
             >
               Open assignments
               <ArrowUpRight className="size-5" />
@@ -802,7 +802,7 @@ export default function CommissionerDashboardPage() {
 
             <Link
               href="/commissioner/reports"
-              className="flex items-center justify-between rounded-2xl bg-amber-50 px-4 py-4 text-sm font-black text-amber-800 transition hover:-translate-y-0.5 hover:bg-amber-100"
+              className="flex items-center justify-between rounded-2xl bg-brand-mist px-4 py-4 text-sm font-black text-brand-orange transition hover:-translate-y-0.5 hover:bg-brand-mist"
             >
               View reports
               <BarChart3 className="size-5" />
@@ -825,26 +825,26 @@ export default function CommissionerDashboardPage() {
           </div>
 
           <div className="mt-4 grid grid-cols-2 gap-3">
-            <div className="rounded-2xl bg-slate-50 p-4 text-center">
-              <Store className="mx-auto size-5 text-blue-700" />
+            <div className="rounded-2xl bg-brand-mist p-4 text-center">
+              <Store className="mx-auto size-5 text-brand-ink" />
 
-              <p className="mt-2 text-xl font-black text-slate-950">
+              <p className="mt-2 text-xl font-black text-brand-ink">
                 286
               </p>
 
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-brand-ink/70">
                 Sellers
               </p>
             </div>
 
-            <div className="rounded-2xl bg-slate-50 p-4 text-center">
-              <Users className="mx-auto size-5 text-violet-700" />
+            <div className="rounded-2xl bg-brand-mist p-4 text-center">
+              <Users className="mx-auto size-5 text-brand-ink" />
 
-              <p className="mt-2 text-xl font-black text-slate-950">
+              <p className="mt-2 text-xl font-black text-brand-ink">
                 74
               </p>
 
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-brand-ink/70">
                 Dealers
               </p>
             </div>

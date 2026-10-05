@@ -30,7 +30,7 @@ const sections: Record<
   applications: {
     title: "Applications",
     description:
-      "Review seller and dealer applications submitted to RushPi.",
+      "Review seller and dealer applications submitted to EliteMart.",
     icon: FileText,
   },
   approvals: {
@@ -123,35 +123,35 @@ export default async function CommissionerSectionPage({
     <div>
       <Link
         href="/commissioner/dashboard"
-        className="inline-flex items-center gap-2 text-sm font-black text-blue-700 transition hover:text-blue-900"
+        className="inline-flex items-center gap-2 text-sm font-black text-brand-ink transition hover:text-brand-ink"
       >
         <ArrowLeft className="size-4" />
         Back to dashboard
       </Link>
 
       <section className="mt-6 rounded-3xl border border-white bg-white p-6 shadow-[0_14px_35px_rgba(15,23,42,0.06)] sm:p-8">
-        <span className="grid size-14 place-items-center rounded-2xl bg-blue-100 text-blue-700">
+        <span className="grid size-14 place-items-center rounded-2xl bg-brand-mist text-brand-ink">
           <Icon className="size-7" />
         </span>
 
-        <p className="mt-7 text-sm font-black uppercase tracking-[0.18em] text-blue-600">
+        <p className="mt-7 text-sm font-black uppercase tracking-[0.18em] text-brand-ink">
           Commissioner center
         </p>
 
-        <h1 className="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
+        <h1 className="mt-2 text-3xl font-black tracking-tight text-brand-ink sm:text-4xl">
           {currentSection.title}
         </h1>
 
-        <p className="mt-4 max-w-2xl leading-7 text-slate-600">
+        <p className="mt-4 max-w-2xl leading-7 text-brand-ink/70">
           {currentSection.description}
         </p>
 
-        <div className="mt-8 rounded-2xl border border-dashed border-blue-200 bg-blue-50 p-6">
-          <p className="font-black text-blue-900">
+        <div className="mt-8 rounded-2xl border border-dashed border-brand-steel bg-brand-mist p-6">
+          <p className="font-black text-brand-ink">
             Module under development
           </p>
 
-          <p className="mt-2 text-sm leading-6 text-blue-700">
+          <p className="mt-2 text-sm leading-6 text-brand-ink">
             The page layout is ready. API integration and full
             management functions will be added in the next development
             phase.

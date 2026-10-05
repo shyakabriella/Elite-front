@@ -524,19 +524,19 @@ function statusClass(
       return "border-emerald-200 bg-emerald-50 text-emerald-700";
 
     case "pending_review":
-      return "border-blue-200 bg-blue-50 text-blue-700";
+      return "border-brand-steel bg-brand-mist text-brand-ink";
 
     case "rejected":
       return "border-red-200 bg-red-50 text-red-700";
 
     case "suspended":
-      return "border-orange-200 bg-orange-50 text-orange-700";
+      return "border-brand-orange bg-brand-mist text-brand-orange";
 
     case "archived":
-      return "border-slate-200 bg-slate-100 text-slate-600";
+      return "border-brand-steel bg-brand-mist text-brand-ink/70";
 
     default:
-      return "border-amber-200 bg-amber-50 text-amber-700";
+      return "border-brand-orange bg-brand-mist text-brand-orange";
   }
 }
 
@@ -806,7 +806,7 @@ function actionButtonClass(
     "rounded-xl border px-3 py-2 text-xs font-black transition";
 
   if (!active) {
-    return `${base} border-slate-200 bg-white text-slate-600 hover:bg-slate-50`;
+    return `${base} border-brand-steel bg-white text-brand-ink/70 hover:bg-brand-mist`;
   }
 
   switch (action) {
@@ -817,10 +817,10 @@ function actionButtonClass(
       return `${base} border-red-600 bg-red-600 text-white`;
 
     case "suspend":
-      return `${base} border-orange-600 bg-orange-600 text-white`;
+      return `${base} border-brand-orange bg-brand-orange text-white`;
 
     case "return_to_draft":
-      return `${base} border-blue-600 bg-blue-600 text-white`;
+      return `${base} border-brand-ink bg-brand-ink text-white`;
   }
 }
 
@@ -1382,16 +1382,16 @@ export default function AdminModerationPage() {
     <div className="space-y-6">
       <header className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
         <div>
-          <div className="flex items-center gap-2 text-sm font-bold text-blue-700">
+          <div className="flex items-center gap-2 text-sm font-bold text-brand-ink">
             <ShieldCheck className="h-4 w-4" />
             Product moderation
           </div>
 
-          <h1 className="mt-1 text-2xl font-black tracking-tight text-slate-950 sm:text-3xl">
+          <h1 className="mt-1 text-2xl font-black tracking-tight text-brand-ink sm:text-3xl">
             Review marketplace products
           </h1>
 
-          <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-500">
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-brand-ink/70">
             Inspect seller listings, review images and product data, record moderation flags, then approve, reject, suspend or return products to draft.
           </p>
         </div>
@@ -1404,7 +1404,7 @@ export default function AdminModerationPage() {
             )
           }
           disabled={refreshing}
-          className="inline-flex h-10 w-fit items-center gap-2 rounded-xl bg-blue-700 px-4 text-sm font-bold text-white transition hover:bg-blue-800 disabled:opacity-50"
+          className="inline-flex h-10 w-fit items-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-bold text-white transition hover:bg-brand-ink disabled:opacity-50"
         >
           <RefreshCw
             className={`h-4 w-4 ${
@@ -1474,7 +1474,7 @@ export default function AdminModerationPage() {
         />
       </section>
 
-      <section className="rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+      <section className="rounded-3xl border border-brand-steel bg-white p-4 shadow-sm sm:p-5">
         <div className="grid gap-3 xl:grid-cols-[minmax(0,1fr)_220px_220px_auto]">
           <form
             onSubmit={(
@@ -1485,7 +1485,7 @@ export default function AdminModerationPage() {
             }}
             className="relative"
           >
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
 
             <input
               value={
@@ -1499,12 +1499,12 @@ export default function AdminModerationPage() {
                 )
               }
               placeholder="Search product, seller, category or brand..."
-              className="h-11 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-3 text-sm text-slate-900 outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-50"
+              className="h-11 w-full rounded-xl border border-brand-steel bg-white pl-10 pr-3 text-sm text-brand-ink outline-none transition focus:border-brand-orange focus:ring-4 focus:ring-brand-mist"
             />
           </form>
 
           <div className="relative">
-            <Filter className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <Filter className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
 
             <select
               value={status}
@@ -1517,7 +1517,7 @@ export default function AdminModerationPage() {
 
                 setPage(1);
               }}
-              className="h-11 w-full appearance-none rounded-xl border border-slate-200 bg-white pl-10 pr-9 text-sm font-semibold text-slate-700 outline-none focus:border-blue-400"
+              className="h-11 w-full appearance-none rounded-xl border border-brand-steel bg-white pl-10 pr-9 text-sm font-semibold text-brand-ink outline-none focus:border-brand-orange"
             >
               {STATUS_FILTERS.map(
                 (option) => (
@@ -1535,7 +1535,7 @@ export default function AdminModerationPage() {
               )}
             </select>
 
-            <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
           </div>
 
           <div className="relative">
@@ -1550,7 +1550,7 @@ export default function AdminModerationPage() {
 
                 setPage(1);
               }}
-              className="h-11 w-full appearance-none rounded-xl border border-slate-200 bg-white px-3 pr-9 text-sm font-semibold text-slate-700 outline-none focus:border-blue-400"
+              className="h-11 w-full appearance-none rounded-xl border border-brand-steel bg-white px-3 pr-9 text-sm font-semibold text-brand-ink outline-none focus:border-brand-orange"
             >
               {SORT_OPTIONS.map(
                 (option) => (
@@ -1568,7 +1568,7 @@ export default function AdminModerationPage() {
               )}
             </select>
 
-            <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
           </div>
 
           <div className="flex gap-2">
@@ -1577,7 +1577,7 @@ export default function AdminModerationPage() {
               onClick={
                 submitSearch
               }
-              className="h-11 flex-1 rounded-xl bg-slate-900 px-4 text-sm font-bold text-white hover:bg-slate-800"
+              className="h-11 flex-1 rounded-xl bg-brand-ink px-4 text-sm font-bold text-white hover:bg-brand-ink"
             >
               Search
             </button>
@@ -1588,7 +1588,7 @@ export default function AdminModerationPage() {
               onClick={
                 clearFilters
               }
-              className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-slate-200 text-slate-500 hover:bg-slate-50"
+              className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-brand-steel text-brand-ink/70 hover:bg-brand-mist"
             >
               <X className="h-4 w-4" />
             </button>
@@ -1596,14 +1596,14 @@ export default function AdminModerationPage() {
         </div>
       </section>
 
-      <section className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-        <div className="flex items-center justify-between gap-3 border-b border-slate-100 px-4 py-4 sm:px-5">
+      <section className="overflow-hidden rounded-3xl border border-brand-steel bg-white shadow-sm">
+        <div className="flex items-center justify-between gap-3 border-b border-brand-mist px-4 py-4 sm:px-5">
           <div>
-            <h2 className="font-black text-slate-950">
+            <h2 className="font-black text-brand-ink">
               Moderation queue
             </h2>
 
-            <p className="mt-1 text-xs text-slate-500">
+            <p className="mt-1 text-xs text-brand-ink/70">
               {meta.total ??
                 products.length}{" "}
               matching products
@@ -1626,9 +1626,9 @@ export default function AdminModerationPage() {
         {loading ? (
           <div className="flex min-h-80 items-center justify-center">
             <div className="text-center">
-              <Loader2 className="mx-auto h-7 w-7 animate-spin text-blue-700" />
+              <Loader2 className="mx-auto h-7 w-7 animate-spin text-brand-ink" />
 
-              <p className="mt-3 text-sm text-slate-500">
+              <p className="mt-3 text-sm text-brand-ink/70">
                 Loading moderation queue...
               </p>
             </div>
@@ -1636,15 +1636,15 @@ export default function AdminModerationPage() {
         ) : products.length ===
           0 ? (
           <div className="flex min-h-80 flex-col items-center justify-center px-6 text-center">
-            <div className="grid h-14 w-14 place-items-center rounded-2xl bg-slate-100 text-slate-400">
+            <div className="grid h-14 w-14 place-items-center rounded-2xl bg-brand-mist text-brand-steel">
               <PackageSearch className="h-7 w-7" />
             </div>
 
-            <h3 className="mt-4 font-black text-slate-950">
+            <h3 className="mt-4 font-black text-brand-ink">
               No products found
             </h3>
 
-            <p className="mt-1 max-w-md text-sm leading-6 text-slate-500">
+            <p className="mt-1 max-w-md text-sm leading-6 text-brand-ink/70">
               There are no products matching the selected moderation filters.
             </p>
           </div>
@@ -1673,7 +1673,7 @@ export default function AdminModerationPage() {
         {!loading &&
         (meta.last_page ??
           1) > 1 ? (
-          <div className="flex items-center justify-between border-t border-slate-100 px-4 py-4 sm:px-5">
+          <div className="flex items-center justify-between border-t border-brand-mist px-4 py-4 sm:px-5">
             <button
               type="button"
               disabled={page <= 1}
@@ -1686,12 +1686,12 @@ export default function AdminModerationPage() {
                     ),
                 )
               }
-              className="h-9 rounded-xl border border-slate-200 px-3 text-sm font-bold text-slate-700 disabled:cursor-not-allowed disabled:opacity-40"
+              className="h-9 rounded-xl border border-brand-steel px-3 text-sm font-bold text-brand-ink disabled:cursor-not-allowed disabled:opacity-40"
             >
               Previous
             </button>
 
-            <span className="text-sm font-semibold text-slate-500">
+            <span className="text-sm font-semibold text-brand-ink/70">
               Page {page} of{" "}
               {meta.last_page ??
                 1}
@@ -1710,7 +1710,7 @@ export default function AdminModerationPage() {
                     current + 1,
                 )
               }
-              className="h-9 rounded-xl border border-slate-200 px-3 text-sm font-bold text-slate-700 disabled:cursor-not-allowed disabled:opacity-40"
+              className="h-9 rounded-xl border border-brand-steel px-3 text-sm font-bold text-brand-ink disabled:cursor-not-allowed disabled:opacity-40"
             >
               Next
             </button>
@@ -1781,8 +1781,8 @@ function ModerationCard({
     productImage(product);
 
   return (
-    <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-100/50">
-      <div className="relative h-44 bg-slate-50">
+    <article className="overflow-hidden rounded-2xl border border-brand-steel bg-white transition hover:-translate-y-0.5 hover:border-brand-orange hover:shadow-lg hover:shadow-brand-mist/50">
+      <div className="relative h-44 bg-brand-mist">
         {image ? (
           <img
             src={image}
@@ -1790,7 +1790,7 @@ function ModerationCard({
             className="h-full w-full object-contain p-3"
           />
         ) : (
-          <div className="flex h-full flex-col items-center justify-center text-slate-400">
+          <div className="flex h-full flex-col items-center justify-center text-brand-steel">
             <ImageIcon className="h-8 w-8" />
 
             <span className="mt-2 text-xs font-semibold">
@@ -1811,18 +1811,18 @@ function ModerationCard({
       </div>
 
       <div className="p-4">
-        <p className="text-[10px] font-black uppercase tracking-[0.12em] text-slate-400">
+        <p className="text-[10px] font-black uppercase tracking-[0.12em] text-brand-steel">
           {product.brand?.name ??
             "No brand"}
         </p>
 
-        <h3 className="mt-1 line-clamp-2 min-h-12 text-base font-black leading-6 text-slate-950">
+        <h3 className="mt-1 line-clamp-2 min-h-12 text-base font-black leading-6 text-brand-ink">
           {product.name}
         </h3>
 
         <div className="mt-3 space-y-2 text-xs">
-          <div className="flex items-center gap-2 text-slate-500">
-            <Store className="h-3.5 w-3.5 shrink-0 text-blue-600" />
+          <div className="flex items-center gap-2 text-brand-ink/70">
+            <Store className="h-3.5 w-3.5 shrink-0 text-brand-ink" />
 
             <span className="truncate">
               {sellerName(
@@ -1831,8 +1831,8 @@ function ModerationCard({
             </span>
           </div>
 
-          <div className="flex items-center gap-2 text-slate-500">
-            <PackageSearch className="h-3.5 w-3.5 shrink-0 text-blue-600" />
+          <div className="flex items-center gap-2 text-brand-ink/70">
+            <PackageSearch className="h-3.5 w-3.5 shrink-0 text-brand-ink" />
 
             <span className="truncate">
               {product.category
@@ -1842,8 +1842,8 @@ function ModerationCard({
           </div>
         </div>
 
-        <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3">
-          <span className="text-[11px] font-semibold text-slate-400">
+        <div className="mt-4 flex items-center justify-between border-t border-brand-mist pt-3">
+          <span className="text-[11px] font-semibold text-brand-steel">
             {product.moderation
               ?.submitted_at
               ? `Submitted ${formatDate(
@@ -1857,7 +1857,7 @@ function ModerationCard({
         <button
           type="button"
           onClick={onOpen}
-          className="mt-4 inline-flex h-10 w-full items-center justify-center gap-2 rounded-xl bg-blue-700 text-sm font-black text-white transition hover:bg-blue-800"
+          className="mt-4 inline-flex h-10 w-full items-center justify-center gap-2 rounded-xl bg-brand-ink text-sm font-black text-white transition hover:bg-brand-ink"
         >
           <Eye className="h-4 w-4" />
           Review product
@@ -1930,7 +1930,7 @@ function ModerationModal({
   return (
     <ModalPortal>
       <div
-        className="fixed inset-0 z-[3000] flex items-center justify-center overflow-hidden bg-slate-950/70 p-2 backdrop-blur-[2px] sm:p-4"
+        className="fixed inset-0 z-[3000] flex items-center justify-center overflow-hidden bg-brand-ink/70 p-2 backdrop-blur-[2px] sm:p-4"
         onMouseDown={(
           event,
         ) => {
@@ -1944,10 +1944,10 @@ function ModerationModal({
         }}
       >
         <div className="flex h-[calc(100dvh-16px)] max-h-[940px] w-full max-w-7xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl sm:h-[calc(100dvh-32px)]">
-          <div className="flex shrink-0 items-center justify-between gap-4 border-b border-slate-200 bg-white px-4 py-4 sm:px-6">
+          <div className="flex shrink-0 items-center justify-between gap-4 border-b border-brand-steel bg-white px-4 py-4 sm:px-6">
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-2">
-                <p className="text-xs font-black uppercase tracking-[0.14em] text-blue-600">
+                <p className="text-xs font-black uppercase tracking-[0.14em] text-brand-ink">
                   Product moderation
                 </p>
 
@@ -1962,7 +1962,7 @@ function ModerationModal({
                 </span>
               </div>
 
-              <h2 className="mt-1 truncate text-xl font-black text-slate-950 sm:text-2xl">
+              <h2 className="mt-1 truncate text-xl font-black text-brand-ink sm:text-2xl">
                 {product.name}
               </h2>
             </div>
@@ -1972,7 +1972,7 @@ function ModerationModal({
               aria-label="Close moderation"
               disabled={saving}
               onClick={onClose}
-              className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-slate-500 transition hover:bg-slate-50 hover:text-slate-950 disabled:opacity-50"
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-brand-steel bg-white text-brand-ink/70 transition hover:bg-brand-mist hover:text-brand-ink disabled:opacity-50"
             >
               <X className="h-4 w-4" />
             </button>
@@ -1981,19 +1981,19 @@ function ModerationModal({
           {detailLoading ? (
             <div className="flex min-h-0 flex-1 items-center justify-center">
               <div className="text-center">
-                <Loader2 className="mx-auto h-8 w-8 animate-spin text-blue-700" />
+                <Loader2 className="mx-auto h-8 w-8 animate-spin text-brand-ink" />
 
-                <p className="mt-3 text-sm text-slate-500">
+                <p className="mt-3 text-sm text-brand-ink/70">
                   Loading complete product details...
                 </p>
               </div>
             </div>
           ) : (
             <div className="grid min-h-0 flex-1 xl:grid-cols-[minmax(0,1.2fr)_minmax(390px,0.8fr)]">
-              <div className="min-h-0 overflow-y-auto border-r border-slate-100 p-4 sm:p-6">
+              <div className="min-h-0 overflow-y-auto border-r border-brand-mist p-4 sm:p-6">
                 <section className="grid gap-5 lg:grid-cols-[280px_minmax(0,1fr)]">
                   <div>
-                    <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+                    <div className="overflow-hidden rounded-2xl border border-brand-steel bg-brand-mist">
                       <div className="flex aspect-square items-center justify-center">
                         {image ? (
                           <img
@@ -2002,7 +2002,7 @@ function ModerationModal({
                             className="h-full w-full object-contain p-4"
                           />
                         ) : (
-                          <div className="text-center text-slate-400">
+                          <div className="text-center text-brand-steel">
                             <ImageIcon className="mx-auto h-10 w-10" />
 
                             <p className="mt-2 text-xs font-semibold">
@@ -2088,11 +2088,11 @@ function ModerationModal({
                     </div>
 
                     <div className="mt-5">
-                      <h3 className="text-xs font-black uppercase tracking-[0.12em] text-slate-400">
+                      <h3 className="text-xs font-black uppercase tracking-[0.12em] text-brand-steel">
                         Description
                       </h3>
 
-                      <p className="mt-2 whitespace-pre-line text-sm leading-7 text-slate-700">
+                      <p className="mt-2 whitespace-pre-line text-sm leading-7 text-brand-ink">
                         {product.description ??
                           product.short_description ??
                           "No description provided."}
@@ -2104,13 +2104,13 @@ function ModerationModal({
                     product.publication_readiness
                       .errors.length >
                       0 ? (
-                      <div className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-4">
-                        <div className="flex items-center gap-2 text-sm font-black text-amber-800">
+                      <div className="mt-5 rounded-2xl border border-brand-orange bg-brand-mist p-4">
+                        <div className="flex items-center gap-2 text-sm font-black text-brand-orange">
                           <AlertTriangle className="h-4 w-4" />
                           Publication readiness
                         </div>
 
-                        <ul className="mt-2 space-y-1 text-xs leading-5 text-amber-800">
+                        <ul className="mt-2 space-y-1 text-xs leading-5 text-brand-orange">
                           {product.publication_readiness.errors.map(
                             (
                               item,
@@ -2132,7 +2132,7 @@ function ModerationModal({
                 {specs.length >
                 0 ? (
                   <section className="mt-7">
-                    <h3 className="text-sm font-black text-slate-950">
+                    <h3 className="text-sm font-black text-brand-ink">
                       Product specifications
                     </h3>
 
@@ -2178,13 +2178,13 @@ function ModerationModal({
                   []
                 ).length > 0 ? (
                   <section className="mt-7">
-                    <h3 className="text-sm font-black text-slate-950">
+                    <h3 className="text-sm font-black text-brand-ink">
                       Variants, price & inventory
                     </h3>
 
-                    <div className="mt-3 overflow-x-auto rounded-2xl border border-slate-200">
+                    <div className="mt-3 overflow-x-auto rounded-2xl border border-brand-steel">
                       <table className="min-w-full text-left text-sm">
-                        <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+                        <thead className="bg-brand-mist text-xs uppercase tracking-wide text-brand-ink/70">
                           <tr>
                             <th className="px-4 py-3">
                               Variant
@@ -2204,7 +2204,7 @@ function ModerationModal({
                           </tr>
                         </thead>
 
-                        <tbody className="divide-y divide-slate-100">
+                        <tbody className="divide-y divide-brand-mist">
                           {product.variants?.map(
                             (
                               variant,
@@ -2216,17 +2216,17 @@ function ModerationModal({
                                   index
                                 }
                               >
-                                <td className="px-4 py-3 font-bold text-slate-900">
+                                <td className="px-4 py-3 font-bold text-brand-ink">
                                   {variant.name ??
                                     "Default"}
                                 </td>
 
-                                <td className="px-4 py-3 text-slate-600">
+                                <td className="px-4 py-3 text-brand-ink/70">
                                   {variant.sku ??
                                     "—"}
                                 </td>
 
-                                <td className="px-4 py-3 text-slate-600">
+                                <td className="px-4 py-3 text-brand-ink/70">
                                   {variant.price
                                     ?.selling_price ??
                                     "—"}{" "}
@@ -2235,7 +2235,7 @@ function ModerationModal({
                                     ""}
                                 </td>
 
-                                <td className="px-4 py-3 text-slate-600">
+                                <td className="px-4 py-3 text-brand-ink/70">
                                   {variant.available_quantity ??
                                     variant.inventory
                                       ?.available_quantity ??
@@ -2252,16 +2252,16 @@ function ModerationModal({
 
                 <section className="mt-7">
                   <div className="flex items-center gap-2">
-                    <History className="h-4 w-4 text-blue-600" />
+                    <History className="h-4 w-4 text-brand-ink" />
 
-                    <h3 className="text-sm font-black text-slate-950">
+                    <h3 className="text-sm font-black text-brand-ink">
                       Moderation history
                     </h3>
                   </div>
 
                   {history.length ===
                   0 ? (
-                    <p className="mt-3 rounded-xl bg-slate-50 p-4 text-sm text-slate-500">
+                    <p className="mt-3 rounded-xl bg-brand-mist p-4 text-sm text-brand-ink/70">
                       No previous moderation review has been recorded.
                     </p>
                   ) : (
@@ -2287,17 +2287,17 @@ function ModerationModal({
                 </section>
               </div>
 
-              <aside className="min-h-0 overflow-y-auto bg-slate-50 p-4 sm:p-6">
-                <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+              <aside className="min-h-0 overflow-y-auto bg-brand-mist p-4 sm:p-6">
+                <div className="rounded-2xl border border-brand-steel bg-white p-4 shadow-sm">
                   <div className="flex items-center gap-2">
-                    <ShieldAlert className="h-5 w-5 text-blue-700" />
+                    <ShieldAlert className="h-5 w-5 text-brand-ink" />
 
-                    <h3 className="font-black text-slate-950">
+                    <h3 className="font-black text-brand-ink">
                       Moderation decision
                     </h3>
                   </div>
 
-                  <p className="mt-2 text-xs leading-5 text-slate-500">
+                  <p className="mt-2 text-xs leading-5 text-brand-ink/70">
                     Choose an action that is valid for the current product status.
                   </p>
 
@@ -2352,9 +2352,9 @@ function ModerationModal({
 
                 {action !==
                 "approve" ? (
-                  <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-4">
+                  <div className="mt-4 rounded-2xl border border-brand-steel bg-white p-4">
                     <label className="block">
-                      <span className="text-sm font-black text-slate-800">
+                      <span className="text-sm font-black text-brand-ink">
                         Moderation reason
                         {actionNeedsReason(
                           action,
@@ -2381,7 +2381,7 @@ function ModerationModal({
                           saving
                         }
                         placeholder="Explain clearly why this moderation action is required..."
-                        className="mt-2 w-full resize-y rounded-xl border border-slate-200 p-3 text-sm leading-6 outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-50"
+                        className="mt-2 w-full resize-y rounded-xl border border-brand-steel p-3 text-sm leading-6 outline-none focus:border-brand-orange focus:ring-4 focus:ring-brand-mist"
                       />
                     </label>
                   </div>
@@ -2399,16 +2399,16 @@ function ModerationModal({
 
                 {action !==
                 "approve" ? (
-                  <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-4">
+                  <div className="mt-4 rounded-2xl border border-brand-steel bg-white p-4">
                     <div className="flex items-center gap-2">
-                      <Flag className="h-4 w-4 text-slate-600" />
+                      <Flag className="h-4 w-4 text-brand-ink/70" />
 
-                      <h4 className="text-sm font-black text-slate-800">
+                      <h4 className="text-sm font-black text-brand-ink">
                         Moderation flags
                       </h4>
                     </div>
 
-                    <p className="mt-1 text-xs leading-5 text-slate-500">
+                    <p className="mt-1 text-xs leading-5 text-brand-ink/70">
                       Select all issues that apply. High-risk flags can force rejection or suspension.
                     </p>
 
@@ -2431,8 +2431,8 @@ function ModerationModal({
                                 checked
                                   ? option.dangerous
                                     ? "border-red-300 bg-red-50"
-                                    : "border-blue-300 bg-blue-50"
-                                  : "border-slate-200 bg-white hover:bg-slate-50"
+                                    : "border-brand-orange bg-brand-mist"
+                                  : "border-brand-steel bg-white hover:bg-brand-mist"
                               }`}
                             >
                               <input
@@ -2448,11 +2448,11 @@ function ModerationModal({
                                     option.value,
                                   )
                                 }
-                                className="mt-0.5 h-4 w-4 rounded border-slate-300"
+                                className="mt-0.5 h-4 w-4 rounded border-brand-steel"
                               />
 
                               <span className="min-w-0 flex-1">
-                                <span className="block text-xs font-bold text-slate-800">
+                                <span className="block text-xs font-bold text-brand-ink">
                                   {
                                     option.label
                                   }
@@ -2473,7 +2473,7 @@ function ModerationModal({
                     {selectedFlags.length >
                     0 ? (
                       <label className="mt-4 block">
-                        <span className="text-sm font-black text-slate-800">
+                        <span className="text-sm font-black text-brand-ink">
                           Flag explanation
                           <span className="ml-1 text-red-500">
                             *
@@ -2496,7 +2496,7 @@ function ModerationModal({
                             saving
                           }
                           placeholder="Explain why the selected flags apply..."
-                          className="mt-2 w-full resize-y rounded-xl border border-slate-200 p-3 text-sm leading-6 outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-50"
+                          className="mt-2 w-full resize-y rounded-xl border border-brand-steel p-3 text-sm leading-6 outline-none focus:border-brand-orange focus:ring-4 focus:ring-brand-mist"
                         />
                       </label>
                     ) : null}
@@ -2513,9 +2513,9 @@ function ModerationModal({
                   </div>
                 ) : null}
 
-                <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-4">
+                <div className="mt-4 rounded-2xl border border-brand-steel bg-white p-4">
                   <label className="block">
-                    <span className="text-sm font-black text-slate-800">
+                    <span className="text-sm font-black text-brand-ink">
                       Internal notes
                     </span>
 
@@ -2534,8 +2534,8 @@ function ModerationModal({
                       disabled={
                         saving
                       }
-                      placeholder="Optional notes for RushPi administrators..."
-                      className="mt-2 w-full resize-y rounded-xl border border-slate-200 p-3 text-sm leading-6 outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-50"
+                      placeholder="Optional notes for EliteMart administrators..."
+                      className="mt-2 w-full resize-y rounded-xl border border-brand-steel p-3 text-sm leading-6 outline-none focus:border-brand-orange focus:ring-4 focus:ring-brand-mist"
                     />
                   </label>
                 </div>
@@ -2568,8 +2568,8 @@ function ModerationModal({
                         ? "bg-red-600 hover:bg-red-700"
                         : action ===
                             "suspend"
-                          ? "bg-orange-600 hover:bg-orange-700"
-                          : "bg-blue-700 hover:bg-blue-800"
+                          ? "bg-brand-orange hover:bg-brand-orange"
+                          : "bg-brand-ink hover:bg-brand-ink"
                   }`}
                 >
                   {saving ? (
@@ -2616,10 +2616,10 @@ function HistoryCard({
     [];
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-4">
+    <div className="rounded-2xl border border-brand-steel bg-white p-4">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="text-sm font-black text-slate-900">
+          <p className="text-sm font-black text-brand-ink">
             {statusLabel(
               item.action ??
                 item.new_status ??
@@ -2627,14 +2627,14 @@ function HistoryCard({
             )}
           </p>
 
-          <p className="mt-1 text-xs text-slate-500">
+          <p className="mt-1 text-xs text-brand-ink/70">
             {reviewer?.name ??
               reviewer?.email ??
               "Administrator"}
           </p>
         </div>
 
-        <span className="text-[11px] font-semibold text-slate-400">
+        <span className="text-[11px] font-semibold text-brand-steel">
           {formatDate(
             item.created_at,
           )}
@@ -2642,7 +2642,7 @@ function HistoryCard({
       </div>
 
       {item.reason ? (
-        <p className="mt-3 text-xs leading-5 text-slate-600">
+        <p className="mt-3 text-xs leading-5 text-brand-ink/70">
           {item.reason}
         </p>
       ) : null}
@@ -2666,7 +2666,7 @@ function HistoryCard({
       ) : null}
 
       {item.notes ? (
-        <p className="mt-3 rounded-lg bg-slate-50 p-2 text-[11px] leading-5 text-slate-500">
+        <p className="mt-3 rounded-lg bg-brand-mist p-2 text-[11px] leading-5 text-brand-ink/70">
           {item.notes}
         </p>
       ) : null}
@@ -2687,22 +2687,22 @@ function SummaryCard({
   hint: string;
 }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+    <div className="rounded-2xl border border-brand-steel bg-white p-4 shadow-sm">
       <div className="flex items-start gap-3">
-        <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-blue-50 text-blue-700">
+        <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-mist text-brand-ink">
           <Icon className="h-5 w-5" />
         </div>
 
         <div>
-          <p className="text-xs font-bold uppercase tracking-wide text-slate-500">
+          <p className="text-xs font-bold uppercase tracking-wide text-brand-ink/70">
             {label}
           </p>
 
-          <p className="mt-1 text-2xl font-black text-slate-950">
+          <p className="mt-1 text-2xl font-black text-brand-ink">
             {value}
           </p>
 
-          <p className="mt-1 text-xs text-slate-500">
+          <p className="mt-1 text-xs text-brand-ink/70">
             {hint}
           </p>
         </div>
@@ -2721,12 +2721,12 @@ function MiniMetric({
     | number;
 }) {
   return (
-    <div className="rounded-xl bg-slate-50 p-3">
-      <p className="text-[10px] font-black uppercase tracking-wide text-slate-400">
+    <div className="rounded-xl bg-brand-mist p-3">
+      <p className="text-[10px] font-black uppercase tracking-wide text-brand-steel">
         {label}
       </p>
 
-      <p className="mt-1 truncate text-sm font-black text-slate-900">
+      <p className="mt-1 truncate text-sm font-black text-brand-ink">
         {value}
       </p>
     </div>
@@ -2741,12 +2741,12 @@ function InfoBox({
   value: string;
 }) {
   return (
-    <div className="rounded-xl bg-slate-50 p-3">
-      <p className="text-[10px] font-black uppercase tracking-wide text-slate-400">
+    <div className="rounded-xl bg-brand-mist p-3">
+      <p className="text-[10px] font-black uppercase tracking-wide text-brand-steel">
         {label}
       </p>
 
-      <p className="mt-1 break-words text-sm font-black text-slate-900">
+      <p className="mt-1 break-words text-sm font-black text-brand-ink">
         {value}
       </p>
     </div>

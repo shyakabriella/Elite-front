@@ -425,7 +425,7 @@ export default function BrandSeriesModelManager({
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[120] flex items-center justify-center bg-slate-950/65 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-[120] flex items-center justify-center bg-brand-ink/65 p-4 backdrop-blur-sm"
       onClick={onClose}
     >
       <section
@@ -436,13 +436,13 @@ export default function BrandSeriesModelManager({
         }
         className="flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl"
       >
-        <header className="flex items-start justify-between border-b border-slate-200 px-6 py-5">
+        <header className="flex items-start justify-between border-b border-brand-steel px-6 py-5">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-600">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-brand-ink">
               Brand catalog
             </p>
 
-            <h2 className="mt-2 text-2xl font-black text-slate-950">
+            <h2 className="mt-2 text-2xl font-black text-brand-ink">
               Manage {brand.name} Series and Models
             </h2>
           </div>
@@ -450,7 +450,7 @@ export default function BrandSeriesModelManager({
           <button
             type="button"
             onClick={onClose}
-            className="grid h-10 w-10 place-items-center rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-900"
+            className="grid h-10 w-10 place-items-center rounded-xl text-brand-steel hover:bg-brand-mist hover:text-brand-ink"
           >
             <X className="h-5 w-5" />
           </button>
@@ -463,11 +463,11 @@ export default function BrandSeriesModelManager({
         ) : null}
 
         <div className="grid min-h-0 flex-1 overflow-y-auto lg:grid-cols-2">
-          <div className="border-b border-slate-200 p-6 lg:border-b-0 lg:border-r">
+          <div className="border-b border-brand-steel p-6 lg:border-b-0 lg:border-r">
             <div className="mb-4 flex items-center gap-2">
-              <Layers3 className="h-5 w-5 text-blue-700" />
+              <Layers3 className="h-5 w-5 text-brand-ink" />
 
-              <h3 className="font-black text-slate-950">
+              <h3 className="font-black text-brand-ink">
                 Series
               </h3>
             </div>
@@ -482,7 +482,7 @@ export default function BrandSeriesModelManager({
                   setSeriesName(event.target.value)
                 }
                 placeholder="Example: iPhone 17"
-                className="h-11 min-w-0 flex-1 rounded-xl border border-slate-300 px-4 outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
+                className="h-11 min-w-0 flex-1 rounded-xl border border-brand-steel px-4 outline-none focus:border-brand-ink focus:ring-4 focus:ring-brand-mist"
               />
 
               <button
@@ -491,7 +491,7 @@ export default function BrandSeriesModelManager({
                   savingSeries ||
                   !seriesName.trim()
                 }
-                className="inline-flex h-11 items-center gap-2 rounded-xl bg-blue-700 px-4 text-sm font-black text-white disabled:opacity-50"
+                className="inline-flex h-11 items-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-black text-white disabled:opacity-50"
               >
                 {savingSeries ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
@@ -510,7 +510,7 @@ export default function BrandSeriesModelManager({
                   setEditingSeries(null);
                   setSeriesName("");
                 }}
-                className="mt-2 text-xs font-bold text-slate-500"
+                className="mt-2 text-xs font-bold text-brand-ink/70"
               >
                 Cancel editing
               </button>
@@ -518,9 +518,9 @@ export default function BrandSeriesModelManager({
 
             <div className="mt-5 space-y-2">
               {loadingSeries ? (
-                <Loader2 className="mx-auto h-6 w-6 animate-spin text-blue-700" />
+                <Loader2 className="mx-auto h-6 w-6 animate-spin text-brand-ink" />
               ) : series.length === 0 ? (
-                <p className="rounded-xl bg-slate-50 p-4 text-sm text-slate-500">
+                <p className="rounded-xl bg-brand-mist p-4 text-sm text-brand-ink/70">
                   No series added yet.
                 </p>
               ) : (
@@ -535,8 +535,8 @@ export default function BrandSeriesModelManager({
                       className={[
                         "flex items-center gap-3 rounded-xl border p-3",
                         selected
-                          ? "border-blue-300 bg-blue-50"
-                          : "border-slate-200 bg-white",
+                          ? "border-brand-orange bg-brand-mist"
+                          : "border-brand-steel bg-white",
                       ].join(" ")}
                     >
                       <button
@@ -546,11 +546,11 @@ export default function BrandSeriesModelManager({
                         }
                         className="min-w-0 flex-1 text-left"
                       >
-                        <span className="block truncate font-black text-slate-900">
+                        <span className="block truncate font-black text-brand-ink">
                           {item.name}
                         </span>
 
-                        <span className="mt-1 block text-xs text-slate-500">
+                        <span className="mt-1 block text-xs text-brand-ink/70">
                           {item.models_count ?? 0} models
                         </span>
                       </button>
@@ -561,7 +561,7 @@ export default function BrandSeriesModelManager({
                           setEditingSeries(item);
                           setSeriesName(item.name);
                         }}
-                        className="grid h-9 w-9 place-items-center rounded-lg text-blue-700 hover:bg-blue-100"
+                        className="grid h-9 w-9 place-items-center rounded-lg text-brand-ink hover:bg-brand-mist"
                       >
                         <Pencil className="h-4 w-4" />
                       </button>
@@ -584,9 +584,9 @@ export default function BrandSeriesModelManager({
 
           <div className="p-6">
             <div className="mb-4 flex items-center gap-2">
-              <Smartphone className="h-5 w-5 text-blue-700" />
+              <Smartphone className="h-5 w-5 text-brand-ink" />
 
-              <h3 className="font-black text-slate-950">
+              <h3 className="font-black text-brand-ink">
                 Models
                 {selectedSeries
                   ? ` — ${selectedSeries.name}`
@@ -595,7 +595,7 @@ export default function BrandSeriesModelManager({
             </div>
 
             {!selectedSeries ? (
-              <p className="rounded-xl bg-amber-50 p-4 text-sm text-amber-800">
+              <p className="rounded-xl bg-brand-mist p-4 text-sm text-brand-orange">
                 Add or select a series before adding models.
               </p>
             ) : (
@@ -612,7 +612,7 @@ export default function BrandSeriesModelManager({
                       )
                     }
                     placeholder="Example: iPhone 17 Pro"
-                    className="h-11 min-w-0 flex-1 rounded-xl border border-slate-300 px-4 outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
+                    className="h-11 min-w-0 flex-1 rounded-xl border border-brand-steel px-4 outline-none focus:border-brand-ink focus:ring-4 focus:ring-brand-mist"
                   />
 
                   <button
@@ -621,7 +621,7 @@ export default function BrandSeriesModelManager({
                       savingModel ||
                       !modelName.trim()
                     }
-                    className="inline-flex h-11 items-center gap-2 rounded-xl bg-blue-700 px-4 text-sm font-black text-white disabled:opacity-50"
+                    className="inline-flex h-11 items-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-black text-white disabled:opacity-50"
                   >
                     {savingModel ? (
                       <Loader2 className="h-4 w-4 animate-spin" />
@@ -640,7 +640,7 @@ export default function BrandSeriesModelManager({
                       setEditingModel(null);
                       setModelName("");
                     }}
-                    className="mt-2 text-xs font-bold text-slate-500"
+                    className="mt-2 text-xs font-bold text-brand-ink/70"
                   >
                     Cancel editing
                   </button>
@@ -648,23 +648,23 @@ export default function BrandSeriesModelManager({
 
                 <div className="mt-5 space-y-2">
                   {loadingModels ? (
-                    <Loader2 className="mx-auto h-6 w-6 animate-spin text-blue-700" />
+                    <Loader2 className="mx-auto h-6 w-6 animate-spin text-brand-ink" />
                   ) : models.length === 0 ? (
-                    <p className="rounded-xl bg-slate-50 p-4 text-sm text-slate-500">
+                    <p className="rounded-xl bg-brand-mist p-4 text-sm text-brand-ink/70">
                       No models added to this series.
                     </p>
                   ) : (
                     models.map((item) => (
                       <div
                         key={item.public_id}
-                        className="flex items-center gap-3 rounded-xl border border-slate-200 p-3"
+                        className="flex items-center gap-3 rounded-xl border border-brand-steel p-3"
                       >
                         <div className="min-w-0 flex-1">
-                          <p className="truncate font-black text-slate-900">
+                          <p className="truncate font-black text-brand-ink">
                             {item.name}
                           </p>
 
-                          <p className="mt-1 truncate text-xs text-slate-500">
+                          <p className="mt-1 truncate text-xs text-brand-ink/70">
                             {item.slug}
                           </p>
                         </div>
@@ -675,7 +675,7 @@ export default function BrandSeriesModelManager({
                             setEditingModel(item);
                             setModelName(item.name);
                           }}
-                          className="grid h-9 w-9 place-items-center rounded-lg text-blue-700 hover:bg-blue-50"
+                          className="grid h-9 w-9 place-items-center rounded-lg text-brand-ink hover:bg-brand-mist"
                         >
                           <Pencil className="h-4 w-4" />
                         </button>
@@ -698,11 +698,11 @@ export default function BrandSeriesModelManager({
           </div>
         </div>
 
-        <footer className="flex justify-end border-t border-slate-200 bg-slate-50 px-6 py-4">
+        <footer className="flex justify-end border-t border-brand-steel bg-brand-mist px-6 py-4">
           <button
             type="button"
             onClick={onClose}
-            className="h-11 rounded-xl border border-slate-300 bg-white px-6 text-sm font-black text-slate-700 hover:bg-slate-100"
+            className="h-11 rounded-xl border border-brand-steel bg-white px-6 text-sm font-black text-brand-ink hover:bg-brand-mist"
           >
             Close
           </button>

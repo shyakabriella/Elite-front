@@ -19,7 +19,7 @@ export const partners: Partner[] = [
     logo: "/partners/digital-axis.png",
   },
   {
-    name: "RushPi Electronic",
+    name: "EliteMart Electronic",
     logo: "/partners/rushpi-electronic.png",
   },
 ];

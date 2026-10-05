@@ -319,19 +319,19 @@ function statusClass(
       return "bg-emerald-100 text-emerald-700";
 
     case "ready":
-      return "bg-blue-100 text-blue-700";
+      return "bg-brand-mist text-brand-ink";
 
     case "processing":
-      return "bg-violet-100 text-violet-700";
+      return "bg-brand-mist text-brand-ink";
 
     case "confirmed":
-      return "bg-cyan-100 text-cyan-700";
+      return "bg-brand-mist text-brand-ink";
 
     case "cancelled":
       return "bg-red-100 text-red-700";
 
     default:
-      return "bg-amber-100 text-amber-700";
+      return "bg-brand-mist text-brand-orange";
   }
 }
 
@@ -346,10 +346,10 @@ function paymentClass(
       return "bg-red-100 text-red-700";
 
     case "refunded":
-      return "bg-violet-100 text-violet-700";
+      return "bg-brand-mist text-brand-ink";
 
     default:
-      return "bg-amber-100 text-amber-700";
+      return "bg-brand-mist text-brand-orange";
   }
 }
 
@@ -815,13 +815,13 @@ export default function DealerOrdersPage() {
     <div className="pb-8">
       {/* PAGE HEADER */}
 
-      <div className="mb-5 flex flex-col gap-3 border-b border-slate-200 pb-5 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mb-5 flex flex-col gap-3 border-b border-brand-steel pb-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">
+          <h1 className="text-2xl font-bold text-brand-ink">
             Paint Orders
           </h1>
 
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-brand-ink/70">
             Review and manage customer paint orders.
           </p>
         </div>
@@ -836,7 +836,7 @@ export default function DealerOrdersPage() {
           disabled={
             refreshing
           }
-          className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-4 text-sm font-normal text-slate-700 transition hover:bg-slate-50 disabled:opacity-50"
+          className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-brand-steel bg-white px-4 text-sm font-normal text-brand-ink transition hover:bg-brand-mist disabled:opacity-50"
         >
           <RefreshCw
             className={`h-4 w-4 ${
@@ -918,10 +918,10 @@ export default function DealerOrdersPage() {
 
       {/* FILTERS */}
 
-      <section className="mb-5 border-y border-slate-200 bg-white py-4">
+      <section className="mb-5 border-y border-brand-steel bg-white py-4">
         <div className="grid gap-3 lg:grid-cols-[1fr_180px_180px]">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
 
             <input
               value={query}
@@ -934,7 +934,7 @@ export default function DealerOrdersPage() {
                 )
               }
               placeholder="Search order, customer, phone, paint..."
-              className="h-10 w-full rounded-lg border border-slate-300 bg-white pl-10 pr-3 text-sm text-slate-700 outline-none transition focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+              className="h-10 w-full rounded-lg border border-brand-steel bg-white pl-10 pr-3 text-sm text-brand-ink outline-none transition focus:border-brand-orange focus:ring-1 focus:ring-brand-orange"
             />
           </div>
 
@@ -948,7 +948,7 @@ export default function DealerOrdersPage() {
                   .value,
               )
             }
-            className="h-10 rounded-lg border border-slate-300 bg-white px-3 text-sm text-slate-700 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+            className="h-10 rounded-lg border border-brand-steel bg-white px-3 text-sm text-brand-ink outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange"
           >
             <option value="">
               All statuses
@@ -991,7 +991,7 @@ export default function DealerOrdersPage() {
                   .value,
               )
             }
-            className="h-10 rounded-lg border border-slate-300 bg-white px-3 text-sm text-slate-700 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+            className="h-10 rounded-lg border border-brand-steel bg-white px-3 text-sm text-brand-ink outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange"
           >
             <option value="">
               All payments
@@ -1018,38 +1018,38 @@ export default function DealerOrdersPage() {
 
       {/* ORDERS */}
 
-      <section className="overflow-hidden border border-slate-200 bg-white">
-        <div className="border-b border-slate-200 px-4 py-3 sm:px-5">
-          <h2 className="text-sm font-semibold text-slate-900">
+      <section className="overflow-hidden border border-brand-steel bg-white">
+        <div className="border-b border-brand-steel px-4 py-3 sm:px-5">
+          <h2 className="text-sm font-semibold text-brand-ink">
             Customer Orders
           </h2>
 
-          <p className="mt-1 text-xs text-slate-500">
+          <p className="mt-1 text-xs text-brand-ink/70">
             Select an order to view details and update its status.
           </p>
         </div>
 
         {loading ? (
           <div className="flex min-h-[360px] items-center justify-center">
-            <Loader2 className="h-7 w-7 animate-spin text-blue-600" />
+            <Loader2 className="h-7 w-7 animate-spin text-brand-ink" />
           </div>
         ) : visibleOrders.length ===
           0 ? (
           <div className="flex min-h-[360px] flex-col items-center justify-center px-6 text-center">
-            <ShoppingBag className="h-10 w-10 text-slate-300" />
+            <ShoppingBag className="h-10 w-10 text-brand-steel" />
 
-            <h3 className="mt-4 font-bold text-slate-800">
+            <h3 className="mt-4 font-bold text-brand-ink">
               No paint orders found
             </h3>
 
-            <p className="mt-1 text-sm text-slate-500">
+            <p className="mt-1 text-sm text-brand-ink/70">
               Customer orders will appear here.
             </p>
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="min-w-[1050px] w-full text-sm">
-              <thead className="border-b border-slate-200 bg-slate-50">
+              <thead className="border-b border-brand-steel bg-brand-mist">
                 <tr>
                   <Th>
                     Order
@@ -1085,7 +1085,7 @@ export default function DealerOrdersPage() {
                 </tr>
               </thead>
 
-              <tbody className="divide-y divide-slate-200">
+              <tbody className="divide-y divide-brand-steel">
                 {visibleOrders.map(
                   (
                     order,
@@ -1110,16 +1110,16 @@ export default function DealerOrdersPage() {
                             order,
                           )
                         }
-                        className="cursor-pointer transition hover:bg-slate-50"
+                        className="cursor-pointer transition hover:bg-brand-mist"
                       >
                         <Td>
-                          <p className="font-semibold text-slate-900">
+                          <p className="font-semibold text-brand-ink">
                             {
                               order.order_number
                             }
                           </p>
 
-                          <p className="mt-1 text-[11px] text-slate-400">
+                          <p className="mt-1 text-[11px] text-brand-steel">
                             {formatDate(
                               order.created_at,
                             )}
@@ -1127,19 +1127,19 @@ export default function DealerOrdersPage() {
                         </Td>
 
                         <Td>
-                          <p className="font-medium text-slate-800">
+                          <p className="font-medium text-brand-ink">
                             {order.customer_name ||
                               "Customer"}
                           </p>
 
-                          <p className="mt-1 text-xs text-slate-400">
+                          <p className="mt-1 text-xs text-brand-steel">
                             {order.customer_phone ||
                               "No phone"}
                           </p>
                         </Td>
 
                         <Td>
-                          <p className="max-w-[220px] truncate font-medium text-slate-800">
+                          <p className="max-w-[220px] truncate font-medium text-brand-ink">
                             {items[0]
                               ?.service_name ??
                               items[0]
@@ -1147,7 +1147,7 @@ export default function DealerOrdersPage() {
                               "Paint"}
                           </p>
 
-                          <p className="mt-1 text-xs text-slate-400">
+                          <p className="mt-1 text-xs text-brand-steel">
                             {items.length}{" "}
                             {items.length ===
                             1
@@ -1157,13 +1157,13 @@ export default function DealerOrdersPage() {
                         </Td>
 
                         <Td>
-                          <p className="font-normal text-slate-700">
+                          <p className="font-normal text-brand-ink">
                             {deliveryLabel(
                               order.delivery_method,
                             )}
                           </p>
 
-                          <p className="mt-1 max-w-[180px] truncate text-xs text-slate-400">
+                          <p className="mt-1 max-w-[180px] truncate text-xs text-brand-steel">
                             {order.delivery_city ??
                               order.delivery_address ??
                               "—"}
@@ -1171,7 +1171,7 @@ export default function DealerOrdersPage() {
                         </Td>
 
                         <Td>
-                          <p className="font-semibold text-slate-900">
+                          <p className="font-semibold text-brand-ink">
                             {money(
                               orderTotal(
                                 order,
@@ -1218,7 +1218,7 @@ export default function DealerOrdersPage() {
                                   order,
                                 );
                               }}
-                              className="inline-flex h-8 items-center gap-1.5 rounded-md border border-slate-300 bg-white px-2.5 text-xs font-medium text-slate-700 hover:bg-slate-50"
+                              className="inline-flex h-8 items-center gap-1.5 rounded-md border border-brand-steel bg-white px-2.5 text-xs font-medium text-brand-ink hover:bg-brand-mist"
                             >
                               <Eye className="h-3.5 w-3.5" />
 
@@ -1242,7 +1242,7 @@ export default function DealerOrdersPage() {
                                   processingId ===
                                   order.public_id
                                 }
-                                className="inline-flex h-8 items-center gap-1 rounded-md bg-blue-600 px-2.5 text-xs font-medium text-white transition hover:bg-blue-700 disabled:opacity-50"
+                                className="inline-flex h-8 items-center gap-1 rounded-md bg-brand-ink px-2.5 text-xs font-medium text-white transition hover:bg-brand-ink disabled:opacity-50"
                               >
                                 {processingId ===
                                 order.public_id ? (
@@ -1336,19 +1336,19 @@ function OrderDetailsModal({
       }}
     >
       <div className="max-h-[90vh] w-full max-w-4xl overflow-hidden rounded-xl bg-white shadow-xl">
-        <div className="flex items-start justify-between border-b border-slate-200 px-5 py-4 sm:px-6">
+        <div className="flex items-start justify-between border-b border-brand-steel px-5 py-4 sm:px-6">
           <div>
-            <p className="text-xs font-semibold text-slate-500">
+            <p className="text-xs font-semibold text-brand-ink/70">
               Order Details
             </p>
 
-            <h2 className="mt-1 text-xl font-bold text-slate-900">
+            <h2 className="mt-1 text-xl font-bold text-brand-ink">
               {
                 order.order_number
               }
             </h2>
 
-            <p className="mt-1 text-xs text-slate-500">
+            <p className="mt-1 text-xs text-brand-ink/70">
               {formatDate(
                 order.created_at,
               )}
@@ -1360,7 +1360,7 @@ function OrderDetailsModal({
             onClick={
               onClose
             }
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition hover:bg-slate-50"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-brand-steel text-brand-ink/70 transition hover:bg-brand-mist"
             aria-label="Close order details"
           >
             <X className="h-4 w-4" />
@@ -1393,11 +1393,11 @@ function OrderDetailsModal({
             </div>
 
             <section>
-              <h3 className="text-sm font-semibold text-slate-900">
+              <h3 className="text-sm font-semibold text-brand-ink">
                 Customer Information
               </h3>
 
-              <div className="mt-3 divide-y divide-slate-100 rounded-lg border border-slate-200">
+              <div className="mt-3 divide-y divide-brand-mist rounded-lg border border-brand-steel">
                 <SimpleDetailRow
                   label="Customer"
                   value={
@@ -1418,11 +1418,11 @@ function OrderDetailsModal({
 
             <section>
               <div className="flex items-center justify-between gap-3">
-                <h3 className="text-sm font-semibold text-slate-900">
+                <h3 className="text-sm font-semibold text-brand-ink">
                   Paints Ordered
                 </h3>
 
-                <span className="text-xs text-slate-500">
+                <span className="text-xs text-brand-ink/70">
                   {items.length}{" "}
                   {items.length ===
                   1
@@ -1431,7 +1431,7 @@ function OrderDetailsModal({
                 </span>
               </div>
 
-              <div className="mt-3 overflow-hidden rounded-lg border border-slate-200">
+              <div className="mt-3 overflow-hidden rounded-lg border border-brand-steel">
                 {items.map(
                   (
                     item,
@@ -1444,22 +1444,22 @@ function OrderDetailsModal({
                       }
                       className={`p-4 ${
                         index > 0
-                          ? "border-t border-slate-200"
+                          ? "border-t border-brand-steel"
                           : ""
                       }`}
                     >
                       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                         <div>
-                          <p className="font-semibold text-slate-900">
+                          <p className="font-semibold text-brand-ink">
                             {item.service_name ??
                               item.name ??
                               `Paint ${index + 1}`}
                           </p>
 
-                          <div className="mt-2 grid gap-x-6 gap-y-2 text-xs text-slate-600 sm:grid-cols-2">
+                          <div className="mt-2 grid gap-x-6 gap-y-2 text-xs text-brand-ink/70 sm:grid-cols-2">
                             {item.paint_type ? (
                               <p>
-                                <span className="font-normal text-slate-700">
+                                <span className="font-normal text-brand-ink">
                                   Type:
                                 </span>{" "}
                                 {
@@ -1470,7 +1470,7 @@ function OrderDetailsModal({
 
                             {item.color_name ? (
                               <p>
-                                <span className="font-normal text-slate-700">
+                                <span className="font-normal text-brand-ink">
                                   Color:
                                 </span>{" "}
                                 {
@@ -1480,7 +1480,7 @@ function OrderDetailsModal({
                             ) : null}
 
                             <p>
-                              <span className="font-normal text-slate-700">
+                              <span className="font-normal text-brand-ink">
                                 Requested:
                               </span>{" "}
                               {item.requested_amount_rwf
@@ -1494,7 +1494,7 @@ function OrderDetailsModal({
                             </p>
 
                             <p>
-                              <span className="font-normal text-slate-700">
+                              <span className="font-normal text-brand-ink">
                                 Mode:
                               </span>{" "}
                               {label(
@@ -1504,7 +1504,7 @@ function OrderDetailsModal({
                             </p>
 
                             <p>
-                              <span className="font-normal text-slate-700">
+                              <span className="font-normal text-brand-ink">
                                 Litres:
                               </span>{" "}
                               {item.equivalent_l
@@ -1517,7 +1517,7 @@ function OrderDetailsModal({
                             </p>
 
                             <p>
-                              <span className="font-normal text-slate-700">
+                              <span className="font-normal text-brand-ink">
                                 Kilograms:
                               </span>{" "}
                               {item.equivalent_kg
@@ -1531,7 +1531,7 @@ function OrderDetailsModal({
                           </div>
                         </div>
 
-                        <p className="shrink-0 font-bold text-slate-900">
+                        <p className="shrink-0 font-bold text-brand-ink">
                           {money(
                             item.line_total_rwf ??
                               item.total_price_rwf,
@@ -1546,11 +1546,11 @@ function OrderDetailsModal({
             </section>
 
             <section>
-              <h3 className="text-sm font-semibold text-slate-900">
+              <h3 className="text-sm font-semibold text-brand-ink">
                 Delivery Information
               </h3>
 
-              <div className="mt-3 divide-y divide-slate-100 rounded-lg border border-slate-200">
+              <div className="mt-3 divide-y divide-brand-mist rounded-lg border border-brand-steel">
                 <SimpleDetailRow
                   label="Delivery Method"
                   value={deliveryLabel(
@@ -1591,11 +1591,11 @@ function OrderDetailsModal({
             </section>
 
             <section>
-              <h3 className="text-sm font-semibold text-slate-900">
+              <h3 className="text-sm font-semibold text-brand-ink">
                 Payment Summary
               </h3>
 
-              <div className="mt-3 rounded-lg border border-slate-200 p-4">
+              <div className="mt-3 rounded-lg border border-brand-steel p-4">
                 <div className="space-y-3">
                   <SimpleAmountRow
                     label="Subtotal"
@@ -1612,13 +1612,13 @@ function OrderDetailsModal({
                     )} RWF`}
                   />
 
-                  <div className="border-t border-slate-200 pt-3">
+                  <div className="border-t border-brand-steel pt-3">
                     <div className="flex items-center justify-between gap-4">
-                      <span className="font-semibold text-slate-900">
+                      <span className="font-semibold text-brand-ink">
                         Total
                       </span>
 
-                      <span className="text-lg font-semibold text-slate-900">
+                      <span className="text-lg font-semibold text-brand-ink">
                         {money(
                           orderTotal(
                             order,
@@ -1634,11 +1634,11 @@ function OrderDetailsModal({
 
             {order.customer_note ? (
               <section>
-                <h3 className="text-sm font-semibold text-slate-900">
+                <h3 className="text-sm font-semibold text-brand-ink">
                   Customer Note
                 </h3>
 
-                <p className="mt-3 rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-700">
+                <p className="mt-3 rounded-lg border border-brand-steel bg-brand-mist p-4 text-sm leading-6 text-brand-ink">
                   {
                     order.customer_note
                   }
@@ -1646,13 +1646,13 @@ function OrderDetailsModal({
               </section>
             ) : null}
 
-            <div className="flex flex-col-reverse gap-2 border-t border-slate-200 pt-5 sm:flex-row sm:justify-end">
+            <div className="flex flex-col-reverse gap-2 border-t border-brand-steel pt-5 sm:flex-row sm:justify-end">
               <button
                 type="button"
                 onClick={
                   onClose
                 }
-                className="h-10 rounded-lg border border-slate-200 px-4 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                className="h-10 rounded-lg border border-brand-steel px-4 text-sm font-semibold text-brand-ink transition hover:bg-brand-mist"
               >
                 Close
               </button>
@@ -1668,7 +1668,7 @@ function OrderDetailsModal({
                   disabled={
                     processing
                   }
-                  className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-50"
+                  className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-brand-ink px-5 text-sm font-semibold text-white transition hover:bg-brand-ink disabled:opacity-50"
                 >
                   {processing ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
@@ -1698,11 +1698,11 @@ function SimpleDetailRow({
 }) {
   return (
     <div className="grid gap-1 px-4 py-3 sm:grid-cols-[180px_1fr] sm:gap-4">
-      <span className="text-xs font-medium text-slate-500">
+      <span className="text-xs font-medium text-brand-ink/70">
         {rowLabel}
       </span>
 
-      <span className="text-sm font-medium text-slate-800">
+      <span className="text-sm font-medium text-brand-ink">
         {value}
       </span>
     </div>
@@ -1718,11 +1718,11 @@ function SimpleAmountRow({
 }) {
   return (
     <div className="flex items-center justify-between gap-4">
-      <span className="text-sm text-slate-500">
+      <span className="text-sm text-brand-ink/70">
         {rowLabel}
       </span>
 
-      <span className="text-sm font-semibold text-slate-900">
+      <span className="text-sm font-semibold text-brand-ink">
         {value}
       </span>
     </div>
@@ -1742,19 +1742,19 @@ function StatCard({
     typeof ShoppingBag;
 }) {
   return (
-    <article className="border border-slate-200 bg-white p-4">
+    <article className="border border-brand-steel bg-white p-4">
       <div className="flex items-center justify-between gap-3">
         <div>
-          <p className="text-xs font-medium text-slate-500">
+          <p className="text-xs font-medium text-brand-ink/70">
             {title}
           </p>
 
-          <p className="mt-1 text-xl font-semibold text-slate-900">
+          <p className="mt-1 text-xl font-semibold text-brand-ink">
             {value}
           </p>
         </div>
 
-        <Icon className="h-5 w-5 text-slate-400" />
+        <Icon className="h-5 w-5 text-brand-steel" />
       </div>
     </article>
   );
@@ -1767,7 +1767,7 @@ function Th({
     React.ReactNode;
 }) {
   return (
-    <th className="whitespace-nowrap px-4 py-3 text-left text-xs font-semibold text-slate-600">
+    <th className="whitespace-nowrap px-4 py-3 text-left text-xs font-semibold text-brand-ink/70">
       {children}
     </th>
   );
@@ -1780,7 +1780,7 @@ function Td({
     React.ReactNode;
 }) {
   return (
-    <td className="px-4 py-3 align-top text-sm text-slate-600">
+    <td className="px-4 py-3 align-top text-sm text-brand-ink/70">
       {children}
     </td>
   );

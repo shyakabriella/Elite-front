@@ -916,17 +916,17 @@ export default function AdminBrandsPage() {
     <div className="space-y-6">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <div className="flex items-center gap-2 text-sm font-medium text-slate-500">
+          <div className="flex items-center gap-2 text-sm font-medium text-brand-ink/70">
             <Tags className="h-4 w-4" />
             Catalog setup
           </div>
 
-          <h1 className="mt-1 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+          <h1 className="mt-1 text-2xl font-semibold tracking-tight text-brand-ink sm:text-3xl">
             Brands
           </h1>
 
-          <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
-            Create marketplace brands and assign them to categories already saved in RushPi.
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-brand-ink/70">
+            Create marketplace brands and assign them to categories already saved in EliteMart.
           </p>
         </div>
 
@@ -947,7 +947,7 @@ export default function AdminBrandsPage() {
               loading ||
               categoriesLoading
             }
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-brand-steel bg-white px-4 text-sm font-medium text-brand-ink shadow-sm transition hover:bg-brand-mist disabled:cursor-not-allowed disabled:opacity-60"
           >
             <RefreshCw
               className={`h-4 w-4 ${
@@ -963,7 +963,7 @@ export default function AdminBrandsPage() {
           <button
             type="button"
             onClick={openCreateModal}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-slate-950 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-ink"
           >
             <Plus className="h-4 w-4" />
             Add brand
@@ -1027,10 +1027,10 @@ export default function AdminBrandsPage() {
         />
       </div>
 
-      <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div className="rounded-2xl border border-brand-steel bg-white p-4 shadow-sm">
         <div className="grid gap-3 xl:grid-cols-[minmax(260px,1fr)_180px_180px_150px]">
           <label className="relative block">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
 
             <input
               value={search}
@@ -1041,7 +1041,7 @@ export default function AdminBrandsPage() {
                 );
               }}
               placeholder="Search brand, slug, description..."
-              className="h-11 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-slate-400"
+              className="h-11 w-full rounded-xl border border-brand-steel bg-white pl-10 pr-3 text-sm text-brand-ink outline-none transition placeholder:text-brand-steel focus:border-brand-steel"
             />
           </label>
 
@@ -1054,7 +1054,7 @@ export default function AdminBrandsPage() {
                   .value as BrandStatusFilter,
               );
             }}
-            className="h-11 rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-700 outline-none focus:border-slate-400"
+            className="h-11 rounded-xl border border-brand-steel bg-white px-3 text-sm text-brand-ink outline-none focus:border-brand-steel"
           >
             <option value="all">
               All statuses
@@ -1076,7 +1076,7 @@ export default function AdminBrandsPage() {
                   .value as BrandSortField,
               );
             }}
-            className="h-11 rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-700 outline-none focus:border-slate-400"
+            className="h-11 rounded-xl border border-brand-steel bg-white px-3 text-sm text-brand-ink outline-none focus:border-brand-steel"
           >
             <option value="sort_order">
               Sort order
@@ -1101,7 +1101,7 @@ export default function AdminBrandsPage() {
                   .value as SortDirection,
               );
             }}
-            className="h-11 rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-700 outline-none focus:border-slate-400"
+            className="h-11 rounded-xl border border-brand-steel bg-white px-3 text-sm text-brand-ink outline-none focus:border-brand-steel"
           >
             <option value="asc">
               Ascending
@@ -1113,10 +1113,10 @@ export default function AdminBrandsPage() {
         </div>
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <div className="overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-sm">
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-slate-200">
-            <thead className="bg-slate-50">
+          <table className="min-w-full divide-y divide-brand-steel">
+            <thead className="bg-brand-mist">
               <tr>
                 <TableHead>
                   Brand
@@ -1142,14 +1142,14 @@ export default function AdminBrandsPage() {
               </tr>
             </thead>
 
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-brand-mist">
               {loading ? (
                 <tr>
                   <td
                     colSpan={7}
                     className="px-6 py-16 text-center"
                   >
-                    <div className="inline-flex items-center gap-2 text-sm text-slate-500">
+                    <div className="inline-flex items-center gap-2 text-sm text-brand-ink/70">
                       <Loader2 className="h-5 w-5 animate-spin" />
                       Loading brands...
                     </div>
@@ -1162,22 +1162,22 @@ export default function AdminBrandsPage() {
                     className="px-6 py-16 text-center"
                   >
                     <div className="mx-auto flex max-w-md flex-col items-center">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-100">
-                        <Tags className="h-6 w-6 text-slate-500" />
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-mist">
+                        <Tags className="h-6 w-6 text-brand-ink/70" />
                       </div>
 
-                      <h3 className="mt-4 text-sm font-semibold text-slate-900">
+                      <h3 className="mt-4 text-sm font-semibold text-brand-ink">
                         No brands found
                       </h3>
 
-                      <p className="mt-1 text-sm text-slate-500">
+                      <p className="mt-1 text-sm text-brand-ink/70">
                         Create the first marketplace brand or adjust your filters.
                       </p>
 
                       <button
                         type="button"
                         onClick={openCreateModal}
-                        className="mt-4 inline-flex items-center gap-2 rounded-xl bg-slate-950 px-4 py-2 text-sm font-semibold text-white"
+                        className="mt-4 inline-flex items-center gap-2 rounded-xl bg-brand-ink px-4 py-2 text-sm font-semibold text-white"
                       >
                         <Plus className="h-4 w-4" />
                         Add brand
@@ -1195,11 +1195,11 @@ export default function AdminBrandsPage() {
                   return (
                     <tr
                       key={brand.public_id}
-                      className="hover:bg-slate-50/70"
+                      className="hover:bg-brand-mist/70"
                     >
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
-                          <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
+                          <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-brand-steel bg-brand-mist">
                             {logo ? (
                               <img
                                 src={logo}
@@ -1207,7 +1207,7 @@ export default function AdminBrandsPage() {
                                 className="h-full w-full object-contain p-1.5"
                               />
                             ) : (
-                              <span className="text-sm font-bold text-slate-600">
+                              <span className="text-sm font-bold text-brand-ink/70">
                                 {getBrandInitial(
                                   brand.name,
                                 )}
@@ -1216,16 +1216,16 @@ export default function AdminBrandsPage() {
                           </div>
 
                           <div className="min-w-0">
-                            <div className="font-semibold text-slate-900">
+                            <div className="font-semibold text-brand-ink">
                               {brand.name}
                             </div>
 
-                            <div className="mt-0.5 max-w-[280px] truncate text-xs text-slate-500">
+                            <div className="mt-0.5 max-w-[280px] truncate text-xs text-brand-ink/70">
                               {brand.description ||
                                 brand.slug}
                             </div>
 
-                            <div className="mt-1 text-[11px] text-slate-400">
+                            <div className="mt-1 text-[11px] text-brand-steel">
                               {brand.slug}
                             </div>
                           </div>
@@ -1241,7 +1241,7 @@ export default function AdminBrandsPage() {
                         />
                       </td>
 
-                      <td className="px-6 py-4 text-sm text-slate-600">
+                      <td className="px-6 py-4 text-sm text-brand-ink/70">
                         {brand.website_url ? (
                           <a
                             href={
@@ -1249,7 +1249,7 @@ export default function AdminBrandsPage() {
                             }
                             target="_blank"
                             rel="noreferrer"
-                            className="inline-flex max-w-[220px] items-center gap-1.5 truncate text-slate-700 hover:text-slate-950 hover:underline"
+                            className="inline-flex max-w-[220px] items-center gap-1.5 truncate text-brand-ink hover:text-brand-ink hover:underline"
                           >
                             <span className="truncate">
                               {
@@ -1263,7 +1263,7 @@ export default function AdminBrandsPage() {
                         )}
                       </td>
 
-                      <td className="px-6 py-4 text-sm font-medium text-slate-700">
+                      <td className="px-6 py-4 text-sm font-medium text-brand-ink">
                         {brand.products_count ??
                           0}
                       </td>
@@ -1276,7 +1276,7 @@ export default function AdminBrandsPage() {
                         />
                       </td>
 
-                      <td className="px-6 py-4 text-sm text-slate-500">
+                      <td className="px-6 py-4 text-sm text-brand-ink/70">
                         {formatDate(
                           brand.updated_at,
                         )}
@@ -1288,7 +1288,7 @@ export default function AdminBrandsPage() {
                           onClick={() =>
                             setActionTarget(brand)
                           }
-                          className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 transition hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700"
+                          className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-brand-steel bg-white text-brand-ink/70 transition hover:border-brand-orange hover:bg-brand-mist hover:text-brand-ink"
                           aria-label={`Manage ${brand.name}`}
                         >
                           <MoreHorizontal className="h-4 w-4" />
@@ -1302,8 +1302,8 @@ export default function AdminBrandsPage() {
           </table>
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-slate-200 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <div className="text-sm text-slate-500">
+        <div className="flex flex-col gap-3 border-t border-brand-steel px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div className="text-sm text-brand-ink/70">
             {meta.total !== undefined
               ? `Showing ${meta.from ?? 0}-${meta.to ?? 0} of ${meta.total} brands`
               : `${brands.length} brands`}
@@ -1324,13 +1324,13 @@ export default function AdminBrandsPage() {
                   ),
                 )
               }
-              className="inline-flex h-9 items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+              className="inline-flex h-9 items-center gap-1 rounded-lg border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink transition hover:bg-brand-mist disabled:cursor-not-allowed disabled:opacity-50"
             >
               <ChevronLeft className="h-4 w-4" />
               Previous
             </button>
 
-            <span className="min-w-24 text-center text-sm text-slate-600">
+            <span className="min-w-24 text-center text-sm text-brand-ink/70">
               Page {currentPage} of{" "}
               {lastPage}
             </span>
@@ -1350,7 +1350,7 @@ export default function AdminBrandsPage() {
                   ),
                 )
               }
-              className="inline-flex h-9 items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+              className="inline-flex h-9 items-center gap-1 rounded-lg border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink transition hover:bg-brand-mist disabled:cursor-not-allowed disabled:opacity-50"
             >
               Next
               <ChevronRight className="h-4 w-4" />
@@ -1361,17 +1361,17 @@ export default function AdminBrandsPage() {
 
       {formOpen
         ? createPortal(
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/45 p-4 backdrop-blur-[2px]">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-brand-ink/45 p-4 backdrop-blur-[2px]">
           <div className="max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-3xl bg-white shadow-2xl">
-            <div className="sticky top-0 z-10 flex items-start justify-between border-b border-slate-200 bg-white px-6 py-5">
+            <div className="sticky top-0 z-10 flex items-start justify-between border-b border-brand-steel bg-white px-6 py-5">
               <div>
-                <h2 className="text-xl font-semibold text-slate-950">
+                <h2 className="text-xl font-semibold text-brand-ink">
                   {editingBrand
                     ? "Edit brand"
                     : "Add brand"}
                 </h2>
 
-                <p className="mt-1 text-sm text-slate-500">
+                <p className="mt-1 text-sm text-brand-ink/70">
                   Select one or more categories already saved in the marketplace.
                 </p>
               </div>
@@ -1380,7 +1380,7 @@ export default function AdminBrandsPage() {
                 type="button"
                 onClick={closeFormModal}
                 disabled={submitting}
-                className="rounded-xl p-2 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 disabled:opacity-50"
+                className="rounded-xl p-2 text-brand-steel transition hover:bg-brand-mist hover:text-brand-ink disabled:opacity-50"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -1446,12 +1446,12 @@ export default function AdminBrandsPage() {
               <FormField
                 label="Categories"
                 required
-                hint="Choose from categories already saved in RushPi. One brand may belong to several categories."
+                hint="Choose from categories already saved in EliteMart. One brand may belong to several categories."
               >
-                <div className="rounded-2xl border border-slate-200 bg-white">
-                  <div className="border-b border-slate-200 p-3">
+                <div className="rounded-2xl border border-brand-steel bg-white">
+                  <div className="border-b border-brand-steel p-3">
                     <div className="relative">
-                      <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                      <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
 
                       <input
                         value={
@@ -1468,7 +1468,7 @@ export default function AdminBrandsPage() {
                       />
                     </div>
 
-                    <div className="mt-2 text-xs text-slate-500">
+                    <div className="mt-2 text-xs text-brand-ink/70">
                       {
                         form
                           .category_public_ids
@@ -1486,13 +1486,13 @@ export default function AdminBrandsPage() {
 
                   <div className="max-h-72 overflow-y-auto p-2">
                     {categoriesLoading ? (
-                      <div className="flex items-center justify-center gap-2 px-4 py-10 text-sm text-slate-500">
+                      <div className="flex items-center justify-center gap-2 px-4 py-10 text-sm text-brand-ink/70">
                         <Loader2 className="h-4 w-4 animate-spin" />
                         Loading saved categories...
                       </div>
                     ) : filteredCategories.length ===
                       0 ? (
-                      <div className="px-4 py-10 text-center text-sm text-slate-500">
+                      <div className="px-4 py-10 text-center text-sm text-brand-ink/70">
                         No saved category matches your search.
                       </div>
                     ) : (
@@ -1510,8 +1510,8 @@ export default function AdminBrandsPage() {
                               }
                               className={`flex cursor-pointer items-start gap-3 rounded-xl px-3 py-3 transition ${
                                 checked
-                                  ? "bg-slate-100"
-                                  : "hover:bg-slate-50"
+                                  ? "bg-brand-mist"
+                                  : "hover:bg-brand-mist"
                               }`}
                             >
                               <input
@@ -1524,17 +1524,17 @@ export default function AdminBrandsPage() {
                                     category.public_id,
                                   )
                                 }
-                                className="mt-1 h-4 w-4 rounded border-slate-300"
+                                className="mt-1 h-4 w-4 rounded border-brand-steel"
                               />
 
                               <div className="min-w-0 flex-1">
-                                <div className="text-sm font-medium text-slate-900">
+                                <div className="text-sm font-medium text-brand-ink">
                                   {
                                     category.name
                                   }
                                 </div>
 
-                                <div className="mt-0.5 text-xs text-slate-500">
+                                <div className="mt-0.5 text-xs text-brand-ink/70">
                                   {category.parent
                                     ? `${category.parent.name} → `
                                     : ""}
@@ -1545,7 +1545,7 @@ export default function AdminBrandsPage() {
                               </div>
 
                               {checked ? (
-                                <span className="rounded-full bg-slate-950 px-2 py-0.5 text-[11px] font-semibold text-white">
+                                <span className="rounded-full bg-brand-ink px-2 py-0.5 text-[11px] font-semibold text-white">
                                   Selected
                                 </span>
                               ) : null}
@@ -1582,7 +1582,7 @@ export default function AdminBrandsPage() {
                                 publicId,
                               )
                             }
-                            className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-200"
+                            className="inline-flex items-center gap-1.5 rounded-full bg-brand-mist px-3 py-1.5 text-xs font-medium text-brand-ink hover:bg-brand-steel"
                           >
                             {
                               category.name
@@ -1625,7 +1625,7 @@ export default function AdminBrandsPage() {
                   hint="Full URL or storage path."
                 >
                   <div className="relative">
-                    <ImageIcon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                    <ImageIcon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
 
                     <input
                       value={
@@ -1697,16 +1697,16 @@ export default function AdminBrandsPage() {
                 </FormField>
 
                 <div>
-                  <div className="mb-2 text-sm font-medium text-slate-700">
+                  <div className="mb-2 text-sm font-medium text-brand-ink">
                     Marketplace status
                   </div>
 
-                  <label className="flex min-h-11 cursor-pointer items-center justify-between rounded-xl border border-slate-200 px-4 py-3">
+                  <label className="flex min-h-11 cursor-pointer items-center justify-between rounded-xl border border-brand-steel px-4 py-3">
                     <div>
-                      <div className="text-sm font-medium text-slate-800">
+                      <div className="text-sm font-medium text-brand-ink">
                         Active
                       </div>
-                      <div className="text-xs text-slate-500">
+                      <div className="text-xs text-brand-ink/70">
                         Allow this brand to be selected for products.
                       </div>
                     </div>
@@ -1726,19 +1726,19 @@ export default function AdminBrandsPage() {
                           }),
                         )
                       }
-                      className="h-4 w-4 rounded border-slate-300"
+                      className="h-4 w-4 rounded border-brand-steel"
                     />
                   </label>
                 </div>
               </div>
 
               {form.logo_path.trim() ? (
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <div className="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
+                <div className="rounded-2xl border border-brand-steel bg-brand-mist p-4">
+                  <div className="mb-3 text-xs font-semibold uppercase tracking-wide text-brand-ink/70">
                     Logo preview
                   </div>
 
-                  <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                  <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl border border-brand-steel bg-white">
                     {brandLogoUrl(
                       form.logo_path,
                     ) ? (
@@ -1753,18 +1753,18 @@ export default function AdminBrandsPage() {
                         className="h-full w-full object-contain p-2"
                       />
                     ) : (
-                      <ImageIcon className="h-6 w-6 text-slate-400" />
+                      <ImageIcon className="h-6 w-6 text-brand-steel" />
                     )}
                   </div>
                 </div>
               ) : null}
 
-              <div className="flex flex-col-reverse gap-3 border-t border-slate-200 pt-5 sm:flex-row sm:justify-end">
+              <div className="flex flex-col-reverse gap-3 border-t border-brand-steel pt-5 sm:flex-row sm:justify-end">
                 <button
                   type="button"
                   onClick={closeFormModal}
                   disabled={submitting}
-                  className="inline-flex h-11 items-center justify-center rounded-xl border border-slate-200 bg-white px-5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:opacity-50"
+                  className="inline-flex h-11 items-center justify-center rounded-xl border border-brand-steel bg-white px-5 text-sm font-semibold text-brand-ink transition hover:bg-brand-mist disabled:opacity-50"
                 >
                   Cancel
                 </button>
@@ -1775,7 +1775,7 @@ export default function AdminBrandsPage() {
                     submitting ||
                     categoriesLoading
                   }
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-slate-950 px-5 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-brand-ink px-5 text-sm font-semibold text-white transition hover:bg-brand-ink disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {submitting ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
@@ -1798,7 +1798,7 @@ export default function AdminBrandsPage() {
       {actionTarget
         ? createPortal(
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/60 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-brand-ink/60 p-4 backdrop-blur-sm"
           onClick={() => setActionTarget(null)}
         >
           <div
@@ -1808,17 +1808,17 @@ export default function AdminBrandsPage() {
             onClick={(event) =>
               event.stopPropagation()
             }
-            className="w-full max-w-md overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl"
+            className="w-full max-w-md overflow-hidden rounded-3xl border border-brand-steel bg-white shadow-2xl"
           >
-            <div className="flex items-start justify-between border-b border-slate-200 px-6 py-5">
+            <div className="flex items-start justify-between border-b border-brand-steel px-6 py-5">
               <div>
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-600">
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-brand-ink">
                   Brand management
                 </p>
 
                 <h2
                   id="manage-brand-title"
-                  className="mt-2 text-2xl font-black text-slate-950"
+                  className="mt-2 text-2xl font-black text-brand-ink"
                 >
                   Manage Brand
                 </h2>
@@ -1829,7 +1829,7 @@ export default function AdminBrandsPage() {
                 onClick={() =>
                   setActionTarget(null)
                 }
-                className="grid h-10 w-10 place-items-center rounded-xl text-slate-400 transition hover:bg-slate-100 hover:text-slate-900"
+                className="grid h-10 w-10 place-items-center rounded-xl text-brand-steel transition hover:bg-brand-mist hover:text-brand-ink"
                 aria-label="Close"
               >
                 <X className="h-5 w-5" />
@@ -1837,8 +1837,8 @@ export default function AdminBrandsPage() {
             </div>
 
             <div className="p-6">
-              <div className="flex items-center gap-4 rounded-2xl bg-slate-50 p-4">
-                <div className="grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-2xl border border-slate-200 bg-white">
+              <div className="flex items-center gap-4 rounded-2xl bg-brand-mist p-4">
+                <div className="grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-2xl border border-brand-steel bg-white">
                   {brandLogoUrl(actionTarget.logo_path) ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
@@ -1849,7 +1849,7 @@ export default function AdminBrandsPage() {
                       className="h-full w-full object-contain p-2"
                     />
                   ) : (
-                    <span className="text-lg font-black text-blue-700">
+                    <span className="text-lg font-black text-brand-ink">
                       {getBrandInitial(
                         actionTarget.name,
                       )}
@@ -1858,15 +1858,15 @@ export default function AdminBrandsPage() {
                 </div>
 
                 <div className="min-w-0">
-                  <h3 className="truncate text-lg font-black text-slate-950">
+                  <h3 className="truncate text-lg font-black text-brand-ink">
                     {actionTarget.name}
                   </h3>
 
-                  <p className="mt-1 truncate text-sm text-slate-500">
+                  <p className="mt-1 truncate text-sm text-brand-ink/70">
                     {actionTarget.slug}
                   </p>
 
-                  <p className="mt-1 text-xs font-bold text-blue-700">
+                  <p className="mt-1 text-xs font-bold text-brand-ink">
                     {actionTarget.products_count ?? 0} products
                   </p>
                 </div>
@@ -1880,18 +1880,18 @@ export default function AdminBrandsPage() {
                       setCatalogBrand(actionTarget);
                       setActionTarget(null);
                     }}
-                    className="flex items-center gap-3 rounded-2xl border border-violet-200 bg-violet-50 p-4 text-left transition hover:bg-violet-100"
+                    className="flex items-center gap-3 rounded-2xl border border-brand-steel bg-brand-mist p-4 text-left transition hover:bg-brand-mist"
                   >
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white text-violet-700">
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white text-brand-ink">
                       <Boxes className="h-5 w-5" />
                     </span>
 
                     <span>
-                      <span className="block font-black text-violet-950">
+                      <span className="block font-black text-brand-ink">
                         Manage series
                       </span>
 
-                      <span className="mt-1 block text-xs text-violet-700">
+                      <span className="mt-1 block text-xs text-brand-ink">
                         Add and edit product series
                       </span>
                     </span>
@@ -1903,18 +1903,18 @@ export default function AdminBrandsPage() {
                       setCatalogBrand(actionTarget);
                       setActionTarget(null);
                     }}
-                    className="flex items-center gap-3 rounded-2xl border border-cyan-200 bg-cyan-50 p-4 text-left transition hover:bg-cyan-100"
+                    className="flex items-center gap-3 rounded-2xl border border-brand-steel bg-brand-mist p-4 text-left transition hover:bg-brand-mist"
                   >
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white text-cyan-700">
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white text-brand-ink">
                       <PackageSearch className="h-5 w-5" />
                     </span>
 
                     <span>
-                      <span className="block font-black text-cyan-950">
+                      <span className="block font-black text-brand-ink">
                         Manage models
                       </span>
 
-                      <span className="mt-1 block text-xs text-cyan-700">
+                      <span className="mt-1 block text-xs text-brand-ink">
                         Add models inside each series
                       </span>
                     </span>
@@ -1926,18 +1926,18 @@ export default function AdminBrandsPage() {
                   onClick={() =>
                     openEditModal(actionTarget)
                   }
-                  className="flex w-full items-center gap-4 rounded-2xl border border-blue-200 bg-blue-50 p-4 text-left transition hover:bg-blue-100"
+                  className="flex w-full items-center gap-4 rounded-2xl border border-brand-steel bg-brand-mist p-4 text-left transition hover:bg-brand-mist"
                 >
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white text-blue-700">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white text-brand-ink">
                     <Edit3 className="h-5 w-5" />
                   </span>
 
                   <span>
-                    <span className="block font-black text-blue-950">
+                    <span className="block font-black text-brand-ink">
                       Edit brand
                     </span>
 
-                    <span className="mt-1 block text-xs text-blue-700">
+                    <span className="mt-1 block text-xs text-brand-ink">
                       Update this brand information
                     </span>
                   </span>
@@ -1970,13 +1970,13 @@ export default function AdminBrandsPage() {
               </div>
             </div>
 
-            <div className="flex justify-end border-t border-slate-200 bg-slate-50 px-6 py-4">
+            <div className="flex justify-end border-t border-brand-steel bg-brand-mist px-6 py-4">
               <button
                 type="button"
                 onClick={() =>
                   setActionTarget(null)
                 }
-                className="h-11 rounded-xl border border-slate-300 bg-white px-6 text-sm font-black text-slate-700 transition hover:bg-slate-100"
+                className="h-11 rounded-xl border border-brand-steel bg-white px-6 text-sm font-black text-brand-ink transition hover:bg-brand-mist"
               >
                 Close
               </button>
@@ -1993,19 +1993,19 @@ export default function AdminBrandsPage() {
       />
 
       {deleteTarget ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/45 p-4 backdrop-blur-[2px]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-brand-ink/45 p-4 backdrop-blur-[2px]">
           <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl">
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50">
               <Trash2 className="h-6 w-6 text-red-600" />
             </div>
 
-            <h2 className="mt-5 text-xl font-semibold text-slate-950">
+            <h2 className="mt-5 text-xl font-semibold text-brand-ink">
               Delete brand?
             </h2>
 
-            <p className="mt-2 text-sm leading-6 text-slate-600">
+            <p className="mt-2 text-sm leading-6 text-brand-ink/70">
               You are about to delete{" "}
-              <span className="font-semibold text-slate-900">
+              <span className="font-semibold text-brand-ink">
                 {deleteTarget.name}
               </span>
               . A brand with assigned products cannot be deleted.
@@ -2018,7 +2018,7 @@ export default function AdminBrandsPage() {
                   setDeleteTarget(null)
                 }
                 disabled={deleting}
-                className="inline-flex h-10 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+                className="inline-flex h-10 items-center justify-center rounded-xl border border-brand-steel bg-white px-4 text-sm font-semibold text-brand-ink hover:bg-brand-mist disabled:opacity-50"
               >
                 Cancel
               </button>
@@ -2080,7 +2080,7 @@ function BrandCategories({
 }) {
   if (categories.length === 0) {
     return (
-      <span className="text-sm text-slate-400">
+      <span className="text-sm text-brand-steel">
         —
       </span>
     );
@@ -2093,14 +2093,14 @@ function BrandCategories({
         .map((category) => (
           <span
             key={category.public_id}
-            className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700"
+            className="rounded-full bg-brand-mist px-2.5 py-1 text-xs font-medium text-brand-ink"
           >
             {category.name}
           </span>
         ))}
 
       {categories.length > 3 ? (
-        <span className="rounded-full bg-slate-200 px-2.5 py-1 text-xs font-semibold text-slate-700">
+        <span className="rounded-full bg-brand-steel px-2.5 py-1 text-xs font-semibold text-brand-ink">
           +{categories.length - 3}
         </span>
       ) : null}
@@ -2118,16 +2118,16 @@ function SummaryCard({
   hint: string;
 }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-      <div className="text-sm font-medium text-slate-500">
+    <div className="rounded-2xl border border-brand-steel bg-white p-5 shadow-sm">
+      <div className="text-sm font-medium text-brand-ink/70">
         {label}
       </div>
 
-      <div className="mt-2 text-3xl font-semibold tracking-tight text-slate-950">
+      <div className="mt-2 text-3xl font-semibold tracking-tight text-brand-ink">
         {value}
       </div>
 
-      <div className="mt-1 text-xs text-slate-400">
+      <div className="mt-1 text-xs text-brand-steel">
         {hint}
       </div>
     </div>
@@ -2144,7 +2144,7 @@ function StatusBadge({
       Active
     </span>
   ) : (
-    <span className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 ring-1 ring-inset ring-slate-200">
+    <span className="inline-flex items-center rounded-full bg-brand-mist px-2.5 py-1 text-xs font-semibold text-brand-ink/70 ring-1 ring-inset ring-brand-steel">
       Inactive
     </span>
   );
@@ -2160,7 +2160,7 @@ function TableHead({
   return (
     <th
       scope="col"
-      className={`px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500 ${className}`}
+      className={`px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-brand-ink/70 ${className}`}
     >
       {children}
     </th>
@@ -2180,7 +2180,7 @@ function FormField({
 }) {
   return (
     <label className="block">
-      <div className="mb-2 flex items-center gap-1 text-sm font-medium text-slate-700">
+      <div className="mb-2 flex items-center gap-1 text-sm font-medium text-brand-ink">
         {label}
 
         {required ? (
@@ -2193,7 +2193,7 @@ function FormField({
       {children}
 
       {hint ? (
-        <div className="mt-1.5 text-xs leading-5 text-slate-400">
+        <div className="mt-1.5 text-xs leading-5 text-brand-steel">
           {hint}
         </div>
       ) : null}

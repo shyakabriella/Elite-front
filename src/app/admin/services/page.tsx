@@ -135,7 +135,7 @@ const initialForm: FormState = {
 };
 
 const inputClass =
-  "h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100";
+  "h-11 w-full rounded-xl border border-brand-steel bg-white px-3 text-sm text-brand-ink outline-none transition focus:border-brand-orange focus:ring-2 focus:ring-brand-mist";
 
 function money(
   value: string | number,
@@ -151,7 +151,7 @@ function money(
 |--------------------------------------------------------------------------
 |
 | IMPORTANT:
-| RushPi authentication may store the token in localStorage
+| EliteMart authentication may store the token in localStorage
 | or sessionStorage.
 |
 */
@@ -1382,15 +1382,15 @@ export default function AdminServicesPage() {
 
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <p className="text-sm font-semibold text-blue-600">
+          <p className="text-sm font-semibold text-brand-ink">
             Marketplace
           </p>
 
-          <h1 className="mt-1 text-2xl font-bold text-slate-950">
+          <h1 className="mt-1 text-2xl font-bold text-brand-ink">
             Paint Management
           </h1>
 
-          <p className="mt-2 max-w-2xl text-sm text-slate-500">
+          <p className="mt-2 max-w-2xl text-sm text-brand-ink/70">
             Register paints,
             reference prices,
             available stock and
@@ -1404,7 +1404,7 @@ export default function AdminServicesPage() {
           onClick={
             openAddPaint
           }
-          className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 text-sm font-semibold text-white transition hover:bg-blue-700"
+          className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-brand-ink px-5 text-sm font-semibold text-white transition hover:bg-brand-ink"
         >
           <Plus className="h-4 w-4" />
 
@@ -1471,20 +1471,20 @@ export default function AdminServicesPage() {
 
       {/* PAINT CARDS */}
 
-      <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <div className="flex flex-col gap-4 border-b border-slate-200 p-4 sm:flex-row sm:items-center sm:justify-between">
+      <section className="overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-sm">
+        <div className="flex flex-col gap-4 border-b border-brand-steel p-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h2 className="font-semibold text-slate-900">
+            <h2 className="font-semibold text-brand-ink">
               Registered Paints
             </h2>
 
-            <p className="mt-1 text-xs text-slate-500">
+            <p className="mt-1 text-xs text-brand-ink/70">
               Click any paint card to see all details, colors and available actions.
             </p>
           </div>
 
           <div className="relative w-full sm:w-80">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
 
             <input
               value={query}
@@ -1497,27 +1497,27 @@ export default function AdminServicesPage() {
                 )
               }
               placeholder="Search paint..."
-              className="h-10 w-full rounded-xl border border-slate-200 bg-slate-50 pl-10 pr-4 text-sm outline-none transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100"
+              className="h-10 w-full rounded-xl border border-brand-steel bg-brand-mist pl-10 pr-4 text-sm outline-none transition focus:border-brand-orange focus:bg-white focus:ring-2 focus:ring-brand-mist"
             />
           </div>
         </div>
 
         {loading ? (
           <div className="flex min-h-[300px] items-center justify-center">
-            <Loader2 className="h-7 w-7 animate-spin text-blue-600" />
+            <Loader2 className="h-7 w-7 animate-spin text-brand-ink" />
           </div>
         ) : filteredPaints.length ===
           0 ? (
           <div className="flex min-h-[360px] flex-col items-center justify-center px-6 text-center">
-            <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-blue-50">
-              <Droplets className="h-9 w-9 text-blue-600" />
+            <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-brand-mist">
+              <Droplets className="h-9 w-9 text-brand-ink" />
             </div>
 
-            <h3 className="mt-5 text-lg font-bold text-slate-900">
+            <h3 className="mt-5 text-lg font-bold text-brand-ink">
               No paints registered
             </h3>
 
-            <p className="mt-2 max-w-md text-sm leading-6 text-slate-500">
+            <p className="mt-2 max-w-md text-sm leading-6 text-brand-ink/70">
               Register the first paint and define its price, stock, colors and selling measurements.
             </p>
 
@@ -1526,7 +1526,7 @@ export default function AdminServicesPage() {
               onClick={
                 openAddPaint
               }
-              className="mt-5 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-700"
+              className="mt-5 inline-flex items-center gap-2 rounded-xl bg-brand-ink px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-ink"
             >
               <Plus className="h-4 w-4" />
 
@@ -1572,11 +1572,11 @@ export default function AdminServicesPage() {
                         );
                       }
                     }}
-                    className="group cursor-pointer overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
+                    className="group cursor-pointer overflow-hidden rounded-2xl border border-brand-steel bg-white transition hover:-translate-y-0.5 hover:border-brand-orange hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-steel"
                   >
                     {/* IMAGE */}
 
-                    <div className="relative flex h-44 items-center justify-center overflow-hidden bg-slate-50">
+                    <div className="relative flex h-44 items-center justify-center overflow-hidden bg-brand-mist">
                       {paint.image_url ? (
                         <img
                           src={
@@ -1588,8 +1588,8 @@ export default function AdminServicesPage() {
                           className="h-full w-full object-contain p-4 transition duration-300 group-hover:scale-[1.03]"
                         />
                       ) : (
-                        <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-blue-50">
-                          <Droplets className="h-9 w-9 text-blue-500" />
+                        <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-brand-mist">
+                          <Droplets className="h-9 w-9 text-brand-orange" />
                         </div>
                       )}
 
@@ -1597,7 +1597,7 @@ export default function AdminServicesPage() {
                         className={`absolute right-3 top-3 inline-flex rounded-full px-2.5 py-1 text-[10px] font-bold ${
                           paint.is_active
                             ? "bg-emerald-100 text-emerald-700"
-                            : "bg-slate-200 text-slate-600"
+                            : "bg-brand-steel text-brand-ink/70"
                         }`}
                       >
                         {paint.is_active
@@ -1605,7 +1605,7 @@ export default function AdminServicesPage() {
                           : "Inactive"}
                       </span>
 
-                      <div className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/95 text-blue-600 shadow-sm">
+                      <div className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/95 text-brand-ink shadow-sm">
                         <Eye className="h-4 w-4" />
                       </div>
                     </div>
@@ -1615,32 +1615,32 @@ export default function AdminServicesPage() {
                     <div className="p-4">
                       <div className="flex items-start justify-between gap-3">
                         <div className="min-w-0">
-                          <p className="text-[10px] font-bold uppercase tracking-wider text-blue-600">
+                          <p className="text-[10px] font-bold uppercase tracking-wider text-brand-ink">
                             {paint.brand_name ||
                               "NTEZINET"}
                           </p>
 
-                          <h3 className="mt-1 line-clamp-2 text-base font-bold text-slate-950">
+                          <h3 className="mt-1 line-clamp-2 text-base font-bold text-brand-ink">
                             {
                               paint.name
                             }
                           </h3>
 
-                          <p className="mt-1 truncate text-xs font-medium text-slate-500">
+                          <p className="mt-1 truncate text-xs font-medium text-brand-ink/70">
                             {paint.paint_type ||
                               "Paint"}
                           </p>
                         </div>
 
                         <div className="shrink-0 text-right">
-                          <p className="text-sm font-bold text-slate-950">
+                          <p className="text-sm font-bold text-brand-ink">
                             {money(
                               paint.reference_price_rwf,
                             )}{" "}
                             RWF
                           </p>
 
-                          <p className="mt-1 text-[10px] text-slate-400">
+                          <p className="mt-1 text-[10px] text-brand-steel">
                             per{" "}
                             {
                               paint.reference_quantity
@@ -1656,11 +1656,11 @@ export default function AdminServicesPage() {
 
                       <div className="mt-4">
                         <div className="mb-2 flex items-center justify-between">
-                          <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                          <p className="text-[10px] font-bold uppercase tracking-wide text-brand-steel">
                             Colors
                           </p>
 
-                          <span className="text-[10px] font-semibold text-slate-400">
+                          <span className="text-[10px] font-semibold text-brand-steel">
                             {colors.length}{" "}
                             {colors.length ===
                             1
@@ -1685,7 +1685,7 @@ export default function AdminServicesPage() {
                                     key={
                                       color.name
                                     }
-                                    className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] font-semibold text-slate-700"
+                                    className="inline-flex items-center gap-1.5 rounded-lg border border-brand-steel bg-brand-mist px-2 py-1 text-[10px] font-semibold text-brand-ink"
                                   >
                                     <span
                                       className="h-2.5 w-2.5 rounded-full border border-black/10 bg-white"
@@ -1708,7 +1708,7 @@ export default function AdminServicesPage() {
 
                             {colors.length >
                             5 ? (
-                              <span className="rounded-lg bg-blue-50 px-2 py-1 text-[10px] font-bold text-blue-700">
+                              <span className="rounded-lg bg-brand-mist px-2 py-1 text-[10px] font-bold text-brand-ink">
                                 +
                                 {colors.length -
                                   5}
@@ -1716,7 +1716,7 @@ export default function AdminServicesPage() {
                             ) : null}
                           </div>
                         ) : (
-                          <p className="text-xs text-slate-400">
+                          <p className="text-xs text-brand-steel">
                             No colors added
                           </p>
                         )}
@@ -1724,13 +1724,13 @@ export default function AdminServicesPage() {
 
                       {/* SUMMARY */}
 
-                      <div className="mt-4 grid grid-cols-2 gap-2 rounded-xl bg-slate-50 p-3">
+                      <div className="mt-4 grid grid-cols-2 gap-2 rounded-xl bg-brand-mist p-3">
                         <div>
-                          <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-400">
+                          <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-steel">
                             Stock
                           </p>
 
-                          <p className="mt-1 text-sm font-bold text-slate-900">
+                          <p className="mt-1 text-sm font-bold text-brand-ink">
                             {
                               paint.stock_quantity
                             }{" "}
@@ -1741,7 +1741,7 @@ export default function AdminServicesPage() {
                         </div>
 
                         <div>
-                          <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-400">
+                          <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-steel">
                             Sell by
                           </p>
 
@@ -1769,7 +1769,7 @@ export default function AdminServicesPage() {
 
                       {/* ACTIONS */}
 
-                      <div className="mt-4 flex gap-2 border-t border-slate-100 pt-4">
+                      <div className="mt-4 flex gap-2 border-t border-brand-mist pt-4">
                         <button
                           type="button"
                           onClick={(
@@ -1781,7 +1781,7 @@ export default function AdminServicesPage() {
                               paint,
                             );
                           }}
-                          className="inline-flex h-10 flex-1 items-center justify-center gap-2 rounded-xl bg-blue-600 px-3 text-xs font-bold text-white transition hover:bg-blue-700"
+                          className="inline-flex h-10 flex-1 items-center justify-center gap-2 rounded-xl bg-brand-ink px-3 text-xs font-bold text-white transition hover:bg-brand-ink"
                         >
                           <Pencil className="h-3.5 w-3.5" />
 
@@ -1815,7 +1815,7 @@ export default function AdminServicesPage() {
                         </button>
                       </div>
 
-                      <p className="mt-3 text-center text-[10px] font-medium text-slate-400">
+                      <p className="mt-3 text-center text-[10px] font-medium text-brand-steel">
                         Click the card to view full paint details
                       </p>
                     </div>
@@ -1831,7 +1831,7 @@ export default function AdminServicesPage() {
 
       {selectedPaint ? (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-brand-ink/60 p-4"
           onMouseDown={(
             event,
           ) => {
@@ -1844,13 +1844,13 @@ export default function AdminServicesPage() {
           }}
         >
           <div className="max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-3xl bg-white shadow-2xl">
-            <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 bg-white px-5 py-4 sm:px-6">
+            <div className="sticky top-0 z-10 flex items-center justify-between border-b border-brand-steel bg-white px-5 py-4 sm:px-6">
               <div className="min-w-0">
-                <p className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                <p className="text-xs font-bold uppercase tracking-wider text-brand-ink">
                   Paint Details
                 </p>
 
-                <h2 className="mt-1 truncate text-xl font-bold text-slate-950">
+                <h2 className="mt-1 truncate text-xl font-bold text-brand-ink">
                   {
                     selectedPaint.name
                   }
@@ -1862,7 +1862,7 @@ export default function AdminServicesPage() {
                 onClick={
                   closePaintDetails
                 }
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-500 transition hover:bg-slate-200"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-mist text-brand-ink/70 transition hover:bg-brand-steel"
                 aria-label="Close paint details"
               >
                 <X className="h-5 w-5" />
@@ -1873,7 +1873,7 @@ export default function AdminServicesPage() {
               {/* HERO */}
 
               <div className="grid gap-5 md:grid-cols-[220px_1fr]">
-                <div className="flex min-h-52 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+                <div className="flex min-h-52 items-center justify-center overflow-hidden rounded-2xl border border-brand-steel bg-brand-mist">
                   {selectedPaint.image_url ? (
                     <img
                       src={
@@ -1885,7 +1885,7 @@ export default function AdminServicesPage() {
                       className="h-full max-h-60 w-full object-contain p-4"
                     />
                   ) : (
-                    <Droplets className="h-14 w-14 text-slate-300" />
+                    <Droplets className="h-14 w-14 text-brand-steel" />
                   )}
                 </div>
 
@@ -1895,7 +1895,7 @@ export default function AdminServicesPage() {
                       className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${
                         selectedPaint.is_active
                           ? "bg-emerald-50 text-emerald-700"
-                          : "bg-slate-100 text-slate-600"
+                          : "bg-brand-mist text-brand-ink/70"
                       }`}
                     >
                       {selectedPaint.is_active
@@ -1903,43 +1903,43 @@ export default function AdminServicesPage() {
                         : "Inactive"}
                     </span>
 
-                    <span className="rounded-full bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-700">
+                    <span className="rounded-full bg-brand-mist px-2.5 py-1 text-xs font-semibold text-brand-ink">
                       {selectedPaint.brand_name ||
                         "NTEZINET"}
                     </span>
                   </div>
 
-                  <h3 className="mt-4 text-lg font-bold text-slate-950">
+                  <h3 className="mt-4 text-lg font-bold text-brand-ink">
                     {selectedPaint.paint_type ||
                       "Paint"}
                   </h3>
 
                   {selectedPaint.description ? (
-                    <p className="mt-2 text-sm leading-6 text-slate-500">
+                    <p className="mt-2 text-sm leading-6 text-brand-ink/70">
                       {
                         selectedPaint.description
                       }
                     </p>
                   ) : (
-                    <p className="mt-2 text-sm text-slate-400">
+                    <p className="mt-2 text-sm text-brand-steel">
                       No description provided.
                     </p>
                   )}
 
                   <div className="mt-5 grid grid-cols-2 gap-3">
-                    <div className="rounded-xl bg-slate-50 p-3">
-                      <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <div className="rounded-xl bg-brand-mist p-3">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-brand-steel">
                         Reference Price
                       </p>
 
-                      <p className="mt-1 text-base font-bold text-slate-950">
+                      <p className="mt-1 text-base font-bold text-brand-ink">
                         {money(
                           selectedPaint.reference_price_rwf,
                         )}{" "}
                         RWF
                       </p>
 
-                      <p className="mt-1 text-xs text-slate-400">
+                      <p className="mt-1 text-xs text-brand-steel">
                         per{" "}
                         {
                           selectedPaint.reference_quantity
@@ -1950,12 +1950,12 @@ export default function AdminServicesPage() {
                       </p>
                     </div>
 
-                    <div className="rounded-xl bg-slate-50 p-3">
-                      <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <div className="rounded-xl bg-brand-mist p-3">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-brand-steel">
                         Available Stock
                       </p>
 
-                      <p className="mt-1 text-base font-bold text-slate-950">
+                      <p className="mt-1 text-base font-bold text-brand-ink">
                         {
                           selectedPaint.stock_quantity
                         }{" "}
@@ -1972,11 +1972,11 @@ export default function AdminServicesPage() {
 
               <div>
                 <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-bold text-slate-900">
+                  <h3 className="text-sm font-bold text-brand-ink">
                     Available Colors
                   </h3>
 
-                  <span className="rounded-full bg-blue-50 px-2.5 py-1 text-[10px] font-bold text-blue-700">
+                  <span className="rounded-full bg-brand-mist px-2.5 py-1 text-[10px] font-bold text-brand-ink">
                     {normalizePaintColors(
                       selectedPaint,
                     ).length}{" "}
@@ -1999,7 +1999,7 @@ export default function AdminServicesPage() {
                           key={
                             color.name
                           }
-                          className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-3"
+                          className="flex items-center gap-3 rounded-xl border border-brand-steel bg-white p-3"
                         >
                           <span
                             className="h-9 w-9 shrink-0 rounded-full border border-black/10 bg-white shadow-sm"
@@ -2014,13 +2014,13 @@ export default function AdminServicesPage() {
                           />
 
                           <div className="min-w-0">
-                            <p className="truncate text-sm font-bold text-slate-900">
+                            <p className="truncate text-sm font-bold text-brand-ink">
                               {
                                 color.name
                               }
                             </p>
 
-                            <p className="mt-0.5 text-[10px] text-slate-400">
+                            <p className="mt-0.5 text-[10px] text-brand-steel">
                               {color.hex ||
                                 "No HEX code"}
                             </p>
@@ -2030,7 +2030,7 @@ export default function AdminServicesPage() {
                     )}
                   </div>
                 ) : (
-                  <p className="mt-3 text-sm text-slate-400">
+                  <p className="mt-3 text-sm text-brand-steel">
                     No colors registered for this paint.
                   </p>
                 )}
@@ -2039,8 +2039,8 @@ export default function AdminServicesPage() {
               {/* SELLING DETAILS */}
 
               <div className="grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-slate-200 p-4">
-                  <p className="text-xs font-bold uppercase tracking-wide text-slate-400">
+                <div className="rounded-2xl border border-brand-steel p-4">
+                  <p className="text-xs font-bold uppercase tracking-wide text-brand-steel">
                     Selling Options
                   </p>
 
@@ -2065,12 +2065,12 @@ export default function AdminServicesPage() {
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-slate-200 p-4">
-                  <p className="text-xs font-bold uppercase tracking-wide text-slate-400">
+                <div className="rounded-2xl border border-brand-steel p-4">
+                  <p className="text-xs font-bold uppercase tracking-wide text-brand-steel">
                     Density
                   </p>
 
-                  <p className="mt-3 text-lg font-bold text-slate-950">
+                  <p className="mt-3 text-lg font-bold text-brand-ink">
                     {selectedPaint.density_kg_per_l
                       ? `${selectedPaint.density_kg_per_l} KG/L`
                       : "Not configured"}
@@ -2080,13 +2080,13 @@ export default function AdminServicesPage() {
 
               {/* DETAIL ACTIONS */}
 
-              <div className="flex flex-col gap-2 border-t border-slate-200 pt-5 sm:flex-row sm:justify-end">
+              <div className="flex flex-col gap-2 border-t border-brand-steel pt-5 sm:flex-row sm:justify-end">
                 <button
                   type="button"
                   onClick={
                     closePaintDetails
                   }
-                  className="h-11 rounded-xl border border-slate-200 px-5 text-sm font-semibold text-slate-600 transition hover:bg-slate-50"
+                  className="h-11 rounded-xl border border-brand-steel px-5 text-sm font-semibold text-brand-ink/70 transition hover:bg-brand-mist"
                 >
                   Close
                 </button>
@@ -2117,7 +2117,7 @@ export default function AdminServicesPage() {
                       selectedPaint,
                     )
                   }
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 text-sm font-semibold text-white transition hover:bg-blue-700"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-brand-ink px-6 text-sm font-semibold text-white transition hover:bg-brand-ink"
                 >
                   <Pencil className="h-4 w-4" />
 
@@ -2132,17 +2132,17 @@ export default function AdminServicesPage() {
       {/* ADD PAINT MODAL */}
 
       {modalOpen ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/55 p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-brand-ink/55 p-4">
           <div className="max-h-[94vh] w-full max-w-4xl overflow-y-auto rounded-3xl bg-white shadow-2xl">
-            <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 bg-white px-6 py-5">
+            <div className="sticky top-0 z-10 flex items-center justify-between border-b border-brand-steel bg-white px-6 py-5">
               <div>
-                <h2 className="text-xl font-bold text-slate-950">
+                <h2 className="text-xl font-bold text-brand-ink">
                   {editingPaint
                     ? "Edit Paint"
                     : "Register Paint"}
                 </h2>
 
-                <p className="mt-1 text-xs text-slate-500">
+                <p className="mt-1 text-xs text-brand-ink/70">
                   {editingPaint
                     ? "Update paint information, price, stock and selling options."
                     : "Define the reference pricing and measurements customers may use."}
@@ -2154,7 +2154,7 @@ export default function AdminServicesPage() {
                 onClick={
                   closeModal
                 }
-                className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-500 hover:bg-slate-200"
+                className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-mist text-brand-ink/70 hover:bg-brand-steel"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -2176,7 +2176,7 @@ export default function AdminServicesPage() {
 
               <Section title="Paint Image">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                  <label className="flex h-32 w-40 cursor-pointer items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed border-slate-300 bg-slate-50">
+                  <label className="flex h-32 w-40 cursor-pointer items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed border-brand-steel bg-brand-mist">
                     {imagePreview ? (
                       <img
                         src={
@@ -2187,9 +2187,9 @@ export default function AdminServicesPage() {
                       />
                     ) : (
                       <div className="text-center">
-                        <ImagePlus className="mx-auto h-7 w-7 text-slate-400" />
+                        <ImagePlus className="mx-auto h-7 w-7 text-brand-steel" />
 
-                        <span className="mt-2 block text-xs font-medium text-slate-500">
+                        <span className="mt-2 block text-xs font-medium text-brand-ink/70">
                           Upload image
                         </span>
                       </div>
@@ -2205,7 +2205,7 @@ export default function AdminServicesPage() {
                     />
                   </label>
 
-                  <p className="max-w-md text-xs leading-5 text-slate-500">
+                  <p className="max-w-md text-xs leading-5 text-brand-ink/70">
                     Upload the actual
                     paint image. JPG,
                     PNG and WebP are
@@ -2289,18 +2289,18 @@ export default function AdminServicesPage() {
                     <div className="space-y-4">
                       {/* STEP 1: COLOR EDITOR */}
 
-                      <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                      <div className="rounded-2xl border border-brand-steel bg-brand-mist p-4">
                         <div className="flex items-start gap-3">
-                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white">
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-ink text-white">
                             <Palette className="h-4 w-4" />
                           </div>
 
                           <div>
-                            <p className="text-sm font-bold text-slate-900">
+                            <p className="text-sm font-bold text-brand-ink">
                               Add colors one by one
                             </p>
 
-                            <p className="mt-1 text-xs leading-5 text-slate-500">
+                            <p className="mt-1 text-xs leading-5 text-brand-ink/70">
                               Enter a color name, choose or type its HEX code,
                               then add it to this paint. Repeat until all
                               available colors are listed.
@@ -2311,7 +2311,7 @@ export default function AdminServicesPage() {
 
                       <div className="grid gap-2 sm:grid-cols-[1fr_160px_auto]">
                         <div className="relative">
-                          <Palette className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                          <Palette className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
 
                           <input
                             value={
@@ -2361,7 +2361,7 @@ export default function AdminServicesPage() {
                                   .value,
                               )
                             }
-                            className="h-11 w-12 shrink-0 cursor-pointer rounded-xl border border-slate-200 bg-white p-1"
+                            className="h-11 w-12 shrink-0 cursor-pointer rounded-xl border border-brand-steel bg-white p-1"
                             title="Choose color"
                           />
 
@@ -2390,7 +2390,7 @@ export default function AdminServicesPage() {
                             onClick={
                               saveColor
                             }
-                            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 text-xs font-semibold text-white transition hover:bg-slate-800"
+                            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-brand-ink px-4 text-xs font-semibold text-white transition hover:bg-brand-ink"
                           >
                             {editingColorIndex ===
                             null ? (
@@ -2412,7 +2412,7 @@ export default function AdminServicesPage() {
                               onClick={
                                 resetColorEditor
                               }
-                              className="inline-flex h-11 items-center justify-center rounded-xl border border-slate-200 bg-white px-3 text-xs font-semibold text-slate-600 transition hover:bg-slate-50"
+                              className="inline-flex h-11 items-center justify-center rounded-xl border border-brand-steel bg-white px-3 text-xs font-semibold text-brand-ink/70 transition hover:bg-brand-mist"
                             >
                               Cancel
                             </button>
@@ -2426,11 +2426,11 @@ export default function AdminServicesPage() {
                       0 ? (
                         <div className="space-y-2">
                           <div className="flex items-center justify-between">
-                            <p className="text-xs font-bold text-slate-700">
+                            <p className="text-xs font-bold text-brand-ink">
                               Added colors
                             </p>
 
-                            <span className="rounded-full bg-blue-50 px-2.5 py-1 text-[10px] font-bold text-blue-700">
+                            <span className="rounded-full bg-brand-mist px-2.5 py-1 text-[10px] font-bold text-brand-ink">
                               {form.colors.length}{" "}
                               {form.colors.length ===
                               1
@@ -2450,8 +2450,8 @@ export default function AdminServicesPage() {
                                   className={`flex items-center gap-3 rounded-xl border p-3 ${
                                     editingColorIndex ===
                                     index
-                                      ? "border-blue-400 bg-blue-50"
-                                      : "border-slate-200 bg-white"
+                                      ? "border-brand-orange bg-brand-mist"
+                                      : "border-brand-steel bg-white"
                                   }`}
                                 >
                                   <span
@@ -2467,13 +2467,13 @@ export default function AdminServicesPage() {
                                   />
 
                                   <div className="min-w-0 flex-1">
-                                    <p className="truncate text-sm font-bold text-slate-900">
+                                    <p className="truncate text-sm font-bold text-brand-ink">
                                       {
                                         color.name
                                       }
                                     </p>
 
-                                    <p className="mt-0.5 text-[10px] text-slate-400">
+                                    <p className="mt-0.5 text-[10px] text-brand-steel">
                                       {color.hex ||
                                         "No HEX code"}
                                     </p>
@@ -2486,7 +2486,7 @@ export default function AdminServicesPage() {
                                         index,
                                       )
                                     }
-                                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-blue-600 transition hover:bg-blue-100"
+                                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-mist text-brand-ink transition hover:bg-brand-mist"
                                     title={`Edit ${color.name}`}
                                   >
                                     <Pencil className="h-3.5 w-3.5" />
@@ -2509,20 +2509,20 @@ export default function AdminServicesPage() {
                             )}
                           </div>
 
-                          <p className="text-[11px] leading-5 text-slate-400">
+                          <p className="text-[11px] leading-5 text-brand-steel">
                             Use the pencil to change a color, or the delete
                             button to remove it before saving the paint.
                           </p>
                         </div>
                       ) : (
-                        <div className="rounded-xl border border-dashed border-slate-300 bg-white px-4 py-5 text-center">
-                          <Palette className="mx-auto h-6 w-6 text-slate-300" />
+                        <div className="rounded-xl border border-dashed border-brand-steel bg-white px-4 py-5 text-center">
+                          <Palette className="mx-auto h-6 w-6 text-brand-steel" />
 
-                          <p className="mt-2 text-xs font-semibold text-slate-500">
+                          <p className="mt-2 text-xs font-semibold text-brand-ink/70">
                             No colors added yet
                           </p>
 
-                          <p className="mt-1 text-[11px] text-slate-400">
+                          <p className="mt-1 text-[11px] text-brand-steel">
                             Add at least one color before saving this paint.
                           </p>
                         </div>
@@ -2556,7 +2556,7 @@ export default function AdminServicesPage() {
               {/* REFERENCE */}
 
               <Section title="Reference Pricing">
-                <div className="rounded-xl border border-blue-100 bg-blue-50 p-4 text-xs leading-5 text-blue-700">
+                <div className="rounded-xl border border-brand-mist bg-brand-mist p-4 text-xs leading-5 text-brand-ink">
                   This is only the
                   pricing reference.
                   Example:{" "}
@@ -2794,7 +2794,7 @@ export default function AdminServicesPage() {
                       }
                     />
 
-                    <p className="mt-2 text-xs text-slate-500">
+                    <p className="mt-2 text-xs text-brand-ink/70">
                       Density allows
                       NTEZINET to
                       convert KG ↔
@@ -2809,8 +2809,8 @@ export default function AdminServicesPage() {
 
               {form.reference_price_rwf &&
               form.reference_quantity ? (
-                <div className="rounded-2xl bg-slate-950 p-5 text-white">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                <div className="rounded-2xl bg-brand-ink p-5 text-white">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-brand-steel">
                     Reference
                     preview
                   </p>
@@ -2827,7 +2827,7 @@ export default function AdminServicesPage() {
                     RWF
                   </p>
 
-                  <p className="mt-2 text-xs leading-5 text-slate-400">
+                  <p className="mt-2 text-xs leading-5 text-brand-steel">
                     This does not
                     restrict the
                     customer's
@@ -2842,7 +2842,7 @@ export default function AdminServicesPage() {
 
               {/* BUTTONS */}
 
-              <div className="flex justify-end gap-3 border-t border-slate-200 pt-5">
+              <div className="flex justify-end gap-3 border-t border-brand-steel pt-5">
                 <button
                   type="button"
                   onClick={
@@ -2851,7 +2851,7 @@ export default function AdminServicesPage() {
                   disabled={
                     saving
                   }
-                  className="h-11 rounded-xl border border-slate-200 px-5 text-sm font-semibold text-slate-600 hover:bg-slate-50 disabled:opacity-50"
+                  className="h-11 rounded-xl border border-brand-steel px-5 text-sm font-semibold text-brand-ink/70 hover:bg-brand-mist disabled:opacity-50"
                 >
                   Cancel
                 </button>
@@ -2861,7 +2861,7 @@ export default function AdminServicesPage() {
                   disabled={
                     saving
                   }
-                  className="inline-flex h-11 items-center gap-2 rounded-xl bg-blue-600 px-6 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-60"
+                  className="inline-flex h-11 items-center gap-2 rounded-xl bg-brand-ink px-6 text-sm font-semibold text-white hover:bg-brand-ink disabled:opacity-60"
                 >
                   {saving ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
@@ -2888,19 +2888,19 @@ export default function AdminServicesPage() {
       {/* DELETE PAINT MODAL */}
 
       {deleteTarget ? (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-slate-950/55 p-4">
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-brand-ink/55 p-4">
           <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl">
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50 text-red-600">
               <Trash2 className="h-6 w-6" />
             </div>
 
-            <h2 className="mt-5 text-xl font-bold text-slate-950">
+            <h2 className="mt-5 text-xl font-bold text-brand-ink">
               Delete Paint?
             </h2>
 
-            <p className="mt-2 text-sm leading-6 text-slate-500">
+            <p className="mt-2 text-sm leading-6 text-brand-ink/70">
               You are about to delete{" "}
-              <strong className="text-slate-800">
+              <strong className="text-brand-ink">
                 {deleteTarget.name}
               </strong>
               . This action cannot be undone.
@@ -2917,7 +2917,7 @@ export default function AdminServicesPage() {
                 disabled={
                   deleting
                 }
-                className="h-10 rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+                className="h-10 rounded-xl border border-brand-steel bg-white px-4 text-sm font-semibold text-brand-ink hover:bg-brand-mist disabled:opacity-50"
               >
                 Cancel
               </button>
@@ -2960,7 +2960,7 @@ function Section({
 }) {
   return (
     <section className="space-y-4">
-      <h3 className="text-sm font-bold text-slate-900">
+      <h3 className="text-sm font-bold text-brand-ink">
         {title}
       </h3>
 
@@ -2979,7 +2979,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="mb-2 block text-xs font-semibold text-slate-600">
+      <span className="mb-2 block text-xs font-semibold text-brand-ink/70">
         {label}
       </span>
 
@@ -3055,26 +3055,26 @@ function Option({
       }
       className={`flex items-center gap-3 rounded-2xl border p-4 text-left transition ${
         checked
-          ? "border-blue-300 bg-blue-50"
-          : "border-slate-200 bg-white"
+          ? "border-brand-orange bg-brand-mist"
+          : "border-brand-steel bg-white"
       }`}
     >
       <div
         className={`flex h-10 w-10 items-center justify-center rounded-xl ${
           checked
-            ? "bg-blue-600 text-white"
-            : "bg-slate-100 text-slate-500"
+            ? "bg-brand-ink text-white"
+            : "bg-brand-mist text-brand-ink/70"
         }`}
       >
         {icon}
       </div>
 
       <div className="flex-1">
-        <p className="text-sm font-bold text-slate-900">
+        <p className="text-sm font-bold text-brand-ink">
           {title}
         </p>
 
-        <p className="mt-1 text-xs text-slate-500">
+        <p className="mt-1 text-xs text-brand-ink/70">
           {description}
         </p>
       </div>
@@ -3082,8 +3082,8 @@ function Option({
       <div
         className={`flex h-5 w-5 items-center justify-center rounded-full border-2 ${
           checked
-            ? "border-blue-600 bg-blue-600"
-            : "border-slate-300"
+            ? "border-brand-ink bg-brand-ink"
+            : "border-brand-steel"
         }`}
       >
         {checked ? (
@@ -3101,7 +3101,7 @@ function Badge({
     React.ReactNode;
 }) {
   return (
-    <span className="rounded-lg bg-blue-50 px-2 py-1 text-[10px] font-bold text-blue-700">
+    <span className="rounded-lg bg-brand-mist px-2 py-1 text-[10px] font-bold text-brand-ink">
       {children}
     </span>
   );
@@ -3117,20 +3117,20 @@ function Stat({
   icon: typeof Boxes;
 }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <div className="rounded-2xl border border-brand-steel bg-white p-5 shadow-sm">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+          <p className="text-xs font-semibold uppercase tracking-wide text-brand-steel">
             {title}
           </p>
 
-          <p className="mt-2 text-3xl font-bold text-slate-950">
+          <p className="mt-2 text-3xl font-bold text-brand-ink">
             {value}
           </p>
         </div>
 
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50">
-          <Icon className="h-5 w-5 text-blue-600" />
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-mist">
+          <Icon className="h-5 w-5 text-brand-ink" />
         </div>
       </div>
     </div>
@@ -3144,7 +3144,7 @@ function Th({
     React.ReactNode;
 }) {
   return (
-    <th className="whitespace-nowrap px-5 py-3 text-left text-xs font-bold uppercase tracking-wide text-slate-500">
+    <th className="whitespace-nowrap px-5 py-3 text-left text-xs font-bold uppercase tracking-wide text-brand-ink/70">
       {children}
     </th>
   );
@@ -3157,7 +3157,7 @@ function Td({
     React.ReactNode;
 }) {
   return (
-    <td className="whitespace-nowrap px-5 py-4 text-sm text-slate-600">
+    <td className="whitespace-nowrap px-5 py-4 text-sm text-brand-ink/70">
       {children}
     </td>
   );

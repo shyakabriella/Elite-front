@@ -509,17 +509,17 @@ function productStatusClassName(
       return "bg-emerald-100 text-emerald-700";
 
     case "pending_review":
-      return "bg-blue-100 text-blue-700";
+      return "bg-brand-mist text-brand-ink";
 
     case "rejected":
     case "suspended":
       return "bg-red-100 text-red-700";
 
     case "archived":
-      return "bg-slate-200 text-slate-700";
+      return "bg-brand-steel text-brand-ink";
 
     default:
-      return "bg-amber-100 text-amber-700";
+      return "bg-brand-mist text-brand-orange";
   }
 }
 
@@ -533,14 +533,14 @@ function sellerStatusClassName(
     case "under_review":
     case "submitted":
     case "pending_verification":
-      return "bg-blue-100 text-blue-700";
+      return "bg-brand-mist text-brand-ink";
 
     case "rejected":
     case "suspended":
       return "bg-red-100 text-red-700";
 
     default:
-      return "bg-amber-100 text-amber-700";
+      return "bg-brand-mist text-brand-orange";
   }
 }
 
@@ -559,15 +559,15 @@ function StatCard({
         <Icon className="size-6" />
       </span>
 
-      <p className="mt-5 text-sm font-semibold text-slate-500">
+      <p className="mt-5 text-sm font-semibold text-brand-ink/70">
         {title}
       </p>
 
-      <p className="mt-1 text-2xl font-black tracking-tight text-slate-950 sm:text-3xl">
+      <p className="mt-1 text-2xl font-black tracking-tight text-brand-ink sm:text-3xl">
         {formatCount(value)}
       </p>
 
-      <p className="mt-2 text-xs leading-5 text-slate-400">
+      <p className="mt-2 text-xs leading-5 text-brand-steel">
         {description}
       </p>
     </article>
@@ -593,25 +593,25 @@ function HealthItem({
   return (
     <Link
       href={href}
-      className="rounded-2xl border border-slate-200 bg-slate-50 p-4 transition hover:border-blue-200 hover:bg-blue-50/60"
+      className="rounded-2xl border border-brand-steel bg-brand-mist p-4 transition hover:border-brand-steel hover:bg-brand-mist/60"
     >
       <div className="flex items-center justify-between gap-3">
-        <span className="grid size-10 place-items-center rounded-xl bg-white text-blue-700 shadow-sm">
+        <span className="grid size-10 place-items-center rounded-xl bg-white text-brand-ink shadow-sm">
           <Icon className="size-5" />
         </span>
 
-        <span className="text-sm font-black text-slate-900">
+        <span className="text-sm font-black text-brand-ink">
           {percentage === null
             ? "—"
             : `${percentage}%`}
         </span>
       </div>
 
-      <p className="mt-3 text-sm font-black text-slate-900">
+      <p className="mt-3 text-sm font-black text-brand-ink">
         {title}
       </p>
 
-      <p className="mt-1 text-xs text-slate-500">
+      <p className="mt-1 text-xs text-brand-ink/70">
         {formatCount(value)} of{" "}
         {formatCount(total)} loaded products
       </p>
@@ -1197,9 +1197,9 @@ export default function SellerDashboardPage() {
     return (
       <div className="grid min-h-[520px] place-items-center">
         <div className="text-center">
-          <Loader2 className="mx-auto size-9 animate-spin text-blue-700" />
+          <Loader2 className="mx-auto size-9 animate-spin text-brand-ink" />
 
-          <p className="mt-3 text-sm font-bold text-slate-600">
+          <p className="mt-3 text-sm font-bold text-brand-ink/70">
             Loading seller workspace...
           </p>
         </div>
@@ -1210,21 +1210,21 @@ export default function SellerDashboardPage() {
   if (!profile) {
     return (
       <div className="mx-auto max-w-3xl py-12">
-        <div className="rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-          <Store className="mx-auto size-12 text-blue-700" />
+        <div className="rounded-3xl border border-brand-steel bg-white p-8 text-center shadow-sm">
+          <Store className="mx-auto size-12 text-brand-ink" />
 
-          <h1 className="mt-4 text-2xl font-black text-slate-950">
+          <h1 className="mt-4 text-2xl font-black text-brand-ink">
             Create your seller business
           </h1>
 
-          <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-slate-500">
+          <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-brand-ink/70">
             No seller profile was returned for this account.
             Complete your seller business profile before listing products.
           </p>
 
           <Link
             href="/seller/profile"
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-blue-700 px-5 py-3 text-sm font-black text-white transition hover:bg-blue-800"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-ink px-5 py-3 text-sm font-black text-white transition hover:bg-brand-ink"
           >
             <Plus className="size-4" />
             Create seller profile
@@ -1238,11 +1238,11 @@ export default function SellerDashboardPage() {
     <div>
       <section className="mb-7 flex flex-col justify-between gap-5 md:flex-row md:items-center">
         <div>
-          <p className="text-sm font-black uppercase tracking-[0.18em] text-blue-600">
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-brand-ink">
             Seller workspace
           </p>
 
-          <h1 className="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
+          <h1 className="mt-2 text-3xl font-black tracking-tight text-brand-ink sm:text-4xl">
             {sellerName(profile)} 👋
           </h1>
 
@@ -1268,14 +1268,14 @@ export default function SellerDashboardPage() {
             </span>
 
             {profiles.length > 1 ? (
-              <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-slate-600">
+              <span className="rounded-full bg-brand-mist px-3 py-1 text-xs font-black text-brand-ink/70">
                 {profiles.length} seller profiles
               </span>
             ) : null}
           </div>
 
           {lastUpdated ? (
-            <p className="mt-3 text-xs font-semibold text-slate-400">
+            <p className="mt-3 text-xs font-semibold text-brand-steel">
               Last refreshed:{" "}
               {formatDateTime(
                 lastUpdated.toISOString(),
@@ -1291,7 +1291,7 @@ export default function SellerDashboardPage() {
               void loadDashboard(true);
             }}
             disabled={refreshing}
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-black text-slate-800 shadow-sm transition hover:border-blue-500 hover:text-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-steel bg-white px-5 py-3 text-sm font-black text-brand-ink shadow-sm transition hover:border-brand-orange hover:text-brand-ink disabled:cursor-not-allowed disabled:opacity-60"
           >
             <RefreshCw
               className={`size-4 ${
@@ -1305,7 +1305,7 @@ export default function SellerDashboardPage() {
 
           <Link
             href="/seller/products"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-700 px-5 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:-translate-y-0.5 hover:bg-blue-800"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-ink px-5 py-3 text-sm font-black text-white shadow-lg shadow-brand-ink/20 transition hover:-translate-y-0.5 hover:bg-brand-ink"
           >
             <Plus className="size-4" />
             List product
@@ -1314,12 +1314,12 @@ export default function SellerDashboardPage() {
       </section>
 
       {errors.length > 0 ? (
-        <section className="mb-5 rounded-2xl border border-amber-200 bg-amber-50 p-4">
+        <section className="mb-5 rounded-2xl border border-brand-orange bg-brand-mist p-4">
           <div className="flex items-start gap-3">
-            <TriangleAlert className="mt-0.5 size-5 shrink-0 text-amber-700" />
+            <TriangleAlert className="mt-0.5 size-5 shrink-0 text-brand-orange" />
 
             <div>
-              <p className="text-sm font-black text-amber-900">
+              <p className="text-sm font-black text-brand-orange">
                 Some seller data could not be loaded.
               </p>
 
@@ -1328,7 +1328,7 @@ export default function SellerDashboardPage() {
                   (error) => (
                     <p
                       key={error}
-                      className="text-xs leading-5 text-amber-700"
+                      className="text-xs leading-5 text-brand-orange"
                     >
                       {error}
                     </p>
@@ -1341,19 +1341,19 @@ export default function SellerDashboardPage() {
       ) : null}
 
       {!profileApproved ? (
-        <section className="mb-5 rounded-3xl border border-blue-200 bg-blue-50 p-5 sm:p-6">
+        <section className="mb-5 rounded-3xl border border-brand-steel bg-brand-mist p-5 sm:p-6">
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
             <div className="flex items-start gap-4">
-              <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-white text-blue-700 shadow-sm">
+              <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-white text-brand-ink shadow-sm">
                 <ShieldCheck className="size-6" />
               </span>
 
               <div>
-                <h2 className="text-lg font-black text-blue-950">
+                <h2 className="text-lg font-black text-brand-ink">
                   Complete seller verification
                 </h2>
 
-                <p className="mt-1 max-w-2xl text-sm leading-6 text-blue-800">
+                <p className="mt-1 max-w-2xl text-sm leading-6 text-brand-ink">
                   Product selling APIs are protected until the seller
                   business is approved. Your verification status is{" "}
                   <strong>
@@ -1368,7 +1368,7 @@ export default function SellerDashboardPage() {
 
             <Link
               href="/seller/profile"
-              className="inline-flex shrink-0 items-center justify-center rounded-full bg-blue-700 px-5 py-3 text-sm font-black text-white hover:bg-blue-800"
+              className="inline-flex shrink-0 items-center justify-center rounded-full bg-brand-ink px-5 py-3 text-sm font-black text-white hover:bg-brand-ink"
             >
               Open verification
             </Link>
@@ -1386,7 +1386,7 @@ export default function SellerDashboardPage() {
               : "Available after seller approval"
           }
           icon={ShoppingBag}
-          iconClassName="bg-violet-100 text-violet-700"
+          iconClassName="bg-brand-mist text-brand-ink"
         />
 
         <StatCard
@@ -1394,7 +1394,7 @@ export default function SellerDashboardPage() {
           value={stats.pendingProducts}
           description="Products waiting for administrator moderation"
           icon={ClipboardCheck}
-          iconClassName="bg-blue-100 text-blue-700"
+          iconClassName="bg-brand-mist text-brand-ink"
         />
 
         <StatCard
@@ -1410,7 +1410,7 @@ export default function SellerDashboardPage() {
           value={stats.availableStock}
           description="Sellable units across loaded product variants"
           icon={Warehouse}
-          iconClassName="bg-amber-100 text-amber-700"
+          iconClassName="bg-brand-mist text-brand-orange"
         />
       </section>
 
@@ -1418,11 +1418,11 @@ export default function SellerDashboardPage() {
         <article className="rounded-3xl border border-white bg-white p-5 shadow-[0_14px_35px_rgba(15,23,42,0.06)] sm:p-6">
           <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
             <div>
-              <h2 className="text-xl font-black text-slate-950">
+              <h2 className="text-xl font-black text-brand-ink">
                 Product setup health
               </h2>
 
-              <p className="mt-1 text-sm leading-6 text-slate-500">
+              <p className="mt-1 text-sm leading-6 text-brand-ink/70">
                 Built from ProductController response data backed by
                 variants, pricing, inventory, media and return policy.
               </p>
@@ -1430,7 +1430,7 @@ export default function SellerDashboardPage() {
 
             <Link
               href="/seller/products"
-              className="text-sm font-black text-blue-700 hover:underline"
+              className="text-sm font-black text-brand-ink hover:underline"
             >
               Manage products
             </Link>
@@ -1490,11 +1490,11 @@ export default function SellerDashboardPage() {
         <article className="rounded-3xl border border-white bg-white p-5 shadow-[0_14px_35px_rgba(15,23,42,0.06)] sm:p-6">
           <div className="flex items-start justify-between gap-3">
             <div>
-              <h2 className="text-xl font-black text-slate-950">
+              <h2 className="text-xl font-black text-brand-ink">
                 Verification
               </h2>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-brand-ink/70">
                 Seller profile and document status.
               </p>
             </div>
@@ -1515,54 +1515,54 @@ export default function SellerDashboardPage() {
           </div>
 
           <div className="mt-6 grid grid-cols-2 gap-3">
-            <div className="rounded-2xl bg-slate-50 p-4">
-              <FileCheck2 className="size-5 text-blue-700" />
+            <div className="rounded-2xl bg-brand-mist p-4">
+              <FileCheck2 className="size-5 text-brand-ink" />
 
-              <p className="mt-3 text-2xl font-black text-slate-950">
+              <p className="mt-3 text-2xl font-black text-brand-ink">
                 {formatCount(
                   stats.documentsUploaded,
                 )}
               </p>
 
-              <p className="mt-1 text-xs text-slate-500">
+              <p className="mt-1 text-xs text-brand-ink/70">
                 Documents uploaded
               </p>
             </div>
 
-            <div className="rounded-2xl bg-slate-50 p-4">
-              <ShieldCheck className="size-5 text-violet-700" />
+            <div className="rounded-2xl bg-brand-mist p-4">
+              <ShieldCheck className="size-5 text-brand-ink" />
 
-              <p className="mt-3 text-2xl font-black text-slate-950">
+              <p className="mt-3 text-2xl font-black text-brand-ink">
                 {formatCount(
                   documentRequirements.length,
                 )}
               </p>
 
-              <p className="mt-1 text-xs text-slate-500">
+              <p className="mt-1 text-xs text-brand-ink/70">
                 Active requirements
               </p>
             </div>
           </div>
 
           <div className="mt-5 space-y-3">
-            <div className="flex items-center justify-between gap-3 rounded-xl border border-slate-200 px-4 py-3">
-              <span className="text-sm font-semibold text-slate-600">
+            <div className="flex items-center justify-between gap-3 rounded-xl border border-brand-steel px-4 py-3">
+              <span className="text-sm font-semibold text-brand-ink/70">
                 Application version
               </span>
 
-              <span className="text-sm font-black text-slate-900">
+              <span className="text-sm font-black text-brand-ink">
                 {latestApplication?.version
                   ? `v${latestApplication.version}`
                   : "—"}
               </span>
             </div>
 
-            <div className="flex items-center justify-between gap-3 rounded-xl border border-slate-200 px-4 py-3">
-              <span className="text-sm font-semibold text-slate-600">
+            <div className="flex items-center justify-between gap-3 rounded-xl border border-brand-steel px-4 py-3">
+              <span className="text-sm font-semibold text-brand-ink/70">
                 Submitted
               </span>
 
-              <span className="text-xs font-bold text-slate-700">
+              <span className="text-xs font-bold text-brand-ink">
                 {formatDateTime(
                   latestApplication
                     ?.submitted_at ??
@@ -1577,20 +1577,20 @@ export default function SellerDashboardPage() {
 
       <section className="mt-5">
         <article className="overflow-hidden rounded-3xl border border-white bg-white shadow-[0_14px_35px_rgba(15,23,42,0.06)]">
-          <div className="flex items-center justify-between gap-4 border-b border-slate-100 px-5 py-5 sm:px-6">
+          <div className="flex items-center justify-between gap-4 border-b border-brand-mist px-5 py-5 sm:px-6">
             <div>
-              <h2 className="text-xl font-black text-slate-950">
+              <h2 className="text-xl font-black text-brand-ink">
                 Recent products
               </h2>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-brand-ink/70">
                 Current product, price, stock, image and moderation status.
               </p>
             </div>
 
             <Link
               href="/seller/products"
-              className="text-sm font-black text-blue-700 hover:underline"
+              className="text-sm font-black text-brand-ink hover:underline"
             >
               View all
             </Link>
@@ -1598,31 +1598,31 @@ export default function SellerDashboardPage() {
 
           {!profileApproved ? (
             <div className="p-8 text-center">
-              <ShieldCheck className="mx-auto size-10 text-blue-600" />
+              <ShieldCheck className="mx-auto size-10 text-brand-ink" />
 
-              <p className="mt-3 font-black text-slate-900">
+              <p className="mt-3 font-black text-brand-ink">
                 Seller approval required
               </p>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-brand-ink/70">
                 Product APIs become available after the seller profile is approved.
               </p>
             </div>
           ) : recentProducts.length === 0 ? (
             <div className="p-8 text-center">
-              <Boxes className="mx-auto size-10 text-slate-400" />
+              <Boxes className="mx-auto size-10 text-brand-steel" />
 
-              <p className="mt-3 font-black text-slate-900">
+              <p className="mt-3 font-black text-brand-ink">
                 No products yet
               </p>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-brand-ink/70">
                 Create your first marketplace product.
               </p>
 
               <Link
                 href="/seller/products"
-                className="mt-5 inline-flex items-center gap-2 rounded-full bg-blue-700 px-5 py-3 text-sm font-black text-white hover:bg-blue-800"
+                className="mt-5 inline-flex items-center gap-2 rounded-full bg-brand-ink px-5 py-3 text-sm font-black text-white hover:bg-brand-ink"
               >
                 <Plus className="size-4" />
                 List product
@@ -1632,7 +1632,7 @@ export default function SellerDashboardPage() {
             <div className="overflow-x-auto">
               <table className="min-w-[900px] w-full">
                 <thead>
-                  <tr className="bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-500">
+                  <tr className="bg-brand-mist text-left text-xs uppercase tracking-wider text-brand-ink/70">
                     <th className="px-6 py-4 font-black">
                       Product
                     </th>
@@ -1654,7 +1654,7 @@ export default function SellerDashboardPage() {
                   </tr>
                 </thead>
 
-                <tbody className="divide-y divide-slate-100">
+                <tbody className="divide-y divide-brand-mist">
                   {recentProducts.map(
                     (product) => {
                       const defaultVariant =
@@ -1685,31 +1685,31 @@ export default function SellerDashboardPage() {
                           key={
                             product.public_id
                           }
-                          className="transition hover:bg-blue-50/40"
+                          className="transition hover:bg-brand-mist/40"
                         >
                           <td className="px-6 py-4">
                             <Link
                               href="/seller/products"
-                              className="text-sm font-black text-blue-700 hover:underline"
+                              className="text-sm font-black text-brand-ink hover:underline"
                             >
                               {product.name ??
                                 "Unnamed product"}
                             </Link>
 
-                            <p className="mt-1 text-xs text-slate-400">
+                            <p className="mt-1 text-xs text-brand-steel">
                               {product.brand
                                 ?.name ??
                                 "No brand"}
                             </p>
                           </td>
 
-                          <td className="px-6 py-4 text-sm font-semibold text-slate-700">
+                          <td className="px-6 py-4 text-sm font-semibold text-brand-ink">
                             {product.category
                               ?.name ??
                               "—"}
                           </td>
 
-                          <td className="px-6 py-4 text-sm font-black text-slate-900">
+                          <td className="px-6 py-4 text-sm font-black text-brand-ink">
                             {price?.selling_price !=
                             null
                               ? `${new Intl.NumberFormat(
@@ -1725,7 +1725,7 @@ export default function SellerDashboardPage() {
                               : "—"}
                           </td>
 
-                          <td className="px-6 py-4 text-sm font-black text-slate-900">
+                          <td className="px-6 py-4 text-sm font-black text-brand-ink">
                             {formatCount(
                               Number(stock) ||
                                 0,
@@ -1737,7 +1737,7 @@ export default function SellerDashboardPage() {
                               className={`rounded-full px-3 py-1 text-xs font-black ${
                                 setupReady
                                   ? "bg-emerald-100 text-emerald-700"
-                                  : "bg-amber-100 text-amber-700"
+                                  : "bg-brand-mist text-brand-orange"
                               }`}
                             >
                               {setupReady
@@ -1770,11 +1770,11 @@ export default function SellerDashboardPage() {
 
       <section className="mt-5">
         <article className="rounded-3xl border border-white bg-white p-5 shadow-[0_14px_35px_rgba(15,23,42,0.06)] sm:p-6">
-          <h2 className="text-xl font-black text-slate-950">
+          <h2 className="text-xl font-black text-brand-ink">
             Seller backend coverage
           </h2>
 
-          <p className="mt-1 text-sm leading-6 text-slate-500">
+          <p className="mt-1 text-sm leading-6 text-brand-ink/70">
             This dashboard now uses seller APIs only. ProductController
             supplies the nested data produced by the product variant,
             pricing, inventory, media and return-policy domains.
@@ -1853,15 +1853,15 @@ export default function SellerDashboardPage() {
                 return (
                   <div
                     key={item.title}
-                    className="rounded-2xl border border-slate-200 bg-slate-50 p-4"
+                    className="rounded-2xl border border-brand-steel bg-brand-mist p-4"
                   >
-                    <Icon className="size-5 text-blue-700" />
+                    <Icon className="size-5 text-brand-ink" />
 
-                    <p className="mt-3 text-sm font-black text-slate-900">
+                    <p className="mt-3 text-sm font-black text-brand-ink">
                       {item.title}
                     </p>
 
-                    <p className="mt-1 text-xs font-semibold text-slate-500">
+                    <p className="mt-1 text-xs font-semibold text-brand-ink/70">
                       {item.value}
                     </p>
                   </div>
@@ -1872,8 +1872,8 @@ export default function SellerDashboardPage() {
 
           {profileApproved &&
           products.length > 0 ? (
-            <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <p className="text-sm font-black text-slate-900">
+            <div className="mt-5 rounded-2xl border border-brand-steel bg-brand-mist p-4">
+              <p className="text-sm font-black text-brand-ink">
                 First product checklist
               </p>
 
@@ -1882,13 +1882,13 @@ export default function SellerDashboardPage() {
                   (item) => (
                     <div
                       key={item.label}
-                      className="flex items-center gap-2 text-xs font-semibold text-slate-600"
+                      className="flex items-center gap-2 text-xs font-semibold text-brand-ink/70"
                     >
                       <span
                         className={`size-2.5 rounded-full ${
                           item.done
                             ? "bg-emerald-500"
-                            : "bg-amber-500"
+                            : "bg-brand-orange"
                         }`}
                       />
                       {item.label}

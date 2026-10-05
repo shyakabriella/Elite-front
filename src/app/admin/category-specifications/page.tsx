@@ -1127,16 +1127,16 @@ export default function AdminCategorySpecificationsPage() {
     <div className="space-y-6">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <div className="flex items-center gap-2 text-sm font-medium text-slate-500">
+          <div className="flex items-center gap-2 text-sm font-medium text-brand-ink/70">
             <FileText className="h-4 w-4" />
             Catalog setup
           </div>
 
-          <h1 className="mt-1 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+          <h1 className="mt-1 text-2xl font-semibold tracking-tight text-brand-ink sm:text-3xl">
             Category specifications
           </h1>
 
-          <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-brand-ink/70">
             Choose a saved category, then assign reusable specifications such as RAM, storage, size, material or color. The seller will fill the actual values when listing a product.
           </p>
         </div>
@@ -1161,7 +1161,7 @@ export default function AdminCategorySpecificationsPage() {
               loadingSetup ||
               loadingAssignments
             }
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-brand-steel bg-white px-4 text-sm font-medium text-brand-ink shadow-sm transition hover:bg-brand-mist disabled:cursor-not-allowed disabled:opacity-60"
           >
             <RefreshCw
               className={`h-4 w-4 ${
@@ -1182,7 +1182,7 @@ export default function AdminCategorySpecificationsPage() {
             disabled={
               !selectedCategoryPublicId
             }
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-slate-950 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-ink disabled:cursor-not-allowed disabled:opacity-50"
           >
             <Plus className="h-4 w-4" />
             Assign specification
@@ -1213,18 +1213,18 @@ export default function AdminCategorySpecificationsPage() {
       ) : null}
 
       <div className="grid gap-6 xl:grid-cols-[320px_minmax(0,1fr)]">
-        <aside className="rounded-2xl border border-slate-200 bg-white shadow-sm">
-          <div className="border-b border-slate-200 p-4">
-            <div className="text-sm font-semibold text-slate-900">
+        <aside className="rounded-2xl border border-brand-steel bg-white shadow-sm">
+          <div className="border-b border-brand-steel p-4">
+            <div className="text-sm font-semibold text-brand-ink">
               Saved categories
             </div>
 
-            <p className="mt-1 text-xs leading-5 text-slate-500">
+            <p className="mt-1 text-xs leading-5 text-brand-ink/70">
               Select the category whose product form you want to configure.
             </p>
 
             <label className="relative mt-3 block">
-              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
 
               <input
                 value={
@@ -1239,20 +1239,20 @@ export default function AdminCategorySpecificationsPage() {
                   )
                 }
                 placeholder="Search categories..."
-                className="h-10 w-full rounded-xl border border-slate-200 bg-white pl-9 pr-3 text-sm outline-none focus:border-slate-400"
+                className="h-10 w-full rounded-xl border border-brand-steel bg-white pl-9 pr-3 text-sm outline-none focus:border-brand-steel"
               />
             </label>
           </div>
 
           <div className="max-h-[680px] overflow-y-auto p-2">
             {loadingSetup ? (
-              <div className="flex items-center justify-center gap-2 px-3 py-10 text-sm text-slate-500">
+              <div className="flex items-center justify-center gap-2 px-3 py-10 text-sm text-brand-ink/70">
                 <Loader2 className="h-4 w-4 animate-spin" />
                 Loading categories...
               </div>
             ) : filteredCategories.length ===
               0 ? (
-              <div className="px-4 py-10 text-center text-sm text-slate-500">
+              <div className="px-4 py-10 text-center text-sm text-brand-ink/70">
                 No saved categories found.
               </div>
             ) : (
@@ -1275,8 +1275,8 @@ export default function AdminCategorySpecificationsPage() {
                       }
                       className={`mb-1 w-full rounded-xl px-3 py-3 text-left transition ${
                         selected
-                          ? "bg-slate-950 text-white"
-                          : "text-slate-700 hover:bg-slate-50"
+                          ? "bg-brand-ink text-white"
+                          : "text-brand-ink hover:bg-brand-mist"
                       }`}
                     >
                       <div className="text-sm font-semibold">
@@ -1288,8 +1288,8 @@ export default function AdminCategorySpecificationsPage() {
                       <div
                         className={`mt-1 text-xs ${
                           selected
-                            ? "text-slate-300"
-                            : "text-slate-400"
+                            ? "text-brand-steel"
+                            : "text-brand-steel"
                         }`}
                       >
                         {category.parent
@@ -1308,29 +1308,29 @@ export default function AdminCategorySpecificationsPage() {
         </aside>
 
         <div className="space-y-5">
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="rounded-2xl border border-brand-steel bg-white p-5 shadow-sm">
             {selectedCategory ? (
               <>
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                   <div>
-                    <div className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                    <div className="text-xs font-semibold uppercase tracking-wide text-brand-steel">
                       Configuring category
                     </div>
 
-                    <h2 className="mt-1 text-xl font-semibold text-slate-950">
+                    <h2 className="mt-1 text-xl font-semibold text-brand-ink">
                       {categoryLabel(
                         selectedCategory,
                       )}
                     </h2>
 
-                    <div className="mt-1 text-sm text-slate-500">
+                    <div className="mt-1 text-sm text-brand-ink/70">
                       {
                         selectedCategory.slug
                       }
                     </div>
                   </div>
 
-                  <div className="rounded-xl bg-slate-100 px-3 py-2 text-sm font-medium text-slate-700">
+                  <div className="rounded-xl bg-brand-mist px-3 py-2 text-sm font-medium text-brand-ink">
                     {meta.total ??
                       assignments.length}{" "}
                     specification
@@ -1366,15 +1366,15 @@ export default function AdminCategorySpecificationsPage() {
                 </div>
               </>
             ) : (
-              <div className="py-8 text-center text-sm text-slate-500">
+              <div className="py-8 text-center text-sm text-brand-ink/70">
                 Select a category to configure its specifications.
               </div>
             )}
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="rounded-2xl border border-brand-steel bg-white p-4 shadow-sm">
             <label className="relative block">
-              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
 
               <input
                 value={
@@ -1393,15 +1393,15 @@ export default function AdminCategorySpecificationsPage() {
                   );
                 }}
                 placeholder="Search assigned specification..."
-                className="h-11 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-slate-400 disabled:bg-slate-50"
+                className="h-11 w-full rounded-xl border border-brand-steel bg-white pl-10 pr-3 text-sm text-brand-ink outline-none placeholder:text-brand-steel focus:border-brand-steel disabled:bg-brand-mist"
               />
             </label>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div className="overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-sm">
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-slate-200">
-                <thead className="bg-slate-50">
+              <table className="min-w-full divide-y divide-brand-steel">
+                <thead className="bg-brand-mist">
                   <tr>
                     <TableHead>
                       Specification
@@ -1430,12 +1430,12 @@ export default function AdminCategorySpecificationsPage() {
                   </tr>
                 </thead>
 
-                <tbody className="divide-y divide-slate-100">
+                <tbody className="divide-y divide-brand-mist">
                   {!selectedCategoryPublicId ? (
                     <tr>
                       <td
                         colSpan={8}
-                        className="px-6 py-16 text-center text-sm text-slate-500"
+                        className="px-6 py-16 text-center text-sm text-brand-ink/70"
                       >
                         Select a category first.
                       </td>
@@ -1446,7 +1446,7 @@ export default function AdminCategorySpecificationsPage() {
                         colSpan={8}
                         className="px-6 py-16 text-center"
                       >
-                        <div className="inline-flex items-center gap-2 text-sm text-slate-500">
+                        <div className="inline-flex items-center gap-2 text-sm text-brand-ink/70">
                           <Loader2 className="h-5 w-5 animate-spin" />
                           Loading category specifications...
                         </div>
@@ -1460,15 +1460,15 @@ export default function AdminCategorySpecificationsPage() {
                         className="px-6 py-16 text-center"
                       >
                         <div className="mx-auto flex max-w-md flex-col items-center">
-                          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-100">
-                            <FileText className="h-6 w-6 text-slate-500" />
+                          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-mist">
+                            <FileText className="h-6 w-6 text-brand-ink/70" />
                           </div>
 
-                          <h3 className="mt-4 text-sm font-semibold text-slate-900">
+                          <h3 className="mt-4 text-sm font-semibold text-brand-ink">
                             No specifications assigned
                           </h3>
 
-                          <p className="mt-1 text-sm text-slate-500">
+                          <p className="mt-1 text-sm text-brand-ink/70">
                             Assign reusable definitions to control the seller product form for this category.
                           </p>
 
@@ -1477,7 +1477,7 @@ export default function AdminCategorySpecificationsPage() {
                             onClick={
                               openCreateModal
                             }
-                            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-slate-950 px-4 py-2 text-sm font-semibold text-white"
+                            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-brand-ink px-4 py-2 text-sm font-semibold text-white"
                           >
                             <Plus className="h-4 w-4" />
                             Assign specification
@@ -1494,23 +1494,23 @@ export default function AdminCategorySpecificationsPage() {
                           key={
                             assignment.public_id
                           }
-                          className="hover:bg-slate-50/70"
+                          className="hover:bg-brand-mist/70"
                         >
                           <td className="px-6 py-4">
-                            <div className="font-semibold text-slate-900">
+                            <div className="font-semibold text-brand-ink">
                               {
                                 assignment.label
                               }
                             </div>
 
-                            <div className="mt-1 font-mono text-xs text-slate-500">
+                            <div className="mt-1 font-mono text-xs text-brand-ink/70">
                               {
                                 assignment.code
                               }
                             </div>
 
                             {assignment.help_text ? (
-                              <div className="mt-1 max-w-[300px] truncate text-xs text-slate-400">
+                              <div className="mt-1 max-w-[300px] truncate text-xs text-brand-steel">
                                 {
                                   assignment.help_text
                                 }
@@ -1519,7 +1519,7 @@ export default function AdminCategorySpecificationsPage() {
                           </td>
 
                           <td className="px-6 py-4">
-                            <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700">
+                            <span className="rounded-full bg-brand-mist px-2.5 py-1 text-xs font-semibold text-brand-ink">
                               {
                                 assignment
                                   .data_type
@@ -1528,7 +1528,7 @@ export default function AdminCategorySpecificationsPage() {
                             </span>
 
                             {assignment.unit ? (
-                              <div className="mt-1 text-xs text-slate-400">
+                              <div className="mt-1 text-xs text-brand-steel">
                                 Unit:{" "}
                                 {
                                   assignment.unit
@@ -1575,7 +1575,7 @@ export default function AdminCategorySpecificationsPage() {
                             />
                           </td>
 
-                          <td className="px-6 py-4 text-sm text-slate-600">
+                          <td className="px-6 py-4 text-sm text-brand-ink/70">
                             {
                               assignment.sort_order
                             }
@@ -1592,14 +1592,14 @@ export default function AdminCategorySpecificationsPage() {
                                     : assignment.public_id,
                                 )
                               }
-                              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 transition hover:bg-slate-50 hover:text-slate-900"
+                              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-brand-steel bg-white text-brand-ink/70 transition hover:bg-brand-mist hover:text-brand-ink"
                             >
                               <MoreHorizontal className="h-4 w-4" />
                             </button>
 
                             {actionMenu ===
                             assignment.public_id ? (
-                              <div className="absolute right-6 top-14 z-20 w-56 overflow-hidden rounded-xl border border-slate-200 bg-white p-1 shadow-xl">
+                              <div className="absolute right-6 top-14 z-20 w-56 overflow-hidden rounded-xl border border-brand-steel bg-white p-1 shadow-xl">
                                 <button
                                   type="button"
                                   onClick={() =>
@@ -1607,7 +1607,7 @@ export default function AdminCategorySpecificationsPage() {
                                       assignment,
                                     )
                                   }
-                                  className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm text-slate-700 hover:bg-slate-50"
+                                  className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm text-brand-ink hover:bg-brand-mist"
                                 >
                                   <Edit3 className="h-4 w-4" />
                                   Edit assignment
@@ -1624,7 +1624,7 @@ export default function AdminCategorySpecificationsPage() {
                                       assignment,
                                     )
                                   }
-                                  className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+                                  className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm text-brand-ink hover:bg-brand-mist disabled:opacity-50"
                                 >
                                   {assignment.is_active ? (
                                     <PowerOff className="h-4 w-4" />
@@ -1663,8 +1663,8 @@ export default function AdminCategorySpecificationsPage() {
               </table>
             </div>
 
-            <div className="flex flex-col gap-3 border-t border-slate-200 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-              <div className="text-sm text-slate-500">
+            <div className="flex flex-col gap-3 border-t border-brand-steel px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+              <div className="text-sm text-brand-ink/70">
                 {meta.total !==
                 undefined
                   ? `Showing ${meta.from ?? 0}-${meta.to ?? 0} of ${meta.total} assignments`
@@ -1687,13 +1687,13 @@ export default function AdminCategorySpecificationsPage() {
                         ),
                     )
                   }
-                  className="inline-flex h-9 items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="inline-flex h-9 items-center gap-1 rounded-lg border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink transition hover:bg-brand-mist disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   <ChevronLeft className="h-4 w-4" />
                   Previous
                 </button>
 
-                <span className="min-w-24 text-center text-sm text-slate-600">
+                <span className="min-w-24 text-center text-sm text-brand-ink/70">
                   Page {currentPage} of{" "}
                   {lastPage}
                 </span>
@@ -1714,7 +1714,7 @@ export default function AdminCategorySpecificationsPage() {
                         ),
                     )
                   }
-                  className="inline-flex h-9 items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="inline-flex h-9 items-center gap-1 rounded-lg border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink transition hover:bg-brand-mist disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   Next
                   <ChevronRight className="h-4 w-4" />
@@ -1726,17 +1726,17 @@ export default function AdminCategorySpecificationsPage() {
       </div>
 
       {formOpen ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/45 p-4 backdrop-blur-[2px]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-brand-ink/45 p-4 backdrop-blur-[2px]">
           <div className="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white shadow-2xl">
-            <div className="sticky top-0 z-10 flex items-start justify-between border-b border-slate-200 bg-white px-6 py-5">
+            <div className="sticky top-0 z-10 flex items-start justify-between border-b border-brand-steel bg-white px-6 py-5">
               <div>
-                <h2 className="text-xl font-semibold text-slate-950">
+                <h2 className="text-xl font-semibold text-brand-ink">
                   {editingAssignment
                     ? "Edit category specification"
                     : "Assign specification"}
                 </h2>
 
-                <p className="mt-1 text-sm text-slate-500">
+                <p className="mt-1 text-sm text-brand-ink/70">
                   {selectedCategory
                     ? `Category: ${categoryLabel(
                         selectedCategory,
@@ -1753,7 +1753,7 @@ export default function AdminCategorySpecificationsPage() {
                 onClick={
                   closeFormModal
                 }
-                className="rounded-xl p-2 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 disabled:opacity-50"
+                className="rounded-xl p-2 text-brand-steel transition hover:bg-brand-mist hover:text-brand-ink disabled:opacity-50"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -1787,7 +1787,7 @@ export default function AdminCategorySpecificationsPage() {
                         .value,
                     )
                   }
-                  className="form-input disabled:bg-slate-100 disabled:text-slate-500"
+                  className="form-input disabled:bg-brand-mist disabled:text-brand-ink/70"
                 >
                   <option value="">
                     Select specification...
@@ -1820,9 +1820,9 @@ export default function AdminCategorySpecificationsPage() {
               </FormField>
 
               {selectedDefinition ? (
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <div className="rounded-2xl border border-brand-steel bg-brand-mist p-4">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200">
+                    <span className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-brand-ink ring-1 ring-brand-steel">
                       {
                         selectedDefinition
                           .data_type
@@ -1831,7 +1831,7 @@ export default function AdminCategorySpecificationsPage() {
                     </span>
 
                     {selectedDefinition.unit ? (
-                      <span className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200">
+                      <span className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-brand-ink ring-1 ring-brand-steel">
                         Unit:{" "}
                         {
                           selectedDefinition.unit
@@ -1842,7 +1842,7 @@ export default function AdminCategorySpecificationsPage() {
                     {selectedDefinition
                       .data_type
                       .uses_options ? (
-                      <span className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200">
+                      <span className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-brand-ink ring-1 ring-brand-steel">
                         {
                           selectedDefinition
                             .options
@@ -1855,7 +1855,7 @@ export default function AdminCategorySpecificationsPage() {
                   </div>
 
                   {selectedDefinition.description ? (
-                    <p className="mt-3 text-sm leading-6 text-slate-600">
+                    <p className="mt-3 text-sm leading-6 text-brand-ink/70">
                       {
                         selectedDefinition.description
                       }
@@ -2039,11 +2039,11 @@ export default function AdminCategorySpecificationsPage() {
                 />
               </div>
 
-              <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-900">
+              <div className="rounded-2xl border border-brand-orange bg-brand-mist px-4 py-3 text-sm leading-6 text-brand-orange">
                 This page intentionally inherits options and validation from the reusable Specification Definition. That keeps the catalog consistent. Seller-specific unusual details can later be stored as additional product attributes instead of changing the global definition.
               </div>
 
-              <div className="flex flex-col-reverse gap-3 border-t border-slate-200 pt-5 sm:flex-row sm:justify-end">
+              <div className="flex flex-col-reverse gap-3 border-t border-brand-steel pt-5 sm:flex-row sm:justify-end">
                 <button
                   type="button"
                   disabled={
@@ -2052,7 +2052,7 @@ export default function AdminCategorySpecificationsPage() {
                   onClick={
                     closeFormModal
                   }
-                  className="inline-flex h-11 items-center justify-center rounded-xl border border-slate-200 bg-white px-5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:opacity-50"
+                  className="inline-flex h-11 items-center justify-center rounded-xl border border-brand-steel bg-white px-5 text-sm font-semibold text-brand-ink transition hover:bg-brand-mist disabled:opacity-50"
                 >
                   Cancel
                 </button>
@@ -2064,7 +2064,7 @@ export default function AdminCategorySpecificationsPage() {
                     (!editingAssignment &&
                       !form.specification_definition_public_id)
                   }
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-slate-950 px-5 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-brand-ink px-5 text-sm font-semibold text-white transition hover:bg-brand-ink disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {submitting ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
@@ -2083,25 +2083,25 @@ export default function AdminCategorySpecificationsPage() {
       ) : null}
 
       {deleteTarget ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/45 p-4 backdrop-blur-[2px]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-brand-ink/45 p-4 backdrop-blur-[2px]">
           <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl">
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50">
               <Trash2 className="h-6 w-6 text-red-600" />
             </div>
 
-            <h2 className="mt-5 text-xl font-semibold text-slate-950">
+            <h2 className="mt-5 text-xl font-semibold text-brand-ink">
               Remove specification?
             </h2>
 
-            <p className="mt-2 text-sm leading-6 text-slate-600">
+            <p className="mt-2 text-sm leading-6 text-brand-ink/70">
               Remove{" "}
-              <span className="font-semibold text-slate-900">
+              <span className="font-semibold text-brand-ink">
                 {
                   deleteTarget.label
                 }
               </span>{" "}
               from{" "}
-              <span className="font-semibold text-slate-900">
+              <span className="font-semibold text-brand-ink">
                 {
                   selectedCategory
                     ?.name
@@ -2110,7 +2110,7 @@ export default function AdminCategorySpecificationsPage() {
               ?
             </p>
 
-            <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-900">
+            <div className="mt-4 rounded-xl border border-brand-orange bg-brand-mist px-4 py-3 text-sm leading-6 text-brand-orange">
               If the category already contains products or child categories, the backend may block deletion. In that case, deactivate the assignment instead to preserve catalog history.
             </div>
 
@@ -2125,7 +2125,7 @@ export default function AdminCategorySpecificationsPage() {
                     null,
                   )
                 }
-                className="inline-flex h-10 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+                className="inline-flex h-10 items-center justify-center rounded-xl border border-brand-steel bg-white px-4 text-sm font-semibold text-brand-ink hover:bg-brand-mist disabled:opacity-50"
               >
                 Cancel
               </button>
@@ -2231,12 +2231,12 @@ function MiniStat({
   value: number;
 }) {
   return (
-    <div className="rounded-xl bg-slate-50 px-4 py-3">
-      <div className="text-xs font-medium text-slate-500">
+    <div className="rounded-xl bg-brand-mist px-4 py-3">
+      <div className="text-xs font-medium text-brand-ink/70">
         {label}
       </div>
 
-      <div className="mt-1 text-xl font-semibold text-slate-950">
+      <div className="mt-1 text-xl font-semibold text-brand-ink">
         {value}
       </div>
     </div>
@@ -2253,7 +2253,7 @@ function StatusBadge({
       Active
     </span>
   ) : (
-    <span className="inline-flex rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 ring-1 ring-inset ring-slate-200">
+    <span className="inline-flex rounded-full bg-brand-mist px-2.5 py-1 text-xs font-semibold text-brand-ink/70 ring-1 ring-inset ring-brand-steel">
       Inactive
     </span>
   );
@@ -2269,11 +2269,11 @@ function BooleanBadge({
   no: string;
 }) {
   return value ? (
-    <span className="inline-flex rounded-full bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-700 ring-1 ring-inset ring-blue-100">
+    <span className="inline-flex rounded-full bg-brand-mist px-2.5 py-1 text-xs font-semibold text-brand-ink ring-1 ring-inset ring-brand-mist">
       {yes}
     </span>
   ) : (
-    <span className="inline-flex rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-500">
+    <span className="inline-flex rounded-full bg-brand-mist px-2.5 py-1 text-xs font-medium text-brand-ink/70">
       {no}
     </span>
   );
@@ -2293,13 +2293,13 @@ function ToggleCard({
   ) => void;
 }) {
   return (
-    <label className="flex cursor-pointer items-start justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-4">
+    <label className="flex cursor-pointer items-start justify-between gap-4 rounded-2xl border border-brand-steel bg-white p-4">
       <div>
-        <div className="text-sm font-semibold text-slate-900">
+        <div className="text-sm font-semibold text-brand-ink">
           {title}
         </div>
 
-        <div className="mt-1 text-xs leading-5 text-slate-500">
+        <div className="mt-1 text-xs leading-5 text-brand-ink/70">
           {description}
         </div>
       </div>
@@ -2312,7 +2312,7 @@ function ToggleCard({
             event.target.checked,
           )
         }
-        className="mt-1 h-4 w-4 rounded border-slate-300"
+        className="mt-1 h-4 w-4 rounded border-brand-steel"
       />
     </label>
   );
@@ -2328,7 +2328,7 @@ function TableHead({
   return (
     <th
       scope="col"
-      className={`px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500 ${className}`}
+      className={`px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-brand-ink/70 ${className}`}
     >
       {children}
     </th>
@@ -2348,7 +2348,7 @@ function FormField({
 }) {
   return (
     <label className="block">
-      <div className="mb-2 flex items-center gap-1 text-sm font-medium text-slate-700">
+      <div className="mb-2 flex items-center gap-1 text-sm font-medium text-brand-ink">
         {label}
 
         {required ? (
@@ -2361,7 +2361,7 @@ function FormField({
       {children}
 
       {hint ? (
-        <div className="mt-1.5 text-xs leading-5 text-slate-400">
+        <div className="mt-1.5 text-xs leading-5 text-brand-steel">
           {hint}
         </div>
       ) : null}

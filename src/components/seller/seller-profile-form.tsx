@@ -104,7 +104,7 @@ type SellerProfile = {
   updated_at?: string | null;
 
   /*
-   * Current RushPi backend aliases.
+   * Current EliteMart backend aliases.
    * These allow this UI to work while
    * the backend moves toward the new
    * marketplace naming.
@@ -225,37 +225,37 @@ const initialFormData: SellerProfileFormData = {
 
 const inputClassName = [
   "mt-1.5 h-10 w-full rounded-lg",
-  "border border-slate-200 bg-white",
-  "px-3 text-[13px] font-semibold text-slate-900",
+  "border border-brand-steel bg-white",
+  "px-3 text-[13px] font-semibold text-brand-ink",
   "outline-none transition-all duration-200",
-  "placeholder:font-normal placeholder:text-slate-400",
-  "hover:border-slate-300",
+  "placeholder:font-normal placeholder:text-brand-steel",
+  "hover:border-brand-steel",
   "focus:-translate-y-[1px]",
-  "focus:border-blue-500",
+  "focus:border-brand-orange",
   "focus:shadow-[0_8px_24px_rgba(37,99,235,0.10)]",
-  "focus:ring-2 focus:ring-blue-100",
+  "focus:ring-2 focus:ring-brand-mist",
   "disabled:cursor-not-allowed",
-  "disabled:bg-slate-100",
-  "disabled:text-slate-500",
+  "disabled:bg-brand-mist",
+  "disabled:text-brand-ink/70",
 ].join(" ");
 
 const textareaClassName = [
   "mt-1.5 w-full resize-none rounded-lg",
-  "border border-slate-200 bg-white",
+  "border border-brand-steel bg-white",
   "px-3 py-2.5",
-  "text-[13px] font-semibold leading-5 text-slate-900",
+  "text-[13px] font-semibold leading-5 text-brand-ink",
   "outline-none transition-all duration-200",
-  "placeholder:font-normal placeholder:text-slate-400",
-  "hover:border-slate-300",
+  "placeholder:font-normal placeholder:text-brand-steel",
+  "hover:border-brand-steel",
   "focus:-translate-y-[1px]",
-  "focus:border-blue-500",
+  "focus:border-brand-orange",
   "focus:shadow-[0_8px_24px_rgba(37,99,235,0.10)]",
-  "focus:ring-2 focus:ring-blue-100",
-  "disabled:bg-slate-100",
+  "focus:ring-2 focus:ring-brand-mist",
+  "disabled:bg-brand-mist",
 ].join(" ");
 
 const labelClassName =
-  "text-[11px] font-black uppercase tracking-[0.07em] text-slate-600";
+  "text-[11px] font-black uppercase tracking-[0.07em] text-brand-ink/70";
 
 /* =========================================================
  * API / HELPERS
@@ -456,9 +456,9 @@ function statusClassName(
     ].includes(status)
   ) {
     return [
-      "border-blue-200",
-      "bg-blue-50",
-      "text-blue-700",
+      "border-brand-steel",
+      "bg-brand-mist",
+      "text-brand-ink",
     ].join(" ");
   }
 
@@ -478,16 +478,16 @@ function statusClassName(
 
   if (status === "draft") {
     return [
-      "border-amber-200",
-      "bg-amber-50",
-      "text-amber-700",
+      "border-brand-orange",
+      "bg-brand-mist",
+      "text-brand-orange",
     ].join(" ");
   }
 
   return [
-    "border-slate-200",
-    "bg-slate-50",
-    "text-slate-600",
+    "border-brand-steel",
+    "bg-brand-mist",
+    "text-brand-ink/70",
   ].join(" ");
 }
 
@@ -1462,14 +1462,14 @@ export default function SellerProfileForm() {
       <div className="grid min-h-[520px] place-items-center">
         <div className="text-center">
           <div className="relative mx-auto size-14">
-            <div className="absolute inset-0 animate-ping rounded-full bg-blue-100" />
+            <div className="absolute inset-0 animate-ping rounded-full bg-brand-mist" />
 
             <div className="relative grid size-14 place-items-center rounded-full bg-white shadow-lg">
-              <LoaderCircle className="size-6 animate-spin text-blue-700" />
+              <LoaderCircle className="size-6 animate-spin text-brand-ink" />
             </div>
           </div>
 
-          <p className="mt-4 text-sm font-black text-slate-700">
+          <p className="mt-4 text-sm font-black text-brand-ink">
             Building your seller
             profile...
           </p>
@@ -1489,25 +1489,25 @@ export default function SellerProfileForm() {
          * TOP BAR
          * =============================================== */}
 
-        <header className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+        <header className="flex flex-col gap-3 rounded-2xl border border-brand-steel bg-white px-4 py-3 shadow-sm sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <div className="grid size-10 shrink-0 place-items-center rounded-xl bg-blue-700 text-white shadow-lg shadow-blue-700/20">
+            <div className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-ink text-white shadow-lg shadow-brand-ink/20">
               <Store className="size-5" />
             </div>
 
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-lg font-black text-slate-950">
+                <h1 className="text-lg font-black text-brand-ink">
                   Store Profile Builder
                 </h1>
 
-                <span className="hidden items-center gap-1 rounded-full bg-violet-50 px-2 py-1 text-[9px] font-black uppercase tracking-wider text-violet-700 sm:inline-flex">
+                <span className="hidden items-center gap-1 rounded-full bg-brand-mist px-2 py-1 text-[9px] font-black uppercase tracking-wider text-brand-ink sm:inline-flex">
                   <Sparkles className="size-3" />
                   Live
                 </span>
               </div>
 
-              <p className="mt-0.5 text-xs font-medium text-slate-500">
+              <p className="mt-0.5 text-xs font-medium text-brand-ink/70">
                 Edit on the left.
                 Preview your customer
                 store on the right.
@@ -1517,19 +1517,19 @@ export default function SellerProfileForm() {
 
           <div className="flex flex-wrap items-center gap-2">
             <div className="hidden min-w-36 sm:block">
-              <div className="mb-1 flex items-center justify-between text-[10px] font-black text-slate-500">
+              <div className="mb-1 flex items-center justify-between text-[10px] font-black text-brand-ink/70">
                 <span>
                   Completion
                 </span>
 
-                <span className="text-blue-700">
+                <span className="text-brand-ink">
                   {completion}%
                 </span>
               </div>
 
-              <div className="h-1.5 overflow-hidden rounded-full bg-slate-100">
+              <div className="h-1.5 overflow-hidden rounded-full bg-brand-mist">
                 <div
-                  className="h-full rounded-full bg-blue-600 transition-all duration-700"
+                  className="h-full rounded-full bg-brand-ink transition-all duration-700"
                   style={{
                     width:
                       `${completion}%`,
@@ -1548,7 +1548,7 @@ export default function SellerProfileForm() {
               disabled={
                 refreshing
               }
-              className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 text-xs font-black text-slate-600 transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md disabled:opacity-50"
+              className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-brand-steel bg-white px-3 text-xs font-black text-brand-ink/70 transition hover:-translate-y-0.5 hover:border-brand-steel hover:shadow-md disabled:opacity-50"
             >
               <RefreshCw
                 className={`size-3.5 ${
@@ -1566,7 +1566,7 @@ export default function SellerProfileForm() {
                 type="submit"
                 form="seller-profile-form"
                 disabled={saving}
-                className="inline-flex h-9 items-center gap-1.5 rounded-lg bg-blue-700 px-4 text-xs font-black text-white shadow-md shadow-blue-700/20 transition duration-200 hover:-translate-y-0.5 hover:bg-blue-800 hover:shadow-lg disabled:translate-y-0 disabled:opacity-60"
+                className="inline-flex h-9 items-center gap-1.5 rounded-lg bg-brand-ink px-4 text-xs font-black text-white shadow-md shadow-brand-ink/20 transition duration-200 hover:-translate-y-0.5 hover:bg-brand-ink hover:shadow-lg disabled:translate-y-0 disabled:opacity-60"
               >
                 {saving ? (
                   <LoaderCircle className="size-3.5 animate-spin" />
@@ -1684,7 +1684,7 @@ export default function SellerProfileForm() {
                           .value,
                       )
                     }
-                    placeholder="RushPi Technologies"
+                    placeholder="EliteMart Technologies"
                     className={
                       inputClassName
                     }
@@ -1718,7 +1718,7 @@ export default function SellerProfileForm() {
                           .value,
                       )
                     }
-                    placeholder="RushPi Store"
+                    placeholder="EliteMart Store"
                     className={
                       inputClassName
                     }
@@ -2062,7 +2062,7 @@ export default function SellerProfileForm() {
             <CompactSection
               icon={MapPin}
               title="Business location"
-              description="Where customers and RushPi can locate your business."
+              description="Where customers and EliteMart can locate your business."
               delay="210ms"
             >
               <div className="grid gap-2.5 sm:grid-cols-2 xl:grid-cols-4">
@@ -2351,12 +2351,12 @@ export default function SellerProfileForm() {
            * ============================================= */}
 
           <aside className="xl:sticky xl:top-4">
-            <div className="preview-float overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-[0_30px_80px_rgba(15,23,42,0.12)]">
+            <div className="preview-float overflow-hidden rounded-[28px] border border-brand-steel bg-white shadow-[0_30px_80px_rgba(15,23,42,0.12)]">
               {/* ===========================================
                * PREVIEW LABEL
                * ========================================= */}
 
-              <div className="flex items-center justify-between border-b border-slate-100 px-4 py-2.5">
+              <div className="flex items-center justify-between border-b border-brand-mist px-4 py-2.5">
                 <div className="flex items-center gap-2">
                   <span className="relative flex size-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
@@ -2364,13 +2364,13 @@ export default function SellerProfileForm() {
                     <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
                   </span>
 
-                  <span className="text-[10px] font-black uppercase tracking-[0.12em] text-slate-500">
+                  <span className="text-[10px] font-black uppercase tracking-[0.12em] text-brand-ink/70">
                     Live store
                     preview
                   </span>
                 </div>
 
-                <span className="rounded-full bg-slate-100 px-2 py-1 text-[9px] font-black text-slate-500">
+                <span className="rounded-full bg-brand-mist px-2 py-1 text-[9px] font-black text-brand-ink/70">
                   CUSTOMER VIEW
                 </span>
               </div>
@@ -2379,7 +2379,7 @@ export default function SellerProfileForm() {
                * COVER
                * ========================================= */}
 
-              <div className="relative h-36 overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-blue-700">
+              <div className="relative h-36 overflow-hidden bg-gradient-to-br from-brand-ink via-brand-ink to-brand-ink">
                 {coverPreview ? (
                   <img
                     src={
@@ -2390,9 +2390,9 @@ export default function SellerProfileForm() {
                   />
                 ) : (
                   <>
-                    <div className="absolute -right-12 -top-16 size-48 rounded-full bg-blue-500/20 blur-3xl" />
+                    <div className="absolute -right-12 -top-16 size-48 rounded-full bg-brand-orange/20 blur-3xl" />
 
-                    <div className="absolute -bottom-20 left-8 size-48 rounded-full bg-violet-500/20 blur-3xl" />
+                    <div className="absolute -bottom-20 left-8 size-48 rounded-full bg-brand-orange/20 blur-3xl" />
 
                     <div className="relative flex h-full items-center justify-center">
                       <div className="text-center text-white/50">
@@ -2406,7 +2406,7 @@ export default function SellerProfileForm() {
                   </>
                 )}
 
-                <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-slate-950/50 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-brand-ink/50 to-transparent" />
               </div>
 
               {/* ===========================================
@@ -2415,7 +2415,7 @@ export default function SellerProfileForm() {
 
               <div className="relative px-4 pb-4">
                 <div className="-mt-10 flex items-end gap-3">
-                  <div className="relative grid size-20 shrink-0 place-items-center overflow-hidden rounded-[22px] border-4 border-white bg-slate-100 shadow-xl">
+                  <div className="relative grid size-20 shrink-0 place-items-center overflow-hidden rounded-[22px] border-4 border-white bg-brand-mist shadow-xl">
                     {logoPreview ? (
                       <img
                         src={
@@ -2425,12 +2425,12 @@ export default function SellerProfileForm() {
                         className="preview-image-in h-full w-full object-cover"
                       />
                     ) : (
-                      <Store className="size-8 text-slate-400" />
+                      <Store className="size-8 text-brand-steel" />
                     )}
 
                     {verificationStatus ===
                       "verified" && (
-                      <span className="absolute bottom-0 right-0 grid size-5 place-items-center rounded-full bg-blue-600 text-white ring-2 ring-white">
+                      <span className="absolute bottom-0 right-0 grid size-5 place-items-center rounded-full bg-brand-ink text-white ring-2 ring-white">
                         <Check className="size-3" />
                       </span>
                     )}
@@ -2441,14 +2441,14 @@ export default function SellerProfileForm() {
                       key={
                         formData.storeName
                       }
-                      className="preview-text-change truncate text-lg font-black text-slate-950"
+                      className="preview-text-change truncate text-lg font-black text-brand-ink"
                     >
                       {formData
                         .storeName ||
                         "Your Store Name"}
                     </h2>
 
-                    <p className="truncate text-[11px] font-semibold text-slate-500">
+                    <p className="truncate text-[11px] font-semibold text-brand-ink/70">
                       {formData
                         .businessName ||
                         "Business name"}
@@ -2479,7 +2479,7 @@ export default function SellerProfileForm() {
                     }
                   />
 
-                  <span className="inline-flex items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-2 py-1 text-[9px] font-black text-amber-700">
+                  <span className="inline-flex items-center gap-1 rounded-full border border-brand-orange bg-brand-mist px-2 py-1 text-[9px] font-black text-brand-orange">
                     <Star className="size-3 fill-current" />
 
                     {formatRating(
@@ -2487,7 +2487,7 @@ export default function SellerProfileForm() {
                         ?.average_rating,
                     )}
 
-                    <span className="font-semibold text-amber-600">
+                    <span className="font-semibold text-brand-orange">
                       (
                       {profile
                         ?.total_reviews ??
@@ -2505,7 +2505,7 @@ export default function SellerProfileForm() {
                   key={
                     formData.description
                   }
-                  className="preview-text-change mt-3 line-clamp-3 text-[11px] font-medium leading-5 text-slate-600"
+                  className="preview-text-change mt-3 line-clamp-3 text-[11px] font-medium leading-5 text-brand-ink/70"
                 >
                   {formData
                     .description ||
@@ -2516,7 +2516,7 @@ export default function SellerProfileForm() {
                  * LOCATION / CONTACT
                  * ======================================= */}
 
-                <div className="mt-3 space-y-1.5 rounded-xl bg-slate-50 p-3">
+                <div className="mt-3 space-y-1.5 rounded-xl bg-brand-mist p-3">
                   <PreviewInfo
                     icon={MapPin}
                     text={[
@@ -2656,7 +2656,7 @@ export default function SellerProfileForm() {
                  * ACCOUNT INFO
                  * ======================================= */}
 
-                <div className="mt-3 flex items-center justify-between border-t border-slate-100 pt-3 text-[9px] font-semibold text-slate-400">
+                <div className="mt-3 flex items-center justify-between border-t border-brand-mist pt-3 text-[9px] font-semibold text-brand-steel">
                   <span>
                     Joined{" "}
                     {formatDate(
@@ -2680,28 +2680,28 @@ export default function SellerProfileForm() {
              * COMPLETION CARD
              * =========================================== */}
 
-            <div className="mt-3 rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
+            <div className="mt-3 rounded-2xl border border-brand-steel bg-white p-3 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-[11px] font-black text-slate-800">
+                  <p className="text-[11px] font-black text-brand-ink">
                     Store readiness
                   </p>
 
-                  <p className="mt-0.5 text-[9px] font-semibold text-slate-400">
+                  <p className="mt-0.5 text-[9px] font-semibold text-brand-steel">
                     Complete your
                     profile before
                     verification.
                   </p>
                 </div>
 
-                <span className="text-lg font-black text-blue-700">
+                <span className="text-lg font-black text-brand-ink">
                   {completion}%
                 </span>
               </div>
 
-              <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-100">
+              <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-brand-mist">
                 <div
-                  className="h-full rounded-full bg-gradient-to-r from-blue-600 to-violet-600 transition-all duration-700"
+                  className="h-full rounded-full bg-gradient-to-r from-brand-ink to-brand-ink transition-all duration-700"
                   style={{
                     width:
                       `${completion}%`,
@@ -2881,23 +2881,23 @@ function CompactSection({
 }: CompactSectionProps) {
   return (
     <section
-      className="seller-compact-section overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.035)] transition duration-300 hover:border-slate-300 hover:shadow-[0_16px_40px_rgba(15,23,42,0.06)]"
+      className="seller-compact-section overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-[0_8px_30px_rgba(15,23,42,0.035)] transition duration-300 hover:border-brand-steel hover:shadow-[0_16px_40px_rgba(15,23,42,0.06)]"
       style={{
         animationDelay:
           delay,
       }}
     >
-      <div className="flex items-center gap-2.5 border-b border-slate-100 bg-slate-50/70 px-4 py-2.5">
-        <span className="grid size-7 shrink-0 place-items-center rounded-lg bg-blue-100 text-blue-700">
+      <div className="flex items-center gap-2.5 border-b border-brand-mist bg-brand-mist/70 px-4 py-2.5">
+        <span className="grid size-7 shrink-0 place-items-center rounded-lg bg-brand-mist text-brand-ink">
           <Icon className="size-3.5" />
         </span>
 
         <div className="min-w-0">
-          <h2 className="text-xs font-black text-slate-900">
+          <h2 className="text-xs font-black text-brand-ink">
             {title}
           </h2>
 
-          <p className="mt-0.5 truncate text-[9px] font-semibold text-slate-400">
+          <p className="mt-0.5 truncate text-[9px] font-semibold text-brand-steel">
             {description}
           </p>
         </div>
@@ -3002,7 +3002,7 @@ function UploadField({
         {label}
       </span>
 
-      <div className="mt-1.5 flex h-10 cursor-pointer items-center gap-2 overflow-hidden rounded-lg border border-dashed border-slate-300 bg-slate-50 px-2.5 transition duration-200 hover:border-blue-400 hover:bg-blue-50/50">
+      <div className="mt-1.5 flex h-10 cursor-pointer items-center gap-2 overflow-hidden rounded-lg border border-dashed border-brand-steel bg-brand-mist px-2.5 transition duration-200 hover:border-brand-orange hover:bg-brand-mist/50">
         <div className="grid size-7 shrink-0 place-items-center overflow-hidden rounded-md bg-white shadow-sm">
           {preview ? (
             <img
@@ -3011,23 +3011,23 @@ function UploadField({
               className="h-full w-full object-cover"
             />
           ) : (
-            <Camera className="size-3.5 text-slate-400" />
+            <Camera className="size-3.5 text-brand-steel" />
           )}
         </div>
 
         <div className="min-w-0">
-          <p className="truncate text-[10px] font-black text-slate-700">
+          <p className="truncate text-[10px] font-black text-brand-ink">
             {preview
               ? "Change image"
               : "Choose image"}
           </p>
 
-          <p className="text-[8px] font-semibold text-slate-400">
+          <p className="text-[8px] font-semibold text-brand-steel">
             PNG, JPG, WEBP
           </p>
         </div>
 
-        <Upload className="ml-auto size-3 shrink-0 text-slate-400 transition group-hover:-translate-y-0.5 group-hover:text-blue-600" />
+        <Upload className="ml-auto size-3 shrink-0 text-brand-steel transition group-hover:-translate-y-0.5 group-hover:text-brand-ink" />
 
         <input
           type="file"
@@ -3107,11 +3107,11 @@ function PreviewInfo({
 }: PreviewInfoProps) {
   return (
     <div className="flex items-center gap-2">
-      <span className="grid size-6 shrink-0 place-items-center rounded-md bg-white text-blue-700 shadow-sm">
+      <span className="grid size-6 shrink-0 place-items-center rounded-md bg-white text-brand-ink shadow-sm">
         <Icon className="size-3" />
       </span>
 
-      <span className="truncate text-[10px] font-bold text-slate-600">
+      <span className="truncate text-[10px] font-bold text-brand-ink/70">
         {text}
       </span>
     </div>
@@ -3137,18 +3137,18 @@ function MiniMetric({
   icon: Icon,
 }: MiniMetricProps) {
   return (
-    <div className="rounded-xl border border-slate-100 bg-white p-2 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
+    <div className="rounded-xl border border-brand-mist bg-white p-2 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
       <div className="flex items-center justify-between gap-1">
-        <span className="grid size-5 place-items-center rounded-md bg-blue-50 text-blue-700">
+        <span className="grid size-5 place-items-center rounded-md bg-brand-mist text-brand-ink">
           <Icon className="size-2.5" />
         </span>
 
-        <span className="truncate text-[11px] font-black text-slate-900">
+        <span className="truncate text-[11px] font-black text-brand-ink">
           {value}
         </span>
       </div>
 
-      <p className="mt-1 truncate text-[8px] font-black uppercase tracking-wide text-slate-400">
+      <p className="mt-1 truncate text-[8px] font-black uppercase tracking-wide text-brand-steel">
         {label}
       </p>
     </div>
@@ -3169,16 +3169,16 @@ function PolicyPreview({
   value,
 }: PolicyPreviewProps) {
   return (
-    <div className="rounded-xl border border-slate-100 bg-slate-50 p-2.5">
+    <div className="rounded-xl border border-brand-mist bg-brand-mist p-2.5">
       <div className="flex items-center gap-1.5">
-        <FileText className="size-3 text-blue-700" />
+        <FileText className="size-3 text-brand-ink" />
 
-        <p className="text-[9px] font-black uppercase tracking-wide text-slate-700">
+        <p className="text-[9px] font-black uppercase tracking-wide text-brand-ink">
           {title}
         </p>
       </div>
 
-      <p className="mt-1 line-clamp-2 text-[9px] font-medium leading-4 text-slate-500">
+      <p className="mt-1 line-clamp-2 text-[9px] font-medium leading-4 text-brand-ink/70">
         {value ||
           `Your ${title.toLowerCase()} policy will appear here.`}
       </p>
@@ -3200,12 +3200,12 @@ function SystemChip({
   value,
 }: SystemChipProps) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2">
-      <p className="text-[9px] font-black uppercase tracking-wide text-slate-400">
+    <div className="rounded-xl border border-brand-steel bg-brand-mist px-3 py-2">
+      <p className="text-[9px] font-black uppercase tracking-wide text-brand-steel">
         {label}
       </p>
 
-      <p className="mt-0.5 text-xs font-black text-slate-800">
+      <p className="mt-0.5 text-xs font-black text-brand-ink">
         {value}
       </p>
     </div>

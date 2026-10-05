@@ -413,19 +413,19 @@ function statusClass(
 
     case "pending_review":
     case "pending_verification":
-      return "border-blue-200 bg-blue-50 text-blue-700";
+      return "border-brand-steel bg-brand-mist text-brand-ink";
 
     case "rejected":
       return "border-red-200 bg-red-50 text-red-700";
 
     case "suspended":
-      return "border-orange-200 bg-orange-50 text-orange-700";
+      return "border-brand-orange bg-brand-mist text-brand-orange";
 
     case "archived":
-      return "border-slate-200 bg-slate-100 text-slate-600";
+      return "border-brand-steel bg-brand-mist text-brand-ink/70";
 
     default:
-      return "border-amber-200 bg-amber-50 text-amber-700";
+      return "border-brand-orange bg-brand-mist text-brand-orange";
   }
 }
 
@@ -1327,9 +1327,9 @@ export default function AdminProductsPage() {
     return (
       <div className="flex min-h-[65vh] items-center justify-center">
         <div className="text-center">
-          <Loader2 className="mx-auto h-8 w-8 animate-spin text-blue-700" />
+          <Loader2 className="mx-auto h-8 w-8 animate-spin text-brand-ink" />
 
-          <p className="mt-3 text-sm font-medium text-slate-500">
+          <p className="mt-3 text-sm font-medium text-brand-ink/70">
             Loading admin product catalog...
           </p>
         </div>
@@ -1341,16 +1341,16 @@ export default function AdminProductsPage() {
     <div className="space-y-6">
       <header className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <div className="flex items-center gap-2 text-sm font-bold text-blue-700">
+          <div className="flex items-center gap-2 text-sm font-bold text-brand-ink">
             <PackageSearch className="h-4 w-4" />
             Marketplace products
           </div>
 
-          <h1 className="mt-1 text-2xl font-black text-slate-950 sm:text-3xl">
+          <h1 className="mt-1 text-2xl font-black text-brand-ink sm:text-3xl">
             Admin product catalog
           </h1>
 
-          <p className="mt-2 text-sm text-slate-500">
+          <p className="mt-2 text-sm text-brand-ink/70">
             Seller → Department → Category → Product
           </p>
         </div>
@@ -1358,7 +1358,7 @@ export default function AdminProductsPage() {
         <div className="flex flex-wrap gap-2">
           <Link
             href="/admin/moderation"
-            className="inline-flex h-10 items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-700 shadow-sm hover:bg-slate-50"
+            className="inline-flex h-10 items-center gap-2 rounded-xl border border-brand-steel bg-white px-4 text-sm font-bold text-brand-ink shadow-sm hover:bg-brand-mist"
           >
             <ShieldCheck className="h-4 w-4" />
             Moderation
@@ -1374,7 +1374,7 @@ export default function AdminProductsPage() {
                 true,
               )
             }
-            className="inline-flex h-10 items-center gap-2 rounded-xl bg-blue-700 px-4 text-sm font-bold text-white hover:bg-blue-800 disabled:opacity-50"
+            className="inline-flex h-10 items-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-bold text-white hover:bg-brand-ink disabled:opacity-50"
           >
             <RefreshCw
               className={`h-4 w-4 ${
@@ -1429,29 +1429,29 @@ export default function AdminProductsPage() {
         />
       </section>
 
-      <section className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-        <div className="border-b border-slate-100 p-4 sm:p-5">
+      <section className="overflow-hidden rounded-3xl border border-brand-steel bg-white shadow-sm">
+        <div className="border-b border-brand-mist p-4 sm:p-5">
           <div className="flex flex-wrap items-center gap-2 text-sm font-bold">
             <button
               type="button"
               onClick={
                 allSellers
               }
-              className="rounded-lg bg-blue-50 px-3 py-1.5 text-blue-700"
+              className="rounded-lg bg-brand-mist px-3 py-1.5 text-brand-ink"
             >
               Sellers
             </button>
 
             {selectedSeller ? (
               <>
-                <ChevronRight className="h-4 w-4 text-slate-300" />
+                <ChevronRight className="h-4 w-4 text-brand-steel" />
 
                 <button
                   type="button"
                   onClick={
                     allDepartments
                   }
-                  className="rounded-lg bg-violet-50 px-3 py-1.5 text-violet-700"
+                  className="rounded-lg bg-brand-mist px-3 py-1.5 text-brand-ink"
                 >
                   {
                     selectedSeller.name
@@ -1462,14 +1462,14 @@ export default function AdminProductsPage() {
 
             {selectedDepartment ? (
               <>
-                <ChevronRight className="h-4 w-4 text-slate-300" />
+                <ChevronRight className="h-4 w-4 text-brand-steel" />
 
                 <button
                   type="button"
                   onClick={
                     allCategories
                   }
-                  className="rounded-lg bg-cyan-50 px-3 py-1.5 text-cyan-700"
+                  className="rounded-lg bg-brand-mist px-3 py-1.5 text-brand-ink"
                 >
                   {
                     selectedDepartment.name
@@ -1480,9 +1480,9 @@ export default function AdminProductsPage() {
 
             {selectedCategory ? (
               <>
-                <ChevronRight className="h-4 w-4 text-slate-300" />
+                <ChevronRight className="h-4 w-4 text-brand-steel" />
 
-                <span className="rounded-lg bg-slate-100 px-3 py-1.5 text-slate-700">
+                <span className="rounded-lg bg-brand-mist px-3 py-1.5 text-brand-ink">
                   {
                     selectedCategory.name
                   }
@@ -1635,21 +1635,21 @@ function SellerSelection({
     <div className="p-4 sm:p-5">
       <div className="mb-5 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <p className="text-xs font-black uppercase tracking-wider text-blue-600">
+          <p className="text-xs font-black uppercase tracking-wider text-brand-ink">
             Step 1
           </p>
 
-          <h2 className="mt-1 text-xl font-black text-slate-950">
+          <h2 className="mt-1 text-xl font-black text-brand-ink">
             Select seller
           </h2>
 
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-brand-ink/70">
             Seller branding and profile information are shown here before opening their catalog.
           </p>
         </div>
 
         <label className="relative block w-full lg:w-80">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
 
           <input
             value={search}
@@ -1661,7 +1661,7 @@ function SellerSelection({
               )
             }
             placeholder="Search seller or product..."
-            className="h-10 w-full rounded-xl border border-slate-200 pl-10 pr-3 text-sm outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-50"
+            className="h-10 w-full rounded-xl border border-brand-steel pl-10 pr-3 text-sm outline-none focus:border-brand-orange focus:ring-4 focus:ring-brand-mist"
           />
         </label>
       </div>
@@ -1687,9 +1687,9 @@ function SellerSelection({
                 key={
                   seller.public_id
                 }
-                className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-blue-300 hover:shadow-lg"
+                className="overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-sm transition hover:border-brand-orange hover:shadow-lg"
               >
-                <div className="relative h-28 overflow-hidden bg-gradient-to-br from-blue-700 via-indigo-600 to-violet-600">
+                <div className="relative h-28 overflow-hidden bg-gradient-to-br from-brand-ink via-brand-ink to-brand-ink">
                   {cover ? (
                     <img
                       src={cover}
@@ -1702,12 +1702,12 @@ function SellerSelection({
                     </div>
                   )}
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/35 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/35 to-transparent" />
                 </div>
 
                 <div className="relative px-4 pb-4">
                   <div className="-mt-8 flex items-end justify-between gap-3">
-                    <div className="grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-2xl border-4 border-white bg-white text-sm font-black text-blue-700 shadow">
+                    <div className="grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-2xl border-4 border-white bg-white text-sm font-black text-brand-ink shadow">
                       {logo ? (
                         <img
                           src={logo}
@@ -1732,27 +1732,27 @@ function SellerSelection({
                     </span>
                   </div>
 
-                  <h3 className="mt-3 truncate text-base font-black text-slate-950">
+                  <h3 className="mt-3 truncate text-base font-black text-brand-ink">
                     {seller.name}
                   </h3>
 
                   {profile?.legal_business_name &&
                   profile.legal_business_name !==
                     seller.name ? (
-                    <p className="mt-0.5 truncate text-xs font-medium text-slate-500">
+                    <p className="mt-0.5 truncate text-xs font-medium text-brand-ink/70">
                       {
                         profile.legal_business_name
                       }
                     </p>
                   ) : null}
 
-                  <p className="mt-2 line-clamp-2 min-h-10 text-xs leading-5 text-slate-500">
+                  <p className="mt-2 line-clamp-2 min-h-10 text-xs leading-5 text-brand-ink/70">
                     {profile?.description ??
                       "Seller marketplace profile"}
                   </p>
 
-                  <div className="mt-3 flex items-center justify-between border-t border-slate-100 pt-3">
-                    <span className="text-xs font-bold text-slate-500">
+                  <div className="mt-3 flex items-center justify-between border-t border-brand-mist pt-3">
+                    <span className="text-xs font-bold text-brand-ink/70">
                       {
                         seller.products
                           .length
@@ -1769,7 +1769,7 @@ function SellerSelection({
                               profile,
                             )
                           }
-                          className="inline-flex h-8 items-center gap-1 rounded-lg border border-slate-200 px-2.5 text-[11px] font-black text-slate-600 hover:bg-slate-50"
+                          className="inline-flex h-8 items-center gap-1 rounded-lg border border-brand-steel px-2.5 text-[11px] font-black text-brand-ink/70 hover:bg-brand-mist"
                         >
                           <Eye className="h-3.5 w-3.5" />
                           Profile
@@ -1783,7 +1783,7 @@ function SellerSelection({
                             seller.public_id,
                           )
                         }
-                        className="inline-flex h-8 items-center gap-1 rounded-lg bg-blue-700 px-2.5 text-[11px] font-black text-white hover:bg-blue-800"
+                        className="inline-flex h-8 items-center gap-1 rounded-lg bg-brand-ink px-2.5 text-[11px] font-black text-white hover:bg-brand-ink"
                       >
                         Open
                         <ChevronRight className="h-3.5 w-3.5" />
@@ -1818,9 +1818,9 @@ function SellerProfileBanner({
     sellerCover(profile);
 
   return (
-    <div className="border-b border-slate-100 p-4 sm:p-5">
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
-        <div className="relative h-32 bg-gradient-to-r from-blue-700 via-indigo-600 to-violet-600 sm:h-40">
+    <div className="border-b border-brand-mist p-4 sm:p-5">
+      <div className="overflow-hidden rounded-2xl border border-brand-steel bg-white">
+        <div className="relative h-32 bg-gradient-to-r from-brand-ink via-brand-ink to-brand-ink sm:h-40">
           {cover ? (
             <img
               src={cover}
@@ -1829,13 +1829,13 @@ function SellerProfileBanner({
             />
           ) : null}
 
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/50 via-transparent to-transparent" />
         </div>
 
         <div className="relative px-4 pb-4 sm:px-5">
           <div className="-mt-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div className="flex items-end gap-3">
-              <div className="grid h-20 w-20 shrink-0 place-items-center overflow-hidden rounded-2xl border-4 border-white bg-white text-base font-black text-blue-700 shadow-md">
+              <div className="grid h-20 w-20 shrink-0 place-items-center overflow-hidden rounded-2xl border-4 border-white bg-white text-base font-black text-brand-ink shadow-md">
                 {logo ? (
                   <img
                     src={logo}
@@ -1850,11 +1850,11 @@ function SellerProfileBanner({
               </div>
 
               <div className="pb-1">
-                <h2 className="text-xl font-black text-slate-950">
+                <h2 className="text-xl font-black text-brand-ink">
                   {seller.name}
                 </h2>
 
-                <p className="mt-0.5 text-xs font-semibold text-slate-500">
+                <p className="mt-0.5 text-xs font-semibold text-brand-ink/70">
                   {profile?.business_type ??
                     "Seller business"}{" "}
                   ·{" "}
@@ -1873,7 +1873,7 @@ function SellerProfileBanner({
                 onClick={
                   onViewProfile
                 }
-                className="inline-flex h-9 w-fit items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-sm font-bold text-slate-700 hover:bg-slate-50"
+                className="inline-flex h-9 w-fit items-center gap-2 rounded-xl border border-brand-steel bg-white px-3 text-sm font-bold text-brand-ink hover:bg-brand-mist"
               >
                 <Eye className="h-4 w-4" />
                 View seller profile
@@ -1882,18 +1882,18 @@ function SellerProfileBanner({
           </div>
 
           {profile?.description ? (
-            <p className="mt-4 max-w-4xl text-sm leading-6 text-slate-600">
+            <p className="mt-4 max-w-4xl text-sm leading-6 text-brand-ink/70">
               {
                 profile.description
               }
             </p>
           ) : null}
 
-          <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold text-slate-500">
+          <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold text-brand-ink/70">
             {profile
               ?.business_phone ? (
               <span className="inline-flex items-center gap-1.5">
-                <Phone className="h-3.5 w-3.5 text-blue-600" />
+                <Phone className="h-3.5 w-3.5 text-brand-ink" />
                 {
                   profile.business_phone
                 }
@@ -1903,7 +1903,7 @@ function SellerProfileBanner({
             {profile
               ?.business_email ? (
               <span className="inline-flex items-center gap-1.5">
-                <Mail className="h-3.5 w-3.5 text-blue-600" />
+                <Mail className="h-3.5 w-3.5 text-brand-ink" />
                 {
                   profile.business_email
                 }
@@ -1914,7 +1914,7 @@ function SellerProfileBanner({
               profile,
             ) ? (
               <span className="inline-flex items-center gap-1.5">
-                <MapPin className="h-3.5 w-3.5 text-blue-600" />
+                <MapPin className="h-3.5 w-3.5 text-brand-ink" />
                 {businessAddress(
                   profile,
                 )}
@@ -1957,27 +1957,27 @@ function DepartmentSelection({
                   group.key,
                 )
               }
-              className="group rounded-2xl border border-slate-200 p-4 text-left transition hover:border-violet-300 hover:shadow-lg"
+              className="group rounded-2xl border border-brand-steel p-4 text-left transition hover:border-brand-orange hover:shadow-lg"
             >
               <div className="flex items-start justify-between">
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-violet-50 text-violet-700">
+                <div className="grid h-11 w-11 place-items-center rounded-xl bg-brand-mist text-brand-ink">
                   <Building2 className="h-5 w-5" />
                 </div>
 
-                <ChevronRight className="h-5 w-5 text-slate-300 group-hover:text-violet-600" />
+                <ChevronRight className="h-5 w-5 text-brand-steel group-hover:text-brand-ink" />
               </div>
 
-              <h3 className="mt-4 font-black text-slate-950">
+              <h3 className="mt-4 font-black text-brand-ink">
                 {group.name}
               </h3>
 
-              <p className="mt-2 line-clamp-2 min-h-10 text-xs leading-5 text-slate-500">
+              <p className="mt-2 line-clamp-2 min-h-10 text-xs leading-5 text-brand-ink/70">
                 {group.department
                   ?.description ??
                   "Products without a department assignment."}
               </p>
 
-              <div className="mt-4 border-t border-slate-100 pt-3 text-xs font-bold text-slate-500">
+              <div className="mt-4 border-t border-brand-mist pt-3 text-xs font-bold text-brand-ink/70">
                 {
                   group.products
                     .length
@@ -2022,21 +2022,21 @@ function CategorySelection({
                   group.key,
                 )
               }
-              className="group rounded-2xl border border-slate-200 p-4 text-left transition hover:border-cyan-300 hover:shadow-lg"
+              className="group rounded-2xl border border-brand-steel p-4 text-left transition hover:border-brand-orange hover:shadow-lg"
             >
               <div className="flex items-start justify-between">
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-cyan-50 text-cyan-700">
+                <div className="grid h-11 w-11 place-items-center rounded-xl bg-brand-mist text-brand-ink">
                   <FolderTree className="h-5 w-5" />
                 </div>
 
-                <ChevronRight className="h-5 w-5 text-slate-300 group-hover:text-cyan-600" />
+                <ChevronRight className="h-5 w-5 text-brand-steel group-hover:text-brand-ink" />
               </div>
 
-              <h3 className="mt-4 font-black text-slate-950">
+              <h3 className="mt-4 font-black text-brand-ink">
                 {group.name}
               </h3>
 
-              <div className="mt-4 border-t border-slate-100 pt-3 text-xs font-bold text-slate-500">
+              <div className="mt-4 border-t border-brand-mist pt-3 text-xs font-bold text-brand-ink/70">
                 {
                   group.products
                     .length
@@ -2083,9 +2083,9 @@ function ProductSelection({
                 key={
                   product.public_id
                 }
-                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-100/50"
+                className="group overflow-hidden rounded-2xl border border-brand-steel bg-white transition hover:-translate-y-0.5 hover:border-brand-orange hover:shadow-xl hover:shadow-brand-mist/50"
               >
-                <div className="relative aspect-[4/3] overflow-hidden border-b border-slate-100 bg-slate-50">
+                <div className="relative aspect-[4/3] overflow-hidden border-b border-brand-mist bg-brand-mist">
                   {image ? (
                     <img
                       src={image}
@@ -2095,10 +2095,10 @@ function ProductSelection({
                       className="h-full w-full object-contain p-3 transition duration-300 group-hover:scale-[1.03]"
                     />
                   ) : (
-                    <div className="flex h-full flex-col items-center justify-center gap-2 text-slate-300">
+                    <div className="flex h-full flex-col items-center justify-center gap-2 text-brand-steel">
                       <ImageIcon className="h-10 w-10" />
 
-                      <span className="text-xs font-bold text-slate-400">
+                      <span className="text-xs font-bold text-brand-steel">
                         No product image
                       </span>
                     </div>
@@ -2116,17 +2116,17 @@ function ProductSelection({
                 </div>
 
                 <div className="p-4">
-                  <p className="text-[10px] font-black uppercase tracking-wide text-slate-400">
+                  <p className="text-[10px] font-black uppercase tracking-wide text-brand-steel">
                     {product.brand
                       ?.name ??
                       "No brand"}
                   </p>
 
-                  <h3 className="mt-1 line-clamp-2 min-h-12 font-black leading-6 text-slate-950">
+                  <h3 className="mt-1 line-clamp-2 min-h-12 font-black leading-6 text-brand-ink">
                     {product.name}
                   </h3>
 
-                  <p className="mt-2 line-clamp-2 min-h-10 text-xs leading-5 text-slate-500">
+                  <p className="mt-2 line-clamp-2 min-h-10 text-xs leading-5 text-brand-ink/70">
                     {product.short_description ??
                       "Marketplace product"}
                   </p>
@@ -2138,7 +2138,7 @@ function ProductSelection({
                         product,
                       )
                     }
-                    className="mt-4 inline-flex h-9 w-full items-center justify-center gap-2 rounded-xl bg-blue-50 text-xs font-black text-blue-700 transition hover:bg-blue-100"
+                    className="mt-4 inline-flex h-9 w-full items-center justify-center gap-2 rounded-xl bg-brand-mist text-xs font-black text-brand-ink transition hover:bg-brand-mist"
                   >
                     <Eye className="h-4 w-4" />
                     View product
@@ -2176,7 +2176,7 @@ function SellerProfileModal({
 
   return (
     <div
-      className="fixed inset-0 z-[1100] flex items-center justify-center bg-slate-950/65 p-3 backdrop-blur-[2px] sm:p-5"
+      className="fixed inset-0 z-[1100] flex items-center justify-center bg-brand-ink/65 p-3 backdrop-blur-[2px] sm:p-5"
       onMouseDown={(
         event,
       ) => {
@@ -2189,13 +2189,13 @@ function SellerProfileModal({
       }}
     >
       <div className="flex h-[calc(100dvh-24px)] max-h-[820px] w-full max-w-4xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl sm:h-[calc(100dvh-40px)]">
-        <div className="flex items-start justify-between gap-4 border-b border-slate-100 px-5 py-4 sm:px-6">
+        <div className="flex items-start justify-between gap-4 border-b border-brand-mist px-5 py-4 sm:px-6">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.14em] text-blue-600">
+            <p className="text-xs font-black uppercase tracking-[0.14em] text-brand-ink">
               Seller profile
             </p>
 
-            <h2 className="mt-1 text-xl font-black text-slate-950">
+            <h2 className="mt-1 text-xl font-black text-brand-ink">
               {name}
             </h2>
           </div>
@@ -2203,14 +2203,14 @@ function SellerProfileModal({
           <button
             type="button"
             onClick={onClose}
-            className="grid h-9 w-9 place-items-center rounded-full border border-slate-200 text-slate-500 hover:bg-slate-50"
+            className="grid h-9 w-9 place-items-center rounded-full border border-brand-steel text-brand-ink/70 hover:bg-brand-mist"
           >
             <X className="h-4 w-4" />
           </button>
         </div>
 
         <div className="min-h-0 flex-1 overflow-y-auto">
-          <div className="relative h-44 bg-gradient-to-r from-blue-700 via-indigo-600 to-violet-600 sm:h-52">
+          <div className="relative h-44 bg-gradient-to-r from-brand-ink via-brand-ink to-brand-ink sm:h-52">
             {cover ? (
               <img
                 src={cover}
@@ -2223,12 +2223,12 @@ function SellerProfileModal({
               </div>
             )}
 
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/55 to-transparent" />
           </div>
 
           <div className="relative px-5 pb-6 sm:px-6">
             <div className="-mt-12 flex items-end gap-4">
-              <div className="grid h-24 w-24 shrink-0 place-items-center overflow-hidden rounded-3xl border-4 border-white bg-white text-xl font-black text-blue-700 shadow-lg">
+              <div className="grid h-24 w-24 shrink-0 place-items-center overflow-hidden rounded-3xl border-4 border-white bg-white text-xl font-black text-brand-ink shadow-lg">
                 {logo ? (
                   <img
                     src={logo}
@@ -2241,7 +2241,7 @@ function SellerProfileModal({
               </div>
 
               <div className="pb-1">
-                <h3 className="text-2xl font-black text-slate-950">
+                <h3 className="text-2xl font-black text-brand-ink">
                   {name}
                 </h3>
 
@@ -2260,7 +2260,7 @@ function SellerProfileModal({
             </div>
 
             {seller.description ? (
-              <p className="mt-5 whitespace-pre-line text-sm leading-7 text-slate-600">
+              <p className="mt-5 whitespace-pre-line text-sm leading-7 text-brand-ink/70">
                 {
                   seller.description
                 }
@@ -2345,11 +2345,11 @@ function SellerProfileModal({
           </div>
         </div>
 
-        <div className="flex justify-end border-t border-slate-100 px-5 py-4 sm:px-6">
+        <div className="flex justify-end border-t border-brand-mist px-5 py-4 sm:px-6">
           <button
             type="button"
             onClick={onClose}
-            className="h-10 rounded-xl bg-slate-900 px-4 text-sm font-bold text-white hover:bg-slate-800"
+            className="h-10 rounded-xl bg-brand-ink px-4 text-sm font-bold text-white hover:bg-brand-ink"
           >
             Close
           </button>
@@ -2391,7 +2391,7 @@ function ProductModal({
   return (
     <ModalPortal>
       <div
-        className="fixed inset-0 z-[2000] flex items-center justify-center overflow-hidden bg-slate-950/65 p-3 backdrop-blur-[2px] sm:p-5"
+        className="fixed inset-0 z-[2000] flex items-center justify-center overflow-hidden bg-brand-ink/65 p-3 backdrop-blur-[2px] sm:p-5"
         onMouseDown={(
           event,
         ) => {
@@ -2404,13 +2404,13 @@ function ProductModal({
         }}
       >
         <div className="flex max-h-[calc(100dvh-24px)] w-full max-w-3xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl sm:max-h-[calc(100dvh-40px)]">
-          <div className="flex shrink-0 items-start justify-between gap-4 border-b border-slate-100 bg-white px-5 py-4 sm:px-6">
+          <div className="flex shrink-0 items-start justify-between gap-4 border-b border-brand-mist bg-white px-5 py-4 sm:px-6">
             <div className="min-w-0">
-              <p className="text-xs font-black uppercase tracking-[0.14em] text-blue-600">
+              <p className="text-xs font-black uppercase tracking-[0.14em] text-brand-ink">
                 Product details
               </p>
 
-              <h2 className="mt-1 truncate text-xl font-black text-slate-950 sm:text-2xl">
+              <h2 className="mt-1 truncate text-xl font-black text-brand-ink sm:text-2xl">
                 {product.name}
               </h2>
             </div>
@@ -2419,7 +2419,7 @@ function ProductModal({
               type="button"
               aria-label="Close product details"
               onClick={onClose}
-              className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-slate-500 transition hover:bg-slate-50 hover:text-slate-950"
+              className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-brand-steel bg-white text-brand-ink/70 transition hover:bg-brand-mist hover:text-brand-ink"
             >
               <X className="h-4 w-4" />
             </button>
@@ -2427,7 +2427,7 @@ function ProductModal({
 
           <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5 sm:px-6">
             {image ? (
-              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+              <div className="overflow-hidden rounded-2xl border border-brand-steel bg-brand-mist">
                 <div className="flex max-h-[320px] min-h-[210px] items-center justify-center p-4 sm:min-h-[260px]">
                   <img
                     src={image}
@@ -2437,8 +2437,8 @@ function ProductModal({
                 </div>
               </div>
             ) : (
-              <div className="flex min-h-[210px] items-center justify-center rounded-2xl border border-dashed border-slate-200 bg-slate-50">
-                <div className="text-center text-slate-400">
+              <div className="flex min-h-[210px] items-center justify-center rounded-2xl border border-dashed border-brand-steel bg-brand-mist">
+                <div className="text-center text-brand-steel">
                   <PackageSearch className="mx-auto h-10 w-10" />
 
                   <p className="mt-2 text-sm font-semibold">
@@ -2474,8 +2474,8 @@ function ProductModal({
                 }
               />
 
-              <div className="rounded-xl bg-slate-50 p-3">
-                <p className="text-[10px] font-black uppercase tracking-wide text-slate-400">
+              <div className="rounded-xl bg-brand-mist p-3">
+                <p className="text-[10px] font-black uppercase tracking-wide text-brand-steel">
                   Status
                 </p>
 
@@ -2491,42 +2491,42 @@ function ProductModal({
               </div>
             </div>
 
-            <div className="mt-5 rounded-2xl border border-slate-100 bg-white">
-              <div className="border-b border-slate-100 px-4 py-3">
-                <p className="text-xs font-black uppercase tracking-[0.12em] text-slate-400">
+            <div className="mt-5 rounded-2xl border border-brand-mist bg-white">
+              <div className="border-b border-brand-mist px-4 py-3">
+                <p className="text-xs font-black uppercase tracking-[0.12em] text-brand-steel">
                   Product description
                 </p>
               </div>
 
-              <p className="whitespace-pre-line px-4 py-4 text-sm leading-7 text-slate-600">
+              <p className="whitespace-pre-line px-4 py-4 text-sm leading-7 text-brand-ink/70">
                 {product.short_description ??
                   "No short description."}
               </p>
             </div>
 
-            <div className="mt-4 rounded-xl bg-slate-50 px-4 py-3">
-              <p className="text-[10px] font-black uppercase tracking-wide text-slate-400">
+            <div className="mt-4 rounded-xl bg-brand-mist px-4 py-3">
+              <p className="text-[10px] font-black uppercase tracking-wide text-brand-steel">
                 Product ID
               </p>
 
-              <p className="mt-1 break-all text-xs font-semibold text-slate-600">
+              <p className="mt-1 break-all text-xs font-semibold text-brand-ink/70">
                 {product.public_id}
               </p>
             </div>
           </div>
 
-          <div className="flex shrink-0 flex-col-reverse gap-2 border-t border-slate-100 bg-white px-5 py-4 sm:flex-row sm:justify-end sm:px-6">
+          <div className="flex shrink-0 flex-col-reverse gap-2 border-t border-brand-mist bg-white px-5 py-4 sm:flex-row sm:justify-end sm:px-6">
             <button
               type="button"
               onClick={onClose}
-              className="inline-flex h-10 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-700 transition hover:bg-slate-50"
+              className="inline-flex h-10 items-center justify-center rounded-xl border border-brand-steel bg-white px-4 text-sm font-bold text-brand-ink transition hover:bg-brand-mist"
             >
               Close
             </button>
 
             <Link
               href="/admin/moderation"
-              className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-blue-700 px-4 text-sm font-bold text-white transition hover:bg-blue-800"
+              className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-bold text-white transition hover:bg-brand-ink"
             >
               <ShieldCheck className="h-4 w-4" />
               Moderate product
@@ -2546,12 +2546,12 @@ function Metric({
   value: number;
 }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-      <p className="text-xs font-bold uppercase tracking-wide text-slate-500">
+    <div className="rounded-2xl border border-brand-steel bg-white p-4 shadow-sm">
+      <p className="text-xs font-bold uppercase tracking-wide text-brand-ink/70">
         {label}
       </p>
 
-      <p className="mt-1 text-2xl font-black text-slate-950">
+      <p className="mt-1 text-2xl font-black text-brand-ink">
         {value}
       </p>
     </div>
@@ -2572,11 +2572,11 @@ function StepHeader({
   return (
     <div className="mb-5 flex items-end justify-between gap-3">
       <div>
-        <p className="text-xs font-black uppercase tracking-wider text-blue-600">
+        <p className="text-xs font-black uppercase tracking-wider text-brand-ink">
           Step {step}
         </p>
 
-        <h2 className="mt-1 text-xl font-black text-slate-950">
+        <h2 className="mt-1 text-xl font-black text-brand-ink">
           {title}
         </h2>
       </div>
@@ -2584,7 +2584,7 @@ function StepHeader({
       <button
         type="button"
         onClick={onBack}
-        className="inline-flex h-9 items-center gap-2 rounded-xl border border-slate-200 px-3 text-sm font-bold text-slate-600 hover:bg-slate-50"
+        className="inline-flex h-9 items-center gap-2 rounded-xl border border-brand-steel px-3 text-sm font-bold text-brand-ink/70 hover:bg-brand-mist"
       >
         <ArrowLeft className="h-4 w-4" />
         {backLabel}
@@ -2601,12 +2601,12 @@ function ProfileInfo({
   value: string;
 }) {
   return (
-    <div className="rounded-xl bg-slate-50 p-3">
-      <p className="text-[10px] font-black uppercase tracking-wide text-slate-400">
+    <div className="rounded-xl bg-brand-mist p-3">
+      <p className="text-[10px] font-black uppercase tracking-wide text-brand-steel">
         {label}
       </p>
 
-      <p className="mt-1 break-words text-sm font-black text-slate-900">
+      <p className="mt-1 break-words text-sm font-black text-brand-ink">
         {value}
       </p>
     </div>

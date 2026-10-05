@@ -134,23 +134,23 @@ function statusClass(status?: string | null): string {
     case "completed":
       return "bg-emerald-100 text-emerald-700";
     case "ready":
-      return "bg-blue-100 text-blue-700";
+      return "bg-brand-mist text-brand-ink";
     case "processing":
-      return "bg-violet-100 text-violet-700";
+      return "bg-brand-mist text-brand-ink";
     case "confirmed":
-      return "bg-cyan-100 text-cyan-700";
+      return "bg-brand-mist text-brand-ink";
     case "cancelled":
       return "bg-red-100 text-red-700";
     default:
-      return "bg-amber-100 text-amber-700";
+      return "bg-brand-mist text-brand-orange";
   }
 }
 
 function paymentClass(status?: string | null): string {
   if (status === "paid") return "bg-emerald-100 text-emerald-700";
   if (status === "failed") return "bg-red-100 text-red-700";
-  if (status === "refunded") return "bg-violet-100 text-violet-700";
-  return "bg-amber-100 text-amber-700";
+  if (status === "refunded") return "bg-brand-mist text-brand-ink";
+  return "bg-brand-mist text-brand-orange";
 }
 
 function colorsFor(paint: Paint): PaintColor[] {
@@ -268,8 +268,8 @@ export default function DealerDashboardPage() {
     return (
       <div className="flex min-h-[500px] items-center justify-center">
         <div className="text-center">
-          <LoaderCircle className="mx-auto size-8 animate-spin text-blue-700" />
-          <p className="mt-3 text-sm font-semibold text-slate-500">
+          <LoaderCircle className="mx-auto size-8 animate-spin text-brand-ink" />
+          <p className="mt-3 text-sm font-semibold text-brand-ink/70">
             Loading NTEZINET dashboard...
           </p>
         </div>
@@ -281,15 +281,15 @@ export default function DealerDashboardPage() {
     <div className="pb-10">
       <section className="mb-7 flex flex-col justify-between gap-5 md:flex-row md:items-center">
         <div>
-          <p className="text-sm font-semibold text-blue-600">
+          <p className="text-sm font-semibold text-brand-ink">
             NTEZINET Paint
           </p>
 
-          <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-brand-ink sm:text-4xl">
             Welcome back, {user?.name || "NTEZINET Paint"}
           </h1>
 
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500 sm:text-base">
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-brand-ink/70 sm:text-base">
             Manage paints, monitor stock and process customer paint orders.
           </p>
         </div>
@@ -299,7 +299,7 @@ export default function DealerDashboardPage() {
             type="button"
             onClick={() => void loadDashboard(true)}
             disabled={refreshing}
-            className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 disabled:opacity-60"
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-brand-steel bg-white px-5 py-3 text-sm font-semibold text-brand-ink shadow-sm transition hover:bg-brand-mist disabled:opacity-60"
           >
             <RefreshCw
               className={`size-4 ${refreshing ? "animate-spin" : ""}`}
@@ -309,7 +309,7 @@ export default function DealerDashboardPage() {
 
           <Link
             href="/dealer/services"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-800"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-ink px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-ink"
           >
             <PaintBucket className="size-4" />
             Manage paints
@@ -330,7 +330,7 @@ export default function DealerDashboardPage() {
           value={String(paints.length)}
           helper={`${stats.activePaints} active`}
           icon={Droplets}
-          className="bg-blue-100 text-blue-700"
+          className="bg-brand-mist text-brand-ink"
         />
 
         <StatCard
@@ -338,7 +338,7 @@ export default function DealerDashboardPage() {
           value={String(stats.totalOrders)}
           helper="All customer orders"
           icon={ShoppingBag}
-          className="bg-violet-100 text-violet-700"
+          className="bg-brand-mist text-brand-ink"
         />
 
         <StatCard
@@ -346,7 +346,7 @@ export default function DealerDashboardPage() {
           value={String(stats.pending)}
           helper="Pending to ready"
           icon={Clock3}
-          className="bg-amber-100 text-amber-700"
+          className="bg-brand-mist text-brand-orange"
         />
 
         <StatCard
@@ -362,17 +362,17 @@ export default function DealerDashboardPage() {
           value={`${money(stats.completedSales)} RWF`}
           helper="Completed order revenue"
           icon={WalletCards}
-          className="bg-cyan-100 text-cyan-700"
+          className="bg-brand-mist text-brand-ink"
         />
       </section>
 
       <section className="mt-5 grid gap-5 xl:grid-cols-[minmax(0,1.45fr)_minmax(300px,0.55fr)]">
-        <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
-          <h2 className="text-xl font-bold text-slate-950">
+        <article className="rounded-2xl border border-brand-steel bg-white p-5 shadow-sm sm:p-6">
+          <h2 className="text-xl font-bold text-brand-ink">
             Order status overview
           </h2>
 
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-brand-ink/70">
             Current customer order workload.
           </p>
 
@@ -380,22 +380,22 @@ export default function DealerDashboardPage() {
             <Metric
               label="Pending"
               value={Number(summary.pending_orders ?? 0)}
-              className="bg-amber-50 text-amber-800"
+              className="bg-brand-mist text-brand-orange"
             />
             <Metric
               label="Confirmed"
               value={Number(summary.confirmed_orders ?? 0)}
-              className="bg-cyan-50 text-cyan-800"
+              className="bg-brand-mist text-brand-ink"
             />
             <Metric
               label="Processing"
               value={Number(summary.processing_orders ?? 0)}
-              className="bg-violet-50 text-violet-800"
+              className="bg-brand-mist text-brand-ink"
             />
             <Metric
               label="Ready"
               value={Number(summary.ready_orders ?? 0)}
-              className="bg-blue-50 text-blue-800"
+              className="bg-brand-mist text-brand-ink"
             />
             <Metric
               label="Completed"
@@ -410,19 +410,19 @@ export default function DealerDashboardPage() {
           </div>
         </article>
 
-        <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
-          <h2 className="text-xl font-bold text-slate-950">
+        <article className="rounded-2xl border border-brand-steel bg-white p-5 shadow-sm sm:p-6">
+          <h2 className="text-xl font-bold text-brand-ink">
             Quick actions
           </h2>
 
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-brand-ink/70">
             NTEZINET dealer tasks
           </p>
 
           <div className="mt-6 grid gap-3">
             <Link
               href="/dealer/services"
-              className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-4 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+              className="flex items-center justify-between rounded-xl border border-brand-steel bg-white px-4 py-4 text-sm font-semibold text-brand-ink transition hover:bg-brand-mist"
             >
               Manage paint services
               <PaintBucket className="size-5" />
@@ -430,7 +430,7 @@ export default function DealerDashboardPage() {
 
             <Link
               href="/dealer/orders"
-              className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-4 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+              className="flex items-center justify-between rounded-xl border border-brand-steel bg-white px-4 py-4 text-sm font-semibold text-brand-ink transition hover:bg-brand-mist"
             >
               Process customer orders
               <ShoppingBag className="size-5" />
@@ -439,20 +439,20 @@ export default function DealerDashboardPage() {
         </article>
       </section>
 
-      <section className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <div className="flex items-center justify-between gap-4 border-b border-slate-100 px-5 py-5 sm:px-6">
+      <section className="mt-5 overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-sm">
+        <div className="flex items-center justify-between gap-4 border-b border-brand-mist px-5 py-5 sm:px-6">
           <div>
-            <h2 className="text-xl font-bold text-slate-950">
+            <h2 className="text-xl font-bold text-brand-ink">
               Recent customer orders
             </h2>
-            <p className="mt-1 text-sm text-slate-500">
+            <p className="mt-1 text-sm text-brand-ink/70">
               Latest NTEZINET paint purchases.
             </p>
           </div>
 
           <Link
             href="/dealer/orders"
-            className="text-sm font-semibold text-blue-700 hover:underline"
+            className="text-sm font-semibold text-brand-ink hover:underline"
           >
             View all
           </Link>
@@ -460,8 +460,8 @@ export default function DealerDashboardPage() {
 
         {recentOrders.length === 0 ? (
           <div className="flex min-h-52 flex-col items-center justify-center p-6 text-center">
-            <ShoppingBag className="size-9 text-slate-300" />
-            <p className="mt-3 font-bold text-slate-700">
+            <ShoppingBag className="size-9 text-brand-steel" />
+            <p className="mt-3 font-bold text-brand-ink">
               No orders yet
             </p>
           </div>
@@ -469,7 +469,7 @@ export default function DealerDashboardPage() {
           <div className="overflow-x-auto">
             <table className="w-full min-w-[900px]">
               <thead>
-                <tr className="bg-slate-50 text-left text-xs uppercase tracking-wide text-slate-500">
+                <tr className="bg-brand-mist text-left text-xs uppercase tracking-wide text-brand-ink/70">
                   <th className="px-6 py-4 font-semibold">Order</th>
                   <th className="px-6 py-4 font-semibold">Customer</th>
                   <th className="px-6 py-4 font-semibold">Paint</th>
@@ -480,7 +480,7 @@ export default function DealerDashboardPage() {
                 </tr>
               </thead>
 
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-brand-mist">
                 {recentOrders.map((order) => {
                   const firstItem =
                     Array.isArray(order.items) ? order.items[0] : null;
@@ -488,41 +488,41 @@ export default function DealerDashboardPage() {
                   return (
                     <tr
                       key={order.public_id}
-                      className="transition hover:bg-blue-50/50"
+                      className="transition hover:bg-brand-mist/50"
                     >
                       <td className="px-6 py-4">
-                        <p className="text-sm font-semibold text-blue-700">
+                        <p className="text-sm font-semibold text-brand-ink">
                           {order.order_number}
                         </p>
-                        <p className="mt-1 text-[11px] text-slate-400">
+                        <p className="mt-1 text-[11px] text-brand-steel">
                           {formatDate(order.created_at)}
                         </p>
                       </td>
 
                       <td className="px-6 py-4">
-                        <p className="text-sm font-semibold text-slate-800">
+                        <p className="text-sm font-semibold text-brand-ink">
                           {order.customer_name ?? "Customer"}
                         </p>
-                        <p className="mt-1 text-xs text-slate-400">
+                        <p className="mt-1 text-xs text-brand-steel">
                           {order.customer_phone ?? "—"}
                         </p>
                       </td>
 
                       <td className="px-6 py-4">
-                        <p className="max-w-[220px] truncate text-sm font-semibold text-slate-700">
+                        <p className="max-w-[220px] truncate text-sm font-semibold text-brand-ink">
                           {firstItem?.service_name ??
                             firstItem?.name ??
                             order.service_name ??
                             "Paint"}
                         </p>
                         {firstItem?.color_name ? (
-                          <p className="mt-1 text-xs font-bold text-blue-600">
+                          <p className="mt-1 text-xs font-bold text-brand-ink">
                             {firstItem.color_name}
                           </p>
                         ) : null}
                       </td>
 
-                      <td className="px-6 py-4 text-sm font-semibold text-slate-950">
+                      <td className="px-6 py-4 text-sm font-semibold text-brand-ink">
                         {money(
                           order.total_amount_rwf ??
                             order.total_price_rwf,
@@ -553,7 +553,7 @@ export default function DealerDashboardPage() {
                       <td className="px-6 py-4">
                         <Link
                           href="/dealer/orders"
-                          className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50"
+                          className="inline-flex items-center gap-2 rounded-lg border border-brand-steel px-3 py-2 text-xs font-semibold text-brand-ink transition hover:bg-brand-mist"
                         >
                           <Eye className="size-4" />
                           View
@@ -571,17 +571,17 @@ export default function DealerDashboardPage() {
       <section className="mt-5">
         <div className="mb-4 flex items-center justify-between gap-4">
           <div>
-            <h2 className="text-xl font-bold text-slate-950">
+            <h2 className="text-xl font-bold text-brand-ink">
               Paint inventory
             </h2>
-            <p className="mt-1 text-sm text-slate-500">
+            <p className="mt-1 text-sm text-brand-ink/70">
               Quick view of NTEZINET paint services.
             </p>
           </div>
 
           <Link
             href="/dealer/services"
-            className="text-sm font-semibold text-blue-700 hover:underline"
+            className="text-sm font-semibold text-brand-ink hover:underline"
           >
             Manage all
           </Link>
@@ -595,9 +595,9 @@ export default function DealerDashboardPage() {
               <Link
                 key={paint.public_id}
                 href="/dealer/services"
-                className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-blue-300"
+                className="overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-sm transition hover:border-brand-orange"
               >
-                <div className="flex h-40 items-center justify-center bg-slate-50">
+                <div className="flex h-40 items-center justify-center bg-brand-mist">
                   {paint.image_url ? (
                     <img
                       src={paint.image_url}
@@ -605,20 +605,20 @@ export default function DealerDashboardPage() {
                       className="h-full w-full object-contain p-4"
                     />
                   ) : (
-                    <PaintBucket className="size-12 text-slate-300" />
+                    <PaintBucket className="size-12 text-brand-steel" />
                   )}
                 </div>
 
                 <div className="p-4">
-                  <p className="text-[10px] font-semibold uppercase tracking-wide text-blue-600">
+                  <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-ink">
                     {paint.brand_name ?? "NTEZINET"}
                   </p>
 
-                  <h3 className="mt-1 font-bold text-slate-950">
+                  <h3 className="mt-1 font-bold text-brand-ink">
                     {paint.name}
                   </h3>
 
-                  <p className="mt-1 text-xs text-slate-400">
+                  <p className="mt-1 text-xs text-brand-steel">
                     {paint.paint_type ?? "Paint"}
                   </p>
 
@@ -626,7 +626,7 @@ export default function DealerDashboardPage() {
                     {paintColors.slice(0, 5).map((color) => (
                       <span
                         key={`${paint.public_id}-${color.name}`}
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] font-semibold text-slate-700"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-brand-steel bg-brand-mist px-2 py-1 text-[10px] font-semibold text-brand-ink"
                       >
                         <span
                           className="size-2.5 rounded-full border border-black/10 bg-white"
@@ -641,22 +641,22 @@ export default function DealerDashboardPage() {
                     ))}
                   </div>
 
-                  <div className="mt-4 grid grid-cols-2 gap-2 rounded-2xl bg-slate-50 p-3">
+                  <div className="mt-4 grid grid-cols-2 gap-2 rounded-2xl bg-brand-mist p-3">
                     <div>
-                      <p className="text-[10px] font-semibold uppercase text-slate-400">
+                      <p className="text-[10px] font-semibold uppercase text-brand-steel">
                         Stock
                       </p>
-                      <p className="mt-1 text-sm font-semibold text-slate-900">
+                      <p className="mt-1 text-sm font-semibold text-brand-ink">
                         {money(paint.stock_quantity)}{" "}
                         {String(paint.stock_unit ?? "").toUpperCase()}
                       </p>
                     </div>
 
                     <div>
-                      <p className="text-[10px] font-semibold uppercase text-slate-400">
+                      <p className="text-[10px] font-semibold uppercase text-brand-steel">
                         Price
                       </p>
-                      <p className="mt-1 text-sm font-semibold text-slate-900">
+                      <p className="mt-1 text-sm font-semibold text-brand-ink">
                         {money(paint.reference_price_rwf)} RWF
                       </p>
                     </div>
@@ -685,22 +685,22 @@ function StatCard({
   className: string;
 }) {
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <article className="rounded-2xl border border-brand-steel bg-white p-5 shadow-sm">
       <span
         className={`grid size-12 place-items-center rounded-xl ${className}`}
       >
         <Icon className="size-6" />
       </span>
 
-      <p className="mt-5 text-sm font-semibold text-slate-500">
+      <p className="mt-5 text-sm font-semibold text-brand-ink/70">
         {title}
       </p>
 
-      <p className="mt-1 text-2xl font-bold tracking-tight text-slate-950">
+      <p className="mt-1 text-2xl font-bold tracking-tight text-brand-ink">
         {value}
       </p>
 
-      <p className="mt-2 text-xs font-semibold text-slate-400">
+      <p className="mt-2 text-xs font-semibold text-brand-steel">
         {helper}
       </p>
     </article>

@@ -383,13 +383,13 @@ function statusClasses(
     case "pending_verification":
     case "pending_scan":
     case "quarantined":
-      return "border-blue-200 bg-blue-50 text-blue-700";
+      return "border-brand-steel bg-brand-mist text-brand-ink";
 
     case "more_information_required":
-      return "border-amber-200 bg-amber-50 text-amber-800";
+      return "border-brand-orange bg-brand-mist text-brand-orange";
 
     default:
-      return "border-slate-200 bg-slate-50 text-slate-600";
+      return "border-brand-steel bg-brand-mist text-brand-ink/70";
   }
 }
 
@@ -489,7 +489,7 @@ function RequirementLevelBadge({
     normalized === "required"
       ? "border-red-200 bg-red-50 text-red-700"
       : normalized === "conditional"
-        ? "border-amber-200 bg-amber-50 text-amber-700"
+        ? "border-brand-orange bg-brand-mist text-brand-orange"
         : "border-emerald-200 bg-emerald-50 text-emerald-700";
 
   return (
@@ -1340,11 +1340,11 @@ export default function SellerVerificationWorkspace() {
     return (
       <div className="flex min-h-[520px] items-center justify-center">
         <div className="flex flex-col items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <Loader2 className="h-5 w-5 animate-spin text-slate-700" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-brand-steel bg-white shadow-sm">
+            <Loader2 className="h-5 w-5 animate-spin text-brand-ink" />
           </div>
 
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-brand-ink/70">
             Loading verification workspace...
           </p>
         </div>
@@ -1354,16 +1354,16 @@ export default function SellerVerificationWorkspace() {
 
   if (!profile) {
     return (
-      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
+      <div className="rounded-2xl border border-brand-orange bg-brand-mist p-6">
         <div className="flex items-start gap-3">
-          <AlertCircle className="mt-0.5 h-5 w-5 text-amber-700" />
+          <AlertCircle className="mt-0.5 h-5 w-5 text-brand-orange" />
 
           <div>
             <h2 className="font-semibold text-amber-950">
               Seller profile required
             </h2>
 
-            <p className="mt-1 text-sm leading-6 text-amber-800">
+            <p className="mt-1 text-sm leading-6 text-brand-orange">
               Complete your seller profile before starting verification.
             </p>
           </div>
@@ -1374,11 +1374,11 @@ export default function SellerVerificationWorkspace() {
 
   return (
     <div className="verification-enter space-y-5 pb-10">
-      <div className="flex flex-col gap-4 border-b border-slate-200 pb-5 lg:flex-row lg:items-end lg:justify-between">
+      <div className="flex flex-col gap-4 border-b border-brand-steel pb-5 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <div className="mb-2 flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-sm">
-              <ShieldCheck className="h-4 w-4 text-slate-800" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-brand-steel bg-white shadow-sm">
+              <ShieldCheck className="h-4 w-4 text-brand-ink" />
             </div>
 
             <StatusBadge
@@ -1389,13 +1389,13 @@ export default function SellerVerificationWorkspace() {
             />
           </div>
 
-          <h1 className="text-2xl font-semibold tracking-tight text-slate-950">
+          <h1 className="text-2xl font-semibold tracking-tight text-brand-ink">
             Seller verification
           </h1>
 
-          <p className="mt-1 max-w-3xl text-sm leading-6 text-slate-500">
+          <p className="mt-1 max-w-3xl text-sm leading-6 text-brand-ink/70">
             Upload at least two business verification documents before
-            submitting your application. RushPi administration may request
+            submitting your application. EliteMart administration may request
             additional documents during review.
           </p>
         </div>
@@ -1406,7 +1406,7 @@ export default function SellerVerificationWorkspace() {
             void loadVerification(true)
           }
           disabled={refreshing}
-          className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+          className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink shadow-sm transition hover:bg-brand-mist disabled:cursor-not-allowed disabled:opacity-50"
         >
           <RefreshCw
             className={[
@@ -1439,15 +1439,15 @@ export default function SellerVerificationWorkspace() {
       ) : null}
 
       {application?.information_request ? (
-        <div className="verification-enter rounded-2xl border border-amber-200 bg-amber-50 p-4">
+        <div className="verification-enter rounded-2xl border border-brand-orange bg-brand-mist p-4">
           <div className="flex items-start gap-3">
-            <ShieldAlert className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" />
+            <ShieldAlert className="mt-0.5 h-5 w-5 shrink-0 text-brand-orange" />
 
             <div>
               <h3 className="text-sm font-semibold text-amber-950">
                 Administration requires additional information
               </h3>
-              <p className="mt-1 text-sm leading-6 text-amber-800">
+              <p className="mt-1 text-sm leading-6 text-brand-orange">
                 {application.information_request}
               </p>
             </div>
@@ -1490,14 +1490,14 @@ export default function SellerVerificationWorkspace() {
       ) : null}
 
       {!application ? (
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4">
+        <div className="rounded-2xl border border-brand-orange bg-brand-mist p-4">
           <div className="flex items-start gap-3">
-            <AlertCircle className="mt-0.5 h-5 w-5 text-amber-700" />
+            <AlertCircle className="mt-0.5 h-5 w-5 text-brand-orange" />
             <div>
               <h3 className="text-sm font-semibold text-amber-950">
                 Verification application required
               </h3>
-              <p className="mt-1 text-sm leading-6 text-amber-800">
+              <p className="mt-1 text-sm leading-6 text-brand-orange">
                 No verification application exists for this seller profile yet.
               </p>
             </div>
@@ -1507,20 +1507,20 @@ export default function SellerVerificationWorkspace() {
 
       <div className="grid items-start gap-5 xl:grid-cols-[minmax(0,1.45fr)_minmax(340px,0.65fr)]">
         <div className="space-y-5">
-          <section className="rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <div className="flex flex-col gap-3 border-b border-slate-100 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+          <section className="rounded-2xl border border-brand-steel bg-white shadow-sm">
+            <div className="flex flex-col gap-3 border-b border-brand-mist px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h2 className="text-sm font-semibold text-slate-950">
+                <h2 className="text-sm font-semibold text-brand-ink">
                   Verification document checklist
                 </h2>
-                <p className="mt-0.5 text-xs leading-5 text-slate-500">
+                <p className="mt-0.5 text-xs leading-5 text-brand-ink/70">
                   Upload, replace and manage every document type required by
-                  RushPi administration.
+                  EliteMart administration.
                 </p>
               </div>
 
               <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-slate-600">
+                <span className="rounded-full border border-brand-steel bg-brand-mist px-2.5 py-1 text-[11px] font-medium text-brand-ink/70">
                   {requirements.length} document types
                 </span>
 
@@ -1532,17 +1532,17 @@ export default function SellerVerificationWorkspace() {
 
             {requirements.length === 0 ? (
               <div className="px-5 py-12 text-center">
-                <FileText className="mx-auto h-8 w-8 text-slate-300" />
-                <p className="mt-3 text-sm font-medium text-slate-700">
+                <FileText className="mx-auto h-8 w-8 text-brand-steel" />
+                <p className="mt-3 text-sm font-medium text-brand-ink">
                   No document requirements available
                 </p>
-                <p className="mt-1 text-xs text-slate-500">
-                  Ask RushPi administration to configure seller verification
+                <p className="mt-1 text-xs text-brand-ink/70">
+                  Ask EliteMart administration to configure seller verification
                   requirements.
                 </p>
               </div>
             ) : (
-              <div className="divide-y divide-slate-100">
+              <div className="divide-y divide-brand-mist">
                 {requirements.map(
                   (requirement) => {
                     const draft =
@@ -1607,7 +1607,7 @@ export default function SellerVerificationWorkspace() {
                           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                             <div className="min-w-0">
                               <div className="flex flex-wrap items-center gap-2">
-                                <h3 className="text-sm font-semibold text-slate-900">
+                                <h3 className="text-sm font-semibold text-brand-ink">
                                   {
                                     requirement.name
                                   }
@@ -1620,14 +1620,14 @@ export default function SellerVerificationWorkspace() {
                                 />
 
                                 {requirement.allow_multiple ? (
-                                  <span className="rounded-full border border-slate-200 bg-white px-2 py-1 text-[10px] font-medium text-slate-500">
+                                  <span className="rounded-full border border-brand-steel bg-white px-2 py-1 text-[10px] font-medium text-brand-ink/70">
                                     Multiple files
                                   </span>
                                 ) : null}
                               </div>
 
                               {requirement.description ? (
-                                <p className="mt-1.5 max-w-3xl text-xs leading-5 text-slate-500">
+                                <p className="mt-1.5 max-w-3xl text-xs leading-5 text-brand-ink/70">
                                   {
                                     requirement.description
                                   }
@@ -1635,7 +1635,7 @@ export default function SellerVerificationWorkspace() {
                               ) : null}
 
                               {requirement.condition ? (
-                                <p className="mt-1 text-xs leading-5 text-amber-700">
+                                <p className="mt-1 text-xs leading-5 text-brand-orange">
                                   Condition:{" "}
                                   {
                                     requirement.condition
@@ -1651,7 +1651,7 @@ export default function SellerVerificationWorkspace() {
                                 }
                               />
                             ) : (
-                              <span className="inline-flex h-7 items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 text-[11px] font-semibold text-slate-500">
+                              <span className="inline-flex h-7 items-center rounded-full border border-brand-steel bg-brand-mist px-2.5 text-[11px] font-semibold text-brand-ink/70">
                                 Not uploaded
                               </span>
                             )}
@@ -1667,11 +1667,11 @@ export default function SellerVerificationWorkspace() {
                                     key={
                                       documentItem.public_id
                                     }
-                                    className="flex flex-col gap-2 rounded-xl border border-slate-200 bg-slate-50/60 px-3 py-3 sm:flex-row sm:items-center sm:justify-between"
+                                    className="flex flex-col gap-2 rounded-xl border border-brand-steel bg-brand-mist/60 px-3 py-3 sm:flex-row sm:items-center sm:justify-between"
                                   >
                                     <div className="min-w-0">
                                       <div className="flex flex-wrap items-center gap-2">
-                                        <p className="truncate text-xs font-semibold text-slate-800">
+                                        <p className="truncate text-xs font-semibold text-brand-ink">
                                           {
                                             documentItem.original_name
                                           }
@@ -1684,7 +1684,7 @@ export default function SellerVerificationWorkspace() {
                                         />
                                       </div>
 
-                                      <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-slate-500">
+                                      <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-brand-ink/70">
                                         <span>
                                           {formatBytes(
                                             documentItem.size_bytes,
@@ -1728,7 +1728,7 @@ export default function SellerVerificationWorkspace() {
                                           downloadingId ===
                                           documentItem.public_id
                                         }
-                                        className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 text-xs font-medium text-slate-700 transition hover:bg-slate-50 disabled:opacity-50"
+                                        className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-brand-steel bg-white px-2.5 text-xs font-medium text-brand-ink transition hover:bg-brand-mist disabled:opacity-50"
                                       >
                                         {downloadingId ===
                                         documentItem.public_id ? (
@@ -1774,9 +1774,9 @@ export default function SellerVerificationWorkspace() {
                           ) : null}
 
                           {!hasApproved ? (
-                            <div className="grid gap-3 rounded-xl border border-slate-200 bg-white p-3 lg:grid-cols-[minmax(0,1.3fr)_150px_150px_auto] lg:items-end">
+                            <div className="grid gap-3 rounded-xl border border-brand-steel bg-white p-3 lg:grid-cols-[minmax(0,1.3fr)_150px_150px_auto] lg:items-end">
                               <label className="space-y-1.5">
-                                <span className="text-xs font-medium text-slate-600">
+                                <span className="text-xs font-medium text-brand-ink/70">
                                   File
                                 </span>
 
@@ -1800,11 +1800,11 @@ export default function SellerVerificationWorkspace() {
                                       },
                                     )
                                   }
-                                  className="block h-10 w-full rounded-lg border border-slate-200 bg-white px-2 py-1.5 text-xs text-slate-600 file:mr-2 file:rounded-md file:border-0 file:bg-slate-100 file:px-2.5 file:py-1 file:text-xs file:font-medium file:text-slate-700 disabled:bg-slate-50"
+                                  className="block h-10 w-full rounded-lg border border-brand-steel bg-white px-2 py-1.5 text-xs text-brand-ink/70 file:mr-2 file:rounded-md file:border-0 file:bg-brand-mist file:px-2.5 file:py-1 file:text-xs file:font-medium file:text-brand-ink disabled:bg-brand-mist"
                                 />
 
                                 {draft.file ? (
-                                  <span className="block truncate text-[11px] text-slate-400">
+                                  <span className="block truncate text-[11px] text-brand-steel">
                                     {draft.file.name} ·{" "}
                                     {formatBytes(
                                       draft.file.size,
@@ -1814,7 +1814,7 @@ export default function SellerVerificationWorkspace() {
                               </label>
 
                               <label className="space-y-1.5">
-                                <span className="text-xs font-medium text-slate-600">
+                                <span className="text-xs font-medium text-brand-ink/70">
                                   Issued date
                                 </span>
 
@@ -1838,12 +1838,12 @@ export default function SellerVerificationWorkspace() {
                                       },
                                     )
                                   }
-                                  className="h-10 w-full rounded-lg border border-slate-200 bg-white px-2.5 text-xs text-slate-700 disabled:bg-slate-50"
+                                  className="h-10 w-full rounded-lg border border-brand-steel bg-white px-2.5 text-xs text-brand-ink disabled:bg-brand-mist"
                                 />
                               </label>
 
                               <label className="space-y-1.5">
-                                <span className="text-xs font-medium text-slate-600">
+                                <span className="text-xs font-medium text-brand-ink/70">
                                   Expiry date
                                 </span>
 
@@ -1868,7 +1868,7 @@ export default function SellerVerificationWorkspace() {
                                       },
                                     )
                                   }
-                                  className="h-10 w-full rounded-lg border border-slate-200 bg-white px-2.5 text-xs text-slate-700 disabled:bg-slate-50"
+                                  className="h-10 w-full rounded-lg border border-brand-steel bg-white px-2.5 text-xs text-brand-ink disabled:bg-brand-mist"
                                 />
                               </label>
 
@@ -1882,7 +1882,7 @@ export default function SellerVerificationWorkspace() {
                                     requirement,
                                   )
                                 }
-                                className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-slate-950 px-4 text-xs font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-40"
+                                className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-brand-ink px-4 text-xs font-semibold text-white transition hover:bg-brand-ink disabled:cursor-not-allowed disabled:opacity-40"
                               >
                                 {isUploading ? (
                                   <Loader2 className="h-4 w-4 animate-spin" />
@@ -1911,13 +1911,13 @@ export default function SellerVerificationWorkspace() {
             )}
           </section>
 
-          <section className="rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
+          <section className="rounded-2xl border border-brand-steel bg-white shadow-sm">
+            <div className="flex items-center justify-between border-b border-brand-mist px-5 py-4">
               <div>
-                <h2 className="text-sm font-semibold text-slate-950">
+                <h2 className="text-sm font-semibold text-brand-ink">
                   All submitted documents
                 </h2>
-                <p className="mt-0.5 text-xs text-slate-500">
+                <p className="mt-0.5 text-xs text-brand-ink/70">
                   {documents.length} verification document
                   {documents.length === 1
                     ? ""
@@ -1926,18 +1926,18 @@ export default function SellerVerificationWorkspace() {
                 </p>
               </div>
 
-              <FileCheck2 className="h-5 w-5 text-slate-400" />
+              <FileCheck2 className="h-5 w-5 text-brand-steel" />
             </div>
 
             {documents.length === 0 ? (
               <div className="px-5 py-10 text-center">
-                <FileText className="mx-auto h-8 w-8 text-slate-300" />
-                <p className="mt-2 text-sm font-medium text-slate-700">
+                <FileText className="mx-auto h-8 w-8 text-brand-steel" />
+                <p className="mt-2 text-sm font-medium text-brand-ink">
                   No documents uploaded yet
                 </p>
               </div>
             ) : (
-              <div className="divide-y divide-slate-100">
+              <div className="divide-y divide-brand-mist">
                 {documents.map(
                   (documentItem) => (
                     <div
@@ -1948,7 +1948,7 @@ export default function SellerVerificationWorkspace() {
                     >
                       <div className="min-w-0">
                         <div className="flex flex-wrap items-center gap-2">
-                          <p className="truncate text-sm font-semibold text-slate-900">
+                          <p className="truncate text-sm font-semibold text-brand-ink">
                             {
                               documentItem.original_name
                             }
@@ -1961,7 +1961,7 @@ export default function SellerVerificationWorkspace() {
                           />
                         </div>
 
-                        <p className="mt-1 text-xs text-slate-500">
+                        <p className="mt-1 text-xs text-brand-ink/70">
                           {documentTypeLabel(
                             documentItem.document_type,
                             requirements,
@@ -1984,7 +1984,7 @@ export default function SellerVerificationWorkspace() {
                           downloadingId ===
                           documentItem.public_id
                         }
-                        className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 text-xs font-medium text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+                        className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-lg border border-brand-steel bg-white px-2.5 text-xs font-medium text-brand-ink hover:bg-brand-mist disabled:opacity-50"
                       >
                         <Download className="h-3.5 w-3.5" />
                         Download
@@ -1996,12 +1996,12 @@ export default function SellerVerificationWorkspace() {
             )}
           </section>
 
-          <section className="rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <div className="border-b border-slate-100 px-5 py-4">
-              <h2 className="text-sm font-semibold text-slate-950">
+          <section className="rounded-2xl border border-brand-steel bg-white shadow-sm">
+            <div className="border-b border-brand-mist px-5 py-4">
+              <h2 className="text-sm font-semibold text-brand-ink">
                 Administration activity
               </h2>
-              <p className="mt-0.5 text-xs text-slate-500">
+              <p className="mt-0.5 text-xs text-brand-ink/70">
                 Decisions and seller-facing recommendations related to this
                 verification application.
               </p>
@@ -2009,14 +2009,14 @@ export default function SellerVerificationWorkspace() {
 
             <div className="p-5">
               {reviews.length === 0 ? (
-                <div className="flex items-center gap-3 rounded-xl bg-slate-50 px-4 py-4">
-                  <Clock3 className="h-4 w-4 text-slate-400" />
-                  <p className="text-sm text-slate-500">
+                <div className="flex items-center gap-3 rounded-xl bg-brand-mist px-4 py-4">
+                  <Clock3 className="h-4 w-4 text-brand-steel" />
+                  <p className="text-sm text-brand-ink/70">
                     No administration decisions have been recorded yet.
                   </p>
                 </div>
               ) : (
-                <div className="relative space-y-5 before:absolute before:bottom-3 before:left-[7px] before:top-3 before:w-px before:bg-slate-200">
+                <div className="relative space-y-5 before:absolute before:bottom-3 before:left-[7px] before:top-3 before:w-px before:bg-brand-steel">
                   {reviews.map(
                     (review, index) => (
                       <div
@@ -2026,16 +2026,16 @@ export default function SellerVerificationWorkspace() {
                         }
                         className="relative flex gap-4"
                       >
-                        <div className="relative z-10 mt-1 h-[15px] w-[15px] shrink-0 rounded-full border-[4px] border-white bg-slate-800 shadow-sm" />
+                        <div className="relative z-10 mt-1 h-[15px] w-[15px] shrink-0 rounded-full border-[4px] border-white bg-brand-ink shadow-sm" />
 
                         <div className="min-w-0 flex-1 pb-1">
                           <div className="flex flex-wrap items-center justify-between gap-2">
-                            <p className="text-sm font-semibold text-slate-900">
+                            <p className="text-sm font-semibold text-brand-ink">
                               {reviewActionLabel(
                                 review.action,
                               )}
                             </p>
-                            <span className="text-[11px] text-slate-400">
+                            <span className="text-[11px] text-brand-steel">
                               {formatDateTime(
                                 review.created_at,
                               )}
@@ -2043,14 +2043,14 @@ export default function SellerVerificationWorkspace() {
                           </div>
 
                           {review.notes ? (
-                            <p className="mt-1 text-sm leading-6 text-slate-600">
+                            <p className="mt-1 text-sm leading-6 text-brand-ink/70">
                               {review.notes}
                             </p>
                           ) : null}
 
                           {review.reviewed_by?.name ? (
-                            <p className="mt-1 text-xs text-slate-400">
-                              RushPi administration ·{" "}
+                            <p className="mt-1 text-xs text-brand-steel">
+                              EliteMart administration ·{" "}
                               {
                                 review.reviewed_by
                                   .name
@@ -2068,8 +2068,8 @@ export default function SellerVerificationWorkspace() {
         </div>
 
         <aside className="verification-preview xl:sticky xl:top-5">
-          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <div className="relative overflow-hidden bg-slate-950 px-5 py-5 text-white">
+          <div className="overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-sm">
+            <div className="relative overflow-hidden bg-brand-ink px-5 py-5 text-white">
               <div className="absolute -right-12 -top-16 h-40 w-40 rounded-full bg-white/5" />
               <div className="absolute -bottom-16 left-12 h-32 w-32 rounded-full bg-white/5" />
 
@@ -2087,17 +2087,17 @@ export default function SellerVerificationWorkspace() {
                   />
                 </div>
 
-                <p className="mt-5 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
+                <p className="mt-5 text-xs font-medium uppercase tracking-[0.18em] text-brand-steel">
                   Verification progress
                 </p>
 
                 <h2 className="mt-1 text-xl font-semibold">
                   {profile.trading_name ??
                     profile.legal_business_name ??
-                    "RushPi seller"}
+                    "EliteMart seller"}
                 </h2>
 
-                <div className="mt-3 flex items-center gap-2 text-xs text-slate-300">
+                <div className="mt-3 flex items-center gap-2 text-xs text-brand-steel">
                   <Building2 className="h-3.5 w-3.5" />
                   Application{" "}
                   {application?.version
@@ -2107,31 +2107,31 @@ export default function SellerVerificationWorkspace() {
               </div>
             </div>
 
-            <div className="grid grid-cols-3 border-b border-slate-100">
+            <div className="grid grid-cols-3 border-b border-brand-mist">
               <div className="px-3 py-4 text-center">
-                <p className="text-lg font-semibold text-slate-950">
+                <p className="text-lg font-semibold text-brand-ink">
                   {documents.length}
                 </p>
-                <p className="mt-0.5 text-[10px] uppercase tracking-wide text-slate-400">
+                <p className="mt-0.5 text-[10px] uppercase tracking-wide text-brand-steel">
                   Documents
                 </p>
               </div>
 
-              <div className="border-x border-slate-100 px-3 py-4 text-center">
+              <div className="border-x border-brand-mist px-3 py-4 text-center">
                 <p className="text-lg font-semibold text-emerald-600">
                   {requiredReadyCount}/
                   {requiredRequirements.length}
                 </p>
-                <p className="mt-0.5 text-[10px] uppercase tracking-wide text-slate-400">
+                <p className="mt-0.5 text-[10px] uppercase tracking-wide text-brand-steel">
                   Required ready
                 </p>
               </div>
 
               <div className="px-3 py-4 text-center">
-                <p className="text-lg font-semibold text-blue-600">
+                <p className="text-lg font-semibold text-brand-ink">
                   {pendingDocuments}
                 </p>
-                <p className="mt-0.5 text-[10px] uppercase tracking-wide text-slate-400">
+                <p className="mt-0.5 text-[10px] uppercase tracking-wide text-brand-steel">
                   Pending
                 </p>
               </div>
@@ -2139,7 +2139,7 @@ export default function SellerVerificationWorkspace() {
 
             <div className="space-y-5 p-5">
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-brand-steel">
                   Required documents
                 </p>
 
@@ -2172,9 +2172,9 @@ export default function SellerVerificationWorkspace() {
                           key={
                             requirement.key
                           }
-                          className="flex items-center justify-between gap-3 rounded-lg border border-slate-100 px-3 py-2.5"
+                          className="flex items-center justify-between gap-3 rounded-lg border border-brand-mist px-3 py-2.5"
                         >
-                          <span className="min-w-0 truncate text-xs text-slate-600">
+                          <span className="min-w-0 truncate text-xs text-brand-ink/70">
                             {
                               requirement.name
                             }
@@ -2183,9 +2183,9 @@ export default function SellerVerificationWorkspace() {
                           {readyDocument ? (
                             <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600" />
                           ) : anyDocument ? (
-                            <Clock3 className="h-4 w-4 shrink-0 text-blue-600" />
+                            <Clock3 className="h-4 w-4 shrink-0 text-brand-ink" />
                           ) : (
-                            <AlertCircle className="h-4 w-4 shrink-0 text-slate-300" />
+                            <AlertCircle className="h-4 w-4 shrink-0 text-brand-steel" />
                           )}
                         </div>
                       );
@@ -2195,13 +2195,13 @@ export default function SellerVerificationWorkspace() {
               </div>
 
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-brand-steel">
                   Current standing
                 </p>
 
                 <div className="mt-2 space-y-2">
-                  <div className="flex items-center justify-between rounded-lg border border-slate-100 px-3 py-2.5">
-                    <span className="text-xs text-slate-500">
+                  <div className="flex items-center justify-between rounded-lg border border-brand-mist px-3 py-2.5">
+                    <span className="text-xs text-brand-ink/70">
                       Seller status
                     </span>
                     <StatusBadge
@@ -2209,8 +2209,8 @@ export default function SellerVerificationWorkspace() {
                     />
                   </div>
 
-                  <div className="flex items-center justify-between rounded-lg border border-slate-100 px-3 py-2.5">
-                    <span className="text-xs text-slate-500">
+                  <div className="flex items-center justify-between rounded-lg border border-brand-mist px-3 py-2.5">
+                    <span className="text-xs text-brand-ink/70">
                       Application
                     </span>
                     <StatusBadge
@@ -2221,11 +2221,11 @@ export default function SellerVerificationWorkspace() {
                     />
                   </div>
 
-                  <div className="flex items-center justify-between rounded-lg border border-slate-100 px-3 py-2.5">
-                    <span className="text-xs text-slate-500">
+                  <div className="flex items-center justify-between rounded-lg border border-brand-mist px-3 py-2.5">
+                    <span className="text-xs text-brand-ink/70">
                       Approved documents
                     </span>
-                    <span className="text-xs font-semibold text-slate-700">
+                    <span className="text-xs font-semibold text-brand-ink">
                       {approvedDocuments}
                     </span>
                   </div>
@@ -2241,7 +2241,7 @@ export default function SellerVerificationWorkspace() {
                         Verified seller
                       </p>
                       <p className="mt-1 text-xs leading-5 text-emerald-700">
-                        This business has been approved by RushPi administration.
+                        This business has been approved by EliteMart administration.
                       </p>
                     </div>
                   </div>
@@ -2259,7 +2259,7 @@ export default function SellerVerificationWorkspace() {
                       </p>
                       <p className="mt-1 text-xs leading-5 text-red-700">
                         {profile.suspension_reason ??
-                          "RushPi administration has restricted this seller account."}
+                          "EliteMart administration has restricted this seller account."}
                       </p>
                     </div>
                   </div>
@@ -2268,7 +2268,7 @@ export default function SellerVerificationWorkspace() {
 
               {!canEditDocuments &&
               application ? (
-                <div className="flex gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-xs leading-5 text-slate-600">
+                <div className="flex gap-2 rounded-lg border border-brand-steel bg-brand-mist px-3 py-2.5 text-xs leading-5 text-brand-ink/70">
                   <Info className="mt-0.5 h-4 w-4 shrink-0" />
                   Documents cannot be changed while this application is{" "}
                   {formatLabel(
@@ -2278,7 +2278,7 @@ export default function SellerVerificationWorkspace() {
                 </div>
               ) : null}
 
-              <div className="border-t border-slate-100 pt-4">
+              <div className="border-t border-brand-mist pt-4">
                 <button
                   type="button"
                   disabled={
@@ -2288,7 +2288,7 @@ export default function SellerVerificationWorkspace() {
                   onClick={() =>
                     void handleSubmitApplication()
                   }
-                  className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-xl bg-slate-950 px-4 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-800 disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-ink disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   {submitting ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
@@ -2306,7 +2306,7 @@ export default function SellerVerificationWorkspace() {
 
                 {submitEligibleDocuments.length <
                 minimumDocumentsRequired ? (
-                  <p className="mt-2 text-center text-[11px] leading-5 text-slate-400">
+                  <p className="mt-2 text-center text-[11px] leading-5 text-brand-steel">
                     Upload at least {minimumDocumentsRequired} documents before
                     submitting for verification.
                   </p>

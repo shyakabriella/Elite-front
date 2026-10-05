@@ -3,8 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "RushPi",
-    template: "%s | RushPi",
+    default: "EliteMart Mall",
+    template: "%s | EliteMart Mall",
   },
   description: "A trusted electronics marketplace for buyers and sellers.",
 };

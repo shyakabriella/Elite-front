@@ -1858,9 +1858,9 @@ export default function ProductManager({
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
         <div className="text-center">
-          <Loader2 className="mx-auto h-7 w-7 animate-spin text-blue-700" />
+          <Loader2 className="mx-auto h-7 w-7 animate-spin text-brand-ink" />
 
-          <p className="mt-3 text-sm text-slate-500">
+          <p className="mt-3 text-sm text-brand-ink/70">
             {editMode
               ? "Loading product..."
               : "Preparing product form..."}
@@ -1885,7 +1885,7 @@ export default function ProductManager({
             : "mb-6"
         }
       >
-        <div className="flex items-center gap-2 text-sm font-semibold text-blue-700">
+        <div className="flex items-center gap-2 text-sm font-semibold text-brand-ink">
           {editMode ? (
             <Save className="h-4 w-4" />
           ) : (
@@ -1894,16 +1894,16 @@ export default function ProductManager({
 
           {seller?.trading_name ??
             seller?.legal_business_name ??
-            "RushPi Store"}
+            "EliteMart Store"}
         </div>
 
-        <h1 className="mt-1 text-2xl font-bold text-slate-950 sm:text-3xl">
+        <h1 className="mt-1 text-2xl font-bold text-brand-ink sm:text-3xl">
           {editMode
             ? "Update product"
             : "List a product"}
         </h1>
 
-        <p className="mt-2 text-sm text-slate-500">
+        <p className="mt-2 text-sm text-brand-ink/70">
           {editMode
             ? "Update product information, specifications, price, stock, images and return period from the same form."
             : "Fill in the product information below and publish it in one step."}
@@ -1911,7 +1911,7 @@ export default function ProductManager({
 
         {editMode &&
         productStatus ? (
-          <p className="mt-2 text-xs font-bold uppercase tracking-wide text-slate-400">
+          <p className="mt-2 text-xs font-bold uppercase tracking-wide text-brand-steel">
             Current status:{" "}
             {productStatus.replace(
               /_/g,
@@ -1954,7 +1954,7 @@ export default function ProductManager({
             : "grid gap-6 lg:grid-cols-[minmax(0,1fr)_330px]"
         }
       >
-        <main className="space-y-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+        <main className="space-y-5 rounded-2xl border border-brand-steel bg-white p-5 shadow-sm sm:p-6">
           <div className="grid gap-5 sm:grid-cols-2">
             <Field
               label="Product name"
@@ -2273,12 +2273,12 @@ export default function ProductManager({
 
           {specifications.length >
           0 ? (
-            <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-              <h2 className="font-semibold text-slate-900">
+            <div className="rounded-xl border border-brand-steel bg-brand-mist p-4">
+              <h2 className="font-semibold text-brand-ink">
                 Product details
               </h2>
 
-              <p className="mt-1 text-xs text-slate-500">
+              <p className="mt-1 text-xs text-brand-ink/70">
                 These fields come from the selected category. Existing values are loaded automatically when editing.
               </p>
 
@@ -2314,7 +2314,7 @@ export default function ProductManager({
           ) : null}
 
           <div>
-            <div className="mb-2 text-sm font-semibold text-slate-700">
+            <div className="mb-2 text-sm font-semibold text-brand-ink">
               Product images
               <span className="ml-1 text-red-500">
                 *
@@ -2336,9 +2336,9 @@ export default function ProductManager({
                         key={
                           media.public_id
                         }
-                        className="relative overflow-hidden rounded-xl border border-slate-200 bg-white"
+                        className="relative overflow-hidden rounded-xl border border-brand-steel bg-white"
                       >
-                        <div className="aspect-square bg-slate-50">
+                        <div className="aspect-square bg-brand-mist">
                           {url ? (
                             <img
                               src={url}
@@ -2350,13 +2350,13 @@ export default function ProductManager({
                             />
                           ) : (
                             <div className="flex h-full items-center justify-center">
-                              <FileImage className="h-7 w-7 text-slate-400" />
+                              <FileImage className="h-7 w-7 text-brand-steel" />
                             </div>
                           )}
                         </div>
 
                         {media.is_primary ? (
-                          <span className="absolute left-2 top-2 rounded-full bg-blue-700 px-2 py-1 text-[10px] font-bold text-white">
+                          <span className="absolute left-2 top-2 rounded-full bg-brand-ink px-2 py-1 text-[10px] font-bold text-white">
                             Primary
                           </span>
                         ) : null}
@@ -2372,7 +2372,7 @@ export default function ProductManager({
                               media,
                             )
                           }
-                          className="absolute right-2 top-2 grid h-8 w-8 place-items-center rounded-full bg-white/95 text-slate-500 shadow transition hover:text-red-600 disabled:opacity-50"
+                          className="absolute right-2 top-2 grid h-8 w-8 place-items-center rounded-full bg-white/95 text-brand-ink/70 shadow transition hover:text-red-600 disabled:opacity-50"
                         >
                           {removingMediaId ===
                           media.public_id ? (
@@ -2388,16 +2388,16 @@ export default function ProductManager({
               </div>
             ) : null}
 
-            <label className="flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-300 bg-slate-50 px-5 py-7 text-center hover:bg-slate-100">
-              <FileImage className="h-7 w-7 text-slate-400" />
+            <label className="flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-brand-steel bg-brand-mist px-5 py-7 text-center hover:bg-brand-mist">
+              <FileImage className="h-7 w-7 text-brand-steel" />
 
-              <span className="mt-2 text-sm font-semibold text-slate-800">
+              <span className="mt-2 text-sm font-semibold text-brand-ink">
                 {editMode
                   ? "Add more product images"
                   : "Choose product images"}
               </span>
 
-              <span className="mt-1 text-xs text-slate-500">
+              <span className="mt-1 text-xs text-brand-ink/70">
                 JPG, PNG or WebP
               </span>
 
@@ -2421,9 +2421,9 @@ export default function ProductManager({
                   ) => (
                     <div
                       key={`${file.name}-${file.size}-${index}`}
-                      className="flex items-center justify-between rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm"
+                      className="flex items-center justify-between rounded-lg border border-brand-steel bg-white px-3 py-2 text-sm"
                     >
-                      <span className="truncate pr-3 text-slate-600">
+                      <span className="truncate pr-3 text-brand-ink/70">
                         {file.name}
                       </span>
 
@@ -2442,7 +2442,7 @@ export default function ProductManager({
                               ),
                           )
                         }
-                        className="text-slate-400 hover:text-red-600"
+                        className="text-brand-steel hover:text-red-600"
                       >
                         <Trash2 className="h-4 w-4" />
                       </button>
@@ -2454,17 +2454,17 @@ export default function ProductManager({
           </div>
         </main>
 
-        <aside className="h-fit rounded-2xl border border-slate-200 bg-white p-5 shadow-sm xl:sticky xl:top-4">
-          <h2 className="font-semibold text-slate-950">
+        <aside className="h-fit rounded-2xl border border-brand-steel bg-white p-5 shadow-sm xl:sticky xl:top-4">
+          <h2 className="font-semibold text-brand-ink">
             {editMode
               ? "Save product changes?"
               : "Ready to list?"}
           </h2>
 
-          <p className="mt-2 text-sm leading-6 text-slate-500">
+          <p className="mt-2 text-sm leading-6 text-brand-ink/70">
             {editMode
-              ? "RushPi will update the main product, category details, default variant, price, stock, images and return setup."
-              : "RushPi will automatically create the default SKU, price, inventory and return setup. You can add extra variants later."}
+              ? "EliteMart will update the main product, category details, default variant, price, stock, images and return setup."
+              : "EliteMart will automatically create the default SKU, price, inventory and return setup. You can add extra variants later."}
           </p>
 
           <div className="mt-5 space-y-3 text-sm">
@@ -2524,7 +2524,7 @@ export default function ProductManager({
               void saveProduct()
             }
             disabled={loading}
-            className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-blue-700 px-5 text-sm font-bold text-white hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-50"
+            className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-brand-ink px-5 text-sm font-bold text-white hover:bg-brand-ink disabled:cursor-not-allowed disabled:opacity-50"
           >
             {loading ? (
               <Loader2 className="h-5 w-5 animate-spin" />
@@ -2547,7 +2547,7 @@ export default function ProductManager({
             type="button"
             onClick={cancel}
             disabled={loading}
-            className="mt-2 h-10 w-full rounded-xl border border-slate-200 bg-white text-sm font-semibold text-slate-600 hover:bg-slate-50 disabled:opacity-50"
+            className="mt-2 h-10 w-full rounded-xl border border-brand-steel bg-white text-sm font-semibold text-brand-ink/70 hover:bg-brand-mist disabled:opacity-50"
           >
             Cancel
           </button>
@@ -2598,7 +2598,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <div className="mb-2 text-sm font-semibold text-slate-700">
+      <div className="mb-2 text-sm font-semibold text-brand-ink">
         {label}
 
         {required ? (
@@ -2621,12 +2621,12 @@ function Summary({
   value: string;
 }) {
   return (
-    <div className="flex items-center justify-between gap-4 border-b border-slate-100 pb-2">
-      <span className="text-slate-500">
+    <div className="flex items-center justify-between gap-4 border-b border-brand-mist pb-2">
+      <span className="text-brand-ink/70">
         {label}
       </span>
 
-      <span className="max-w-[170px] truncate text-right font-semibold text-slate-900">
+      <span className="max-w-[170px] truncate text-right font-semibold text-brand-ink">
         {value}
       </span>
     </div>

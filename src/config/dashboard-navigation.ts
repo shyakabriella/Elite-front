@@ -51,28 +51,28 @@ export const dashboardRoleInformation: Record<
 > = {
   admin: {
     label: "Administrator",
-    accountName: "RushPi Administration",
+    accountName: "EliteMart Administration",
     shortName: "AD",
     description: "Full marketplace management",
   },
 
   seller: {
     label: "Seller",
-    accountName: "RushPi Store",
+    accountName: "EliteMart Store",
     shortName: "RS",
     description: "Seller marketplace account",
   },
 
   dealer: {
     label: "Dealer",
-    accountName: "RushPi Dealer",
+    accountName: "EliteMart Dealer",
     shortName: "DL",
     description: "Dealer commerce account",
   },
 
   commissioner: {
     label: "Commissioner",
-    accountName: "RushPi Commissioner",
+    accountName: "EliteMart Commissioner",
     shortName: "CM",
     description: "Commission management account",
   },

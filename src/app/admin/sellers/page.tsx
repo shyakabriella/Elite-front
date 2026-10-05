@@ -401,16 +401,16 @@ function statusClasses(
     case "pending_verification":
     case "submitted":
     case "under_review":
-      return "border-blue-200 bg-blue-50 text-blue-700";
+      return "border-brand-steel bg-brand-mist text-brand-ink";
 
     case "more_information_required":
-      return "border-amber-200 bg-amber-50 text-amber-800";
+      return "border-brand-orange bg-brand-mist text-brand-orange";
 
     case "draft":
-      return "border-slate-200 bg-slate-50 text-slate-600";
+      return "border-brand-steel bg-brand-mist text-brand-ink/70";
 
     default:
-      return "border-slate-200 bg-white text-slate-600";
+      return "border-brand-steel bg-white text-brand-ink/70";
   }
 }
 
@@ -707,11 +707,11 @@ export default function AdminSellersPage() {
     return (
       <div className="flex min-h-[520px] items-center justify-center">
         <div className="flex flex-col items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <Loader2 className="h-5 w-5 animate-spin text-slate-700" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-brand-steel bg-white shadow-sm">
+            <Loader2 className="h-5 w-5 animate-spin text-brand-ink" />
           </div>
 
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-brand-ink/70">
             Loading seller applications...
           </p>
         </div>
@@ -721,24 +721,24 @@ export default function AdminSellersPage() {
 
   return (
     <div className="space-y-5 pb-10">
-      <div className="flex flex-col gap-4 border-b border-slate-200 pb-5 lg:flex-row lg:items-end lg:justify-between">
+      <div className="flex flex-col gap-4 border-b border-brand-steel pb-5 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <div className="mb-2 flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-sm">
-              <Store className="h-4 w-4 text-slate-800" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-brand-steel bg-white shadow-sm">
+              <Store className="h-4 w-4 text-brand-ink" />
             </div>
 
-            <span className="inline-flex h-7 items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 text-[11px] font-semibold text-slate-600">
+            <span className="inline-flex h-7 items-center rounded-full border border-brand-steel bg-brand-mist px-2.5 text-[11px] font-semibold text-brand-ink/70">
               Seller Verification Admin
             </span>
           </div>
 
-          <h1 className="text-2xl font-semibold tracking-tight text-slate-950">
+          <h1 className="text-2xl font-semibold tracking-tight text-brand-ink">
             Seller applications
           </h1>
 
-          <p className="mt-1 max-w-3xl text-sm leading-6 text-slate-500">
-            Review seller verification applications submitted to RushPi,
+          <p className="mt-1 max-w-3xl text-sm leading-6 text-brand-ink/70">
+            Review seller verification applications submitted to EliteMart,
             including applications waiting for review, approved sellers and
             rejected applications.
           </p>
@@ -750,7 +750,7 @@ export default function AdminSellersPage() {
             void loadApplications(true)
           }
           disabled={refreshing}
-          className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+          className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink shadow-sm transition hover:bg-brand-mist disabled:cursor-not-allowed disabled:opacity-50"
         >
           <RefreshCw
             className={[
@@ -774,36 +774,36 @@ export default function AdminSellersPage() {
       ) : null}
 
       <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <div className="rounded-2xl border border-brand-steel bg-white p-4 shadow-sm">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+            <span className="text-xs font-semibold uppercase tracking-wide text-brand-steel">
               Applied
             </span>
-            <FileCheck2 className="h-4 w-4 text-slate-400" />
+            <FileCheck2 className="h-4 w-4 text-brand-steel" />
           </div>
 
-          <p className="mt-3 text-2xl font-semibold text-slate-950">
+          <p className="mt-3 text-2xl font-semibold text-brand-ink">
             {counts.applied}
           </p>
 
-          <p className="mt-1 text-xs text-slate-500">
+          <p className="mt-1 text-xs text-brand-ink/70">
             Newly submitted applications
           </p>
         </div>
 
-        <div className="rounded-2xl border border-blue-200 bg-blue-50/40 p-4 shadow-sm">
+        <div className="rounded-2xl border border-brand-steel bg-brand-mist/40 p-4 shadow-sm">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-wide text-blue-600">
+            <span className="text-xs font-semibold uppercase tracking-wide text-brand-ink">
               Pending
             </span>
-            <Clock3 className="h-4 w-4 text-blue-500" />
+            <Clock3 className="h-4 w-4 text-brand-orange" />
           </div>
 
-          <p className="mt-3 text-2xl font-semibold text-slate-950">
+          <p className="mt-3 text-2xl font-semibold text-brand-ink">
             {counts.pending}
           </p>
 
-          <p className="mt-1 text-xs text-slate-500">
+          <p className="mt-1 text-xs text-brand-ink/70">
             Under administration review
           </p>
         </div>
@@ -816,11 +816,11 @@ export default function AdminSellersPage() {
             <BadgeCheck className="h-4 w-4 text-emerald-600" />
           </div>
 
-          <p className="mt-3 text-2xl font-semibold text-slate-950">
+          <p className="mt-3 text-2xl font-semibold text-brand-ink">
             {counts.approved}
           </p>
 
-          <p className="mt-1 text-xs text-slate-500">
+          <p className="mt-1 text-xs text-brand-ink/70">
             Approved seller applications
           </p>
         </div>
@@ -833,18 +833,18 @@ export default function AdminSellersPage() {
             <ShieldAlert className="h-4 w-4 text-red-500" />
           </div>
 
-          <p className="mt-3 text-2xl font-semibold text-slate-950">
+          <p className="mt-3 text-2xl font-semibold text-brand-ink">
             {counts.rejected}
           </p>
 
-          <p className="mt-1 text-xs text-slate-500">
+          <p className="mt-1 text-xs text-brand-ink/70">
             Rejected applications
           </p>
         </div>
       </div>
 
-      <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <div className="border-b border-slate-100 px-5 py-4">
+      <section className="overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-sm">
+        <div className="border-b border-brand-mist px-5 py-4">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex flex-wrap gap-2">
               {tabs.map((tab) => (
@@ -857,8 +857,8 @@ export default function AdminSellersPage() {
                   className={[
                     "inline-flex h-9 items-center gap-2 rounded-lg border px-3 text-xs font-semibold transition",
                     filter === tab.key
-                      ? "border-slate-950 bg-slate-950 text-white"
-                      : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50",
+                      ? "border-brand-ink bg-brand-ink text-white"
+                      : "border-brand-steel bg-white text-brand-ink/70 hover:bg-brand-mist",
                   ].join(" ")}
                 >
                   {tab.label}
@@ -868,7 +868,7 @@ export default function AdminSellersPage() {
                       "inline-flex min-w-5 items-center justify-center rounded-full px-1.5 py-0.5 text-[10px]",
                       filter === tab.key
                         ? "bg-white/15 text-white"
-                        : "bg-slate-100 text-slate-500",
+                        : "bg-brand-mist text-brand-ink/70",
                     ].join(" ")}
                   >
                     {tab.count}
@@ -878,7 +878,7 @@ export default function AdminSellersPage() {
             </div>
 
             <div className="relative w-full lg:w-[320px]">
-              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
 
               <input
                 type="search"
@@ -889,7 +889,7 @@ export default function AdminSellersPage() {
                   )
                 }
                 placeholder="Search seller, email, TIN..."
-                className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-slate-400"
+                className="h-10 w-full rounded-lg border border-brand-steel bg-white pl-9 pr-3 text-sm text-brand-ink outline-none transition placeholder:text-brand-steel focus:border-brand-steel"
               />
             </div>
           </div>
@@ -898,13 +898,13 @@ export default function AdminSellersPage() {
         {visibleApplications.length ===
         0 ? (
           <div className="px-5 py-16 text-center">
-            <Store className="mx-auto h-9 w-9 text-slate-300" />
+            <Store className="mx-auto h-9 w-9 text-brand-steel" />
 
-            <p className="mt-3 text-sm font-semibold text-slate-700">
+            <p className="mt-3 text-sm font-semibold text-brand-ink">
               No seller applications found
             </p>
 
-            <p className="mt-1 text-xs text-slate-500">
+            <p className="mt-1 text-xs text-brand-ink/70">
               No application matches the selected filter or search.
             </p>
           </div>
@@ -912,28 +912,28 @@ export default function AdminSellersPage() {
           <div className="overflow-x-auto">
             <table className="min-w-full border-collapse">
               <thead>
-                <tr className="border-b border-slate-100 bg-slate-50/70 text-left">
-                  <th className="whitespace-nowrap px-5 py-3 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                <tr className="border-b border-brand-mist bg-brand-mist/70 text-left">
+                  <th className="whitespace-nowrap px-5 py-3 text-[11px] font-semibold uppercase tracking-wide text-brand-steel">
                     Seller
                   </th>
 
-                  <th className="whitespace-nowrap px-5 py-3 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                  <th className="whitespace-nowrap px-5 py-3 text-[11px] font-semibold uppercase tracking-wide text-brand-steel">
                     Owner / contact
                   </th>
 
-                  <th className="whitespace-nowrap px-5 py-3 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                  <th className="whitespace-nowrap px-5 py-3 text-[11px] font-semibold uppercase tracking-wide text-brand-steel">
                     Seller status
                   </th>
 
-                  <th className="whitespace-nowrap px-5 py-3 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                  <th className="whitespace-nowrap px-5 py-3 text-[11px] font-semibold uppercase tracking-wide text-brand-steel">
                     Application
                   </th>
 
-                  <th className="whitespace-nowrap px-5 py-3 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                  <th className="whitespace-nowrap px-5 py-3 text-[11px] font-semibold uppercase tracking-wide text-brand-steel">
                     Documents
                   </th>
 
-                  <th className="whitespace-nowrap px-5 py-3 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                  <th className="whitespace-nowrap px-5 py-3 text-[11px] font-semibold uppercase tracking-wide text-brand-steel">
                     Applied
                   </th>
 
@@ -941,7 +941,7 @@ export default function AdminSellersPage() {
                 </tr>
               </thead>
 
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-brand-mist">
                 {visibleApplications.map(
                   (application) => {
                     const seller =
@@ -962,11 +962,11 @@ export default function AdminSellersPage() {
                         key={
                           application.public_id
                         }
-                        className="transition hover:bg-slate-50/70"
+                        className="transition hover:bg-brand-mist/70"
                       >
                         <td className="px-5 py-4">
                           <div className="flex min-w-[220px] items-center gap-3">
-                            <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-slate-50 text-xs font-semibold text-slate-600">
+                            <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-brand-steel bg-brand-mist text-xs font-semibold text-brand-ink/70">
                               {seller?.logo ? (
                                 // eslint-disable-next-line @next/next/no-img-element
                                 <img
@@ -986,19 +986,19 @@ export default function AdminSellersPage() {
                             </div>
 
                             <div className="min-w-0">
-                              <p className="truncate text-sm font-semibold text-slate-900">
+                              <p className="truncate text-sm font-semibold text-brand-ink">
                                 {sellerDisplayName(
                                   seller,
                                 )}
                               </p>
 
-                              <p className="mt-0.5 truncate text-xs text-slate-500">
+                              <p className="mt-0.5 truncate text-xs text-brand-ink/70">
                                 {seller?.legal_business_name ??
                                   "Business name not provided"}
                               </p>
 
                               {seller?.registration_number ? (
-                                <p className="mt-0.5 text-[11px] text-slate-400">
+                                <p className="mt-0.5 text-[11px] text-brand-steel">
                                   Reg.{" "}
                                   {
                                     seller.registration_number
@@ -1012,21 +1012,21 @@ export default function AdminSellersPage() {
                         <td className="px-5 py-4">
                           <div className="min-w-[190px]">
                             <div className="flex items-center gap-1.5">
-                              <UserRoundCheck className="h-3.5 w-3.5 text-slate-400" />
+                              <UserRoundCheck className="h-3.5 w-3.5 text-brand-steel" />
 
-                              <p className="text-xs font-medium text-slate-700">
+                              <p className="text-xs font-medium text-brand-ink">
                                 {owner?.name ??
                                   "Owner not available"}
                               </p>
                             </div>
 
-                            <p className="mt-1 text-xs text-slate-500">
+                            <p className="mt-1 text-xs text-brand-ink/70">
                               {seller?.business_email ??
                                 owner?.email ??
                                 "No email"}
                             </p>
 
-                            <p className="mt-0.5 text-[11px] text-slate-400">
+                            <p className="mt-0.5 text-[11px] text-brand-steel">
                               {seller?.business_phone ??
                                 owner?.phone ??
                                 "No phone"}
@@ -1042,7 +1042,7 @@ export default function AdminSellersPage() {
                               }
                             />
                           ) : (
-                            <span className="text-xs text-slate-400">
+                            <span className="text-xs text-brand-steel">
                               —
                             </span>
                           )}
@@ -1056,7 +1056,7 @@ export default function AdminSellersPage() {
                               }
                             />
 
-                            <p className="text-[11px] text-slate-400">
+                            <p className="text-[11px] text-brand-steel">
                               Version{" "}
                               {application.version ??
                                 1}
@@ -1066,15 +1066,15 @@ export default function AdminSellersPage() {
 
                         <td className="px-5 py-4">
                           <div className="flex items-center gap-2">
-                            <FileCheck2 className="h-4 w-4 text-slate-400" />
+                            <FileCheck2 className="h-4 w-4 text-brand-steel" />
 
-                            <span className="text-sm font-semibold text-slate-700">
+                            <span className="text-sm font-semibold text-brand-ink">
                               {documentsCount}
                             </span>
                           </div>
                         </td>
 
-                        <td className="whitespace-nowrap px-5 py-4 text-xs text-slate-500">
+                        <td className="whitespace-nowrap px-5 py-4 text-xs text-brand-ink/70">
                           {formatDate(
                             application.submitted_at ??
                               application.created_at,
@@ -1095,7 +1095,7 @@ export default function AdminSellersPage() {
                             href={`/admin/sellers/${encodeURIComponent(
                               application.public_id,
                             )}`}
-                            className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 text-xs font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
+                            className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-brand-steel bg-white px-3 text-xs font-semibold text-brand-ink transition hover:border-brand-steel hover:bg-brand-mist"
                           >
                             Review
                             <ChevronRight className="h-3.5 w-3.5" />
@@ -1111,18 +1111,18 @@ export default function AdminSellersPage() {
         )}
       </section>
 
-      <div className="flex flex-col gap-2 rounded-xl border border-blue-100 bg-blue-50/60 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-2 rounded-xl border border-brand-mist bg-brand-mist/60 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-start gap-2">
-          <Building2 className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
+          <Building2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-ink" />
 
-          <p className="text-xs leading-5 text-blue-700">
+          <p className="text-xs leading-5 text-brand-ink">
             Applications are loaded directly from the Seller Verification Admin
             API. Review opens the selected seller application so administration
             can inspect documents and make a verification decision.
           </p>
         </div>
 
-        <div className="flex items-center gap-1 text-[11px] font-semibold text-blue-700">
+        <div className="flex items-center gap-1 text-[11px] font-semibold text-brand-ink">
           <BadgeCheck className="h-3.5 w-3.5" />
           Seller verification
         </div>

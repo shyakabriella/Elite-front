@@ -427,19 +427,19 @@ function statusClassName(
       return "border-emerald-200 bg-emerald-50 text-emerald-700";
 
     case "pending_review":
-      return "border-blue-200 bg-blue-50 text-blue-700";
+      return "border-brand-steel bg-brand-mist text-brand-ink";
 
     case "rejected":
       return "border-red-200 bg-red-50 text-red-700";
 
     case "suspended":
-      return "border-orange-200 bg-orange-50 text-orange-700";
+      return "border-brand-orange bg-brand-mist text-brand-orange";
 
     case "archived":
-      return "border-slate-200 bg-slate-100 text-slate-600";
+      return "border-brand-steel bg-brand-mist text-brand-ink/70";
 
     default:
-      return "border-amber-200 bg-amber-50 text-amber-700";
+      return "border-brand-orange bg-brand-mist text-brand-orange";
   }
 }
 
@@ -1271,9 +1271,9 @@ export default function SellerProductsPage() {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
         <div className="flex flex-col items-center gap-3">
-          <Loader2 className="h-7 w-7 animate-spin text-blue-600" />
+          <Loader2 className="h-7 w-7 animate-spin text-brand-ink" />
 
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-brand-ink/70">
             Loading seller account...
           </p>
         </div>
@@ -1287,15 +1287,15 @@ export default function SellerProductsPage() {
   ) {
     return (
       <div className="mx-auto max-w-3xl py-10">
-        <div className="rounded-3xl border border-amber-200 bg-amber-50 p-8 text-center">
-          <Store className="mx-auto h-10 w-10 text-amber-700" />
+        <div className="rounded-3xl border border-brand-orange bg-brand-mist p-8 text-center">
+          <Store className="mx-auto h-10 w-10 text-brand-orange" />
 
-          <h1 className="mt-4 text-2xl font-bold text-slate-950">
+          <h1 className="mt-4 text-2xl font-bold text-brand-ink">
             Product management is
             not available yet
           </h1>
 
-          <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-slate-600">
+          <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-brand-ink/70">
             Your seller business
             must be approved before
             products can be created
@@ -1304,7 +1304,7 @@ export default function SellerProductsPage() {
 
           <Link
             href="/seller/verification"
-            className="mt-5 inline-flex h-10 items-center justify-center rounded-xl bg-slate-950 px-4 text-sm font-semibold text-white"
+            className="mt-5 inline-flex h-10 items-center justify-center rounded-xl bg-brand-ink px-4 text-sm font-semibold text-white"
           >
             Check verification
           </Link>
@@ -1317,16 +1317,16 @@ export default function SellerProductsPage() {
     <div className="space-y-6">
       <header className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <div className="flex items-center gap-2 text-sm font-semibold text-blue-700">
+          <div className="flex items-center gap-2 text-sm font-semibold text-brand-ink">
             <PackageSearch className="h-4 w-4" />
             Seller store
           </div>
 
-          <h1 className="mt-1 text-2xl font-black tracking-tight text-slate-950 sm:text-3xl">
+          <h1 className="mt-1 text-2xl font-black tracking-tight text-brand-ink sm:text-3xl">
             Your listed products
           </h1>
 
-          <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-500">
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-brand-ink/70">
             Browse your catalog visually,
             check price and stock, and
             manage every product from its
@@ -1343,7 +1343,7 @@ export default function SellerProductsPage() {
             disabled={
               loadingProducts
             }
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 disabled:opacity-50"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-brand-steel bg-white px-4 text-sm font-semibold text-brand-ink shadow-sm transition hover:bg-brand-mist disabled:opacity-50"
           >
             <RefreshCw
               className={`h-4 w-4 ${
@@ -1357,7 +1357,7 @@ export default function SellerProductsPage() {
 
           <Link
             href="/seller/products/new"
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-blue-700 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-800"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-ink"
           >
             <PackagePlus className="h-4 w-4" />
             Add product
@@ -1393,14 +1393,14 @@ export default function SellerProductsPage() {
         />
       ) : null}
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <section className="rounded-2xl border border-brand-steel bg-white p-4 shadow-sm">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <div className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+            <div className="text-xs font-semibold uppercase tracking-wide text-brand-steel">
               Selling as
             </div>
 
-            <div className="mt-1 text-base font-semibold text-slate-950">
+            <div className="mt-1 text-base font-semibold text-brand-ink">
               {sellerName(
                 selectedProfile,
               )}
@@ -1425,7 +1425,7 @@ export default function SellerProductsPage() {
                 setBrandFilter("");
                 setPage(1);
               }}
-              className="h-10 min-w-64 rounded-xl border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 outline-none focus:border-blue-400"
+              className="h-10 min-w-64 rounded-xl border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink outline-none focus:border-brand-orange"
             >
               {approvedProfiles.map(
                 (profile) => (
@@ -1488,10 +1488,10 @@ export default function SellerProductsPage() {
         />
       </section>
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <section className="rounded-2xl border border-brand-steel bg-white p-4 shadow-sm">
         <div className="mb-3 flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2 text-sm font-black text-slate-800">
-            <Filter className="h-4 w-4 text-blue-700" />
+          <div className="flex items-center gap-2 text-sm font-black text-brand-ink">
+            <Filter className="h-4 w-4 text-brand-ink" />
             Filter your products
           </div>
 
@@ -1508,7 +1508,7 @@ export default function SellerProductsPage() {
                 setBrandFilter("");
                 setPage(1);
               }}
-              className="text-xs font-black text-blue-700 hover:underline"
+              className="text-xs font-black text-brand-ink hover:underline"
             >
               Clear filters
             </button>
@@ -1517,7 +1517,7 @@ export default function SellerProductsPage() {
 
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-[minmax(240px,1fr)_180px_220px_200px]">
           <label className="relative block">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
             <input
               value={search}
               onChange={(event) => {
@@ -1525,7 +1525,7 @@ export default function SellerProductsPage() {
                 setPage(1);
               }}
               placeholder="Search name, SKU or description..."
-              className="h-10 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:border-blue-400 focus:ring-4 focus:ring-blue-50"
+              className="h-10 w-full rounded-xl border border-brand-steel bg-white pl-10 pr-3 text-sm text-brand-ink outline-none placeholder:text-brand-steel focus:border-brand-orange focus:ring-4 focus:ring-brand-mist"
             />
           </label>
 
@@ -1539,7 +1539,7 @@ export default function SellerProductsPage() {
               );
               setPage(1);
             }}
-            className="h-10 rounded-xl border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 outline-none focus:border-blue-400"
+            className="h-10 rounded-xl border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink outline-none focus:border-brand-orange"
           >
             {STATUS_OPTIONS.map((option) => (
               <option
@@ -1557,7 +1557,7 @@ export default function SellerProductsPage() {
               setCategoryFilter(event.target.value);
               setPage(1);
             }}
-            className="h-10 rounded-xl border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 outline-none focus:border-blue-400"
+            className="h-10 rounded-xl border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink outline-none focus:border-brand-orange"
           >
             <option value="">All categories</option>
             {categoryOptions.map((category) => (
@@ -1576,7 +1576,7 @@ export default function SellerProductsPage() {
               setBrandFilter(event.target.value);
               setPage(1);
             }}
-            className="h-10 rounded-xl border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 outline-none focus:border-blue-400"
+            className="h-10 rounded-xl border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink outline-none focus:border-brand-orange"
           >
             <option value="">All brands</option>
             {brandOptions.map((brand) => (
@@ -1591,21 +1591,21 @@ export default function SellerProductsPage() {
         </div>
       </section>
 
-      <section className="rounded-3xl border border-slate-200 bg-white p-3 shadow-sm sm:p-4">
+      <section className="rounded-3xl border border-brand-steel bg-white p-3 shadow-sm sm:p-4">
         <div className="mb-5 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
           <div>
-            <h2 className="text-xl font-black text-slate-950">
+            <h2 className="text-xl font-black text-brand-ink">
               Product catalog
             </h2>
 
-            <p className="mt-1 text-sm text-slate-500">
+            <p className="mt-1 text-sm text-brand-ink/70">
               Images, price, stock,
               readiness and moderation
               status at a glance.
             </p>
           </div>
 
-          <p className="text-sm font-semibold text-slate-500">
+          <p className="text-sm font-semibold text-brand-ink/70">
             {totalProducts}{" "}
             {totalProducts === 1
               ? "product"
@@ -1615,7 +1615,7 @@ export default function SellerProductsPage() {
 
         {loadingProducts ? (
           <div className="flex min-h-80 items-center justify-center">
-            <div className="flex items-center gap-2 text-sm text-slate-500">
+            <div className="flex items-center gap-2 text-sm text-brand-ink/70">
               <Loader2 className="h-5 w-5 animate-spin" />
               Loading products...
             </div>
@@ -1623,15 +1623,15 @@ export default function SellerProductsPage() {
         ) : products.length ===
           0 ? (
           <div className="flex min-h-80 flex-col items-center justify-center px-6 text-center">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-mist text-brand-ink">
               <PackagePlus className="h-7 w-7" />
             </div>
 
-            <h3 className="mt-4 text-base font-semibold text-slate-950">
+            <h3 className="mt-4 text-base font-semibold text-brand-ink">
               No products found
             </h3>
 
-            <p className="mt-1 max-w-md text-sm leading-6 text-slate-500">
+            <p className="mt-1 max-w-md text-sm leading-6 text-brand-ink/70">
               Add your first
               product or change the
               current filters.
@@ -1639,7 +1639,7 @@ export default function SellerProductsPage() {
 
             <Link
               href="/seller/products/new"
-              className="mt-4 inline-flex h-10 items-center gap-2 rounded-xl bg-blue-700 px-4 text-sm font-semibold text-white hover:bg-blue-800"
+              className="mt-4 inline-flex h-10 items-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-semibold text-white hover:bg-brand-ink"
             >
               <PackagePlus className="h-4 w-4" />
               Add product
@@ -1682,9 +1682,9 @@ export default function SellerProductsPage() {
                       key={
                         product.public_id
                       }
-                      className="group relative flex h-[290px] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-lg hover:shadow-slate-200/60"
+                      className="group relative flex h-[290px] flex-col overflow-hidden rounded-2xl border border-brand-steel bg-white transition hover:-translate-y-0.5 hover:border-brand-steel hover:shadow-lg hover:shadow-brand-steel/60"
                     >
-                      <div className="relative h-[115px] shrink-0 overflow-hidden bg-slate-50">
+                      <div className="relative h-[115px] shrink-0 overflow-hidden bg-brand-mist">
                         {imageUrl ? (
                           <img
                             src={
@@ -1700,7 +1700,7 @@ export default function SellerProductsPage() {
                             loading="lazy"
                           />
                         ) : (
-                          <div className="flex h-full flex-col items-center justify-center gap-2 text-slate-400">
+                          <div className="flex h-full flex-col items-center justify-center gap-2 text-brand-steel">
                             <ImageOff className="h-10 w-10" />
 
                             <span className="text-xs font-semibold">
@@ -1731,7 +1731,7 @@ export default function SellerProductsPage() {
                                 product,
                               )
                             }
-                            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/80 bg-white/95 text-slate-700 shadow-md backdrop-blur transition hover:bg-white hover:text-blue-700"
+                            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/80 bg-white/95 text-brand-ink shadow-md backdrop-blur transition hover:bg-white hover:text-brand-ink"
                           >
                             {busyProduct ===
                             product.public_id ? (
@@ -1746,7 +1746,7 @@ export default function SellerProductsPage() {
                       <div className="flex min-h-0 flex-1 flex-col p-3">
                         <div className="flex items-start justify-between gap-3">
                           <div className="min-w-0">
-                            <p className="truncate text-xs font-bold uppercase tracking-wide text-slate-400">
+                            <p className="truncate text-xs font-bold uppercase tracking-wide text-brand-steel">
                               {product
                                 .brand
                                 ?.name ??
@@ -1761,7 +1761,7 @@ export default function SellerProductsPage() {
                                   ? `/seller/products/${product.public_id}/edit`
                                   : "/seller/products"
                               }
-                              className="mt-0.5 line-clamp-1 block text-sm font-black leading-5 text-slate-950 transition hover:text-blue-700"
+                              className="mt-0.5 line-clamp-1 block text-sm font-black leading-5 text-brand-ink transition hover:text-brand-ink"
                             >
                               {
                                 product.name
@@ -1769,7 +1769,7 @@ export default function SellerProductsPage() {
                             </Link>
                           </div>
 
-                          <span className="shrink-0 rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-600">
+                          <span className="shrink-0 rounded-full bg-brand-mist px-2 py-0.5 text-[10px] font-bold text-brand-ink/70">
                             {product
                               .condition
                               ? product.condition.replace(
@@ -1780,7 +1780,7 @@ export default function SellerProductsPage() {
                           </span>
                         </div>
 
-                        <p className="mt-1 line-clamp-1 text-[11px] leading-4 text-slate-500">
+                        <p className="mt-1 line-clamp-1 text-[11px] leading-4 text-brand-ink/70">
                           {product
                             .short_description ??
                             product
@@ -1790,14 +1790,14 @@ export default function SellerProductsPage() {
                         </p>
 
                         <div className="mt-2">
-                          <p className="text-sm font-black text-slate-950">
+                          <p className="text-sm font-black text-brand-ink">
                             {formatPrice(
                               product,
                             )}
                           </p>
 
                           {comparePrice ? (
-                            <p className="mt-0.5 text-[10px] font-semibold text-slate-400 line-through">
+                            <p className="mt-0.5 text-[10px] font-semibold text-brand-steel line-through">
                               {
                                 comparePrice
                               }
@@ -1806,8 +1806,8 @@ export default function SellerProductsPage() {
                         </div>
 
                         <div className="mt-2 grid grid-cols-2 gap-2">
-                          <div className="rounded-xl bg-slate-50 px-2 py-1.5">
-                            <div className="flex items-center gap-1 text-[10px] font-bold text-slate-500">
+                          <div className="rounded-xl bg-brand-mist px-2 py-1.5">
+                            <div className="flex items-center gap-1 text-[10px] font-bold text-brand-ink/70">
                               <Warehouse className="h-3.5 w-3.5" />
                               Stock
                             </div>
@@ -1815,7 +1815,7 @@ export default function SellerProductsPage() {
                             <p
                               className={`mt-0.5 text-xs font-black ${
                                 stock > 0
-                                  ? "text-slate-900"
+                                  ? "text-brand-ink"
                                   : "text-red-600"
                               }`}
                             >
@@ -1823,8 +1823,8 @@ export default function SellerProductsPage() {
                             </p>
                           </div>
 
-                          <div className="rounded-xl bg-slate-50 px-2 py-1.5">
-                            <div className="text-[10px] font-bold text-slate-500">
+                          <div className="rounded-xl bg-brand-mist px-2 py-1.5">
+                            <div className="text-[10px] font-bold text-brand-ink/70">
                               Setup
                             </div>
 
@@ -1832,7 +1832,7 @@ export default function SellerProductsPage() {
                               className={`mt-0.5 text-xs font-black ${
                                 isReady
                                   ? "text-emerald-700"
-                                  : "text-amber-700"
+                                  : "text-brand-orange"
                               }`}
                             >
                               {isReady
@@ -1865,8 +1865,8 @@ export default function SellerProductsPage() {
                         ) : null}
 
                         <div className="mt-auto pt-2">
-                          <div className="flex items-center justify-between gap-2 border-t border-slate-100 pt-2">
-                            <span className="text-[10px] font-semibold text-slate-400">
+                          <div className="flex items-center justify-between gap-2 border-t border-brand-mist pt-2">
+                            <span className="text-[10px] font-semibold text-brand-steel">
                               Updated{" "}
                               {formatDate(
                                 product.updated_at,
@@ -1878,13 +1878,13 @@ export default function SellerProductsPage() {
                               ?.can_edit ? (
                               <Link
                                 href={`/seller/products/${product.public_id}/edit`}
-                                className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 text-[11px] font-black text-slate-700 transition hover:border-blue-300 hover:text-blue-700"
+                                className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-brand-steel bg-white px-2.5 text-[11px] font-black text-brand-ink transition hover:border-brand-orange hover:text-brand-ink"
                               >
                                 <Edit3 className="h-3.5 w-3.5" />
                                 Manage
                               </Link>
                             ) : (
-                              <span className="text-xs font-bold text-slate-400">
+                              <span className="text-xs font-bold text-brand-steel">
                                 View only
                               </span>
                             )}
@@ -1897,20 +1897,20 @@ export default function SellerProductsPage() {
               )}
             </div>
 
-            <div className="mt-6 flex flex-col gap-3 border-t border-slate-100 pt-5 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm text-slate-500">
+            <div className="mt-6 flex flex-col gap-3 border-t border-brand-mist pt-5 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm text-brand-ink/70">
                 Showing{" "}
-                <span className="font-semibold text-slate-700">
+                <span className="font-semibold text-brand-ink">
                   {meta.from ??
                     0}
                 </span>{" "}
                 –{" "}
-                <span className="font-semibold text-slate-700">
+                <span className="font-semibold text-brand-ink">
                   {meta.to ??
                     0}
                 </span>{" "}
                 of{" "}
-                <span className="font-semibold text-slate-700">
+                <span className="font-semibold text-brand-ink">
                   {
                     totalProducts
                   }
@@ -1935,13 +1935,13 @@ export default function SellerProductsPage() {
                         ),
                     )
                   }
-                  className="inline-flex h-9 items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 hover:bg-slate-50 disabled:opacity-40"
+                  className="inline-flex h-9 items-center gap-1 rounded-lg border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink hover:bg-brand-mist disabled:opacity-40"
                 >
                   <ChevronLeft className="h-4 w-4" />
                   Previous
                 </button>
 
-                <span className="px-2 text-sm font-medium text-slate-600">
+                <span className="px-2 text-sm font-medium text-brand-ink/70">
                   Page{" "}
                   {
                     currentPage
@@ -1969,7 +1969,7 @@ export default function SellerProductsPage() {
                         ),
                     )
                   }
-                  className="inline-flex h-9 items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 hover:bg-slate-50 disabled:opacity-40"
+                  className="inline-flex h-9 items-center gap-1 rounded-lg border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink hover:bg-brand-mist disabled:opacity-40"
                 >
                   Next
                   <ChevronRight className="h-4 w-4" />
@@ -1983,7 +1983,7 @@ export default function SellerProductsPage() {
       {manageTarget ? (
         <ModalPortal>
           <div
-            className="fixed inset-0 z-[1000] flex items-center justify-center overflow-hidden bg-slate-950/55 p-3 backdrop-blur-[2px] sm:p-4"
+            className="fixed inset-0 z-[1000] flex items-center justify-center overflow-hidden bg-brand-ink/55 p-3 backdrop-blur-[2px] sm:p-4"
           onMouseDown={(event) => {
             if (
               event.target ===
@@ -1995,7 +1995,7 @@ export default function SellerProductsPage() {
         >
             <div className="h-[calc(100dvh-24px)] max-h-[720px] w-full max-w-5xl overflow-hidden rounded-3xl bg-white shadow-2xl sm:h-[calc(100dvh-32px)]">
               <div className="grid h-full min-h-0 lg:grid-cols-[300px_minmax(0,1fr)]">
-                <aside className="min-h-0 overflow-y-auto border-b border-slate-100 bg-slate-50 p-4 lg:border-b-0 lg:border-r lg:p-5">
+                <aside className="min-h-0 overflow-y-auto border-b border-brand-mist bg-brand-mist p-4 lg:border-b-0 lg:border-r lg:p-5">
                 <div className="flex items-center justify-between gap-3">
                   <span
                     className={`inline-flex rounded-full border px-2.5 py-1 text-[11px] font-black ${statusClassName(
@@ -2013,13 +2013,13 @@ export default function SellerProductsPage() {
                     onClick={() =>
                       setManageTarget(null)
                     }
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition hover:text-slate-950"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-brand-steel bg-white text-brand-ink/70 transition hover:text-brand-ink"
                   >
                     <X className="h-4 w-4" />
                   </button>
                 </div>
 
-                <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                <div className="mt-5 overflow-hidden rounded-2xl border border-brand-steel bg-white">
                   <div className="aspect-[4/3]">
                     {resolveProductImage(
                       manageTarget,
@@ -2039,7 +2039,7 @@ export default function SellerProductsPage() {
                         className="h-full w-full object-contain p-4"
                       />
                     ) : (
-                      <div className="flex h-full flex-col items-center justify-center gap-2 text-slate-400">
+                      <div className="flex h-full flex-col items-center justify-center gap-2 text-brand-steel">
                         <ImageOff className="h-10 w-10" />
                         <span className="text-xs font-semibold">
                           No product image
@@ -2049,17 +2049,17 @@ export default function SellerProductsPage() {
                   </div>
                 </div>
 
-                <p className="mt-5 text-xs font-black uppercase tracking-[0.14em] text-slate-400">
+                <p className="mt-5 text-xs font-black uppercase tracking-[0.14em] text-brand-steel">
                   {manageTarget.brand
                     ?.name ??
                     "No brand"}
                 </p>
 
-                <h2 className="mt-1 text-xl font-black leading-7 text-slate-950">
+                <h2 className="mt-1 text-xl font-black leading-7 text-brand-ink">
                   {manageTarget.name}
                 </h2>
 
-                <p className="mt-1 text-sm text-slate-500">
+                <p className="mt-1 text-sm text-brand-ink/70">
                   {manageTarget.category
                     ?.name ??
                     "No category"}
@@ -2067,10 +2067,10 @@ export default function SellerProductsPage() {
 
                 <div className="mt-5 grid grid-cols-3 gap-2 lg:grid-cols-1">
                   <div className="rounded-2xl bg-white p-3">
-                    <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <p className="text-[10px] font-bold uppercase tracking-wide text-brand-steel">
                       Price
                     </p>
-                    <p className="mt-1 text-sm font-black text-slate-950">
+                    <p className="mt-1 text-sm font-black text-brand-ink">
                       {formatPrice(
                         manageTarget,
                       )}
@@ -2078,7 +2078,7 @@ export default function SellerProductsPage() {
                   </div>
 
                   <div className="rounded-2xl bg-white p-3">
-                    <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <p className="text-[10px] font-bold uppercase tracking-wide text-brand-steel">
                       Stock
                     </p>
                     <p
@@ -2086,7 +2086,7 @@ export default function SellerProductsPage() {
                         availableStock(
                           manageTarget,
                         ) > 0
-                          ? "text-slate-950"
+                          ? "text-brand-ink"
                           : "text-red-600"
                       }`}
                     >
@@ -2097,7 +2097,7 @@ export default function SellerProductsPage() {
                   </div>
 
                   <div className="rounded-2xl bg-white p-3">
-                    <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <p className="text-[10px] font-bold uppercase tracking-wide text-brand-steel">
                       Setup
                     </p>
                     <p
@@ -2106,7 +2106,7 @@ export default function SellerProductsPage() {
                           .publication_readiness
                           ?.is_ready
                           ? "text-emerald-700"
-                          : "text-amber-700"
+                          : "text-brand-orange"
                       }`}
                     >
                       {manageTarget
@@ -2128,16 +2128,16 @@ export default function SellerProductsPage() {
               </aside>
 
                 <section className="flex min-h-0 flex-col">
-                <div className="border-b border-slate-100 px-5 py-5 sm:px-6">
-                  <p className="text-xs font-black uppercase tracking-[0.14em] text-blue-600">
+                <div className="border-b border-brand-mist px-5 py-5 sm:px-6">
+                  <p className="text-xs font-black uppercase tracking-[0.14em] text-brand-ink">
                     Product management
                   </p>
 
-                  <h3 className="mt-1 text-2xl font-black text-slate-950">
+                  <h3 className="mt-1 text-2xl font-black text-brand-ink">
                     Manage this product
                   </h3>
 
-                  <p className="mt-1 text-sm text-slate-500">
+                  <p className="mt-1 text-sm text-brand-ink/70">
                     Update product information, price, inventory,
                     media and moderation from one place.
                   </p>
@@ -2154,17 +2154,17 @@ export default function SellerProductsPage() {
                             manageTarget,
                           )
                         }
-                        className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 text-left transition hover:border-blue-300 hover:bg-blue-50/50"
+                        className="flex items-center gap-3 rounded-2xl border border-brand-steel bg-white p-4 text-left transition hover:border-brand-orange hover:bg-brand-mist/50"
                       >
-                        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-blue-50 text-blue-700">
+                        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-mist text-brand-ink">
                           <Edit3 className="h-5 w-5" />
                         </span>
 
                         <span>
-                          <span className="block text-sm font-black text-slate-900">
+                          <span className="block text-sm font-black text-brand-ink">
                             Edit product
                           </span>
-                          <span className="mt-1 block text-xs leading-5 text-slate-500">
+                          <span className="mt-1 block text-xs leading-5 text-brand-ink/70">
                             Edit product name, category, brand,
                             description, condition and warranty.
                           </span>
@@ -2177,16 +2177,16 @@ export default function SellerProductsPage() {
                       onClick={() =>
                         setManageTarget(null)
                       }
-                      className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-violet-300 hover:bg-violet-50/50"
+                      className="flex items-center gap-3 rounded-2xl border border-brand-steel bg-white p-4 transition hover:border-brand-orange hover:bg-brand-mist/50"
                     >
-                      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-violet-50 text-violet-700">
+                      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-mist text-brand-ink">
                         <PackageCheck className="h-5 w-5" />
                       </span>
                       <span>
-                        <span className="block text-sm font-black text-slate-900">
+                        <span className="block text-sm font-black text-brand-ink">
                           Variants & price
                         </span>
-                        <span className="mt-1 block text-xs leading-5 text-slate-500">
+                        <span className="mt-1 block text-xs leading-5 text-brand-ink/70">
                           Manage SKU, product variation and selling price.
                         </span>
                       </span>
@@ -2197,16 +2197,16 @@ export default function SellerProductsPage() {
                       onClick={() =>
                         setManageTarget(null)
                       }
-                      className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-amber-300 hover:bg-amber-50/50"
+                      className="flex items-center gap-3 rounded-2xl border border-brand-steel bg-white p-4 transition hover:border-brand-orange hover:bg-brand-mist/50"
                     >
-                      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-amber-50 text-amber-700">
+                      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-mist text-brand-orange">
                         <Warehouse className="h-5 w-5" />
                       </span>
                       <span>
-                        <span className="block text-sm font-black text-slate-900">
+                        <span className="block text-sm font-black text-brand-ink">
                           Inventory
                         </span>
-                        <span className="mt-1 block text-xs leading-5 text-slate-500">
+                        <span className="mt-1 block text-xs leading-5 text-brand-ink/70">
                           Adjust stock quantity and inventory settings.
                         </span>
                       </span>
@@ -2217,16 +2217,16 @@ export default function SellerProductsPage() {
                       onClick={() =>
                         setManageTarget(null)
                       }
-                      className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-cyan-300 hover:bg-cyan-50/50"
+                      className="flex items-center gap-3 rounded-2xl border border-brand-steel bg-white p-4 transition hover:border-brand-orange hover:bg-brand-mist/50"
                     >
-                      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-cyan-50 text-cyan-700">
+                      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-mist text-brand-ink">
                         <ImageOff className="h-5 w-5" />
                       </span>
                       <span>
-                        <span className="block text-sm font-black text-slate-900">
+                        <span className="block text-sm font-black text-brand-ink">
                           Product images
                         </span>
-                        <span className="mt-1 block text-xs leading-5 text-slate-500">
+                        <span className="mt-1 block text-xs leading-5 text-brand-ink/70">
                           Upload, replace and organize product images.
                         </span>
                       </span>
@@ -2237,16 +2237,16 @@ export default function SellerProductsPage() {
                       onClick={() =>
                         setManageTarget(null)
                       }
-                      className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 transition hover:border-emerald-300 hover:bg-emerald-50/50"
+                      className="flex items-center gap-3 rounded-2xl border border-brand-steel bg-white p-4 transition hover:border-emerald-300 hover:bg-emerald-50/50"
                     >
                       <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-emerald-50 text-emerald-700">
                         <ClipboardCheck className="h-5 w-5" />
                       </span>
                       <span>
-                        <span className="block text-sm font-black text-slate-900">
+                        <span className="block text-sm font-black text-brand-ink">
                           Return policy
                         </span>
-                        <span className="mt-1 block text-xs leading-5 text-slate-500">
+                        <span className="mt-1 block text-xs leading-5 text-brand-ink/70">
                           Manage customer return eligibility and rules.
                         </span>
                       </span>
@@ -2265,9 +2265,9 @@ export default function SellerProductsPage() {
                             manageTarget,
                           )
                         }
-                        className="flex items-center gap-3 rounded-2xl border border-blue-200 bg-blue-50 p-4 text-left transition hover:bg-blue-100 disabled:opacity-60"
+                        className="flex items-center gap-3 rounded-2xl border border-brand-steel bg-brand-mist p-4 text-left transition hover:bg-brand-mist disabled:opacity-60"
                       >
-                        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-blue-700 text-white">
+                        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-ink text-white">
                           {busyProduct ===
                           manageTarget.public_id ? (
                             <Loader2 className="h-5 w-5 animate-spin" />
@@ -2276,10 +2276,10 @@ export default function SellerProductsPage() {
                           )}
                         </span>
                         <span>
-                          <span className="block text-sm font-black text-blue-900">
+                          <span className="block text-sm font-black text-brand-ink">
                             Submit for review
                           </span>
-                          <span className="mt-1 block text-xs leading-5 text-blue-700">
+                          <span className="mt-1 block text-xs leading-5 text-brand-ink">
                             Send the completed product to administrator moderation.
                           </span>
                         </span>
@@ -2306,7 +2306,7 @@ export default function SellerProductsPage() {
                   ) : null}
                 </div>
 
-                <div className="flex items-center justify-between gap-3 border-t border-slate-100 px-5 py-4 sm:px-6">
+                <div className="flex items-center justify-between gap-3 border-t border-brand-mist px-5 py-4 sm:px-6">
                   <div>
                     {manageTarget.actions
                       ?.can_archive ? (
@@ -2337,7 +2337,7 @@ export default function SellerProductsPage() {
                     onClick={() =>
                       setManageTarget(null)
                     }
-                    className="inline-flex h-10 items-center justify-center rounded-xl border border-slate-200 bg-white px-5 text-sm font-black text-slate-700 transition hover:bg-slate-50"
+                    className="inline-flex h-10 items-center justify-center rounded-xl border border-brand-steel bg-white px-5 text-sm font-black text-brand-ink transition hover:bg-brand-mist"
                   >
                     Close
                   </button>
@@ -2352,7 +2352,7 @@ export default function SellerProductsPage() {
       {editTarget ? (
         <ModalPortal>
           <div
-            className="fixed inset-0 z-[1010] flex items-center justify-center overflow-hidden bg-slate-950/60 p-3 backdrop-blur-[2px] sm:p-4"
+            className="fixed inset-0 z-[1010] flex items-center justify-center overflow-hidden bg-brand-ink/60 p-3 backdrop-blur-[2px] sm:p-4"
             onMouseDown={(event) => {
               if (
                 event.target ===
@@ -2362,14 +2362,14 @@ export default function SellerProductsPage() {
               }
             }}
           >
-            <div className="flex h-[calc(100dvh-24px)] max-h-[900px] w-full max-w-6xl flex-col overflow-hidden rounded-3xl bg-slate-50 shadow-2xl sm:h-[calc(100dvh-32px)]">
-              <div className="flex items-center justify-between gap-4 border-b border-slate-200 bg-white px-5 py-4 sm:px-6">
+            <div className="flex h-[calc(100dvh-24px)] max-h-[900px] w-full max-w-6xl flex-col overflow-hidden rounded-3xl bg-brand-mist shadow-2xl sm:h-[calc(100dvh-32px)]">
+              <div className="flex items-center justify-between gap-4 border-b border-brand-steel bg-white px-5 py-4 sm:px-6">
                 <div>
-                  <p className="text-xs font-black uppercase tracking-[0.14em] text-blue-600">
+                  <p className="text-xs font-black uppercase tracking-[0.14em] text-brand-ink">
                     Complete product editor
                   </p>
 
-                  <h2 className="mt-1 text-xl font-black text-slate-950">
+                  <h2 className="mt-1 text-xl font-black text-brand-ink">
                     Update {editTarget.name}
                   </h2>
                 </div>
@@ -2380,7 +2380,7 @@ export default function SellerProductsPage() {
                   onClick={() =>
                     setEditTarget(null)
                   }
-                  className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition hover:text-slate-950"
+                  className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-brand-steel bg-white text-brand-ink/70 transition hover:text-brand-ink"
                 >
                   <X className="h-4 w-4" />
                 </button>
@@ -2416,18 +2416,18 @@ export default function SellerProductsPage() {
 
       {archiveTarget ? (
         <ModalPortal>
-          <div className="fixed inset-0 z-[1020] flex items-center justify-center overflow-hidden bg-slate-950/50 p-4 backdrop-blur-[2px]">
+          <div className="fixed inset-0 z-[1020] flex items-center justify-center overflow-hidden bg-brand-ink/50 p-4 backdrop-blur-[2px]">
           <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl">
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50 text-red-600">
               <Archive className="h-6 w-6" />
             </div>
 
-            <h2 className="mt-5 text-xl font-semibold text-slate-950">
+            <h2 className="mt-5 text-xl font-semibold text-brand-ink">
               Archive product?
             </h2>
 
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              <span className="font-semibold text-slate-900">
+            <p className="mt-2 text-sm leading-6 text-brand-ink/70">
+              <span className="font-semibold text-brand-ink">
                 {
                   archiveTarget.name
                 }
@@ -2450,7 +2450,7 @@ export default function SellerProductsPage() {
                     null,
                   )
                 }
-                className="inline-flex h-10 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                className="inline-flex h-10 items-center justify-center rounded-xl border border-brand-steel bg-white px-4 text-sm font-semibold text-brand-ink hover:bg-brand-mist"
               >
                 Cancel
               </button>
@@ -2555,22 +2555,22 @@ function SummaryCard({
   hint: string;
 }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+    <div className="rounded-2xl border border-brand-steel bg-white p-4 shadow-sm">
       <div className="flex items-start gap-3">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-mist text-brand-ink">
           <Icon className="h-5 w-5" />
         </div>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+          <p className="text-xs font-semibold uppercase tracking-wide text-brand-ink/70">
             {label}
           </p>
 
-          <p className="mt-1 text-2xl font-bold text-slate-950">
+          <p className="mt-1 text-2xl font-bold text-brand-ink">
             {value}
           </p>
 
-          <p className="mt-1 text-xs text-slate-500">
+          <p className="mt-1 text-xs text-brand-ink/70">
             {hint}
           </p>
         </div>

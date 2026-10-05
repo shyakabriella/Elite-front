@@ -419,7 +419,7 @@ export default function AdminDepartmentsPage() {
       case "subcategories":
         return (
           <div className="space-y-4">
-            <div className="rounded-2xl border border-blue-200 bg-blue-50 px-4 py-3 text-sm leading-6 text-blue-900">
+            <div className="rounded-2xl border border-brand-steel bg-brand-mist px-4 py-3 text-sm leading-6 text-brand-ink">
               <span className="font-semibold">
                 Subcategories
               </span>{" "}
@@ -450,9 +450,9 @@ export default function AdminDepartmentsPage() {
   return (
     <div className="grid gap-6 xl:grid-cols-[250px_minmax(0,1fr)]">
       <aside className="xl:sticky xl:top-6 xl:self-start">
-        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-          <div className="border-b border-slate-100 bg-slate-950 px-4 py-4 text-white">
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-300">
+        <div className="overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-sm">
+          <div className="border-b border-brand-mist bg-brand-ink px-4 py-4 text-white">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-steel">
               <FolderTree className="h-4 w-4" />
               Catalog management
             </div>
@@ -461,7 +461,7 @@ export default function AdminDepartmentsPage() {
               Setup workspace
             </h2>
 
-            <p className="mt-1 text-xs leading-5 text-slate-300">
+            <p className="mt-1 text-xs leading-5 text-brand-steel">
               Manage the catalog from one place.
             </p>
           </div>
@@ -486,16 +486,16 @@ export default function AdminDepartmentsPage() {
                     className={[
                       "flex w-full items-start gap-3 rounded-xl px-3 py-3 text-left transition",
                       active
-                        ? "bg-blue-50 text-blue-800 ring-1 ring-inset ring-blue-100"
-                        : "text-slate-700 hover:bg-slate-50",
+                        ? "bg-brand-mist text-brand-ink ring-1 ring-inset ring-brand-mist"
+                        : "text-brand-ink hover:bg-brand-mist",
                     ].join(" ")}
                   >
                     <span
                       className={[
                         "mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg",
                         active
-                          ? "bg-blue-700 text-white"
-                          : "bg-slate-100 text-slate-500",
+                          ? "bg-brand-ink text-white"
+                          : "bg-brand-mist text-brand-ink/70",
                       ].join(" ")}
                     >
                       <Icon className="h-4 w-4" />
@@ -510,8 +510,8 @@ export default function AdminDepartmentsPage() {
                         className={[
                           "mt-0.5 block text-xs leading-4",
                           active
-                            ? "text-blue-600"
-                            : "text-slate-400",
+                            ? "text-brand-ink"
+                            : "text-brand-steel",
                         ].join(" ")}
                       >
                         {item.description}
@@ -523,10 +523,10 @@ export default function AdminDepartmentsPage() {
             )}
           </nav>
 
-          <div className="border-t border-slate-100 bg-slate-50 px-4 py-3">
-            <p className="text-xs leading-5 text-slate-500">
+          <div className="border-t border-brand-mist bg-brand-mist px-4 py-3">
+            <p className="text-xs leading-5 text-brand-ink/70">
               Current section: {" "}
-              <span className="font-semibold text-slate-700">
+              <span className="font-semibold text-brand-ink">
                 {activeItem.label}
               </span>
             </p>
@@ -1397,16 +1397,16 @@ function DepartmentsManager() {
       {/* Header */}
       <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-center">
         <div>
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-ink">
             <FolderTree className="h-4 w-4" />
             Catalog setup
           </div>
 
-          <h1 className="mt-2 text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
+          <h1 className="mt-2 text-2xl font-bold tracking-tight text-brand-ink sm:text-3xl">
             Departments
           </h1>
 
-          <p className="mt-1 max-w-2xl text-sm leading-6 text-slate-500">
+          <p className="mt-1 max-w-2xl text-sm leading-6 text-brand-ink/70">
             Organize the marketplace navigation above the existing category hierarchy.
           </p>
         </div>
@@ -1422,7 +1422,7 @@ function DepartmentsManager() {
               )
             }
             disabled={loading}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 disabled:opacity-50"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-brand-steel bg-white px-4 text-sm font-semibold text-brand-ink shadow-sm transition hover:bg-brand-mist disabled:opacity-50"
           >
             <RefreshCw
               className={[
@@ -1438,7 +1438,7 @@ function DepartmentsManager() {
           <button
             type="button"
             onClick={openCreateModal}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-blue-700 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-800"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-ink"
           >
             <Plus className="h-4 w-4" />
             Add department
@@ -1508,10 +1508,10 @@ function DepartmentsManager() {
       </div>
 
       {/* Filters */}
-      <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div className="rounded-2xl border border-brand-steel bg-white p-4 shadow-sm">
         <div className="flex flex-col gap-3 md:flex-row md:items-center">
           <div className="relative flex-1">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
 
             <input
               value={search}
@@ -1522,7 +1522,7 @@ function DepartmentsManager() {
                 setPage(1);
               }}
               placeholder="Search department name, slug or description..."
-              className="h-10 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:ring-4 focus:ring-blue-50"
+              className="h-10 w-full rounded-xl border border-brand-steel bg-white pl-10 pr-3 text-sm text-brand-ink outline-none transition placeholder:text-brand-steel focus:border-brand-orange focus:ring-4 focus:ring-brand-mist"
             />
           </div>
 
@@ -1537,7 +1537,7 @@ function DepartmentsManager() {
               );
               setPage(1);
             }}
-            className="h-10 rounded-xl border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-50"
+            className="h-10 rounded-xl border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink outline-none focus:border-brand-orange focus:ring-4 focus:ring-brand-mist"
           >
             <option value="all">
               All statuses
@@ -1553,13 +1553,13 @@ function DepartmentsManager() {
       </div>
 
       {/* Table */}
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <div className="border-b border-slate-100 px-5 py-4">
-          <h2 className="text-base font-semibold text-slate-950">
+      <div className="overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-sm">
+        <div className="border-b border-brand-mist px-5 py-4">
+          <h2 className="text-base font-semibold text-brand-ink">
             Department directory
           </h2>
 
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-brand-ink/70">
             Departments group the existing category tree into customer-facing marketplace sections.
           </p>
         </div>
@@ -1567,31 +1567,31 @@ function DepartmentsManager() {
         {loading ? (
           <div className="flex min-h-72 items-center justify-center">
             <div className="flex flex-col items-center gap-3">
-              <Loader2 className="h-6 w-6 animate-spin text-blue-600" />
+              <Loader2 className="h-6 w-6 animate-spin text-brand-ink" />
 
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-brand-ink/70">
                 Loading departments...
               </p>
             </div>
           </div>
         ) : departments.length === 0 ? (
           <div className="flex min-h-72 flex-col items-center justify-center px-6 text-center">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-100">
-              <Building2 className="h-6 w-6 text-slate-500" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-mist">
+              <Building2 className="h-6 w-6 text-brand-ink/70" />
             </div>
 
-            <h3 className="mt-4 text-sm font-semibold text-slate-900">
+            <h3 className="mt-4 text-sm font-semibold text-brand-ink">
               No departments found
             </h3>
 
-            <p className="mt-1 max-w-md text-sm leading-6 text-slate-500">
+            <p className="mt-1 max-w-md text-sm leading-6 text-brand-ink/70">
               Create your first marketplace department, such as Electronics.
             </p>
 
             <button
               type="button"
               onClick={openCreateModal}
-              className="mt-4 inline-flex h-9 items-center gap-2 rounded-lg bg-blue-700 px-4 text-sm font-semibold text-white hover:bg-blue-800"
+              className="mt-4 inline-flex h-9 items-center gap-2 rounded-lg bg-brand-ink px-4 text-sm font-semibold text-white hover:bg-brand-ink"
             >
               <Plus className="h-4 w-4" />
               Add department
@@ -1601,8 +1601,8 @@ function DepartmentsManager() {
           <>
             <div className="overflow-x-auto">
               <table className="w-full min-w-[900px]">
-                <thead className="bg-slate-50">
-                  <tr className="border-b border-slate-200 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">
+                <thead className="bg-brand-mist">
+                  <tr className="border-b border-brand-steel text-left text-xs font-semibold uppercase tracking-wide text-brand-ink/70">
                     <th className="px-5 py-3">
                       Department
                     </th>
@@ -1624,36 +1624,36 @@ function DepartmentsManager() {
                   </tr>
                 </thead>
 
-                <tbody className="divide-y divide-slate-100">
+                <tbody className="divide-y divide-brand-mist">
                   {departments.map(
                     (department) => (
                       <tr
                         key={
                           department.public_id
                         }
-                        className="transition hover:bg-slate-50/70"
+                        className="transition hover:bg-brand-mist/70"
                       >
                         <td className="px-5 py-4">
                           <div className="flex items-start gap-3">
-                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
+                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-mist text-brand-ink">
                               <Building2 className="h-5 w-5" />
                             </div>
 
                             <div className="min-w-0">
-                              <p className="font-semibold text-slate-950">
+                              <p className="font-semibold text-brand-ink">
                                 {
                                   department.name
                                 }
                               </p>
 
-                              <p className="mt-0.5 text-xs text-slate-500">
+                              <p className="mt-0.5 text-xs text-brand-ink/70">
                                 /{
                                   department.slug
                                 }
                               </p>
 
                               {department.description ? (
-                                <p className="mt-1 max-w-md truncate text-xs text-slate-500">
+                                <p className="mt-1 max-w-md truncate text-xs text-brand-ink/70">
                                   {
                                     department.description
                                   }
@@ -1680,7 +1680,7 @@ function DepartmentsManager() {
                                   department,
                                 )
                               }
-                              className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
+                              className="inline-flex items-center gap-2 rounded-lg border border-brand-steel bg-white px-3 py-2 text-xs font-semibold text-brand-ink transition hover:border-brand-steel hover:bg-brand-mist hover:text-brand-ink"
                             >
                               <Boxes className="h-3.5 w-3.5" />
 
@@ -1696,7 +1696,7 @@ function DepartmentsManager() {
                                   department,
                                 )
                               }
-                              className="inline-flex items-center gap-1.5 rounded-lg border border-blue-200 bg-blue-50 px-3 py-2 text-xs font-semibold text-blue-700 transition hover:bg-blue-100"
+                              className="inline-flex items-center gap-1.5 rounded-lg border border-brand-steel bg-brand-mist px-3 py-2 text-xs font-semibold text-brand-ink transition hover:bg-brand-mist"
                             >
                               <Plus className="h-3.5 w-3.5" />
                               Add category
@@ -1704,13 +1704,13 @@ function DepartmentsManager() {
                           </div>
                         </td>
 
-                        <td className="px-5 py-4 text-sm text-slate-600">
+                        <td className="px-5 py-4 text-sm text-brand-ink/70">
                           {
                             department.sort_order
                           }
                         </td>
 
-                        <td className="px-5 py-4 text-sm text-slate-500">
+                        <td className="px-5 py-4 text-sm text-brand-ink/70">
                           {formatDate(
                             department.updated_at,
                           )}
@@ -1727,14 +1727,14 @@ function DepartmentsManager() {
                                   : department.public_id,
                               )
                             }
-                            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition hover:bg-slate-50"
+                            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-brand-steel bg-white text-brand-ink/70 transition hover:bg-brand-mist"
                           >
                             <MoreHorizontal className="h-4 w-4" />
                           </button>
 
                           {actionMenu ===
                           department.public_id ? (
-                            <div className="absolute right-5 top-14 z-20 w-48 overflow-hidden rounded-xl border border-slate-200 bg-white p-1.5 text-left shadow-xl">
+                            <div className="absolute right-5 top-14 z-20 w-48 overflow-hidden rounded-xl border border-brand-steel bg-white p-1.5 text-left shadow-xl">
                               <button
                                 type="button"
                                 onClick={() =>
@@ -1742,7 +1742,7 @@ function DepartmentsManager() {
                                     department,
                                   )
                                 }
-                                className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                                className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-brand-ink hover:bg-brand-mist"
                               >
                                 <Edit3 className="h-4 w-4" />
                                 Edit department
@@ -1755,7 +1755,7 @@ function DepartmentsManager() {
                                     department,
                                   )
                                 }
-                                className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-blue-700 hover:bg-blue-50"
+                                className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-brand-ink hover:bg-brand-mist"
                               >
                                 <Plus className="h-4 w-4" />
                                 Add root category
@@ -1768,13 +1768,13 @@ function DepartmentsManager() {
                                     department,
                                   )
                                 }
-                                className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                                className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-brand-ink hover:bg-brand-mist"
                               >
                                 <FolderTree className="h-4 w-4" />
                                 Manage categories
                               </button>
 
-                              <div className="my-1 border-t border-slate-100" />
+                              <div className="my-1 border-t border-brand-mist" />
 
                               <button
                                 type="button"
@@ -1801,22 +1801,22 @@ function DepartmentsManager() {
               </table>
             </div>
 
-            <div className="flex flex-col gap-3 border-t border-slate-100 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm text-slate-500">
+            <div className="flex flex-col gap-3 border-t border-brand-mist px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm text-brand-ink/70">
                 Showing{" "}
-                <span className="font-medium text-slate-700">
+                <span className="font-medium text-brand-ink">
                   {meta.from ??
                     (departments.length
                       ? 1
                       : 0)}
                 </span>
                 {" – "}
-                <span className="font-medium text-slate-700">
+                <span className="font-medium text-brand-ink">
                   {meta.to ??
                     departments.length}
                 </span>{" "}
                 of{" "}
-                <span className="font-medium text-slate-700">
+                <span className="font-medium text-brand-ink">
                   {totalDepartments}
                 </span>
               </p>
@@ -1836,13 +1836,13 @@ function DepartmentsManager() {
                     page <= 1 ||
                     loading
                   }
-                  className="inline-flex h-9 items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="inline-flex h-9 items-center gap-1 rounded-lg border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink hover:bg-brand-mist disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   <ChevronLeft className="h-4 w-4" />
                   Previous
                 </button>
 
-                <span className="px-2 text-sm font-medium text-slate-600">
+                <span className="px-2 text-sm font-medium text-brand-ink/70">
                   Page {page} of{" "}
                   {lastPage}
                 </span>
@@ -1861,7 +1861,7 @@ function DepartmentsManager() {
                     page >= lastPage ||
                     loading
                   }
-                  className="inline-flex h-9 items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="inline-flex h-9 items-center gap-1 rounded-lg border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink hover:bg-brand-mist disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   Next
                   <ChevronRight className="h-4 w-4" />
@@ -2000,7 +2000,7 @@ function DepartmentsManager() {
               </FieldLabel>
 
               <div>
-                <span className="mb-2 block text-xs font-semibold uppercase tracking-wide text-slate-600">
+                <span className="mb-2 block text-xs font-semibold uppercase tracking-wide text-brand-ink/70">
                   Availability
                 </span>
 
@@ -2019,7 +2019,7 @@ function DepartmentsManager() {
                     "flex h-10 w-full items-center justify-between rounded-xl border px-3 text-sm font-medium transition",
                     form.is_active
                       ? "border-emerald-200 bg-emerald-50 text-emerald-800"
-                      : "border-slate-200 bg-slate-50 text-slate-600",
+                      : "border-brand-steel bg-brand-mist text-brand-ink/70",
                   ].join(" ")}
                 >
                   <span>
@@ -2033,7 +2033,7 @@ function DepartmentsManager() {
                       "relative h-5 w-9 rounded-full transition",
                       form.is_active
                         ? "bg-emerald-600"
-                        : "bg-slate-300",
+                        : "bg-brand-steel",
                     ].join(" ")}
                   >
                     <span
@@ -2049,14 +2049,14 @@ function DepartmentsManager() {
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-2 border-t border-slate-100 pt-4">
+            <div className="flex items-center justify-end gap-2 border-t border-brand-mist pt-4">
               <button
                 type="button"
                 onClick={
                   closeFormModal
                 }
                 disabled={submitting}
-                className="inline-flex h-10 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+                className="inline-flex h-10 items-center justify-center rounded-xl border border-brand-steel bg-white px-4 text-sm font-semibold text-brand-ink hover:bg-brand-mist disabled:opacity-50"
               >
                 Cancel
               </button>
@@ -2064,7 +2064,7 @@ function DepartmentsManager() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-blue-700 px-4 text-sm font-semibold text-white hover:bg-blue-800 disabled:opacity-50"
+                className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-semibold text-white hover:bg-brand-ink disabled:opacity-50"
               >
                 {submitting ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
@@ -2093,7 +2093,7 @@ function DepartmentsManager() {
             onSubmit={createRootCategory}
             className="space-y-4"
           >
-            <div className="rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm leading-6 text-blue-800">
+            <div className="rounded-xl border border-brand-mist bg-brand-mist px-4 py-3 text-sm leading-6 text-brand-ink">
               Department:{" "}
               <span className="font-semibold">
                 {categoryCreateDepartment.name}
@@ -2214,7 +2214,7 @@ function DepartmentsManager() {
               </FieldLabel>
 
               <div>
-                <span className="mb-2 block text-xs font-semibold uppercase tracking-wide text-slate-600">
+                <span className="mb-2 block text-xs font-semibold uppercase tracking-wide text-brand-ink/70">
                   Availability
                 </span>
 
@@ -2233,7 +2233,7 @@ function DepartmentsManager() {
                     "flex h-10 w-full items-center justify-between rounded-xl border px-3 text-sm font-medium transition",
                     rootCategoryForm.is_active
                       ? "border-emerald-200 bg-emerald-50 text-emerald-800"
-                      : "border-slate-200 bg-slate-50 text-slate-600",
+                      : "border-brand-steel bg-brand-mist text-brand-ink/70",
                   ].join(" ")}
                 >
                   <span>
@@ -2247,7 +2247,7 @@ function DepartmentsManager() {
                       "relative h-5 w-9 rounded-full transition",
                       rootCategoryForm.is_active
                         ? "bg-emerald-600"
-                        : "bg-slate-300",
+                        : "bg-brand-steel",
                     ].join(" ")}
                   >
                     <span
@@ -2263,7 +2263,7 @@ function DepartmentsManager() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs leading-5 text-slate-600">
+            <div className="rounded-xl border border-brand-steel bg-brand-mist px-4 py-3 text-xs leading-5 text-brand-ink/70">
               This creates a root category with{" "}
               <code className="font-semibold">
                 parent_id: null
@@ -2275,7 +2275,7 @@ function DepartmentsManager() {
               .
             </div>
 
-            <div className="flex items-center justify-end gap-2 border-t border-slate-100 pt-4">
+            <div className="flex items-center justify-end gap-2 border-t border-brand-mist pt-4">
               <button
                 type="button"
                 onClick={
@@ -2284,7 +2284,7 @@ function DepartmentsManager() {
                 disabled={
                   categoryCreating
                 }
-                className="inline-flex h-10 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+                className="inline-flex h-10 items-center justify-center rounded-xl border border-brand-steel bg-white px-4 text-sm font-semibold text-brand-ink hover:bg-brand-mist disabled:opacity-50"
               >
                 Cancel
               </button>
@@ -2294,7 +2294,7 @@ function DepartmentsManager() {
                 disabled={
                   categoryCreating
                 }
-                className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-blue-700 px-4 text-sm font-semibold text-white hover:bg-blue-800 disabled:opacity-50"
+                className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-semibold text-white hover:bg-brand-ink disabled:opacity-50"
               >
                 {categoryCreating ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
@@ -2326,7 +2326,7 @@ function DepartmentsManager() {
         >
           <div className="space-y-4">
             <div className="relative">
-              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
 
               <input
                 value={categorySearch}
@@ -2340,7 +2340,7 @@ function DepartmentsManager() {
               />
             </div>
 
-            <div className="rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-xs leading-5 text-blue-800">
+            <div className="rounded-xl border border-brand-mist bg-brand-mist px-4 py-3 text-xs leading-5 text-brand-ink">
               Existing root categories can be attached here. To create a new category directly inside this department, use Create root category.
             </div>
 
@@ -2352,24 +2352,24 @@ function DepartmentsManager() {
                     categoryModalDepartment,
                   )
                 }
-                className="inline-flex h-9 items-center gap-2 rounded-lg bg-blue-700 px-3 text-sm font-semibold text-white transition hover:bg-blue-800"
+                className="inline-flex h-9 items-center gap-2 rounded-lg bg-brand-ink px-3 text-sm font-semibold text-white transition hover:bg-brand-ink"
               >
                 <Plus className="h-4 w-4" />
                 Create root category
               </button>
             </div>
 
-            <div className="max-h-[50vh] overflow-y-auto rounded-xl border border-slate-200">
+            <div className="max-h-[50vh] overflow-y-auto rounded-xl border border-brand-steel">
               {categoriesLoading ? (
                 <div className="flex h-48 items-center justify-center">
-                  <Loader2 className="h-5 w-5 animate-spin text-blue-600" />
+                  <Loader2 className="h-5 w-5 animate-spin text-brand-ink" />
                 </div>
               ) : filteredCategories.length === 0 ? (
-                <div className="p-8 text-center text-sm text-slate-500">
+                <div className="p-8 text-center text-sm text-brand-ink/70">
                   No categories found.
                 </div>
               ) : (
-                <div className="divide-y divide-slate-100">
+                <div className="divide-y divide-brand-mist">
                   {filteredCategories.map(
                     (category) => {
                       const selected =
@@ -2385,8 +2385,8 @@ function DepartmentsManager() {
                           className={[
                             "flex items-center gap-3 px-4 py-3 transition",
                             selected
-                              ? "bg-blue-50/60"
-                              : "bg-white hover:bg-slate-50",
+                              ? "bg-brand-mist/60"
+                              : "bg-white hover:bg-brand-mist",
                           ].join(" ")}
                         >
                           <button
@@ -2399,8 +2399,8 @@ function DepartmentsManager() {
                             className={[
                               "flex h-5 w-5 shrink-0 items-center justify-center rounded border transition",
                               selected
-                                ? "border-blue-600 bg-blue-600 text-white"
-                                : "border-slate-300 bg-white text-transparent",
+                                ? "border-brand-ink bg-brand-ink text-white"
+                                : "border-brand-steel bg-white text-transparent",
                             ].join(" ")}
                           >
                             <Check className="h-3.5 w-3.5" />
@@ -2408,14 +2408,14 @@ function DepartmentsManager() {
 
                           <div className="min-w-0 flex-1">
                             <div className="flex flex-wrap items-center gap-2">
-                              <span className="text-sm font-semibold text-slate-900">
+                              <span className="text-sm font-semibold text-brand-ink">
                                 {
                                   category.name
                                 }
                               </span>
 
                               {category.parent ? (
-                                <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[11px] font-medium text-amber-700">
+                                <span className="rounded-full bg-brand-mist px-2 py-0.5 text-[11px] font-medium text-brand-orange">
                                   Child of{" "}
                                   {
                                     category
@@ -2424,13 +2424,13 @@ function DepartmentsManager() {
                                   }
                                 </span>
                               ) : (
-                                <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600">
+                                <span className="rounded-full bg-brand-mist px-2 py-0.5 text-[11px] font-medium text-brand-ink/70">
                                   Root category
                                 </span>
                               )}
                             </div>
 
-                            <p className="mt-0.5 text-xs text-slate-500">
+                            <p className="mt-0.5 text-xs text-brand-ink/70">
                               /{category.slug}
                             </p>
                           </div>
@@ -2446,8 +2446,8 @@ function DepartmentsManager() {
                               className={[
                                 "rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition",
                                 selected.is_featured
-                                  ? "border-amber-200 bg-amber-50 text-amber-700"
-                                  : "border-slate-200 bg-white text-slate-500 hover:bg-slate-50",
+                                  ? "border-brand-orange bg-brand-mist text-brand-orange"
+                                  : "border-brand-steel bg-white text-brand-ink/70 hover:bg-brand-mist",
                               ].join(" ")}
                             >
                               {selected.is_featured
@@ -2463,9 +2463,9 @@ function DepartmentsManager() {
               )}
             </div>
 
-            <div className="flex flex-col justify-between gap-3 border-t border-slate-100 pt-4 sm:flex-row sm:items-center">
-              <p className="text-sm text-slate-500">
-                <span className="font-semibold text-slate-800">
+            <div className="flex flex-col justify-between gap-3 border-t border-brand-mist pt-4 sm:flex-row sm:items-center">
+              <p className="text-sm text-brand-ink/70">
+                <span className="font-semibold text-brand-ink">
                   {
                     Object.keys(
                       categorySelections,
@@ -2489,7 +2489,7 @@ function DepartmentsManager() {
                     }
                   }}
                   disabled={syncing}
-                  className="inline-flex h-10 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+                  className="inline-flex h-10 items-center justify-center rounded-xl border border-brand-steel bg-white px-4 text-sm font-semibold text-brand-ink hover:bg-brand-mist disabled:opacity-50"
                 >
                   Cancel
                 </button>
@@ -2500,7 +2500,7 @@ function DepartmentsManager() {
                     void syncCategories()
                   }
                   disabled={syncing}
-                  className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-blue-700 px-4 text-sm font-semibold text-white hover:bg-blue-800 disabled:opacity-50"
+                  className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-semibold text-white hover:bg-brand-ink disabled:opacity-50"
                 >
                   {syncing ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
@@ -2539,7 +2539,7 @@ function DepartmentsManager() {
                   setDeleteTarget(null)
                 }
                 disabled={deleting}
-                className="inline-flex h-10 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+                className="inline-flex h-10 items-center justify-center rounded-xl border border-brand-steel bg-white px-4 text-sm font-semibold text-brand-ink hover:bg-brand-mist disabled:opacity-50"
               >
                 Cancel
               </button>
@@ -2568,7 +2568,7 @@ function DepartmentsManager() {
 }
 
 const inputClass =
-  "h-10 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:ring-4 focus:ring-blue-50";
+  "h-10 w-full rounded-xl border border-brand-steel bg-white px-3 text-sm text-brand-ink outline-none transition placeholder:text-brand-steel focus:border-brand-orange focus:ring-4 focus:ring-brand-mist";
 
 function StatusBadge({
   active,
@@ -2581,7 +2581,7 @@ function StatusBadge({
         "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold",
         active
           ? "border-emerald-200 bg-emerald-50 text-emerald-700"
-          : "border-slate-200 bg-slate-100 text-slate-600",
+          : "border-brand-steel bg-brand-mist text-brand-ink/70",
       ].join(" ")}
     >
       <span
@@ -2589,7 +2589,7 @@ function StatusBadge({
           "h-1.5 w-1.5 rounded-full",
           active
             ? "bg-emerald-500"
-            : "bg-slate-400",
+            : "bg-brand-steel",
         ].join(" ")}
       />
       {active ? "Active" : "Inactive"}
@@ -2609,22 +2609,22 @@ function SummaryCard({
   description: string;
 }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+    <div className="rounded-2xl border border-brand-steel bg-white p-4 shadow-sm">
       <div className="flex items-start gap-3">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-mist text-brand-ink">
           <Icon className="h-5 w-5" />
         </div>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+          <p className="text-xs font-semibold uppercase tracking-wide text-brand-ink/70">
             {label}
           </p>
 
-          <p className="mt-1 text-2xl font-bold text-slate-950">
+          <p className="mt-1 text-2xl font-bold text-brand-ink">
             {value}
           </p>
 
-          <p className="mt-1 text-xs text-slate-500">
+          <p className="mt-1 text-xs text-brand-ink/70">
             {description}
           </p>
         </div>
@@ -2644,7 +2644,7 @@ function FieldLabel({
 }) {
   return (
     <label className="block">
-      <span className="mb-2 block text-xs font-semibold uppercase tracking-wide text-slate-600">
+      <span className="mb-2 block text-xs font-semibold uppercase tracking-wide text-brand-ink/70">
         {label}
         {required ? (
           <span className="ml-1 text-red-500">
@@ -2674,22 +2674,22 @@ function ModalShell({
   children: React.ReactNode;
 }) {
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/50 p-4 backdrop-blur-[2px]">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-brand-ink/50 p-4 backdrop-blur-[2px]">
       <div
         className={[
-          "max-h-[92vh] w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl",
+          "max-h-[92vh] w-full overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-2xl",
           wide
             ? "max-w-3xl"
             : "max-w-lg",
         ].join(" ")}
       >
-        <div className="flex items-start justify-between gap-4 border-b border-slate-100 px-5 py-4">
+        <div className="flex items-start justify-between gap-4 border-b border-brand-mist px-5 py-4">
           <div>
-            <h2 className="text-lg font-semibold text-slate-950">
+            <h2 className="text-lg font-semibold text-brand-ink">
               {title}
             </h2>
 
-            <p className="mt-1 text-sm leading-6 text-slate-500">
+            <p className="mt-1 text-sm leading-6 text-brand-ink/70">
               {description}
             </p>
           </div>
@@ -2698,7 +2698,7 @@ function ModalShell({
             type="button"
             onClick={onClose}
             disabled={disabled}
-            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 hover:bg-slate-50 disabled:opacity-50"
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-brand-steel bg-white text-brand-ink/70 hover:bg-brand-mist disabled:opacity-50"
           >
             <X className="h-4 w-4" />
           </button>

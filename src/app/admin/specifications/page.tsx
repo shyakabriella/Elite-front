@@ -1684,18 +1684,18 @@ export default function AdminSpecificationsPage() {
     <div className="space-y-6">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <div className="flex items-center gap-2 text-sm font-medium text-slate-500">
+          <div className="flex items-center gap-2 text-sm font-medium text-brand-ink/70">
             <ListChecks className="h-4 w-4" />
             Catalog setup
           </div>
 
-          <h1 className="mt-1 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+          <h1 className="mt-1 text-2xl font-semibold tracking-tight text-brand-ink sm:text-3xl">
             Specifications
           </h1>
 
-          <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-brand-ink/70">
             Create the specification and choose its category in one place.
-            RushPi automatically creates the reusable definition and assigns it
+            EliteMart automatically creates the reusable definition and assigns it
             to the selected category when you save.
           </p>
         </div>
@@ -1713,7 +1713,7 @@ export default function AdminSpecificationsPage() {
               loading ||
               loadingCategories
             }
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-brand-steel bg-white px-4 text-sm font-medium text-brand-ink shadow-sm transition hover:bg-brand-mist disabled:cursor-not-allowed disabled:opacity-60"
           >
             <RefreshCw
               className={`h-4 w-4 ${
@@ -1731,7 +1731,7 @@ export default function AdminSpecificationsPage() {
             onClick={
               openCreateModal
             }
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-slate-950 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-ink"
           >
             <Plus className="h-4 w-4" />
             Add specification
@@ -1787,15 +1787,15 @@ export default function AdminSpecificationsPage() {
         />
       </div>
 
-      <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-        <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-700">
+      <div className="rounded-2xl border border-brand-steel bg-white p-4 shadow-sm">
+        <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-brand-ink">
           <Filter className="h-4 w-4" />
           Filters
         </div>
 
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-6">
           <label className="relative block xl:col-span-2">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
 
             <input
               value={search}
@@ -1809,7 +1809,7 @@ export default function AdminSpecificationsPage() {
                 );
               }}
               placeholder="Search name, code, unit..."
-              className="h-11 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-slate-400"
+              className="h-11 w-full rounded-xl border border-brand-steel bg-white pl-10 pr-3 text-sm text-brand-ink outline-none transition placeholder:text-brand-steel focus:border-brand-steel"
             />
           </label>
 
@@ -1828,7 +1828,7 @@ export default function AdminSpecificationsPage() {
                   | SpecificationDataType,
               );
             }}
-            className="h-11 rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-700 outline-none"
+            className="h-11 rounded-xl border border-brand-steel bg-white px-3 text-sm text-brand-ink outline-none"
           >
             <option value="all">
               All data types
@@ -1863,7 +1863,7 @@ export default function AdminSpecificationsPage() {
                   .value as StatusFilter,
               );
             }}
-            className="h-11 rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-700 outline-none"
+            className="h-11 rounded-xl border border-brand-steel bg-white px-3 text-sm text-brand-ink outline-none"
           >
             <option value="all">
               All statuses
@@ -1889,7 +1889,7 @@ export default function AdminSpecificationsPage() {
                   .value as YesNoFilter,
               );
             }}
-            className="h-11 rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-700 outline-none"
+            className="h-11 rounded-xl border border-brand-steel bg-white px-3 text-sm text-brand-ink outline-none"
           >
             <option value="all">
               Any filterability
@@ -1915,7 +1915,7 @@ export default function AdminSpecificationsPage() {
                   .value as AssignedFilter,
               );
             }}
-            className="h-11 rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-700 outline-none"
+            className="h-11 rounded-xl border border-brand-steel bg-white px-3 text-sm text-brand-ink outline-none"
           >
             <option value="all">
               Any assignment
@@ -1943,7 +1943,7 @@ export default function AdminSpecificationsPage() {
                   .value as YesNoFilter,
               );
             }}
-            className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-700 outline-none sm:w-56"
+            className="h-11 w-full rounded-xl border border-brand-steel bg-white px-3 text-sm text-brand-ink outline-none sm:w-56"
           >
             <option value="all">
               Any variant behavior
@@ -1958,10 +1958,10 @@ export default function AdminSpecificationsPage() {
         </div>
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <div className="overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-sm">
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-slate-200">
-            <thead className="bg-slate-50">
+          <table className="min-w-full divide-y divide-brand-steel">
+            <thead className="bg-brand-mist">
               <tr>
                 <TableHead>
                   Specification
@@ -1990,14 +1990,14 @@ export default function AdminSpecificationsPage() {
               </tr>
             </thead>
 
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-brand-mist">
               {loading ? (
                 <tr>
                   <td
                     colSpan={8}
                     className="px-6 py-16 text-center"
                   >
-                    <div className="inline-flex items-center gap-2 text-sm text-slate-500">
+                    <div className="inline-flex items-center gap-2 text-sm text-brand-ink/70">
                       <Loader2 className="h-5 w-5 animate-spin" />
                       Loading specifications...
                     </div>
@@ -2011,15 +2011,15 @@ export default function AdminSpecificationsPage() {
                     className="px-6 py-16 text-center"
                   >
                     <div className="mx-auto flex max-w-md flex-col items-center">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-100">
-                        <ListChecks className="h-6 w-6 text-slate-500" />
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-mist">
+                        <ListChecks className="h-6 w-6 text-brand-ink/70" />
                       </div>
 
-                      <h3 className="mt-4 text-sm font-semibold text-slate-900">
+                      <h3 className="mt-4 text-sm font-semibold text-brand-ink">
                         No specifications found
                       </h3>
 
-                      <p className="mt-1 text-sm text-slate-500">
+                      <p className="mt-1 text-sm text-brand-ink/70">
                         Create your first reusable specification or adjust the filters.
                       </p>
 
@@ -2028,7 +2028,7 @@ export default function AdminSpecificationsPage() {
                         onClick={
                           openCreateModal
                         }
-                        className="mt-4 inline-flex items-center gap-2 rounded-xl bg-slate-950 px-4 py-2 text-sm font-semibold text-white"
+                        className="mt-4 inline-flex items-center gap-2 rounded-xl bg-brand-ink px-4 py-2 text-sm font-semibold text-white"
                       >
                         <Plus className="h-4 w-4" />
                         Add specification
@@ -2043,23 +2043,23 @@ export default function AdminSpecificationsPage() {
                       key={
                         definition.public_id
                       }
-                      className="hover:bg-slate-50/70"
+                      className="hover:bg-brand-mist/70"
                     >
                       <td className="px-6 py-4">
-                        <div className="font-semibold text-slate-900">
+                        <div className="font-semibold text-brand-ink">
                           {
                             definition.name
                           }
                         </div>
 
-                        <div className="mt-1 font-mono text-xs text-slate-500">
+                        <div className="mt-1 font-mono text-xs text-brand-ink/70">
                           {
                             definition.code
                           }
                         </div>
 
                         {definition.description ? (
-                          <div className="mt-1 max-w-[320px] truncate text-xs text-slate-400">
+                          <div className="mt-1 max-w-[320px] truncate text-xs text-brand-steel">
                             {
                               definition.description
                             }
@@ -2068,7 +2068,7 @@ export default function AdminSpecificationsPage() {
                       </td>
 
                       <td className="px-6 py-4">
-                        <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700">
+                        <span className="rounded-full bg-brand-mist px-2.5 py-1 text-xs font-semibold text-brand-ink">
                           {
                             definition
                               .data_type
@@ -2077,7 +2077,7 @@ export default function AdminSpecificationsPage() {
                         </span>
                       </td>
 
-                      <td className="px-6 py-4 text-sm text-slate-600">
+                      <td className="px-6 py-4 text-sm text-brand-ink/70">
                         {definition.data_type
                           .uses_options ? (
                           <span>
@@ -2117,14 +2117,14 @@ export default function AdminSpecificationsPage() {
 
                           {!definition.is_filterable &&
                           !definition.is_variant_attribute ? (
-                            <span className="text-sm text-slate-400">
+                            <span className="text-sm text-brand-steel">
                               —
                             </span>
                           ) : null}
                         </div>
                       </td>
 
-                      <td className="px-6 py-4 text-sm font-medium text-slate-700">
+                      <td className="px-6 py-4 text-sm font-medium text-brand-ink">
                         {
                           definition.category_assignments_count ??
                           0
@@ -2139,7 +2139,7 @@ export default function AdminSpecificationsPage() {
                         />
                       </td>
 
-                      <td className="px-6 py-4 text-sm text-slate-500">
+                      <td className="px-6 py-4 text-sm text-brand-ink/70">
                         {formatDate(
                           definition.updated_at,
                         )}
@@ -2156,14 +2156,14 @@ export default function AdminSpecificationsPage() {
                                 : definition.public_id,
                             )
                           }
-                          className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 transition hover:bg-slate-50 hover:text-slate-900"
+                          className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-brand-steel bg-white text-brand-ink/70 transition hover:bg-brand-mist hover:text-brand-ink"
                         >
                           <MoreHorizontal className="h-4 w-4" />
                         </button>
 
                         {actionMenu ===
                         definition.public_id ? (
-                          <div className="absolute right-6 top-14 z-20 w-56 overflow-hidden rounded-xl border border-slate-200 bg-white p-1 shadow-xl">
+                          <div className="absolute right-6 top-14 z-20 w-56 overflow-hidden rounded-xl border border-brand-steel bg-white p-1 shadow-xl">
                             <button
                               type="button"
                               onClick={() =>
@@ -2171,7 +2171,7 @@ export default function AdminSpecificationsPage() {
                                   definition,
                                 )
                               }
-                              className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm text-slate-700 hover:bg-slate-50"
+                              className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm text-brand-ink hover:bg-brand-mist"
                             >
                               <Edit3 className="h-4 w-4" />
                               Edit specification
@@ -2188,7 +2188,7 @@ export default function AdminSpecificationsPage() {
                                   definition,
                                 )
                               }
-                              className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+                              className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm text-brand-ink hover:bg-brand-mist disabled:opacity-50"
                             >
                               {definition.is_active ? (
                                 <PowerOff className="h-4 w-4" />
@@ -2227,8 +2227,8 @@ export default function AdminSpecificationsPage() {
           </table>
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-slate-200 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <div className="text-sm text-slate-500">
+        <div className="flex flex-col gap-3 border-t border-brand-steel px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div className="text-sm text-brand-ink/70">
             {meta.total !==
             undefined
               ? `Showing ${meta.from ?? 0}-${meta.to ?? 0} of ${meta.total} specifications`
@@ -2251,13 +2251,13 @@ export default function AdminSpecificationsPage() {
                     ),
                 )
               }
-              className="inline-flex h-9 items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+              className="inline-flex h-9 items-center gap-1 rounded-lg border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink transition hover:bg-brand-mist disabled:cursor-not-allowed disabled:opacity-50"
             >
               <ChevronLeft className="h-4 w-4" />
               Previous
             </button>
 
-            <span className="min-w-24 text-center text-sm text-slate-600">
+            <span className="min-w-24 text-center text-sm text-brand-ink/70">
               Page {currentPage} of{" "}
               {lastPage}
             </span>
@@ -2278,7 +2278,7 @@ export default function AdminSpecificationsPage() {
                     ),
                 )
               }
-              className="inline-flex h-9 items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+              className="inline-flex h-9 items-center gap-1 rounded-lg border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink transition hover:bg-brand-mist disabled:cursor-not-allowed disabled:opacity-50"
             >
               Next
               <ChevronRight className="h-4 w-4" />
@@ -2288,17 +2288,17 @@ export default function AdminSpecificationsPage() {
       </div>
 
       {formOpen ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/45 p-4 backdrop-blur-[2px]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-brand-ink/45 p-4 backdrop-blur-[2px]">
           <div className="max-h-[94vh] w-full max-w-4xl overflow-y-auto rounded-3xl bg-white shadow-2xl">
-            <div className="sticky top-0 z-10 flex items-start justify-between border-b border-slate-200 bg-white px-6 py-5">
+            <div className="sticky top-0 z-10 flex items-start justify-between border-b border-brand-steel bg-white px-6 py-5">
               <div>
-                <h2 className="text-xl font-semibold text-slate-950">
+                <h2 className="text-xl font-semibold text-brand-ink">
                   {editingDefinition
                     ? "Edit specification"
                     : "Add specification"}
                 </h2>
 
-                <p className="mt-1 text-sm text-slate-500">
+                <p className="mt-1 text-sm text-brand-ink/70">
                   {editingDefinition
                     ? "Update the reusable specification."
                     : "Choose a category, define the specification and save once. Category assignment happens automatically."}
@@ -2313,7 +2313,7 @@ export default function AdminSpecificationsPage() {
                 onClick={
                   closeFormModal
                 }
-                className="rounded-xl p-2 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 disabled:opacity-50"
+                className="rounded-xl p-2 text-brand-steel transition hover:bg-brand-mist hover:text-brand-ink disabled:opacity-50"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -2326,7 +2326,7 @@ export default function AdminSpecificationsPage() {
               className="space-y-6 p-6"
             >
               {!editingDefinition ? (
-                <div className="rounded-2xl border border-blue-200 bg-blue-50/60 p-4">
+                <div className="rounded-2xl border border-brand-steel bg-brand-mist/60 p-4">
                   <FormField
                     label="Category"
                     required
@@ -2380,9 +2380,9 @@ export default function AdminSpecificationsPage() {
                   </FormField>
                 </div>
               ) : (
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600">
+                <div className="rounded-2xl border border-brand-steel bg-brand-mist px-4 py-3 text-sm text-brand-ink/70">
                   This specification is already connected to{" "}
-                  <span className="font-semibold text-slate-900">
+                  <span className="font-semibold text-brand-ink">
                     {editingDefinition.category_assignments_count ?? 0}
                   </span>{" "}
                   categor
@@ -2461,7 +2461,7 @@ export default function AdminSpecificationsPage() {
                           ) > 0,
                       )
                     }
-                    className="form-input disabled:bg-slate-100 disabled:text-slate-500"
+                    className="form-input disabled:bg-brand-mist disabled:text-brand-ink/70"
                   />
                 </FormField>
               </div>
@@ -2528,7 +2528,7 @@ export default function AdminSpecificationsPage() {
                           .value as SpecificationDataType,
                       )
                     }
-                    className="form-input disabled:bg-slate-100 disabled:text-slate-500"
+                    className="form-input disabled:bg-brand-mist disabled:text-brand-ink/70"
                   >
                     {DATA_TYPE_OPTIONS.map(
                       (
@@ -2579,7 +2579,7 @@ export default function AdminSpecificationsPage() {
                 </FormField>
               </div>
 
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
+              <div className="rounded-2xl border border-brand-steel bg-brand-mist p-4 text-sm text-brand-ink/70">
                 {
                   DATA_TYPE_OPTIONS.find(
                     (option) =>
@@ -2592,14 +2592,14 @@ export default function AdminSpecificationsPage() {
               {usesOptions(
                 form.data_type,
               ) ? (
-                <div className="rounded-2xl border border-slate-200">
-                  <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
+                <div className="rounded-2xl border border-brand-steel">
+                  <div className="flex items-center justify-between border-b border-brand-steel px-4 py-3">
                     <div>
-                      <div className="text-sm font-semibold text-slate-900">
+                      <div className="text-sm font-semibold text-brand-ink">
                         Selectable options
                       </div>
 
-                      <div className="mt-0.5 text-xs text-slate-500">
+                      <div className="mt-0.5 text-xs text-brand-ink/70">
                         Controlled options are useful for consistent filtering and comparison.
                       </div>
                     </div>
@@ -2609,7 +2609,7 @@ export default function AdminSpecificationsPage() {
                       onClick={
                         addOption
                       }
-                      className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                      className="inline-flex items-center gap-2 rounded-xl border border-brand-steel bg-white px-3 py-2 text-xs font-semibold text-brand-ink hover:bg-brand-mist"
                     >
                       <Plus className="h-3.5 w-3.5" />
                       Add option
@@ -2620,7 +2620,7 @@ export default function AdminSpecificationsPage() {
                     {form.options
                       .length ===
                     0 ? (
-                      <div className="rounded-xl border border-dashed border-slate-300 px-4 py-8 text-center text-sm text-slate-500">
+                      <div className="rounded-xl border border-dashed border-brand-steel px-4 py-8 text-center text-sm text-brand-ink/70">
                         No options yet. Add at least one option.
                       </div>
                     ) : (
@@ -2633,7 +2633,7 @@ export default function AdminSpecificationsPage() {
                             key={
                               index
                             }
-                            className="grid gap-3 rounded-xl border border-slate-200 bg-white p-3 sm:grid-cols-[1fr_1fr_auto]"
+                            className="grid gap-3 rounded-xl border border-brand-steel bg-white p-3 sm:grid-cols-[1fr_1fr_auto]"
                           >
                             <input
                               value={
@@ -3133,11 +3133,11 @@ export default function AdminSpecificationsPage() {
                 </FormField>
               </div>
 
-              <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-900">
+              <div className="rounded-2xl border border-brand-orange bg-brand-mist px-4 py-3 text-sm leading-6 text-brand-orange">
                 Brand is not required here. The seller chooses the brand when creating a product. This specification is controlled by the selected category, keeping product creation simple.
               </div>
 
-              <div className="flex flex-col-reverse gap-3 border-t border-slate-200 pt-5 sm:flex-row sm:justify-end">
+              <div className="flex flex-col-reverse gap-3 border-t border-brand-steel pt-5 sm:flex-row sm:justify-end">
                 <button
                   type="button"
                   disabled={
@@ -3146,7 +3146,7 @@ export default function AdminSpecificationsPage() {
                   onClick={
                     closeFormModal
                   }
-                  className="inline-flex h-11 items-center justify-center rounded-xl border border-slate-200 bg-white px-5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:opacity-50"
+                  className="inline-flex h-11 items-center justify-center rounded-xl border border-brand-steel bg-white px-5 text-sm font-semibold text-brand-ink transition hover:bg-brand-mist disabled:opacity-50"
                 >
                   Cancel
                 </button>
@@ -3156,7 +3156,7 @@ export default function AdminSpecificationsPage() {
                   disabled={
                     submitting
                   }
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-slate-950 px-5 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-brand-ink px-5 text-sm font-semibold text-white transition hover:bg-brand-ink disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {submitting ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
@@ -3175,19 +3175,19 @@ export default function AdminSpecificationsPage() {
       ) : null}
 
       {deleteTarget ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/45 p-4 backdrop-blur-[2px]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-brand-ink/45 p-4 backdrop-blur-[2px]">
           <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl">
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50">
               <Trash2 className="h-6 w-6 text-red-600" />
             </div>
 
-            <h2 className="mt-5 text-xl font-semibold text-slate-950">
+            <h2 className="mt-5 text-xl font-semibold text-brand-ink">
               Delete specification?
             </h2>
 
-            <p className="mt-2 text-sm leading-6 text-slate-600">
+            <p className="mt-2 text-sm leading-6 text-brand-ink/70">
               You are about to delete{" "}
-              <span className="font-semibold text-slate-900">
+              <span className="font-semibold text-brand-ink">
                 {
                   deleteTarget.name
                 }
@@ -3199,7 +3199,7 @@ export default function AdminSpecificationsPage() {
               deleteTarget.category_assignments_count ??
               0
             ) > 0 ? (
-              <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+              <div className="mt-4 rounded-xl border border-brand-orange bg-brand-mist px-4 py-3 text-sm text-brand-orange">
                 This definition is assigned to{" "}
                 {
                   deleteTarget.category_assignments_count
@@ -3224,7 +3224,7 @@ export default function AdminSpecificationsPage() {
                     null,
                   )
                 }
-                className="inline-flex h-10 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+                className="inline-flex h-10 items-center justify-center rounded-xl border border-brand-steel bg-white px-4 text-sm font-semibold text-brand-ink hover:bg-brand-mist disabled:opacity-50"
               >
                 Cancel
               </button>
@@ -3332,16 +3332,16 @@ function SummaryCard({
   hint: string;
 }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-      <div className="text-sm font-medium text-slate-500">
+    <div className="rounded-2xl border border-brand-steel bg-white p-5 shadow-sm">
+      <div className="text-sm font-medium text-brand-ink/70">
         {label}
       </div>
 
-      <div className="mt-2 text-3xl font-semibold tracking-tight text-slate-950">
+      <div className="mt-2 text-3xl font-semibold tracking-tight text-brand-ink">
         {value}
       </div>
 
-      <div className="mt-1 text-xs text-slate-400">
+      <div className="mt-1 text-xs text-brand-steel">
         {hint}
       </div>
     </div>
@@ -3358,7 +3358,7 @@ function StatusBadge({
       Active
     </span>
   ) : (
-    <span className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 ring-1 ring-inset ring-slate-200">
+    <span className="inline-flex items-center rounded-full bg-brand-mist px-2.5 py-1 text-xs font-semibold text-brand-ink/70 ring-1 ring-inset ring-brand-steel">
       Inactive
     </span>
   );
@@ -3370,7 +3370,7 @@ function SmallBadge({
   children: ReactNode;
 }) {
   return (
-    <span className="rounded-full bg-blue-50 px-2 py-1 text-[11px] font-semibold text-blue-700 ring-1 ring-inset ring-blue-100">
+    <span className="rounded-full bg-brand-mist px-2 py-1 text-[11px] font-semibold text-brand-ink ring-1 ring-inset ring-brand-mist">
       {children}
     </span>
   );
@@ -3382,7 +3382,7 @@ function SectionTitle({
   children: ReactNode;
 }) {
   return (
-    <h3 className="mb-3 text-sm font-semibold text-slate-900">
+    <h3 className="mb-3 text-sm font-semibold text-brand-ink">
       {children}
     </h3>
   );
@@ -3402,13 +3402,13 @@ function ToggleCard({
   ) => void;
 }) {
   return (
-    <label className="flex cursor-pointer items-start justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-4">
+    <label className="flex cursor-pointer items-start justify-between gap-4 rounded-2xl border border-brand-steel bg-white p-4">
       <div>
-        <div className="text-sm font-semibold text-slate-900">
+        <div className="text-sm font-semibold text-brand-ink">
           {title}
         </div>
 
-        <div className="mt-1 text-xs leading-5 text-slate-500">
+        <div className="mt-1 text-xs leading-5 text-brand-ink/70">
           {description}
         </div>
       </div>
@@ -3421,7 +3421,7 @@ function ToggleCard({
             event.target.checked,
           )
         }
-        className="mt-1 h-4 w-4 rounded border-slate-300"
+        className="mt-1 h-4 w-4 rounded border-brand-steel"
       />
     </label>
   );
@@ -3437,7 +3437,7 @@ function TableHead({
   return (
     <th
       scope="col"
-      className={`px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500 ${className}`}
+      className={`px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-brand-ink/70 ${className}`}
     >
       {children}
     </th>
@@ -3457,7 +3457,7 @@ function FormField({
 }) {
   return (
     <label className="block">
-      <div className="mb-2 flex items-center gap-1 text-sm font-medium text-slate-700">
+      <div className="mb-2 flex items-center gap-1 text-sm font-medium text-brand-ink">
         {label}
 
         {required ? (
@@ -3470,7 +3470,7 @@ function FormField({
       {children}
 
       {hint ? (
-        <div className="mt-1.5 text-xs leading-5 text-slate-400">
+        <div className="mt-1.5 text-xs leading-5 text-brand-steel">
           {hint}
         </div>
       ) : null}

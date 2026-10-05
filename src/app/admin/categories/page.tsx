@@ -1006,16 +1006,16 @@ export default function AdminCategoriesPage() {
       {/* Header */}
       <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-center">
         <div>
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-ink">
             <FolderTree className="h-4 w-4" />
             Catalog setup
           </div>
 
-          <h1 className="mt-2 text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
+          <h1 className="mt-2 text-2xl font-bold tracking-tight text-brand-ink sm:text-3xl">
             Root categories
           </h1>
 
-          <p className="mt-1 max-w-3xl text-sm leading-6 text-slate-500">
+          <p className="mt-1 max-w-3xl text-sm leading-6 text-brand-ink/70">
             Create the first category level inside each department. Subcategories will be created under these roots in the next taxonomy level.
           </p>
         </div>
@@ -1031,7 +1031,7 @@ export default function AdminCategoriesPage() {
               )
             }
             disabled={loading}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 disabled:opacity-50"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-brand-steel bg-white px-4 text-sm font-semibold text-brand-ink shadow-sm transition hover:bg-brand-mist disabled:opacity-50"
           >
             <RefreshCw
               className={[
@@ -1047,7 +1047,7 @@ export default function AdminCategoriesPage() {
           <button
             type="button"
             onClick={openCreateModal}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-blue-700 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-800"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-ink"
           >
             <Plus className="h-4 w-4" />
             Add root category
@@ -1117,10 +1117,10 @@ export default function AdminCategoriesPage() {
       </div>
 
       {/* Filters */}
-      <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div className="rounded-2xl border border-brand-steel bg-white p-4 shadow-sm">
         <div className="grid gap-3 lg:grid-cols-[1fr_220px_180px]">
           <div className="relative">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-steel" />
 
             <input
               value={search}
@@ -1131,7 +1131,7 @@ export default function AdminCategoriesPage() {
                 setPage(1);
               }}
               placeholder="Search root categories..."
-              className="h-10 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:ring-4 focus:ring-blue-50"
+              className="h-10 w-full rounded-xl border border-brand-steel bg-white pl-10 pr-3 text-sm text-brand-ink outline-none transition placeholder:text-brand-steel focus:border-brand-orange focus:ring-4 focus:ring-brand-mist"
             />
           </div>
 
@@ -1191,13 +1191,13 @@ export default function AdminCategoriesPage() {
       </div>
 
       {/* Table */}
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <div className="border-b border-slate-100 px-5 py-4">
-          <h2 className="text-base font-semibold text-slate-950">
+      <div className="overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-sm">
+        <div className="border-b border-brand-mist px-5 py-4">
+          <h2 className="text-base font-semibold text-brand-ink">
             Root category directory
           </h2>
 
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-brand-ink/70">
             Every root category belongs to one marketplace department.
           </p>
         </div>
@@ -1205,31 +1205,31 @@ export default function AdminCategoriesPage() {
         {loading ? (
           <div className="flex min-h-72 items-center justify-center">
             <div className="flex flex-col items-center gap-3">
-              <Loader2 className="h-6 w-6 animate-spin text-blue-600" />
+              <Loader2 className="h-6 w-6 animate-spin text-brand-ink" />
 
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-brand-ink/70">
                 Loading categories...
               </p>
             </div>
           </div>
         ) : visibleCategories.length === 0 ? (
           <div className="flex min-h-72 flex-col items-center justify-center px-6 text-center">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-100">
-              <FolderRoot className="h-6 w-6 text-slate-500" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-mist">
+              <FolderRoot className="h-6 w-6 text-brand-ink/70" />
             </div>
 
-            <h3 className="mt-4 text-sm font-semibold text-slate-900">
+            <h3 className="mt-4 text-sm font-semibold text-brand-ink">
               No root categories found
             </h3>
 
-            <p className="mt-1 max-w-md text-sm leading-6 text-slate-500">
+            <p className="mt-1 max-w-md text-sm leading-6 text-brand-ink/70">
               Create a root category and assign it to a department, for example Computers & Laptops inside Electronics.
             </p>
 
             <button
               type="button"
               onClick={openCreateModal}
-              className="mt-4 inline-flex h-9 items-center gap-2 rounded-lg bg-blue-700 px-4 text-sm font-semibold text-white hover:bg-blue-800"
+              className="mt-4 inline-flex h-9 items-center gap-2 rounded-lg bg-brand-ink px-4 text-sm font-semibold text-white hover:bg-brand-ink"
             >
               <Plus className="h-4 w-4" />
               Add root category
@@ -1239,8 +1239,8 @@ export default function AdminCategoriesPage() {
           <>
             <div className="overflow-x-auto">
               <table className="w-full min-w-[950px]">
-                <thead className="bg-slate-50">
-                  <tr className="border-b border-slate-200 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">
+                <thead className="bg-brand-mist">
+                  <tr className="border-b border-brand-steel text-left text-xs font-semibold uppercase tracking-wide text-brand-ink/70">
                     <th className="px-5 py-3">
                       Category
                     </th>
@@ -1265,7 +1265,7 @@ export default function AdminCategoriesPage() {
                   </tr>
                 </thead>
 
-                <tbody className="divide-y divide-slate-100">
+                <tbody className="divide-y divide-brand-mist">
                   {visibleCategories.map(
                     (category) => {
                       const department =
@@ -1278,29 +1278,29 @@ export default function AdminCategoriesPage() {
                           key={
                             category.public_id
                           }
-                          className="transition hover:bg-slate-50/70"
+                          className="transition hover:bg-brand-mist/70"
                         >
                           <td className="px-5 py-4">
                             <div className="flex items-start gap-3">
-                              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-violet-50 text-violet-700">
+                              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-mist text-brand-ink">
                                 <FolderRoot className="h-5 w-5" />
                               </div>
 
                               <div className="min-w-0">
-                                <p className="font-semibold text-slate-950">
+                                <p className="font-semibold text-brand-ink">
                                   {
                                     category.name
                                   }
                                 </p>
 
-                                <p className="mt-0.5 text-xs text-slate-500">
+                                <p className="mt-0.5 text-xs text-brand-ink/70">
                                   /{
                                     category.slug
                                   }
                                 </p>
 
                                 {category.description ? (
-                                  <p className="mt-1 max-w-sm truncate text-xs text-slate-500">
+                                  <p className="mt-1 max-w-sm truncate text-xs text-brand-ink/70">
                                     {
                                       category.description
                                     }
@@ -1312,14 +1312,14 @@ export default function AdminCategoriesPage() {
 
                           <td className="px-5 py-4">
                             {department ? (
-                              <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-700">
+                              <span className="inline-flex items-center gap-1.5 rounded-full border border-brand-steel bg-brand-mist px-2.5 py-1 text-xs font-semibold text-brand-ink">
                                 <FolderTree className="h-3.5 w-3.5" />
                                 {
                                   department.name
                                 }
                               </span>
                             ) : (
-                              <span className="inline-flex rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700">
+                              <span className="inline-flex rounded-full border border-brand-orange bg-brand-mist px-2.5 py-1 text-xs font-semibold text-brand-orange">
                                 Unassigned
                               </span>
                             )}
@@ -1333,18 +1333,18 @@ export default function AdminCategoriesPage() {
                             />
                           </td>
 
-                          <td className="px-5 py-4 text-sm text-slate-600">
+                          <td className="px-5 py-4 text-sm text-brand-ink/70">
                             {category.products_count ??
                               0}
                           </td>
 
-                          <td className="px-5 py-4 text-sm text-slate-600">
+                          <td className="px-5 py-4 text-sm text-brand-ink/70">
                             {
                               category.sort_order
                             }
                           </td>
 
-                          <td className="px-5 py-4 text-sm text-slate-500">
+                          <td className="px-5 py-4 text-sm text-brand-ink/70">
                             {formatDate(
                               category.updated_at,
                             )}
@@ -1361,14 +1361,14 @@ export default function AdminCategoriesPage() {
                                     : category.public_id,
                                 )
                               }
-                              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition hover:bg-slate-50"
+                              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-brand-steel bg-white text-brand-ink/70 transition hover:bg-brand-mist"
                             >
                               <MoreHorizontal className="h-4 w-4" />
                             </button>
 
                             {actionMenu ===
                             category.public_id ? (
-                              <div className="absolute right-5 top-14 z-20 w-44 overflow-hidden rounded-xl border border-slate-200 bg-white p-1.5 text-left shadow-xl">
+                              <div className="absolute right-5 top-14 z-20 w-44 overflow-hidden rounded-xl border border-brand-steel bg-white p-1.5 text-left shadow-xl">
                                 <button
                                   type="button"
                                   onClick={() =>
@@ -1376,13 +1376,13 @@ export default function AdminCategoriesPage() {
                                       category,
                                     )
                                   }
-                                  className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                                  className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-brand-ink hover:bg-brand-mist"
                                 >
                                   <Edit3 className="h-4 w-4" />
                                   Edit
                                 </button>
 
-                                <div className="my-1 border-t border-slate-100" />
+                                <div className="my-1 border-t border-brand-mist" />
 
                                 <button
                                   type="button"
@@ -1410,22 +1410,22 @@ export default function AdminCategoriesPage() {
               </table>
             </div>
 
-            <div className="flex flex-col gap-3 border-t border-slate-100 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm text-slate-500">
+            <div className="flex flex-col gap-3 border-t border-brand-mist px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm text-brand-ink/70">
                 Showing{" "}
-                <span className="font-medium text-slate-700">
+                <span className="font-medium text-brand-ink">
                   {meta.from ??
                     (visibleCategories.length
                       ? 1
                       : 0)}
                 </span>
                 {" – "}
-                <span className="font-medium text-slate-700">
+                <span className="font-medium text-brand-ink">
                   {meta.to ??
                     visibleCategories.length}
                 </span>{" "}
                 of{" "}
-                <span className="font-medium text-slate-700">
+                <span className="font-medium text-brand-ink">
                   {totalCategories}
                 </span>
               </p>
@@ -1445,13 +1445,13 @@ export default function AdminCategoriesPage() {
                     page <= 1 ||
                     loading
                   }
-                  className="inline-flex h-9 items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="inline-flex h-9 items-center gap-1 rounded-lg border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink hover:bg-brand-mist disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   <ChevronLeft className="h-4 w-4" />
                   Previous
                 </button>
 
-                <span className="px-2 text-sm font-medium text-slate-600">
+                <span className="px-2 text-sm font-medium text-brand-ink/70">
                   Page {page} of{" "}
                   {lastPage}
                 </span>
@@ -1470,7 +1470,7 @@ export default function AdminCategoriesPage() {
                     page >= lastPage ||
                     loading
                   }
-                  className="inline-flex h-9 items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="inline-flex h-9 items-center gap-1 rounded-lg border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink hover:bg-brand-mist disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   Next
                   <ChevronRight className="h-4 w-4" />
@@ -1656,7 +1656,7 @@ export default function AdminCategoriesPage() {
               </FieldLabel>
 
               <div>
-                <span className="mb-2 block text-xs font-semibold uppercase tracking-wide text-slate-600">
+                <span className="mb-2 block text-xs font-semibold uppercase tracking-wide text-brand-ink/70">
                   Availability
                 </span>
 
@@ -1675,7 +1675,7 @@ export default function AdminCategoriesPage() {
                     "flex h-10 w-full items-center justify-between rounded-xl border px-3 text-sm font-medium transition",
                     form.is_active
                       ? "border-emerald-200 bg-emerald-50 text-emerald-800"
-                      : "border-slate-200 bg-slate-50 text-slate-600",
+                      : "border-brand-steel bg-brand-mist text-brand-ink/70",
                   ].join(" ")}
                 >
                   <span>
@@ -1689,7 +1689,7 @@ export default function AdminCategoriesPage() {
                       "relative h-5 w-9 rounded-full transition",
                       form.is_active
                         ? "bg-emerald-600"
-                        : "bg-slate-300",
+                        : "bg-brand-steel",
                     ].join(" ")}
                   >
                     <span
@@ -1705,7 +1705,7 @@ export default function AdminCategoriesPage() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-xs leading-5 text-blue-800">
+            <div className="rounded-xl border border-brand-mist bg-brand-mist px-4 py-3 text-xs leading-5 text-brand-ink">
               This page creates root categories only. The API receives{" "}
               <code className="font-semibold">
                 parent_id: null
@@ -1713,14 +1713,14 @@ export default function AdminCategoriesPage() {
               . Subcategories will be created beneath these roots separately.
             </div>
 
-            <div className="flex items-center justify-end gap-2 border-t border-slate-100 pt-4">
+            <div className="flex items-center justify-end gap-2 border-t border-brand-mist pt-4">
               <button
                 type="button"
                 onClick={
                   closeFormModal
                 }
                 disabled={submitting}
-                className="inline-flex h-10 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+                className="inline-flex h-10 items-center justify-center rounded-xl border border-brand-steel bg-white px-4 text-sm font-semibold text-brand-ink hover:bg-brand-mist disabled:opacity-50"
               >
                 Cancel
               </button>
@@ -1728,7 +1728,7 @@ export default function AdminCategoriesPage() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-blue-700 px-4 text-sm font-semibold text-white hover:bg-blue-800 disabled:opacity-50"
+                className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-semibold text-white hover:bg-brand-ink disabled:opacity-50"
               >
                 {submitting ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
@@ -1769,7 +1769,7 @@ export default function AdminCategoriesPage() {
                   setDeleteTarget(null)
                 }
                 disabled={deleting}
-                className="inline-flex h-10 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+                className="inline-flex h-10 items-center justify-center rounded-xl border border-brand-steel bg-white px-4 text-sm font-semibold text-brand-ink hover:bg-brand-mist disabled:opacity-50"
               >
                 Cancel
               </button>
@@ -1798,7 +1798,7 @@ export default function AdminCategoriesPage() {
 }
 
 const inputClass =
-  "h-10 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:ring-4 focus:ring-blue-50";
+  "h-10 w-full rounded-xl border border-brand-steel bg-white px-3 text-sm text-brand-ink outline-none transition placeholder:text-brand-steel focus:border-brand-orange focus:ring-4 focus:ring-brand-mist";
 
 function StatusBadge({
   active,
@@ -1811,7 +1811,7 @@ function StatusBadge({
         "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold",
         active
           ? "border-emerald-200 bg-emerald-50 text-emerald-700"
-          : "border-slate-200 bg-slate-100 text-slate-600",
+          : "border-brand-steel bg-brand-mist text-brand-ink/70",
       ].join(" ")}
     >
       <span
@@ -1819,7 +1819,7 @@ function StatusBadge({
           "h-1.5 w-1.5 rounded-full",
           active
             ? "bg-emerald-500"
-            : "bg-slate-400",
+            : "bg-brand-steel",
         ].join(" ")}
       />
       {active ? "Active" : "Inactive"}
@@ -1839,22 +1839,22 @@ function SummaryCard({
   description: string;
 }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+    <div className="rounded-2xl border border-brand-steel bg-white p-4 shadow-sm">
       <div className="flex items-start gap-3">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-mist text-brand-ink">
           <Icon className="h-5 w-5" />
         </div>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+          <p className="text-xs font-semibold uppercase tracking-wide text-brand-ink/70">
             {label}
           </p>
 
-          <p className="mt-1 text-2xl font-bold text-slate-950">
+          <p className="mt-1 text-2xl font-bold text-brand-ink">
             {value}
           </p>
 
-          <p className="mt-1 text-xs text-slate-500">
+          <p className="mt-1 text-xs text-brand-ink/70">
             {description}
           </p>
         </div>
@@ -1874,7 +1874,7 @@ function FieldLabel({
 }) {
   return (
     <label className="block">
-      <span className="mb-2 block text-xs font-semibold uppercase tracking-wide text-slate-600">
+      <span className="mb-2 block text-xs font-semibold uppercase tracking-wide text-brand-ink/70">
         {label}
 
         {required ? (
@@ -1903,15 +1903,15 @@ function ModalShell({
   children: React.ReactNode;
 }) {
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/50 p-4 backdrop-blur-[2px]">
-      <div className="max-h-[92vh] w-full max-w-lg overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl">
-        <div className="flex items-start justify-between gap-4 border-b border-slate-100 px-5 py-4">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-brand-ink/50 p-4 backdrop-blur-[2px]">
+      <div className="max-h-[92vh] w-full max-w-lg overflow-hidden rounded-2xl border border-brand-steel bg-white shadow-2xl">
+        <div className="flex items-start justify-between gap-4 border-b border-brand-mist px-5 py-4">
           <div>
-            <h2 className="text-lg font-semibold text-slate-950">
+            <h2 className="text-lg font-semibold text-brand-ink">
               {title}
             </h2>
 
-            <p className="mt-1 text-sm leading-6 text-slate-500">
+            <p className="mt-1 text-sm leading-6 text-brand-ink/70">
               {description}
             </p>
           </div>
@@ -1920,7 +1920,7 @@ function ModalShell({
             type="button"
             onClick={onClose}
             disabled={disabled}
-            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 hover:bg-slate-50 disabled:opacity-50"
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-brand-steel bg-white text-brand-ink/70 hover:bg-brand-mist disabled:opacity-50"
           >
             <X className="h-4 w-4" />
           </button>
