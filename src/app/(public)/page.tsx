@@ -1,5 +1,6 @@
 import CategoryShowcase from "@/components/rushpi-home/category-showcase";
 import HeroCarousel from "@/components/rushpi-home/hero-carousel";
+import TrustBenefitsStrip from "@/components/rushpi-home/trust-benefits-strip";
 import HomepageCampaignGrid from "@/components/rushpi-home/homepage-campaign-grid";
 import ProductShelf from "@/components/rushpi-home/product-shelf";
 import RollbacksGrid from "@/components/rushpi-home/rollbacks-grid";
@@ -25,12 +26,15 @@ export default async function HomePage() {
     <main className="min-h-screen bg-white pb-16">
       <HeroCarousel products={home.heroSlides} />
 
+      <TrustBenefitsStrip />
+
       <SectionDivider />
 
       <ProductShelf
         title="Discover Great Brands"
         action="Shop all"
         products={home.discover}
+        largeCards
       />
 
       <SectionDivider />

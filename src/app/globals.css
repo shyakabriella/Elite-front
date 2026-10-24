@@ -1439,3 +1439,31 @@ details:not([open]) > .rushpi-dropdown-panel {
   --color-brand-ink: #263540;
   --color-brand-orange: #ff9a4d;
 }
+
+/* EliteMart marketplace viewport safety */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  min-width: 0;
+}
+
+main {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
