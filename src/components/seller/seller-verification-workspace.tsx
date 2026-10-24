@@ -19,16 +19,10 @@ import {
   UploadCloud,
   XCircle,
 } from "lucide-react";
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 const API_BASE_URL = (
-  process.env.NEXT_PUBLIC_API_BASE_URL ??
-  "http://127.0.0.1:8000/api"
+  process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://127.0.0.1:8000/api"
 ).replace(/\/+$/, "");
 
 type ApplicationStatus =
@@ -124,11 +118,7 @@ type SellerDocumentRequirement = {
   id?: number;
   key: string;
   name: string;
-  requirement_level:
-    | "required"
-    | "conditional"
-    | "recommended"
-    | string;
+  requirement_level: "required" | "conditional" | "recommended" | string;
   condition?: string | null;
   description?: string | null;
   allow_multiple?: boolean;
@@ -168,23 +158,11 @@ function getToken(): string | null {
   );
 }
 
-function getApiMessage(
-  payload: unknown,
-  fallback: string,
-): string {
-  if (
-    payload &&
-    typeof payload === "object" &&
-    "message" in payload
-  ) {
-    const message = (
-      payload as { message?: unknown }
-    ).message;
+function getApiMessage(payload: unknown, fallback: string): string {
+  if (payload && typeof payload === "object" && "message" in payload) {
+    const message = (payload as { message?: unknown }).message;
 
-    if (
-      typeof message === "string" &&
-      message.trim()
-    ) {
+    if (typeof message === "string" && message.trim()) {
       return message;
     }
   }
@@ -203,20 +181,14 @@ async function apiRequest<T>(
   const token = getToken();
 
   if (token) {
-    headers.set(
-      "Authorization",
-      `Bearer ${token}`,
-    );
+    headers.set("Authorization", `Bearer ${token}`);
   }
 
-  const response = await fetch(
-    `${API_BASE_URL}${path}`,
-    {
-      ...options,
-      headers,
-      cache: "no-store",
-    },
-  );
+  const response = await fetch(`${API_BASE_URL}${path}`, {
+    ...options,
+    headers,
+    cache: "no-store",
+  });
 
   const text = await response.text();
 
@@ -224,9 +196,7 @@ async function apiRequest<T>(
 
   if (text) {
     try {
-      payload = JSON.parse(
-        text,
-      ) as ApiEnvelope<T>;
+      payload = JSON.parse(text) as ApiEnvelope<T>;
     } catch {
       payload = {};
     }
@@ -234,19 +204,14 @@ async function apiRequest<T>(
 
   if (!response.ok) {
     throw new Error(
-      getApiMessage(
-        payload,
-        `Request failed with HTTP ${response.status}.`,
-      ),
+      getApiMessage(payload, `Request failed with HTTP ${response.status}.`),
     );
   }
 
   return payload;
 }
 
-function normalizeStatus(
-  value?: string | null,
-): string {
+function normalizeStatus(value?: string | null): string {
   return (
     value
       ?.trim()
@@ -255,25 +220,17 @@ function normalizeStatus(
   );
 }
 
-function formatLabel(
-  value?: string | null,
-): string {
+function formatLabel(value?: string | null): string {
   if (!value) {
     return "Not available";
   }
 
   return value
     .replace(/_/g, " ")
-    .replace(
-      /\b\w/g,
-      (character) =>
-        character.toUpperCase(),
-    );
+    .replace(/\b\w/g, (character) => character.toUpperCase());
 }
 
-function formatDate(
-  value?: string | null,
-): string {
+function formatDate(value?: string | null): string {
   if (!value) {
     return "—";
   }
@@ -284,19 +241,14 @@ function formatDate(
     return value;
   }
 
-  return new Intl.DateTimeFormat(
-    "en",
-    {
-      year: "numeric",
-      month: "short",
-      day: "2-digit",
-    },
-  ).format(date);
+  return new Intl.DateTimeFormat("en", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  }).format(date);
 }
 
-function formatDateTime(
-  value?: string | null,
-): string {
+function formatDateTime(value?: string | null): string {
   if (!value) {
     return "—";
   }
@@ -307,21 +259,16 @@ function formatDateTime(
     return value;
   }
 
-  return new Intl.DateTimeFormat(
-    "en",
-    {
-      year: "numeric",
-      month: "short",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-    },
-  ).format(date);
+  return new Intl.DateTimeFormat("en", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(date);
 }
 
-function formatBytes(
-  value?: number | null,
-): string {
+function formatBytes(value?: number | null): string {
   if (!value) {
     return "—";
   }
@@ -334,11 +281,7 @@ function formatBytes(
     return `${(value / 1024).toFixed(1)} KB`;
   }
 
-  return `${(
-    value /
-    1024 /
-    1024
-  ).toFixed(1)} MB`;
+  return `${(value / 1024 / 1024).toFixed(1)} MB`;
 }
 
 function sortApplications(
@@ -353,19 +296,13 @@ function sortApplications(
     }
 
     return (
-      new Date(
-        b.created_at ?? 0,
-      ).getTime() -
-      new Date(
-        a.created_at ?? 0,
-      ).getTime()
+      new Date(b.created_at ?? 0).getTime() -
+      new Date(a.created_at ?? 0).getTime()
     );
   });
 }
 
-function statusClasses(
-  status?: string | null,
-): string {
+function statusClasses(status?: string | null): string {
   const current = normalizeStatus(status);
 
   switch (current) {
@@ -393,15 +330,10 @@ function statusClasses(
   }
 }
 
-function statusIcon(
-  status?: string | null,
-) {
+function statusIcon(status?: string | null) {
   const current = normalizeStatus(status);
 
-  if (
-    current === "approved" ||
-    current === "clean"
-  ) {
+  if (current === "approved" || current === "clean") {
     return CheckCircle2;
   }
 
@@ -413,10 +345,7 @@ function statusIcon(
     return XCircle;
   }
 
-  if (
-    current ===
-    "more_information_required"
-  ) {
+  if (current === "more_information_required") {
     return AlertCircle;
   }
 
@@ -428,40 +357,25 @@ function documentTypeLabel(
   requirements: SellerDocumentRequirement[] = [],
 ): string {
   return (
-    requirements.find(
-      (item) => item.key === type,
-    )?.name ?? formatLabel(type)
+    requirements.find((item) => item.key === type)?.name ?? formatLabel(type)
   );
 }
 
-function reviewActionLabel(
-  action: string,
-): string {
+function reviewActionLabel(action: string): string {
   const labels: Record<string, string> = {
-    review_started:
-      "Review started",
-    information_requested:
-      "Additional information requested",
-    application_approved:
-      "Application approved",
-    application_rejected:
-      "Application rejected",
-    document_approved:
-      "Document approved",
-    document_rejected:
-      "Document rejected",
-    seller_suspended:
-      "Seller suspended",
+    review_started: "Review started",
+    information_requested: "Additional information requested",
+    application_approved: "Application approved",
+    application_rejected: "Application rejected",
+    document_approved: "Document approved",
+    document_rejected: "Document rejected",
+    seller_suspended: "Seller suspended",
   };
 
   return labels[action] ?? formatLabel(action);
 }
 
-function StatusBadge({
-  status,
-}: {
-  status?: string | null;
-}) {
+function StatusBadge({ status }: { status?: string | null }) {
   const Icon = statusIcon(status);
 
   return (
@@ -478,11 +392,7 @@ function StatusBadge({
   );
 }
 
-function RequirementLevelBadge({
-  level,
-}: {
-  level: string;
-}) {
+function RequirementLevelBadge({ level }: { level: string }) {
   const normalized = normalizeStatus(level);
 
   const classes =
@@ -506,267 +416,159 @@ function RequirementLevelBadge({
 }
 
 export default function SellerVerificationWorkspace() {
-  const [
-    profile,
-    setProfile,
-  ] = useState<SellerProfile | null>(null);
+  const [profile, setProfile] = useState<SellerProfile | null>(null);
 
-  const [
-    application,
-    setApplication,
-  ] = useState<SellerApplication | null>(
+  const [application, setApplication] = useState<SellerApplication | null>(
     null,
   );
 
-  const [
-    documents,
-    setDocuments,
-  ] = useState<SellerDocument[]>([]);
+  const [documents, setDocuments] = useState<SellerDocument[]>([]);
 
-  const [
-    requirements,
-    setRequirements,
-  ] = useState<
-    SellerDocumentRequirement[]
-  >([]);
-
-  const [
-    drafts,
-    setDrafts,
-  ] = useState<
-    Record<string, RequirementDraft>
-  >({});
-
-  const [
-    fileInputVersions,
-    setFileInputVersions,
-  ] = useState<Record<string, number>>(
-    {},
+  const [requirements, setRequirements] = useState<SellerDocumentRequirement[]>(
+    [],
   );
 
-  const [
-    loading,
-    setLoading,
-  ] = useState(true);
+  const [drafts, setDrafts] = useState<Record<string, RequirementDraft>>({});
 
-  const [
-    refreshing,
-    setRefreshing,
-  ] = useState(false);
+  const [fileInputVersions, setFileInputVersions] = useState<
+    Record<string, number>
+  >({});
 
-  const [
-    uploadingRequirement,
-    setUploadingRequirement,
-  ] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  const [
-    submitting,
-    setSubmitting,
-  ] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
 
-  const [
-    deletingId,
-    setDeletingId,
-  ] = useState<string | null>(null);
+  const [uploadingRequirement, setUploadingRequirement] = useState<
+    string | null
+  >(null);
 
-  const [
-    downloadingId,
-    setDownloadingId,
-  ] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
-  const [
-    errorMessage,
-    setErrorMessage,
-  ] = useState("");
+  const [deletingId, setDeletingId] = useState<string | null>(null);
 
-  const [
-    successMessage,
-    setSuccessMessage,
-  ] = useState("");
+  const [downloadingId, setDownloadingId] = useState<string | null>(null);
 
-  const loadVerification =
-    useCallback(
-      async (refresh = false) => {
-        if (refresh) {
-          setRefreshing(true);
-        } else {
-          setLoading(true);
-        }
+  const [errorMessage, setErrorMessage] = useState("");
 
-        setErrorMessage("");
+  const [successMessage, setSuccessMessage] = useState("");
 
-        try {
-          const profilesResponse =
-            await apiRequest<
-              SellerProfile[]
-            >("/seller/profiles");
+  const loadVerification = useCallback(async (refresh = false) => {
+    if (refresh) {
+      setRefreshing(true);
+    } else {
+      setLoading(true);
+    }
 
-          const profiles = Array.isArray(
-            profilesResponse.data,
-          )
-            ? profilesResponse.data
-            : [];
+    setErrorMessage("");
 
-          const basicProfile = profiles[0];
+    try {
+      const profilesResponse =
+        await apiRequest<SellerProfile[]>("/seller/profiles");
 
-          if (!basicProfile) {
-            setProfile(null);
-            setApplication(null);
-            setDocuments([]);
-            setRequirements([]);
-            return;
-          }
+      const profiles = Array.isArray(profilesResponse.data)
+        ? profilesResponse.data
+        : [];
 
-          const detailResponse =
-            await apiRequest<SellerProfile>(
-              `/seller/profiles/${encodeURIComponent(
-                basicProfile.public_id,
-              )}`,
-            );
+      const basicProfile = profiles[0];
 
-          const completeProfile =
-            detailResponse.data ??
-            basicProfile;
+      if (!basicProfile) {
+        setProfile(null);
+        setApplication(null);
+        setDocuments([]);
+        setRequirements([]);
+        return;
+      }
 
-          setProfile(completeProfile);
+      const detailResponse = await apiRequest<SellerProfile>(
+        `/seller/profiles/${encodeURIComponent(basicProfile.public_id)}`,
+      );
 
-          const apps = sortApplications(
-            completeProfile.applications ?? [],
-          );
+      const completeProfile = detailResponse.data ?? basicProfile;
 
-          const currentApplication =
-            apps[0] ?? null;
+      setProfile(completeProfile);
 
-          setApplication(
-            currentApplication,
-          );
+      const apps = sortApplications(completeProfile.applications ?? []);
 
-          let activeRequirements:
-            SellerDocumentRequirement[] = [];
+      const currentApplication = apps[0] ?? null;
 
-          try {
-            const requirementsResponse =
-              await apiRequest<
-                SellerDocumentRequirement[]
-              >(
-                "/seller/document-requirements",
-              );
+      setApplication(currentApplication);
 
-            activeRequirements =
-              Array.isArray(
-                requirementsResponse.data,
+      let activeRequirements: SellerDocumentRequirement[] = [];
+
+      try {
+        const requirementsResponse = await apiRequest<
+          SellerDocumentRequirement[]
+        >("/seller/document-requirements");
+
+        activeRequirements = Array.isArray(requirementsResponse.data)
+          ? requirementsResponse.data
+              .filter((item) => item.is_active !== false)
+              .sort(
+                (a, b) => Number(a.sort_order ?? 0) - Number(b.sort_order ?? 0),
               )
-                ? requirementsResponse.data
-                    .filter(
-                      (item) =>
-                        item.is_active !==
-                        false,
-                    )
-                    .sort(
-                      (a, b) =>
-                        Number(
-                          a.sort_order ?? 0,
-                        ) -
-                        Number(
-                          b.sort_order ?? 0,
-                        ),
-                    )
-                : [];
-          } catch {
-            // Fallback below.
-          }
+          : [];
+      } catch {
+        // Fallback below.
+      }
 
-          if (!currentApplication) {
-            setDocuments([]);
-            setRequirements(
-              activeRequirements,
-            );
-            return;
-          }
+      if (!currentApplication) {
+        setDocuments([]);
+        setRequirements(activeRequirements);
+        return;
+      }
 
-          const documentsResponse =
-            await apiRequest<
-              SellerDocument[]
-            >(
-              `/seller/profiles/${encodeURIComponent(
-                completeProfile.public_id,
-              )}/applications/${encodeURIComponent(
-                currentApplication.public_id,
-              )}/documents`,
-            );
+      const documentsResponse = await apiRequest<SellerDocument[]>(
+        `/seller/profiles/${encodeURIComponent(
+          completeProfile.public_id,
+        )}/applications/${encodeURIComponent(
+          currentApplication.public_id,
+        )}/documents`,
+      );
 
-          const loadedDocuments =
-            Array.isArray(
-              documentsResponse.data,
-            )
-              ? documentsResponse.data
-              : currentApplication.documents ??
-                [];
+      const loadedDocuments = Array.isArray(documentsResponse.data)
+        ? documentsResponse.data
+        : (currentApplication.documents ?? []);
 
-          setDocuments(loadedDocuments);
+      setDocuments(loadedDocuments);
 
-          if (
-            activeRequirements.length === 0 &&
-            Array.isArray(
-              documentsResponse.requirements,
-            )
-          ) {
-            activeRequirements =
-              documentsResponse.requirements
-                .filter(
-                  (item) =>
-                    item.is_active !== false,
-                )
-                .sort(
-                  (a, b) =>
-                    Number(
-                      a.sort_order ?? 0,
-                    ) -
-                    Number(
-                      b.sort_order ?? 0,
-                    ),
-                );
-          }
-
-          setRequirements(
-            activeRequirements,
+      if (
+        activeRequirements.length === 0 &&
+        Array.isArray(documentsResponse.requirements)
+      ) {
+        activeRequirements = documentsResponse.requirements
+          .filter((item) => item.is_active !== false)
+          .sort(
+            (a, b) => Number(a.sort_order ?? 0) - Number(b.sort_order ?? 0),
           );
-        } catch (error) {
-          setErrorMessage(
-            error instanceof Error
-              ? error.message
-              : "Verification information could not be loaded.",
-          );
-        } finally {
-          setLoading(false);
-          setRefreshing(false);
-        }
-      },
-      [],
-    );
+      }
+
+      setRequirements(activeRequirements);
+    } catch (error) {
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Verification information could not be loaded.",
+      );
+    } finally {
+      setLoading(false);
+      setRefreshing(false);
+    }
+  }, []);
 
   useEffect(() => {
     void loadVerification();
   }, [loadVerification]);
 
-  const applicationStatus =
-    normalizeStatus(
-      application?.status,
-    );
+  const applicationStatus = normalizeStatus(application?.status);
 
-  const sellerStatus =
-    normalizeStatus(profile?.status);
+  const sellerStatus = normalizeStatus(profile?.status);
 
-  const canEditDocuments = [
-    "draft",
-    "more_information_required",
-  ].includes(applicationStatus);
+  const canEditDocuments = ["draft", "more_information_required"].includes(
+    applicationStatus,
+  );
 
   const documentsByType = useMemo(() => {
-    const map: Record<
-      string,
-      SellerDocument[]
-    > = {};
+    const map: Record<string, SellerDocument[]> = {};
 
     for (const document of documents) {
       const type = document.document_type;
@@ -781,153 +583,89 @@ export default function SellerVerificationWorkspace() {
     return map;
   }, [documents]);
 
-  const requiredRequirements =
-    useMemo(
-      () =>
-        requirements.filter(
-          (requirement) =>
-            normalizeStatus(
-              requirement.requirement_level,
-            ) === "required",
+  const requiredRequirements = useMemo(
+    () =>
+      requirements.filter(
+        (requirement) =>
+          normalizeStatus(requirement.requirement_level) === "required",
+      ),
+    [requirements],
+  );
+
+  const requiredUploadedCount = useMemo(
+    () =>
+      requiredRequirements.filter((requirement) =>
+        (documentsByType[requirement.key] ?? []).some((document) => {
+          const status = normalizeStatus(document.status);
+
+          return !["rejected", "infected"].includes(status);
+        }),
+      ).length,
+    [requiredRequirements, documentsByType],
+  );
+
+  const requiredReadyCount = useMemo(
+    () =>
+      requiredRequirements.filter((requirement) =>
+        (documentsByType[requirement.key] ?? []).some((document) =>
+          ["clean", "approved"].includes(normalizeStatus(document.status)),
         ),
-      [requirements],
-    );
+      ).length,
+    [requiredRequirements, documentsByType],
+  );
 
-  const requiredUploadedCount =
-    useMemo(
-      () =>
-        requiredRequirements.filter(
-          (requirement) =>
-            (
-              documentsByType[
-                requirement.key
-              ] ?? []
-            ).some((document) => {
-              const status =
-                normalizeStatus(
-                  document.status,
-                );
-
-              return ![
-                "rejected",
-                "infected",
-              ].includes(status);
-            }),
-        ).length,
-      [
-        requiredRequirements,
-        documentsByType,
-      ],
-    );
-
-  const requiredReadyCount =
-    useMemo(
-      () =>
-        requiredRequirements.filter(
-          (requirement) =>
-            (
-              documentsByType[
-                requirement.key
-              ] ?? []
-            ).some((document) =>
-              [
-                "clean",
-                "approved",
-              ].includes(
-                normalizeStatus(
-                  document.status,
-                ),
-              ),
-            ),
-        ).length,
-      [
-        requiredRequirements,
-        documentsByType,
-      ],
-    );
-
-  const submitEligibleDocuments =
-    useMemo(
-      () =>
-        documents.filter(
-          (document) =>
-            ![
-              "infected",
-              "rejected",
-              "expired",
-              "deleted",
-            ].includes(
-              normalizeStatus(
-                document.status,
-              ),
-            ),
-        ),
-      [documents],
-    );
+  const submitEligibleDocuments = useMemo(
+    () =>
+      documents.filter(
+        (document) =>
+          !["infected", "rejected", "expired", "deleted"].includes(
+            normalizeStatus(document.status),
+          ),
+      ),
+    [documents],
+  );
 
   const minimumDocumentsRequired = 2;
 
   const canSubmit = Boolean(
     application &&
-      canEditDocuments &&
-      submitEligibleDocuments.length >=
-        minimumDocumentsRequired,
+    canEditDocuments &&
+    submitEligibleDocuments.length >= minimumDocumentsRequired,
   );
 
-  const approvedDocuments =
-    useMemo(
-      () =>
-        documents.filter(
-          (document) =>
-            normalizeStatus(
-              document.status,
-            ) === "approved",
-        ).length,
-      [documents],
-    );
+  const approvedDocuments = useMemo(
+    () =>
+      documents.filter(
+        (document) => normalizeStatus(document.status) === "approved",
+      ).length,
+    [documents],
+  );
 
-  const rejectedDocuments =
-    useMemo(
-      () =>
-        documents.filter(
-          (document) =>
-            normalizeStatus(
-              document.status,
-            ) === "rejected",
-        ).length,
-      [documents],
-    );
+  const rejectedDocuments = useMemo(
+    () =>
+      documents.filter(
+        (document) => normalizeStatus(document.status) === "rejected",
+      ).length,
+    [documents],
+  );
 
   const pendingDocuments = Math.max(
     0,
-    documents.length -
-      approvedDocuments -
-      rejectedDocuments,
+    documents.length - approvedDocuments - rejectedDocuments,
   );
 
   const reviews = useMemo(
     () =>
-      [
-        ...(application?.reviews ?? []),
-      ].sort(
+      [...(application?.reviews ?? [])].sort(
         (a, b) =>
-          new Date(
-            b.created_at ?? 0,
-          ).getTime() -
-          new Date(
-            a.created_at ?? 0,
-          ).getTime(),
+          new Date(b.created_at ?? 0).getTime() -
+          new Date(a.created_at ?? 0).getTime(),
       ),
     [application],
   );
 
-  function getDraft(
-    requirementKey: string,
-  ): RequirementDraft {
-    return (
-      drafts[requirementKey] ??
-      EMPTY_DRAFT
-    );
+  function getDraft(requirementKey: string): RequirementDraft {
+    return drafts[requirementKey] ?? EMPTY_DRAFT;
   }
 
   function updateDraft(
@@ -937,16 +675,13 @@ export default function SellerVerificationWorkspace() {
     setDrafts((current) => ({
       ...current,
       [requirementKey]: {
-        ...(current[requirementKey] ??
-          EMPTY_DRAFT),
+        ...(current[requirementKey] ?? EMPTY_DRAFT),
         ...patch,
       },
     }));
   }
 
-  function resetDraft(
-    requirementKey: string,
-  ) {
+  function resetDraft(requirementKey: string) {
     setDrafts((current) => ({
       ...current,
       [requirementKey]: {
@@ -954,24 +689,15 @@ export default function SellerVerificationWorkspace() {
       },
     }));
 
-    setFileInputVersions(
-      (current) => ({
-        ...current,
-        [requirementKey]:
-          (current[
-            requirementKey
-          ] ?? 0) + 1,
-      }),
-    );
+    setFileInputVersions((current) => ({
+      ...current,
+      [requirementKey]: (current[requirementKey] ?? 0) + 1,
+    }));
   }
 
-  async function deleteDocumentRequest(
-    document: SellerDocument,
-  ) {
+  async function deleteDocumentRequest(document: SellerDocument) {
     if (!profile || !application) {
-      throw new Error(
-        "No seller verification application is available.",
-      );
+      throw new Error("No seller verification application is available.");
     }
 
     await apiRequest<unknown>(
@@ -979,9 +705,7 @@ export default function SellerVerificationWorkspace() {
         profile.public_id,
       )}/applications/${encodeURIComponent(
         application.public_id,
-      )}/documents/${encodeURIComponent(
-        document.public_id,
-      )}`,
+      )}/documents/${encodeURIComponent(document.public_id)}`,
       {
         method: "DELETE",
       },
@@ -989,76 +713,46 @@ export default function SellerVerificationWorkspace() {
   }
 
   async function handleUploadRequirement(
-    requirement:
-      SellerDocumentRequirement,
+    requirement: SellerDocumentRequirement,
   ) {
     if (!profile || !application) {
-      setErrorMessage(
-        "No seller verification application is available.",
-      );
+      setErrorMessage("No seller verification application is available.");
       return;
     }
 
     if (!canEditDocuments) {
-      setErrorMessage(
-        "This verification application is not editable.",
-      );
+      setErrorMessage("This verification application is not editable.");
       return;
     }
 
-    const draft =
-      getDraft(requirement.key);
+    const draft = getDraft(requirement.key);
 
     if (!draft.file) {
-      setErrorMessage(
-        `Select a file for ${requirement.name}.`,
-      );
+      setErrorMessage(`Select a file for ${requirement.name}.`);
       return;
     }
 
-    const allowedTypes = [
-      "application/pdf",
-      "image/jpeg",
-      "image/png",
-    ];
+    const allowedTypes = ["application/pdf", "image/jpeg", "image/png"];
 
-    if (
-      draft.file.type &&
-      !allowedTypes.includes(
-        draft.file.type,
-      )
-    ) {
-      setErrorMessage(
-        "Only PDF, JPEG and PNG documents are supported.",
-      );
+    if (draft.file.type && !allowedTypes.includes(draft.file.type)) {
+      setErrorMessage("Only PDF, JPEG and PNG documents are supported.");
       return;
     }
 
-    const requirementDocuments =
-      documentsByType[
-        requirement.key
-      ] ?? [];
+    const requirementDocuments = documentsByType[requirement.key] ?? [];
 
-    const blockingDocument =
-      !requirement.allow_multiple
-        ? requirementDocuments.find(
-            (document) =>
-              ![
-                "rejected",
-                "infected",
-              ].includes(
-                normalizeStatus(
-                  document.status,
-                ),
-              ),
-          )
-        : undefined;
+    const blockingDocument = !requirement.allow_multiple
+      ? requirementDocuments.find(
+          (document) =>
+            !["rejected", "infected"].includes(
+              normalizeStatus(document.status),
+            ),
+        )
+      : undefined;
 
     if (
       blockingDocument &&
-      normalizeStatus(
-        blockingDocument.status,
-      ) === "approved"
+      normalizeStatus(blockingDocument.status) === "approved"
     ) {
       setErrorMessage(
         `${requirement.name} is already approved and cannot be replaced.`,
@@ -1067,19 +761,16 @@ export default function SellerVerificationWorkspace() {
     }
 
     if (blockingDocument) {
-      const confirmed =
-        window.confirm(
-          `${requirement.name} already has a current document. Replace it with "${draft.file.name}"?`,
-        );
+      const confirmed = window.confirm(
+        `${requirement.name} already has a current document. Replace it with "${draft.file.name}"?`,
+      );
 
       if (!confirmed) {
         return;
       }
     }
 
-    setUploadingRequirement(
-      requirement.key,
-    );
+    setUploadingRequirement(requirement.key);
     setErrorMessage("");
     setSuccessMessage("");
 
@@ -1091,57 +782,35 @@ export default function SellerVerificationWorkspace() {
        * new one.
        */
       if (blockingDocument) {
-        await deleteDocumentRequest(
-          blockingDocument,
-        );
+        await deleteDocumentRequest(blockingDocument);
       }
 
       const body = new FormData();
 
-      body.append(
-        "document",
-        draft.file,
-        draft.file.name,
-      );
+      body.append("document", draft.file, draft.file.name);
 
-      body.append(
-        "document_type",
-        requirement.key,
-      );
+      body.append("document_type", requirement.key);
 
       if (draft.issuedAt) {
-        body.append(
-          "issued_at",
-          draft.issuedAt,
-        );
+        body.append("issued_at", draft.issuedAt);
       }
 
-      if (
-        requirement.supports_expiry_date &&
-        draft.expiresAt
-      ) {
-        body.append(
-          "expires_at",
-          draft.expiresAt,
-        );
+      if (requirement.supports_expiry_date && draft.expiresAt) {
+        body.append("expires_at", draft.expiresAt);
       }
 
-      const response =
-        await apiRequest<SellerDocument>(
-          `/seller/profiles/${encodeURIComponent(
-            profile.public_id,
-          )}/applications/${encodeURIComponent(
-            application.public_id,
-          )}/documents`,
-          {
-            method: "POST",
-            body,
-          },
-        );
+      const response = await apiRequest<SellerDocument>(
+        `/seller/profiles/${encodeURIComponent(
+          profile.public_id,
+        )}/applications/${encodeURIComponent(application.public_id)}/documents`,
+        {
+          method: "POST",
+          body,
+        },
+      );
 
       setSuccessMessage(
-        response.message ??
-          `${requirement.name} uploaded successfully.`,
+        response.message ?? `${requirement.name} uploaded successfully.`,
       );
 
       resetDraft(requirement.key);
@@ -1164,32 +833,23 @@ export default function SellerVerificationWorkspace() {
     }
   }
 
-  async function handleDeleteDocument(
-    document: SellerDocument,
-  ) {
-    const confirmed =
-      window.confirm(
-        `Remove "${document.original_name}" from this verification application?`,
-      );
+  async function handleDeleteDocument(document: SellerDocument) {
+    const confirmed = window.confirm(
+      `Remove "${document.original_name}" from this verification application?`,
+    );
 
     if (!confirmed) {
       return;
     }
 
-    setDeletingId(
-      document.public_id,
-    );
+    setDeletingId(document.public_id);
     setErrorMessage("");
     setSuccessMessage("");
 
     try {
-      await deleteDocumentRequest(
-        document,
-      );
+      await deleteDocumentRequest(document);
 
-      setSuccessMessage(
-        "Document removed successfully.",
-      );
+      setSuccessMessage("Document removed successfully.");
 
       await loadVerification(true);
     } catch (error) {
@@ -1203,16 +863,12 @@ export default function SellerVerificationWorkspace() {
     }
   }
 
-  async function handleDownloadDocument(
-    sellerDocument: SellerDocument,
-  ) {
+  async function handleDownloadDocument(sellerDocument: SellerDocument) {
     if (!profile || !application) {
       return;
     }
 
-    setDownloadingId(
-      sellerDocument.public_id,
-    );
+    setDownloadingId(sellerDocument.public_id);
     setErrorMessage("");
 
     try {
@@ -1223,17 +879,14 @@ export default function SellerVerificationWorkspace() {
           profile.public_id,
         )}/applications/${encodeURIComponent(
           application.public_id,
-        )}/documents/${encodeURIComponent(
-          sellerDocument.public_id,
-        )}/download`,
+        )}/documents/${encodeURIComponent(sellerDocument.public_id)}/download`,
         {
           method: "GET",
           headers: {
             Accept: "*/*",
             ...(token
               ? {
-                  Authorization:
-                    `Bearer ${token}`,
+                  Authorization: `Bearer ${token}`,
                 }
               : {}),
           },
@@ -1241,17 +894,12 @@ export default function SellerVerificationWorkspace() {
       );
 
       if (!response.ok) {
-        let message =
-          "The document could not be downloaded.";
+        let message = "The document could not be downloaded.";
 
         try {
-          const payload =
-            (await response.json()) as
-              ApiEnvelope<unknown>;
+          const payload = (await response.json()) as ApiEnvelope<unknown>;
 
-          message =
-            payload.message ??
-            message;
+          message = payload.message ?? message;
         } catch {
           // Keep fallback.
         }
@@ -1261,29 +909,19 @@ export default function SellerVerificationWorkspace() {
 
       const blob = await response.blob();
 
-      const temporaryUrl =
-        URL.createObjectURL(blob);
+      const temporaryUrl = URL.createObjectURL(blob);
 
-      const link =
-        window.document.createElement(
-          "a",
-        );
+      const link = window.document.createElement("a");
 
       link.href = temporaryUrl;
-      link.download =
-        sellerDocument.original_name ||
-        "verification-document";
+      link.download = sellerDocument.original_name || "verification-document";
 
-      window.document.body.appendChild(
-        link,
-      );
+      window.document.body.appendChild(link);
 
       link.click();
       link.remove();
 
-      URL.revokeObjectURL(
-        temporaryUrl,
-      );
+      URL.revokeObjectURL(temporaryUrl);
     } catch (error) {
       setErrorMessage(
         error instanceof Error
@@ -1305,23 +943,17 @@ export default function SellerVerificationWorkspace() {
     setSuccessMessage("");
 
     try {
-      const response =
-        await apiRequest<
-          SellerApplication
-        >(
-          `/seller/profiles/${encodeURIComponent(
-            profile.public_id,
-          )}/applications/${encodeURIComponent(
-            application.public_id,
-          )}/submit`,
-          {
-            method: "POST",
-          },
-        );
+      const response = await apiRequest<SellerApplication>(
+        `/seller/profiles/${encodeURIComponent(
+          profile.public_id,
+        )}/applications/${encodeURIComponent(application.public_id)}/submit`,
+        {
+          method: "POST",
+        },
+      );
 
       setSuccessMessage(
-        response.message ??
-          "Verification application submitted successfully.",
+        response.message ?? "Verification application submitted successfully.",
       );
 
       await loadVerification(true);
@@ -1381,12 +1013,7 @@ export default function SellerVerificationWorkspace() {
               <ShieldCheck className="h-4 w-4 text-brand-ink" />
             </div>
 
-            <StatusBadge
-              status={
-                application?.status ??
-                profile.status
-              }
-            />
+            <StatusBadge status={application?.status ?? profile.status} />
           </div>
 
           <h1 className="text-2xl font-semibold tracking-tight text-brand-ink">
@@ -1402,19 +1029,12 @@ export default function SellerVerificationWorkspace() {
 
         <button
           type="button"
-          onClick={() =>
-            void loadVerification(true)
-          }
+          onClick={() => void loadVerification(true)}
           disabled={refreshing}
           className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-brand-steel bg-white px-3 text-sm font-medium text-brand-ink shadow-sm transition hover:bg-brand-mist disabled:cursor-not-allowed disabled:opacity-50"
         >
           <RefreshCw
-            className={[
-              "h-4 w-4",
-              refreshing
-                ? "animate-spin"
-                : "",
-            ].join(" ")}
+            className={["h-4 w-4", refreshing ? "animate-spin" : ""].join(" ")}
           />
           Refresh
         </button>
@@ -1423,18 +1043,14 @@ export default function SellerVerificationWorkspace() {
       {errorMessage ? (
         <div className="verification-enter flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3">
           <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-600" />
-          <p className="text-sm text-red-700">
-            {errorMessage}
-          </p>
+          <p className="text-sm text-red-700">{errorMessage}</p>
         </div>
       ) : null}
 
       {successMessage ? (
         <div className="verification-enter flex items-start gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3">
           <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
-          <p className="text-sm text-emerald-700">
-            {successMessage}
-          </p>
+          <p className="text-sm text-emerald-700">{successMessage}</p>
         </div>
       ) : null}
 
@@ -1525,7 +1141,8 @@ export default function SellerVerificationWorkspace() {
                 </span>
 
                 <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-medium text-emerald-700">
-                  {requiredUploadedCount}/{requiredRequirements.length} required uploaded
+                  {requiredUploadedCount}/{requiredRequirements.length} required
+                  uploaded
                 </span>
               </div>
             </div>
@@ -1543,370 +1160,263 @@ export default function SellerVerificationWorkspace() {
               </div>
             ) : (
               <div className="divide-y divide-brand-mist">
-                {requirements.map(
-                  (requirement) => {
-                    const draft =
-                      getDraft(
-                        requirement.key,
-                      );
+                {requirements.map((requirement) => {
+                  const draft = getDraft(requirement.key);
 
-                    const requirementDocuments =
-                      documentsByType[
-                        requirement.key
-                      ] ?? [];
+                  const requirementDocuments =
+                    documentsByType[requirement.key] ?? [];
 
-                    const currentDocument =
-                      requirementDocuments.find(
-                        (document) =>
-                          ![
-                            "rejected",
-                            "infected",
-                          ].includes(
-                            normalizeStatus(
-                              document.status,
-                            ),
-                          ),
-                      ) ??
-                      requirementDocuments[0] ??
-                      null;
+                  const currentDocument =
+                    requirementDocuments.find(
+                      (document) =>
+                        !["rejected", "infected"].includes(
+                          normalizeStatus(document.status),
+                        ),
+                    ) ??
+                    requirementDocuments[0] ??
+                    null;
 
-                    const hasApproved =
-                      requirementDocuments.some(
-                        (document) =>
-                          normalizeStatus(
-                            document.status,
-                          ) === "approved",
-                      );
+                  const hasApproved = requirementDocuments.some(
+                    (document) =>
+                      normalizeStatus(document.status) === "approved",
+                  );
 
-                    const isUploading =
-                      uploadingRequirement ===
-                      requirement.key;
+                  const isUploading = uploadingRequirement === requirement.key;
 
-                    const uploadDisabled =
-                      !canEditDocuments ||
-                      !draft.file ||
-                      isUploading ||
-                      hasApproved;
+                  const uploadDisabled =
+                    !canEditDocuments || isUploading || hasApproved;
 
-                    const actionText =
-                      hasApproved
-                        ? "Approved"
-                        : currentDocument &&
-                            !requirement.allow_multiple
-                          ? "Replace document"
-                          : "Upload document";
+                  const actionText = hasApproved
+                    ? "Approved"
+                    : currentDocument && !requirement.allow_multiple
+                      ? "Replace document"
+                      : "Upload document";
 
-                    return (
-                      <div
-                        key={
-                          requirement.key
-                        }
-                        className="px-5 py-5"
-                      >
-                        <div className="flex flex-col gap-4">
-                          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                            <div className="min-w-0">
-                              <div className="flex flex-wrap items-center gap-2">
-                                <h3 className="text-sm font-semibold text-brand-ink">
-                                  {
-                                    requirement.name
-                                  }
-                                </h3>
+                  return (
+                    <div key={requirement.key} className="px-5 py-5">
+                      <div className="flex flex-col gap-4">
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                          <div className="min-w-0">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <h3 className="text-sm font-semibold text-brand-ink">
+                                {requirement.name}
+                              </h3>
 
-                                <RequirementLevelBadge
-                                  level={
-                                    requirement.requirement_level
-                                  }
-                                />
+                              <RequirementLevelBadge
+                                level={requirement.requirement_level}
+                              />
 
-                                {requirement.allow_multiple ? (
-                                  <span className="rounded-full border border-brand-steel bg-white px-2 py-1 text-[10px] font-medium text-brand-ink/70">
-                                    Multiple files
-                                  </span>
-                                ) : null}
-                              </div>
-
-                              {requirement.description ? (
-                                <p className="mt-1.5 max-w-3xl text-xs leading-5 text-brand-ink/70">
-                                  {
-                                    requirement.description
-                                  }
-                                </p>
-                              ) : null}
-
-                              {requirement.condition ? (
-                                <p className="mt-1 text-xs leading-5 text-brand-orange">
-                                  Condition:{" "}
-                                  {
-                                    requirement.condition
-                                  }
-                                </p>
+                              {requirement.allow_multiple ? (
+                                <span className="rounded-full border border-brand-steel bg-white px-2 py-1 text-[10px] font-medium text-brand-ink/70">
+                                  Multiple files
+                                </span>
                               ) : null}
                             </div>
 
-                            {currentDocument ? (
-                              <StatusBadge
-                                status={
-                                  currentDocument.status
-                                }
-                              />
-                            ) : (
-                              <span className="inline-flex h-7 items-center rounded-full border border-brand-steel bg-brand-mist px-2.5 text-[11px] font-semibold text-brand-ink/70">
-                                Not uploaded
-                              </span>
-                            )}
+                            {requirement.description ? (
+                              <p className="mt-1.5 max-w-3xl text-xs leading-5 text-brand-ink/70">
+                                {requirement.description}
+                              </p>
+                            ) : null}
+
+                            {requirement.condition ? (
+                              <p className="mt-1 text-xs leading-5 text-brand-orange">
+                                Condition: {requirement.condition}
+                              </p>
+                            ) : null}
                           </div>
 
-                          {requirementDocuments.length > 0 ? (
-                            <div className="space-y-2">
-                              {requirementDocuments.map(
-                                (
-                                  documentItem,
-                                ) => (
-                                  <div
-                                    key={
-                                      documentItem.public_id
-                                    }
-                                    className="flex flex-col gap-2 rounded-xl border border-brand-steel bg-brand-mist/60 px-3 py-3 sm:flex-row sm:items-center sm:justify-between"
-                                  >
-                                    <div className="min-w-0">
-                                      <div className="flex flex-wrap items-center gap-2">
-                                        <p className="truncate text-xs font-semibold text-brand-ink">
-                                          {
-                                            documentItem.original_name
-                                          }
-                                        </p>
-
-                                        <StatusBadge
-                                          status={
-                                            documentItem.status
-                                          }
-                                        />
-                                      </div>
-
-                                      <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-brand-ink/70">
-                                        <span>
-                                          {formatBytes(
-                                            documentItem.size_bytes,
-                                          )}
-                                        </span>
-                                        <span>
-                                          Added{" "}
-                                          {formatDate(
-                                            documentItem.created_at,
-                                          )}
-                                        </span>
-
-                                        {documentItem.expires_at ? (
-                                          <span>
-                                            Expires{" "}
-                                            {formatDate(
-                                              documentItem.expires_at,
-                                            )}
-                                          </span>
-                                        ) : null}
-                                      </div>
-
-                                      {documentItem.rejection_reason ? (
-                                        <p className="mt-1.5 text-[11px] leading-5 text-red-600">
-                                          {
-                                            documentItem.rejection_reason
-                                          }
-                                        </p>
-                                      ) : null}
-                                    </div>
-
-                                    <div className="flex shrink-0 items-center gap-2">
-                                      <button
-                                        type="button"
-                                        onClick={() =>
-                                          void handleDownloadDocument(
-                                            documentItem,
-                                          )
-                                        }
-                                        disabled={
-                                          downloadingId ===
-                                          documentItem.public_id
-                                        }
-                                        className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-brand-steel bg-white px-2.5 text-xs font-medium text-brand-ink transition hover:bg-brand-mist disabled:opacity-50"
-                                      >
-                                        {downloadingId ===
-                                        documentItem.public_id ? (
-                                          <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                                        ) : (
-                                          <Download className="h-3.5 w-3.5" />
-                                        )}
-                                        Download
-                                      </button>
-
-                                      {canEditDocuments &&
-                                      normalizeStatus(
-                                        documentItem.status,
-                                      ) !==
-                                        "approved" ? (
-                                        <button
-                                          type="button"
-                                          title="Delete document"
-                                          onClick={() =>
-                                            void handleDeleteDocument(
-                                              documentItem,
-                                            )
-                                          }
-                                          disabled={
-                                            deletingId ===
-                                            documentItem.public_id
-                                          }
-                                          className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-red-100 bg-white text-red-600 transition hover:bg-red-50 disabled:opacity-50"
-                                        >
-                                          {deletingId ===
-                                          documentItem.public_id ? (
-                                            <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                                          ) : (
-                                            <Trash2 className="h-3.5 w-3.5" />
-                                          )}
-                                        </button>
-                                      ) : null}
-                                    </div>
-                                  </div>
-                                ),
-                              )}
-                            </div>
-                          ) : null}
-
-                          {!hasApproved ? (
-                            <div className="grid gap-3 rounded-xl border border-brand-steel bg-white p-3 lg:grid-cols-[minmax(0,1.3fr)_150px_150px_auto] lg:items-end">
-                              <label className="space-y-1.5">
-                                <span className="text-xs font-medium text-brand-ink/70">
-                                  File
-                                </span>
-
-                                <input
-                                  key={`${requirement.key}-${fileInputVersions[requirement.key] ?? 0}`}
-                                  type="file"
-                                  accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
-                                  disabled={
-                                    !canEditDocuments
-                                  }
-                                  onChange={(
-                                    event,
-                                  ) =>
-                                    updateDraft(
-                                      requirement.key,
-                                      {
-                                        file:
-                                          event.target
-                                            .files?.[0] ??
-                                          null,
-                                      },
-                                    )
-                                  }
-                                  className="block h-10 w-full rounded-lg border border-brand-steel bg-white px-2 py-1.5 text-xs text-brand-ink/70 file:mr-2 file:rounded-md file:border-0 file:bg-brand-mist file:px-2.5 file:py-1 file:text-xs file:font-medium file:text-brand-ink disabled:bg-brand-mist"
-                                />
-
-                                {draft.file ? (
-                                  <span className="block truncate text-[11px] text-brand-steel">
-                                    {draft.file.name} ·{" "}
-                                    {formatBytes(
-                                      draft.file.size,
-                                    )}
-                                  </span>
-                                ) : null}
-                              </label>
-
-                              <label className="space-y-1.5">
-                                <span className="text-xs font-medium text-brand-ink/70">
-                                  Issued date
-                                </span>
-
-                                <input
-                                  type="date"
-                                  value={
-                                    draft.issuedAt
-                                  }
-                                  disabled={
-                                    !canEditDocuments
-                                  }
-                                  onChange={(
-                                    event,
-                                  ) =>
-                                    updateDraft(
-                                      requirement.key,
-                                      {
-                                        issuedAt:
-                                          event.target
-                                            .value,
-                                      },
-                                    )
-                                  }
-                                  className="h-10 w-full rounded-lg border border-brand-steel bg-white px-2.5 text-xs text-brand-ink disabled:bg-brand-mist"
-                                />
-                              </label>
-
-                              <label className="space-y-1.5">
-                                <span className="text-xs font-medium text-brand-ink/70">
-                                  Expiry date
-                                </span>
-
-                                <input
-                                  type="date"
-                                  value={
-                                    draft.expiresAt
-                                  }
-                                  disabled={
-                                    !canEditDocuments ||
-                                    !requirement.supports_expiry_date
-                                  }
-                                  onChange={(
-                                    event,
-                                  ) =>
-                                    updateDraft(
-                                      requirement.key,
-                                      {
-                                        expiresAt:
-                                          event.target
-                                            .value,
-                                      },
-                                    )
-                                  }
-                                  className="h-10 w-full rounded-lg border border-brand-steel bg-white px-2.5 text-xs text-brand-ink disabled:bg-brand-mist"
-                                />
-                              </label>
-
-                              <button
-                                type="button"
-                                disabled={
-                                  uploadDisabled
-                                }
-                                onClick={() =>
-                                  void handleUploadRequirement(
-                                    requirement,
-                                  )
-                                }
-                                className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-brand-ink px-4 text-xs font-semibold text-white transition hover:bg-brand-ink disabled:cursor-not-allowed disabled:opacity-40"
-                              >
-                                {isUploading ? (
-                                  <Loader2 className="h-4 w-4 animate-spin" />
-                                ) : (
-                                  <UploadCloud className="h-4 w-4" />
-                                )}
-
-                                {isUploading
-                                  ? "Uploading..."
-                                  : actionText}
-                              </button>
-                            </div>
+                          {currentDocument ? (
+                            <StatusBadge status={currentDocument.status} />
                           ) : (
-                            <div className="flex items-start gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2.5 text-xs text-emerald-700">
-                              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
-                              This document type is approved. No replacement is
-                              required.
-                            </div>
+                            <span className="inline-flex h-7 items-center rounded-full border border-brand-steel bg-brand-mist px-2.5 text-[11px] font-semibold text-brand-ink/70">
+                              Not uploaded
+                            </span>
                           )}
                         </div>
+
+                        {requirementDocuments.length > 0 ? (
+                          <div className="space-y-2">
+                            {requirementDocuments.map((documentItem) => (
+                              <div
+                                key={documentItem.public_id}
+                                className="flex flex-col gap-2 rounded-xl border border-brand-steel bg-brand-mist/60 px-3 py-3 sm:flex-row sm:items-center sm:justify-between"
+                              >
+                                <div className="min-w-0">
+                                  <div className="flex flex-wrap items-center gap-2">
+                                    <p className="truncate text-xs font-semibold text-brand-ink">
+                                      {documentItem.original_name}
+                                    </p>
+
+                                    <StatusBadge status={documentItem.status} />
+                                  </div>
+
+                                  <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-brand-ink/70">
+                                    <span>
+                                      {formatBytes(documentItem.size_bytes)}
+                                    </span>
+                                    <span>
+                                      Added{" "}
+                                      {formatDate(documentItem.created_at)}
+                                    </span>
+
+                                    {documentItem.expires_at ? (
+                                      <span>
+                                        Expires{" "}
+                                        {formatDate(documentItem.expires_at)}
+                                      </span>
+                                    ) : null}
+                                  </div>
+
+                                  {documentItem.rejection_reason ? (
+                                    <p className="mt-1.5 text-[11px] leading-5 text-red-600">
+                                      {documentItem.rejection_reason}
+                                    </p>
+                                  ) : null}
+                                </div>
+
+                                <div className="flex shrink-0 items-center gap-2">
+                                  <button
+                                    type="button"
+                                    onClick={() =>
+                                      void handleDownloadDocument(documentItem)
+                                    }
+                                    disabled={
+                                      downloadingId === documentItem.public_id
+                                    }
+                                    className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-brand-steel bg-white px-2.5 text-xs font-medium text-brand-ink transition hover:bg-brand-mist disabled:opacity-50"
+                                  >
+                                    {downloadingId ===
+                                    documentItem.public_id ? (
+                                      <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                                    ) : (
+                                      <Download className="h-3.5 w-3.5" />
+                                    )}
+                                    Download
+                                  </button>
+
+                                  {canEditDocuments &&
+                                  normalizeStatus(documentItem.status) !==
+                                    "approved" ? (
+                                    <button
+                                      type="button"
+                                      title="Delete document"
+                                      onClick={() =>
+                                        void handleDeleteDocument(documentItem)
+                                      }
+                                      disabled={
+                                        deletingId === documentItem.public_id
+                                      }
+                                      className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-red-100 bg-white text-red-600 transition hover:bg-red-50 disabled:opacity-50"
+                                    >
+                                      {deletingId === documentItem.public_id ? (
+                                        <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                                      ) : (
+                                        <Trash2 className="h-3.5 w-3.5" />
+                                      )}
+                                    </button>
+                                  ) : null}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        ) : null}
+
+                        {!hasApproved ? (
+                          <div className="grid gap-3 rounded-xl border border-brand-steel bg-white p-3 lg:grid-cols-[minmax(0,1.3fr)_150px_150px_auto] lg:items-end">
+                            <label className="space-y-1.5">
+                              <span className="text-xs font-medium text-brand-ink/70">
+                                File
+                              </span>
+
+                              <input
+                                key={`${requirement.key}-${fileInputVersions[requirement.key] ?? 0}`}
+                                type="file"
+                                accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
+                                disabled={!canEditDocuments}
+                                onChange={(event) =>
+                                  updateDraft(requirement.key, {
+                                    file: event.target.files?.[0] ?? null,
+                                  })
+                                }
+                                className="block h-10 w-full rounded-lg border border-brand-steel bg-white px-2 py-1.5 text-xs text-brand-ink/70 file:mr-2 file:rounded-md file:border-0 file:bg-brand-mist file:px-2.5 file:py-1 file:text-xs file:font-medium file:text-brand-ink disabled:bg-brand-mist"
+                              />
+
+                              {draft.file ? (
+                                <span className="block truncate text-[11px] text-brand-steel">
+                                  {draft.file.name} ·{" "}
+                                  {formatBytes(draft.file.size)}
+                                </span>
+                              ) : null}
+                            </label>
+
+                            <label className="space-y-1.5">
+                              <span className="text-xs font-medium text-brand-ink/70">
+                                Issued date
+                              </span>
+
+                              <input
+                                type="date"
+                                value={draft.issuedAt}
+                                disabled={!canEditDocuments}
+                                onChange={(event) =>
+                                  updateDraft(requirement.key, {
+                                    issuedAt: event.target.value,
+                                  })
+                                }
+                                className="h-10 w-full rounded-lg border border-brand-steel bg-white px-2.5 text-xs text-brand-ink disabled:bg-brand-mist"
+                              />
+                            </label>
+
+                            <label className="space-y-1.5">
+                              <span className="text-xs font-medium text-brand-ink/70">
+                                Expiry date
+                              </span>
+
+                              <input
+                                type="date"
+                                value={draft.expiresAt}
+                                disabled={
+                                  !canEditDocuments ||
+                                  !requirement.supports_expiry_date
+                                }
+                                onChange={(event) =>
+                                  updateDraft(requirement.key, {
+                                    expiresAt: event.target.value,
+                                  })
+                                }
+                                className="h-10 w-full rounded-lg border border-brand-steel bg-white px-2.5 text-xs text-brand-ink disabled:bg-brand-mist"
+                              />
+                            </label>
+
+                            <button
+                              type="button"
+                              disabled={uploadDisabled}
+                              onClick={() =>
+                                void handleUploadRequirement(requirement)
+                              }
+                              className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-brand-ink px-4 text-xs font-semibold text-white transition hover:bg-brand-ink disabled:cursor-not-allowed disabled:opacity-40"
+                            >
+                              {isUploading ? (
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                              ) : (
+                                <UploadCloud className="h-4 w-4" />
+                              )}
+
+                              {isUploading ? "Uploading..." : actionText}
+                            </button>
+                          </div>
+                        ) : (
+                          <div className="flex items-start gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2.5 text-xs text-emerald-700">
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
+                            This document type is approved. No replacement is
+                            required.
+                          </div>
+                        )}
                       </div>
-                    );
-                  },
-                )}
+                    </div>
+                  );
+                })}
               </div>
             )}
           </section>
@@ -1919,10 +1429,7 @@ export default function SellerVerificationWorkspace() {
                 </h2>
                 <p className="mt-0.5 text-xs text-brand-ink/70">
                   {documents.length} verification document
-                  {documents.length === 1
-                    ? ""
-                    : "s"}{" "}
-                  uploaded
+                  {documents.length === 1 ? "" : "s"} uploaded
                 </p>
               </div>
 
@@ -1938,60 +1445,41 @@ export default function SellerVerificationWorkspace() {
               </div>
             ) : (
               <div className="divide-y divide-brand-mist">
-                {documents.map(
-                  (documentItem) => (
-                    <div
-                      key={
-                        documentItem.public_id
-                      }
-                      className="flex flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:justify-between"
-                    >
-                      <div className="min-w-0">
-                        <div className="flex flex-wrap items-center gap-2">
-                          <p className="truncate text-sm font-semibold text-brand-ink">
-                            {
-                              documentItem.original_name
-                            }
-                          </p>
-
-                          <StatusBadge
-                            status={
-                              documentItem.status
-                            }
-                          />
-                        </div>
-
-                        <p className="mt-1 text-xs text-brand-ink/70">
-                          {documentTypeLabel(
-                            documentItem.document_type,
-                            requirements,
-                          )}
-                          {" · "}
-                          {formatBytes(
-                            documentItem.size_bytes,
-                          )}
+                {documents.map((documentItem) => (
+                  <div
+                    key={documentItem.public_id}
+                    className="flex flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:justify-between"
+                  >
+                    <div className="min-w-0">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <p className="truncate text-sm font-semibold text-brand-ink">
+                          {documentItem.original_name}
                         </p>
+
+                        <StatusBadge status={documentItem.status} />
                       </div>
 
-                      <button
-                        type="button"
-                        onClick={() =>
-                          void handleDownloadDocument(
-                            documentItem,
-                          )
-                        }
-                        disabled={
-                          downloadingId ===
-                          documentItem.public_id
-                        }
-                        className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-lg border border-brand-steel bg-white px-2.5 text-xs font-medium text-brand-ink hover:bg-brand-mist disabled:opacity-50"
-                      >
-                        <Download className="h-3.5 w-3.5" />
-                        Download
-                      </button>
+                      <p className="mt-1 text-xs text-brand-ink/70">
+                        {documentTypeLabel(
+                          documentItem.document_type,
+                          requirements,
+                        )}
+                        {" · "}
+                        {formatBytes(documentItem.size_bytes)}
+                      </p>
                     </div>
-                  ),
-                )}
+
+                    <button
+                      type="button"
+                      onClick={() => void handleDownloadDocument(documentItem)}
+                      disabled={downloadingId === documentItem.public_id}
+                      className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-lg border border-brand-steel bg-white px-2.5 text-xs font-medium text-brand-ink hover:bg-brand-mist disabled:opacity-50"
+                    >
+                      <Download className="h-3.5 w-3.5" />
+                      Download
+                    </button>
+                  </div>
+                ))}
               </div>
             )}
           </section>
@@ -2017,50 +1505,37 @@ export default function SellerVerificationWorkspace() {
                 </div>
               ) : (
                 <div className="relative space-y-5 before:absolute before:bottom-3 before:left-[7px] before:top-3 before:w-px before:bg-brand-steel">
-                  {reviews.map(
-                    (review, index) => (
-                      <div
-                        key={
-                          review.id ??
-                          `${review.action}-${index}`
-                        }
-                        className="relative flex gap-4"
-                      >
-                        <div className="relative z-10 mt-1 h-[15px] w-[15px] shrink-0 rounded-full border-[4px] border-white bg-brand-ink shadow-sm" />
+                  {reviews.map((review, index) => (
+                    <div
+                      key={review.id ?? `${review.action}-${index}`}
+                      className="relative flex gap-4"
+                    >
+                      <div className="relative z-10 mt-1 h-[15px] w-[15px] shrink-0 rounded-full border-[4px] border-white bg-brand-ink shadow-sm" />
 
-                        <div className="min-w-0 flex-1 pb-1">
-                          <div className="flex flex-wrap items-center justify-between gap-2">
-                            <p className="text-sm font-semibold text-brand-ink">
-                              {reviewActionLabel(
-                                review.action,
-                              )}
-                            </p>
-                            <span className="text-[11px] text-brand-steel">
-                              {formatDateTime(
-                                review.created_at,
-                              )}
-                            </span>
-                          </div>
-
-                          {review.notes ? (
-                            <p className="mt-1 text-sm leading-6 text-brand-ink/70">
-                              {review.notes}
-                            </p>
-                          ) : null}
-
-                          {review.reviewed_by?.name ? (
-                            <p className="mt-1 text-xs text-brand-steel">
-                              EliteMart administration ·{" "}
-                              {
-                                review.reviewed_by
-                                  .name
-                              }
-                            </p>
-                          ) : null}
+                      <div className="min-w-0 flex-1 pb-1">
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <p className="text-sm font-semibold text-brand-ink">
+                            {reviewActionLabel(review.action)}
+                          </p>
+                          <span className="text-[11px] text-brand-steel">
+                            {formatDateTime(review.created_at)}
+                          </span>
                         </div>
+
+                        {review.notes ? (
+                          <p className="mt-1 text-sm leading-6 text-brand-ink/70">
+                            {review.notes}
+                          </p>
+                        ) : null}
+
+                        {review.reviewed_by?.name ? (
+                          <p className="mt-1 text-xs text-brand-steel">
+                            EliteMart administration · {review.reviewed_by.name}
+                          </p>
+                        ) : null}
                       </div>
-                    ),
-                  )}
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
@@ -2079,12 +1554,7 @@ export default function SellerVerificationWorkspace() {
                     <BadgeCheck className="h-5 w-5" />
                   </div>
 
-                  <StatusBadge
-                    status={
-                      application?.status ??
-                      profile.status
-                    }
-                  />
+                  <StatusBadge status={application?.status ?? profile.status} />
                 </div>
 
                 <p className="mt-5 text-xs font-medium uppercase tracking-[0.18em] text-brand-steel">
@@ -2119,8 +1589,7 @@ export default function SellerVerificationWorkspace() {
 
               <div className="border-x border-brand-mist px-3 py-4 text-center">
                 <p className="text-lg font-semibold text-emerald-600">
-                  {requiredReadyCount}/
-                  {requiredRequirements.length}
+                  {requiredReadyCount}/{requiredRequirements.length}
                 </p>
                 <p className="mt-0.5 text-[10px] uppercase tracking-wide text-brand-steel">
                   Required ready
@@ -2144,53 +1613,38 @@ export default function SellerVerificationWorkspace() {
                 </p>
 
                 <div className="mt-2 space-y-2">
-                  {requiredRequirements.map(
-                    (requirement) => {
-                      const requirementDocuments =
-                        documentsByType[
-                          requirement.key
-                        ] ?? [];
+                  {requiredRequirements.map((requirement) => {
+                    const requirementDocuments =
+                      documentsByType[requirement.key] ?? [];
 
-                      const readyDocument =
-                        requirementDocuments.find(
-                          (document) =>
-                            [
-                              "clean",
-                              "approved",
-                            ].includes(
-                              normalizeStatus(
-                                document.status,
-                              ),
-                            ),
-                        );
+                    const readyDocument = requirementDocuments.find(
+                      (document) =>
+                        ["clean", "approved"].includes(
+                          normalizeStatus(document.status),
+                        ),
+                    );
 
-                      const anyDocument =
-                        requirementDocuments[0];
+                    const anyDocument = requirementDocuments[0];
 
-                      return (
-                        <div
-                          key={
-                            requirement.key
-                          }
-                          className="flex items-center justify-between gap-3 rounded-lg border border-brand-mist px-3 py-2.5"
-                        >
-                          <span className="min-w-0 truncate text-xs text-brand-ink/70">
-                            {
-                              requirement.name
-                            }
-                          </span>
+                    return (
+                      <div
+                        key={requirement.key}
+                        className="flex items-center justify-between gap-3 rounded-lg border border-brand-mist px-3 py-2.5"
+                      >
+                        <span className="min-w-0 truncate text-xs text-brand-ink/70">
+                          {requirement.name}
+                        </span>
 
-                          {readyDocument ? (
-                            <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600" />
-                          ) : anyDocument ? (
-                            <Clock3 className="h-4 w-4 shrink-0 text-brand-ink" />
-                          ) : (
-                            <AlertCircle className="h-4 w-4 shrink-0 text-brand-steel" />
-                          )}
-                        </div>
-                      );
-                    },
-                  )}
+                        {readyDocument ? (
+                          <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600" />
+                        ) : anyDocument ? (
+                          <Clock3 className="h-4 w-4 shrink-0 text-brand-ink" />
+                        ) : (
+                          <AlertCircle className="h-4 w-4 shrink-0 text-brand-steel" />
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -2204,9 +1658,7 @@ export default function SellerVerificationWorkspace() {
                     <span className="text-xs text-brand-ink/70">
                       Seller status
                     </span>
-                    <StatusBadge
-                      status={profile.status}
-                    />
+                    <StatusBadge status={profile.status} />
                   </div>
 
                   <div className="flex items-center justify-between rounded-lg border border-brand-mist px-3 py-2.5">
@@ -2214,10 +1666,7 @@ export default function SellerVerificationWorkspace() {
                       Application
                     </span>
                     <StatusBadge
-                      status={
-                        application?.status ??
-                        "not_started"
-                      }
+                      status={application?.status ?? "not_started"}
                     />
                   </div>
 
@@ -2241,15 +1690,15 @@ export default function SellerVerificationWorkspace() {
                         Verified seller
                       </p>
                       <p className="mt-1 text-xs leading-5 text-emerald-700">
-                        This business has been approved by EliteMart administration.
+                        This business has been approved by EliteMart
+                        administration.
                       </p>
                     </div>
                   </div>
                 </div>
               ) : null}
 
-              {sellerStatus ===
-              "suspended" ? (
+              {sellerStatus === "suspended" ? (
                 <div className="rounded-xl border border-red-200 bg-red-50 p-3">
                   <div className="flex gap-2">
                     <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0 text-red-700" />
@@ -2266,28 +1715,19 @@ export default function SellerVerificationWorkspace() {
                 </div>
               ) : null}
 
-              {!canEditDocuments &&
-              application ? (
+              {!canEditDocuments && application ? (
                 <div className="flex gap-2 rounded-lg border border-brand-steel bg-brand-mist px-3 py-2.5 text-xs leading-5 text-brand-ink/70">
                   <Info className="mt-0.5 h-4 w-4 shrink-0" />
                   Documents cannot be changed while this application is{" "}
-                  {formatLabel(
-                    application.status,
-                  ).toLowerCase()}
-                  .
+                  {formatLabel(application.status).toLowerCase()}.
                 </div>
               ) : null}
 
               <div className="border-t border-brand-mist pt-4">
                 <button
                   type="button"
-                  disabled={
-                    !canSubmit ||
-                    submitting
-                  }
-                  onClick={() =>
-                    void handleSubmitApplication()
-                  }
+                  disabled={!canSubmit || submitting}
+                  onClick={() => void handleSubmitApplication()}
                   className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-xl bg-brand-ink px-4 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-ink disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   {submitting ? (
@@ -2298,14 +1738,12 @@ export default function SellerVerificationWorkspace() {
 
                   {submitting
                     ? "Submitting..."
-                    : applicationStatus ===
-                        "more_information_required"
+                    : applicationStatus === "more_information_required"
                       ? "Resubmit verification"
                       : "Submit for verification"}
                 </button>
 
-                {submitEligibleDocuments.length <
-                minimumDocumentsRequired ? (
+                {submitEligibleDocuments.length < minimumDocumentsRequired ? (
                   <p className="mt-2 text-center text-[11px] leading-5 text-brand-steel">
                     Upload at least {minimumDocumentsRequired} documents before
                     submitting for verification.

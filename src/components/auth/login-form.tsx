@@ -11,18 +11,17 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import {
-  FormEvent,
-  useState,
-} from "react";
+import { FormEvent, useState } from "react";
 
 type LoginUser = {
   id?: number | string;
   name?: string;
   email?: string;
-  role?: string | {
-    name?: string;
-  };
+  role?:
+    | string
+    | {
+        name?: string;
+      };
 };
 
 type LoginResponse = {
@@ -36,28 +35,15 @@ type LoginResponse = {
     access_token?: string;
     user?: LoginUser;
   };
-  errors?: Record<
-    string,
-    string | string[]
-  >;
+  errors?: Record<string, string | string[]>;
 };
 
-function getErrorMessage(
-  payload: LoginResponse | null,
-): string {
-  if (payload?.message) {
-    return payload.message;
-  }
-
+function getErrorMessage(payload: LoginResponse | null): string {
   if (payload?.errors) {
-    const firstError =
-      Object.values(payload.errors)[0];
+    const firstError = Object.values(payload.errors)[0];
 
     if (Array.isArray(firstError)) {
-      return (
-        firstError[0]
-        ?? "Please check your login information."
-      );
+      return firstError[0] ?? "Please check your login information.";
     }
 
     if (typeof firstError === "string") {
@@ -65,12 +51,14 @@ function getErrorMessage(
     }
   }
 
+  if (payload?.message) {
+    return payload.message;
+  }
+
   return "Unable to sign in. Please check your credentials.";
 }
 
-function getUserRole(
-  user: LoginUser | undefined,
-): string {
+function getUserRole(user: LoginUser | undefined): string {
   if (!user?.role) {
     return "";
   }
@@ -79,36 +67,25 @@ function getUserRole(
     return user.role.toLowerCase();
   }
 
-  return (
-    user.role.name
-    ?? ""
-  ).toLowerCase();
+  return (user.role.name ?? "").toLowerCase();
 }
 
 export default function LoginForm() {
   const router = useRouter();
 
-  const [email, setEmail] =
-    useState("");
+  const [email, setEmail] = useState("");
 
-  const [password, setPassword] =
-    useState("");
+  const [password, setPassword] = useState("");
 
-  const [showPassword, setShowPassword] =
-    useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-  const [remember, setRemember] =
-    useState(true);
+  const [remember, setRemember] = useState(true);
 
-  const [submitting, setSubmitting] =
-    useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const [error, setError] =
-    useState("");
+  const [error, setError] = useState("");
 
-  const submitLogin = async (
-    event: FormEvent<HTMLFormElement>,
-  ) => {
+  const submitLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (submitting) {
@@ -119,54 +96,41 @@ export default function LoginForm() {
     setSubmitting(true);
 
     try {
-      const baseUrl =
-        process.env.NEXT_PUBLIC_API_BASE_URL
-          ?.replace(/\/+$/, "");
+      const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/+$/, "");
 
       if (!baseUrl) {
-        throw new Error(
-          "NEXT_PUBLIC_API_BASE_URL is not configured.",
-        );
+        throw new Error("NEXT_PUBLIC_API_BASE_URL is not configured.");
       }
 
-      const response = await fetch(
-        `${baseUrl}/login`,
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: email.trim(),
-            password,
-          }),
+      const response = await fetch(`${baseUrl}/login`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify({
+          email: email.trim(),
+          password,
+        }),
+      });
 
-      const payload =
-        await response
-          .json()
-          .catch(() => null) as
-            LoginResponse | null;
+      const payload = (await response
+        .json()
+        .catch(() => null)) as LoginResponse | null;
 
       if (!response.ok) {
-        setError(
-          getErrorMessage(payload),
-        );
+        setError(getErrorMessage(payload));
 
         return;
       }
 
       const token =
-        payload?.token
-        ?? payload?.access_token
-        ?? payload?.data?.token
-        ?? payload?.data?.access_token;
+        payload?.token ??
+        payload?.access_token ??
+        payload?.data?.token ??
+        payload?.data?.access_token;
 
-      const user =
-        payload?.user
-        ?? payload?.data?.user;
+      const user = payload?.user ?? payload?.data?.user;
 
       if (!token) {
         setError(
@@ -176,33 +140,19 @@ export default function LoginForm() {
         return;
       }
 
-      window.localStorage.removeItem(
-        "rushpi_token",
-      );
+      window.localStorage.removeItem("rushpi_token");
 
-      window.sessionStorage.removeItem(
-        "rushpi_token",
-      );
+      window.sessionStorage.removeItem("rushpi_token");
 
-      const storage =
-        remember
-          ? window.localStorage
-          : window.sessionStorage;
+      const storage = remember ? window.localStorage : window.sessionStorage;
 
-      storage.setItem(
-        "rushpi_token",
-        token,
-      );
+      storage.setItem("rushpi_token", token);
 
       if (user) {
-        storage.setItem(
-          "rushpi_user",
-          JSON.stringify(user),
-        );
+        storage.setItem("rushpi_user", JSON.stringify(user));
       }
 
-      const role =
-        getUserRole(user);
+      const role = getUserRole(user);
 
       if (role.includes("admin")) {
         router.replace("/admin/dashboard");
@@ -229,10 +179,7 @@ export default function LoginForm() {
   };
 
   return (
-    <form
-      onSubmit={submitLogin}
-      className="mt-9 space-y-5"
-    >
+    <form onSubmit={submitLogin} className="mt-9 space-y-5">
       {error && (
         <div
           role="alert"
@@ -245,9 +192,7 @@ export default function LoginForm() {
       )}
 
       <label className="block">
-        <span className="text-sm font-black text-brand-ink">
-          Email address
-        </span>
+        <span className="text-sm font-black text-brand-ink">Email address</span>
 
         <span className="relative mt-2 block">
           <Mail className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-brand-steel" />
@@ -255,9 +200,7 @@ export default function LoginForm() {
           <input
             type="email"
             value={email}
-            onChange={(event) =>
-              setEmail(event.target.value)
-            }
+            onChange={(event) => setEmail(event.target.value)}
             autoComplete="email"
             required
             placeholder="you@example.com"
@@ -267,23 +210,15 @@ export default function LoginForm() {
       </label>
 
       <label className="block">
-        <span className="text-sm font-black text-brand-ink">
-          Password
-        </span>
+        <span className="text-sm font-black text-brand-ink">Password</span>
 
         <span className="relative mt-2 block">
           <LockKeyhole className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-brand-steel" />
 
           <input
-            type={
-              showPassword
-                ? "text"
-                : "password"
-            }
+            type={showPassword ? "text" : "password"}
             value={password}
-            onChange={(event) =>
-              setPassword(event.target.value)
-            }
+            onChange={(event) => setPassword(event.target.value)}
             autoComplete="current-password"
             required
             minLength={6}
@@ -293,17 +228,9 @@ export default function LoginForm() {
 
           <button
             type="button"
-            onClick={() =>
-              setShowPassword(
-                (current) => !current,
-              )
-            }
+            onClick={() => setShowPassword((current) => !current)}
             className="absolute right-2 top-1/2 grid size-10 -translate-y-1/2 place-items-center rounded-xl text-brand-ink/70 transition hover:bg-brand-mist hover:text-brand-ink"
-            aria-label={
-              showPassword
-                ? "Hide password"
-                : "Show password"
-            }
+            aria-label={showPassword ? "Hide password" : "Show password"}
           >
             {showPassword ? (
               <EyeOff className="size-5" />
@@ -319,14 +246,9 @@ export default function LoginForm() {
           <input
             type="checkbox"
             checked={remember}
-            onChange={(event) =>
-              setRemember(
-                event.target.checked,
-              )
-            }
+            onChange={(event) => setRemember(event.target.checked)}
             className="size-4 rounded border-brand-steel accent-brand-ink"
           />
-
           Remember me
         </label>
 

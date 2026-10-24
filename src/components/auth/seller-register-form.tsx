@@ -18,15 +18,9 @@ import {
   UserRound,
 } from "lucide-react";
 import Link from "next/link";
-import {
-  type ChangeEvent,
-  type FormEvent,
-  useState,
-} from "react";
+import { type ChangeEvent, type FormEvent, useState } from "react";
 
-type SellerType =
-  | "shop_owner"
-  | "individual_seller";
+type SellerType = "shop_owner" | "individual_seller";
 
 type SellerFormData = {
   name: string;
@@ -73,10 +67,7 @@ type RegisterResponse = {
   token?: string;
   access_token?: string;
   data?: RegisterResponseData;
-  errors?: Record<
-    string,
-    string | string[]
-  >;
+  errors?: Record<string, string | string[]>;
 };
 
 const initialFormData: SellerFormData = {
@@ -137,8 +128,7 @@ const passwordInputClassName = [
   "focus:border-brand-ink focus:ring-4 focus:ring-brand-mist",
 ].join(" ");
 
-const labelClassName =
-  "text-sm font-black text-brand-ink";
+const labelClassName = "text-sm font-black text-brand-ink";
 
 function normalizeErrors(
   errors: RegisterResponse["errors"],
@@ -148,47 +138,31 @@ function normalizeErrors(
   }
 
   return Object.fromEntries(
-    Object.entries(errors).map(
-      ([field, value]) => [
-        field,
-        Array.isArray(value)
-          ? value[0] ??
-            "This field is invalid."
-          : value,
-      ],
-    ),
+    Object.entries(errors).map(([field, value]) => [
+      field,
+      Array.isArray(value) ? (value[0] ?? "This field is invalid.") : value,
+    ]),
   );
 }
 
 export default function SellerRegisterForm() {
-  const [formData, setFormData] =
-    useState<SellerFormData>(
-      initialFormData,
-    );
+  const [formData, setFormData] = useState<SellerFormData>(initialFormData);
 
-  const [showPassword, setShowPassword] =
-    useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-  const [submitting, setSubmitting] =
-    useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const [generalError, setGeneralError] =
-    useState("");
+  const [generalError, setGeneralError] = useState("");
 
-  const [fieldErrors, setFieldErrors] =
-    useState<Record<string, string>>({});
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
-  const [submitted, setSubmitted] =
-    useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-  const [successMessage, setSuccessMessage] =
-    useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const updateTextField = (
     event: ChangeEvent<
-      | HTMLInputElement
-      | HTMLSelectElement
-      | HTMLTextAreaElement
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >,
   ) => {
     const { name, value } = event.target;
@@ -211,9 +185,7 @@ export default function SellerRegisterForm() {
     setGeneralError("");
   };
 
-  const updateCheckbox = (
-    event: ChangeEvent<HTMLInputElement>,
-  ) => {
+  const updateCheckbox = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = event.target;
 
     setFormData((current) => ({
@@ -224,9 +196,7 @@ export default function SellerRegisterForm() {
     setGeneralError("");
   };
 
-  const submitRegistration = async (
-    event: FormEvent<HTMLFormElement>,
-  ) => {
+  const submitRegistration = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (submitting) {
@@ -236,13 +206,9 @@ export default function SellerRegisterForm() {
     setGeneralError("");
     setFieldErrors({});
 
-    if (
-      formData.password !==
-      formData.passwordConfirmation
-    ) {
+    if (formData.password !== formData.passwordConfirmation) {
       setFieldErrors({
-        password_confirmation:
-          "The password confirmation does not match.",
+        password_confirmation: "The password confirmation does not match.",
       });
 
       return;
@@ -267,84 +233,60 @@ export default function SellerRegisterForm() {
     setSubmitting(true);
 
     try {
-      const response = await fetch(
-        "/api/auth/register",
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type":
-              "application/json",
-          },
-          body: JSON.stringify({
-            name: formData.name.trim(),
-
-            email:
-              formData.email
-                .trim()
-                .toLowerCase(),
-
-            phone: formData.phone.trim(),
-
-            password:
-              formData.password,
-
-            password_confirmation:
-              formData.passwordConfirmation,
-
-            role: "seller",
-
-            seller_type:
-              formData.sellerType,
-
-            shop_name:
-              formData.shopName.trim(),
-
-            business_registration_number:
-              formData
-                .businessRegistrationNumber
-                .trim(),
-
-            tax_identification_number:
-              formData
-                .taxIdentificationNumber
-                .trim(),
-
-            city: formData.city.trim(),
-
-            address:
-              formData.address.trim(),
-
-            product_categories:
-              formData
-                .productCategories
-                .trim(),
-
-            terms_accepted:
-              formData.termsAccepted,
-
-            information_confirmed:
-              formData
-                .informationConfirmed,
-          }),
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify({
+          name: formData.name.trim(),
 
-      const payload =
-        (await response
-          .json()
-          .catch(() => null)) as
-          RegisterResponse | null;
+          email: formData.email.trim().toLowerCase(),
+
+          phone: formData.phone.trim(),
+
+          password: formData.password,
+
+          password_confirmation: formData.passwordConfirmation,
+
+          role: "seller",
+
+          seller_type: formData.sellerType,
+
+          shop_name: formData.shopName.trim(),
+
+          business_registration_number:
+            formData.businessRegistrationNumber.trim(),
+
+          tax_identification_number: formData.taxIdentificationNumber.trim(),
+
+          city: formData.city.trim(),
+
+          address: formData.address.trim(),
+
+          product_categories: formData.productCategories.trim(),
+
+          terms_accepted: formData.termsAccepted,
+
+          information_confirmed: formData.informationConfirmed,
+        }),
+      });
+
+      const payload = (await response
+        .json()
+        .catch(() => null)) as RegisterResponse | null;
 
       if (!response.ok) {
-        setFieldErrors(
-          normalizeErrors(
-            payload?.errors,
-          ),
-        );
+        const normalizedErrors = normalizeErrors(payload?.errors);
+
+        setFieldErrors(normalizedErrors);
+
+        const firstError = Object.values(normalizedErrors)[0];
 
         setGeneralError(
-          payload?.message ??
+          firstError ??
+            payload?.message ??
             "Registration failed. Please review your information and try again.",
         );
 
@@ -358,10 +300,7 @@ export default function SellerRegisterForm() {
         payload?.data?.access_token;
 
       if (token) {
-        window.localStorage.setItem(
-          "rushpi_token",
-          token,
-        );
+        window.localStorage.setItem("rushpi_token", token);
       }
 
       setSuccessMessage(
@@ -406,15 +345,12 @@ export default function SellerRegisterForm() {
             <BadgeCheck className="mt-0.5 size-5 shrink-0 text-brand-ink" />
 
             <div>
-              <p className="font-black text-brand-ink">
-                What happens next?
-              </p>
+              <p className="font-black text-brand-ink">What happens next?</p>
 
               <p className="mt-1 text-sm font-medium leading-6 text-brand-ink">
-                EliteMart Mall will review your seller
-                information. Additional verification
-                documents may be requested before
-                your products can be published.
+                EliteMart Mall will review your seller information. Additional
+                verification documents may be requested before your products can
+                be published.
               </p>
             </div>
           </div>
@@ -440,10 +376,7 @@ export default function SellerRegisterForm() {
   }
 
   return (
-    <form
-      onSubmit={submitRegistration}
-      className="space-y-7 text-brand-ink"
-    >
+    <form onSubmit={submitRegistration} className="space-y-7 text-brand-ink">
       {generalError && (
         <div
           role="alert"
@@ -469,17 +402,15 @@ export default function SellerRegisterForm() {
             </h2>
 
             <p className="mt-1 text-sm font-medium leading-6 text-brand-ink">
-              Enter the details of the person
-              responsible for this seller account.
+              Enter the details of the person responsible for this seller
+              account.
             </p>
           </div>
         </div>
 
         <div className="mt-6 grid gap-5 sm:grid-cols-2">
           <label className="block sm:col-span-2">
-            <span className={labelClassName}>
-              Full name
-            </span>
+            <span className={labelClassName}>Full name</span>
 
             <span className="relative mt-2 block">
               <UserRound className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-brand-ink/70" />
@@ -504,9 +435,7 @@ export default function SellerRegisterForm() {
           </label>
 
           <label className="block">
-            <span className={labelClassName}>
-              Email address
-            </span>
+            <span className={labelClassName}>Email address</span>
 
             <span className="relative mt-2 block">
               <Mail className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-brand-ink/70" />
@@ -531,9 +460,7 @@ export default function SellerRegisterForm() {
           </label>
 
           <label className="block">
-            <span className={labelClassName}>
-              Phone number
-            </span>
+            <span className={labelClassName}>Phone number</span>
 
             <span className="relative mt-2 block">
               <Phone className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-brand-ink/70" />
@@ -572,18 +499,15 @@ export default function SellerRegisterForm() {
             </h2>
 
             <p className="mt-1 text-sm font-medium leading-6 text-brand-ink">
-              Tell EliteMart Mall whether you are
-              registering a shop or selling as
-              an individual.
+              Tell EliteMart Mall whether you are registering a shop or selling
+              as an individual.
             </p>
           </div>
         </div>
 
         <div className="mt-6 grid gap-5 sm:grid-cols-2">
           <label className="block">
-            <span className={labelClassName}>
-              Seller type
-            </span>
+            <span className={labelClassName}>Seller type</span>
 
             <select
               name="sellerType"
@@ -591,26 +515,18 @@ export default function SellerRegisterForm() {
               onChange={updateTextField}
               className={`${inputClassName} appearance-none text-brand-ink`}
             >
-              <option
-                value="shop_owner"
-                className="text-brand-ink"
-              >
+              <option value="shop_owner" className="text-brand-ink">
                 Shop or registered business
               </option>
 
-              <option
-                value="individual_seller"
-                className="text-brand-ink"
-              >
+              <option value="individual_seller" className="text-brand-ink">
                 Individual product owner
               </option>
             </select>
           </label>
 
           <label className="block">
-            <span className={labelClassName}>
-              Shop or seller name
-            </span>
+            <span className={labelClassName}>Shop or seller name</span>
 
             <span className="relative mt-2 block">
               <Building2 className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-brand-ink/70" />
@@ -634,54 +550,36 @@ export default function SellerRegisterForm() {
           </label>
 
           <label className="block">
-            <span className={labelClassName}>
-              Business registration number
-            </span>
+            <span className={labelClassName}>Business registration number</span>
 
             <input
               type="text"
               name="businessRegistrationNumber"
-              value={
-                formData
-                  .businessRegistrationNumber
-              }
+              value={formData.businessRegistrationNumber}
               onChange={updateTextField}
-              required={
-                formData.sellerType ===
-                "shop_owner"
-              }
+              required={formData.sellerType === "shop_owner"}
               placeholder={
-                formData.sellerType ===
-                "shop_owner"
+                formData.sellerType === "shop_owner"
                   ? "Required for registered businesses"
                   : "Optional for individual sellers"
               }
               className={`mt-2 ${inputClassName}`}
             />
 
-            {fieldErrors
-              .business_registration_number && (
+            {fieldErrors.business_registration_number && (
               <p className="mt-2 text-xs font-bold text-red-700">
-                {
-                  fieldErrors
-                    .business_registration_number
-                }
+                {fieldErrors.business_registration_number}
               </p>
             )}
           </label>
 
           <label className="block">
-            <span className={labelClassName}>
-              Tax identification number
-            </span>
+            <span className={labelClassName}>Tax identification number</span>
 
             <input
               type="text"
               name="taxIdentificationNumber"
-              value={
-                formData
-                  .taxIdentificationNumber
-              }
+              value={formData.taxIdentificationNumber}
               onChange={updateTextField}
               placeholder="Enter TIN number when available"
               className={`mt-2 ${inputClassName}`}
@@ -689,9 +587,7 @@ export default function SellerRegisterForm() {
           </label>
 
           <label className="block">
-            <span className={labelClassName}>
-              City or district
-            </span>
+            <span className={labelClassName}>City or district</span>
 
             <span className="relative mt-2 block">
               <MapPin className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-brand-ink/70" />
@@ -709,9 +605,7 @@ export default function SellerRegisterForm() {
           </label>
 
           <label className="block">
-            <span className={labelClassName}>
-              Business address
-            </span>
+            <span className={labelClassName}>Business address</span>
 
             <input
               type="text"
@@ -725,18 +619,14 @@ export default function SellerRegisterForm() {
           </label>
 
           <label className="block sm:col-span-2">
-            <span className={labelClassName}>
-              Products you plan to sell
-            </span>
+            <span className={labelClassName}>Products you plan to sell</span>
 
             <span className="relative mt-2 block">
               <PackageCheck className="pointer-events-none absolute left-4 top-4 size-5 text-brand-ink/70" />
 
               <textarea
                 name="productCategories"
-                value={
-                  formData.productCategories
-                }
+                value={formData.productCategories}
                 onChange={updateTextField}
                 required
                 rows={4}
@@ -761,27 +651,20 @@ export default function SellerRegisterForm() {
             </h2>
 
             <p className="mt-1 text-sm font-medium leading-6 text-brand-ink">
-              Create a secure password containing
-              at least eight characters.
+              Create a secure password containing at least eight characters.
             </p>
           </div>
         </div>
 
         <div className="mt-6 grid gap-5 sm:grid-cols-2">
           <label className="block">
-            <span className={labelClassName}>
-              Password
-            </span>
+            <span className={labelClassName}>Password</span>
 
             <span className="relative mt-2 block">
               <LockKeyhole className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-brand-ink/70" />
 
               <input
-                type={
-                  showPassword
-                    ? "text"
-                    : "password"
-                }
+                type={showPassword ? "text" : "password"}
                 name="password"
                 value={formData.password}
                 onChange={updateTextField}
@@ -794,17 +677,9 @@ export default function SellerRegisterForm() {
 
               <button
                 type="button"
-                onClick={() =>
-                  setShowPassword(
-                    (current) => !current,
-                  )
-                }
+                onClick={() => setShowPassword((current) => !current)}
                 className="absolute right-2 top-1/2 grid size-9 -translate-y-1/2 place-items-center rounded-xl text-brand-ink transition hover:bg-brand-mist hover:text-brand-ink"
-                aria-label={
-                  showPassword
-                    ? "Hide password"
-                    : "Show password"
-                }
+                aria-label={showPassword ? "Hide password" : "Show password"}
               >
                 {showPassword ? (
                   <EyeOff className="size-5" />
@@ -822,24 +697,15 @@ export default function SellerRegisterForm() {
           </label>
 
           <label className="block">
-            <span className={labelClassName}>
-              Confirm password
-            </span>
+            <span className={labelClassName}>Confirm password</span>
 
             <span className="relative mt-2 block">
               <LockKeyhole className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-brand-ink/70" />
 
               <input
-                type={
-                  showPassword
-                    ? "text"
-                    : "password"
-                }
+                type={showPassword ? "text" : "password"}
                 name="passwordConfirmation"
-                value={
-                  formData
-                    .passwordConfirmation
-                }
+                value={formData.passwordConfirmation}
                 onChange={updateTextField}
                 required
                 minLength={8}
@@ -849,13 +715,9 @@ export default function SellerRegisterForm() {
               />
             </span>
 
-            {fieldErrors
-              .password_confirmation && (
+            {fieldErrors.password_confirmation && (
               <p className="mt-2 text-xs font-bold text-red-700">
-                {
-                  fieldErrors
-                    .password_confirmation
-                }
+                {fieldErrors.password_confirmation}
               </p>
             )}
           </label>
@@ -875,28 +737,26 @@ export default function SellerRegisterForm() {
             </h2>
 
             <p className="mt-1 text-sm font-medium leading-6 text-brand-ink">
-              Review these requirements before
-              submitting your seller application.
+              Review these requirements before submitting your seller
+              application.
             </p>
           </div>
         </div>
 
         <div className="mt-6 max-h-72 overflow-y-auto rounded-2xl border border-brand-steel bg-white p-5 text-brand-ink">
           <ol className="space-y-4">
-            {sellerTerms.map(
-              (term, index) => (
-                <li
-                  key={term}
-                  className="flex items-start gap-3 text-sm font-medium leading-6 text-brand-ink"
-                >
-                  <span className="grid size-6 shrink-0 place-items-center rounded-full bg-brand-mist text-xs font-black text-brand-ink">
-                    {index + 1}
-                  </span>
+            {sellerTerms.map((term, index) => (
+              <li
+                key={term}
+                className="flex items-start gap-3 text-sm font-medium leading-6 text-brand-ink"
+              >
+                <span className="grid size-6 shrink-0 place-items-center rounded-full bg-brand-mist text-xs font-black text-brand-ink">
+                  {index + 1}
+                </span>
 
-                  <span>{term}</span>
-                </li>
-              ),
-            )}
+                <span>{term}</span>
+              </li>
+            ))}
           </ol>
         </div>
 
@@ -905,17 +765,15 @@ export default function SellerRegisterForm() {
             <input
               type="checkbox"
               name="termsAccepted"
-              checked={
-                formData.termsAccepted
-              }
+              checked={formData.termsAccepted}
               onChange={updateCheckbox}
               required
               className="mt-1 size-5 shrink-0 accent-brand-ink"
             />
 
             <span className="text-sm font-semibold leading-6 text-brand-ink">
-              I have read and accept the
-              EliteMart Mall seller terms and conditions.
+              I have read and accept the EliteMart Mall seller terms and
+              conditions.
             </span>
           </label>
 
@@ -923,20 +781,15 @@ export default function SellerRegisterForm() {
             <input
               type="checkbox"
               name="informationConfirmed"
-              checked={
-                formData
-                  .informationConfirmed
-              }
+              checked={formData.informationConfirmed}
               onChange={updateCheckbox}
               required
               className="mt-1 size-5 shrink-0 accent-brand-ink"
             />
 
             <span className="text-sm font-semibold leading-6 text-brand-ink">
-              I confirm that the information
-              provided in this application is
-              accurate and can be verified by
-              EliteMart Mall.
+              I confirm that the information provided in this application is
+              accurate and can be verified by EliteMart Mall.
             </span>
           </label>
         </div>
